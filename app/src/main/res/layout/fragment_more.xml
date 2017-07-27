@@ -1,0 +1,88 @@
+
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView01"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="none"
+    android:background="#303030"
+    tools:context="org.eclipsesoundscapes.eclipsesoundscapes.fragments.MoreFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/banner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/eclipse_banner"
+            android:scaleType="fitXY" />
+
+        <TextView
+            android:id="@+id/about_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/material_drawer_dark_primary_text"
+            android:text="@string/about_us_title"
+            android:textSize="18sp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp" />
+
+        <LinearLayout
+            android:id="@+id/about_us_layout"
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/white" >
+
+            <TextView
+                android:id="@+id/about_us_description"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                android:fontFamily="sans-serif"
+                android:textSize="15sp"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/about_us_text" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/ma_divider_thickness_light"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="#757575" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/about_list_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/more_info_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@color/material_drawer_dark_primary_text"
+            android:text="@string/more_info_title"
+            android:textSize="18sp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/more_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@android:color/white" />
+
+    </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
