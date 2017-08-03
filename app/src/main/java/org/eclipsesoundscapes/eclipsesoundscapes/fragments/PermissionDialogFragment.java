@@ -15,12 +15,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.accessibility.AccessibilityEvent;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import org.eclipsesoundscapes.eclipsesoundscapes.R;
+import org.eclipsesoundscapes.eclipsesoundscapes.activity.MainActivity;
+import org.w3c.dom.Text;
 
 /**
  * Dialog to handle location permission and display enabled/disabled states accordingly
@@ -32,6 +35,8 @@ public class PermissionDialogFragment  extends DialogFragment {
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 47;
     Context mContext;
     SharedPreferences preference;
+    private TextView permissionText;
+    private TextView permissionHeader;
 
     public static PermissionDialogFragment newInstance() {
         return new PermissionDialogFragment();
@@ -45,6 +50,9 @@ public class PermissionDialogFragment  extends DialogFragment {
 
 
         ImageButton exit = (ImageButton) v.findViewById(R.id.close_button);
+        permissionText = (TextView) v.findViewById(R.id.details) ;
+        permissionHeader = (TextView) v.findViewById(R.id.header);
+
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,14 +76,28 @@ public class PermissionDialogFragment  extends DialogFragment {
         super.onAttach(context);
         mContext = context;
         preference = PreferenceManager.getDefaultSharedPreferences(context);
-
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        permissionHeader.announceForAccessibility(permissionHeader.getText().toString());
+        permissionText.announceForAccessibility(permissionText.getText().toString());
+    }
 
     private void requestLocationPermission() {
 
         final String[] permissions = new String[]{Manifest.permission.ACCESS_FINE_LOCATION};
+        if (!ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
+                Manifest.permission.ACCESS_FINE_LOCATION)) {
+            ActivityCompat.requestPermissions(getActivity(), permissions, MainActivity.LOCATION_PERMISSION_REQUEST_CODE);
+            return;
+        }
 
+        ActivityCompat.requestPermissions(getActivity(), permissions, MainActivity.LOCATION_PERMISSION_REQUEST_CODE);
+
+
+        /*
         if (!ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
                 Manifest.permission.ACCESS_FINE_LOCATION)) {
             ActivityCompat.requestPermissions(getActivity(), permissions, LOCATION_PERMISSION_REQUEST_CODE);
@@ -96,6 +118,7 @@ public class PermissionDialogFragment  extends DialogFragment {
                 .setPositiveButton(android.R.string.ok, listener)
                 .setNegativeButton(android.R.string.cancel, null)
                 .show();
+                */
 
     }
 

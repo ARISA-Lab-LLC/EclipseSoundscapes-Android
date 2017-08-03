@@ -8,8 +8,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:background="@drawable/custom_background"
-            android:focusable="true">
+            android:background="@drawable/custom_background">
 
             <ImageButton
                 android:id="@+id/close_button"
@@ -17,7 +16,7 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:src="@drawable/ic_clear_white"
-                android:contentDescription="@string/closeButton"
+                android:contentDescription="@string/closeDialogButton"
                 android:background="@android:color/transparent" />
 
             <TextView
@@ -32,6 +31,8 @@
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:text="@string/permission_dialog_header"
+                android:focusable="true"
+                android:nextFocusDown="@+id/header"
                 />
 
 

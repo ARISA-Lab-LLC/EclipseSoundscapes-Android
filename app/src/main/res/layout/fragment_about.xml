@@ -7,7 +7,7 @@
     android:fillViewport="true"
     android:scrollbars="none"
     android:background="#303030"
-    tools:context="org.eclipsesoundscapes.eclipsesoundscapes.fragments.MoreFragment">
+    tools:context="org.eclipsesoundscapes.eclipsesoundscapes.fragments.AboutFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

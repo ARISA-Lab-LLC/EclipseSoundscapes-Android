@@ -1,100 +1,102 @@
 package org.eclipsesoundscapes.eclipsesoundscapes.fragments;
 
-import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
+import android.app.DialogFragment;
 import android.app.Fragment;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.widget.TextView;
-import android.widget.ViewFlipper;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 import org.eclipsesoundscapes.eclipsesoundscapes.R;
+import org.eclipsesoundscapes.eclipsesoundscapes.activity.MainActivity;
 
 
 public class RumbleMapFragment extends Fragment {
 
     private Context mContext;
-    private Toolbar toolbar;
-    private TextView toolbarTitle;
-    private ViewFlipper viewFlipper;
-    private int currentView = 1;
+    private ImageView imageView;
+    private RelativeLayout relativeLayout;
+    private int currentEclipseID; // current eclipse img displaying
 
     public RumbleMapFragment() {
         // Required empty public constructor
     }
 
 
+    public static RumbleMapFragment newInstance(String param1, String param2) {
+        RumbleMapFragment fragment = new RumbleMapFragment();
+        return fragment;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setHasOptionsMenu(true);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_rumble_map, container, false);
+        View root =  inflater.inflate(R.layout.fragment_rumble_map, container, false);
+        relativeLayout = (RelativeLayout) root.findViewById(R.id.rl_rumble_map);
+        imageView = (ImageView) root.findViewById(R.id.contact_point_img);
 
-        // views
-        toolbar = (Toolbar) root.findViewById(R.id.toolbar);
-        toolbarTitle = (TextView) toolbar.findViewById(R.id.toolbar_title);
-        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_chevron_left_white);
+        // click to interact with rumble map
+        /*
+        relativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchRumbleMap();
+            }
+        });
+        */
 
-        viewFlipper = (ViewFlipper) root.findViewById(R.id.rumble_map_flipper);
-        viewFlipper.setInAnimation(AnimationUtils.loadAnimation(mContext,
-                android.R.anim.fade_in));
-        viewFlipper.setOutAnimation(AnimationUtils.loadAnimation(mContext,
-                android.R.anim.fade_out));
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                launchRumbleMap();
+            }
+        });
+
+        updateView(((MainActivity)mContext).getCurrentCP());
         return root;
     }
 
 
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.rumble_map_menu, menu);
-        super.onCreateOptionsMenu(menu, inflater);
+
+    public void updateView(int contactPoint){
+        switch (contactPoint){
+            case 1:
+                imageView.setImageResource(R.drawable.eclipse_bailys_beads);
+                currentEclipseID = R.drawable.eclipse_bailys_beads;
+                break;
+            case 2:
+                imageView.setImageResource(R.drawable.eclipse_corona);
+                currentEclipseID = R.drawable.eclipse_corona;
+                break;
+            case 3:
+                imageView.setImageResource(R.drawable.eclipse_diamond_ring);
+                currentEclipseID = R.drawable.eclipse_diamond_ring;
+                break;
+            case 4:
+                imageView.setImageResource(R.drawable.helmet_streamers);
+                currentEclipseID = R.drawable.helmet_streamers;
+                break;
+            case 5:
+                imageView.setImageResource(R.drawable.eclipse_prominence);
+                currentEclipseID = R.drawable.eclipse_prominence;
+                break;
+        }
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.action_next:
-                viewFlipper.showNext();
-                if (currentView < 4) {
-                    currentView++;
-                    toolbarTitle.setText("Contact Point ".concat(String.valueOf(currentView)));
-                } else {
-                    currentView = 1;
-                    toolbarTitle.setText("Contact Point ".concat(String.valueOf(currentView)));
-                }
-                return true;
-            case android.R.id.home:
-                viewFlipper.showPrevious();
-                if (currentView > 1) {
-                    currentView--;
-                    toolbarTitle.setText("Contact Point ".concat(String.valueOf(currentView)));
-                } else {
-                    currentView = 4;
-                    toolbarTitle.setText("Contact Point ".concat(String.valueOf(currentView)));
-                }
-            default:
-                return super.onOptionsItemSelected(item);
-
-        }
+    void launchRumbleMap() {
+        // Create the fragment and show it as a dialog.
+        DialogFragment newFragment = RumbleMapInteractionFragment.newInstance(currentEclipseID);
+        newFragment.show(getFragmentManager(), "dialog");
     }
 
     @Override

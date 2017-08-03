@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.eclipsesoundscapes.eclipsesoundscapes.activity.WalkthroughActivity">
+
+
+    <ImageView
+        android:id="@+id/walkthrough_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/eclipse_banner"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:layout_above="@+id/bottom_view"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@android:color/white"
+        android:textSize="12sp"
+        android:text="Page 1 of 4"
+        android:layout_alignEnd="@+id/walkthrough_img"
+        android:layout_alignBottom="@+id/walkthrough_img"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"/>
+
+    <LinearLayout
+        android:id="@+id/bottom_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/bottom_view_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/walkthrough_welcome"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/bottom_view_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:fontFamily="sans-serif-condensed"
+            android:text="@string/walkthrough_welcome_text"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+
+    <ImageButton
+        android:id="@+id/prev_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="16dp"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ic_chevron_left_white"
+        android:background="@android:color/transparent" />
+
+    <ImageButton
+        android:id="@+id/next_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:scaleType="fitCenter"
+        app:srcCompat="@drawable/ic_chevron_right_white"
+        android:background="@android:color/transparent" />
+
+</RelativeLayout>

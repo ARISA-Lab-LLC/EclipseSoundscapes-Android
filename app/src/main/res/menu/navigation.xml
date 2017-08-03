@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/navigation_rumble_map"
-        android:icon="@drawable/ic_nav_rumble_map"
-        android:title="@string/title_rumble_map" />
 
     <item
         android:id="@+id/navigation_eclipse_center"
@@ -12,8 +8,19 @@
         android:title="@string/title_eclipse_center" />
 
     <item
-        android:id="@+id/navigation_more"
+        android:id="@+id/navigation_eclipse_features"
+        android:icon="@drawable/ic_nav_elcipse_features"
+        android:title="@string/title_eclipse_features" />
+
+    <!--
+    <item
+        android:id="@+id/navigation_media"
+        android:icon="@drawable/ic_media_center"
+        android:title="@string/title_media" /> -->
+
+    <item
+        android:id="@+id/navigation_about"
         android:icon="@drawable/ic_more"
-        android:title="@string/title_more" />
+        android:title="@string/title_about" />
 
 </menu>

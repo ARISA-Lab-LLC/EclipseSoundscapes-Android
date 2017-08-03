@@ -185,6 +185,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         Context mContext;
         SwitchPreference locationPref;
         SharedPreferences sharedPreferences;
+        DialogFragment newFragment;
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -214,13 +215,13 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             super.onAttach(context);
             mContext = context;
             sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-
         }
 
 
         @Override
         public void onResume() {
             super.onResume();
+
             int rc = ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION);
             if (rc != PackageManager.PERMISSION_GRANTED) {
               locationPref.setChecked(false);
@@ -235,11 +236,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             super.onPause();
         }
 
-
-
         public void showLocationDialog(){
-
-            DialogFragment newFragment = PermissionDialogFragment.newInstance();
+            newFragment = PermissionDialogFragment.newInstance();
             newFragment.show(getFragmentManager(), "dialog");
         }
 
@@ -291,7 +289,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
-            int id = item.getItemId();
             return super.onOptionsItemSelected(item);
         }
     }

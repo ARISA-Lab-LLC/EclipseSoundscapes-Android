@@ -3,7 +3,6 @@ package org.eclipsesoundscapes.eclipsesoundscapes.fragments;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,7 +13,7 @@ import org.eclipsesoundscapes.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.eclipsesoundscapes.adapters.MoreArrayAdapter;
 
 
-public class MoreFragment extends Fragment {
+public class AboutFragment extends Fragment {
 
     private Context mContext;
     private RecyclerView listViewAbout;
@@ -25,7 +24,7 @@ public class MoreFragment extends Fragment {
     private Integer[] moreImgs = {R.drawable.ic_instructions,
                                     R.drawable.ic_settings, R.drawable.ic_legal};
 
-    public MoreFragment() {
+    public AboutFragment() {
         // Required empty public constructor
     }
 
@@ -49,7 +48,7 @@ public class MoreFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root =  inflater.inflate(R.layout.fragment_more, container, false);
+        View root =  inflater.inflate(R.layout.fragment_about, container, false);
 
         listViewAbout = (RecyclerView) root.findViewById(R.id.about_list_view);
         listViewMore = (RecyclerView) root.findViewById(R.id.more_list_view);

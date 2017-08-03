@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Eclipse Soundscapes</string>
-    <string name="title_rumble_map">Rumble Map</string>
+    <string name="title_eclipse_features">Eclipse Features</string>
     <string name="title_eclipse_center">Eclipse Center</string>
-    <string name="title_more">More</string>
+    <string name="title_media">Media</string>
+    <string name="title_about">About</string>
 
     <!-- Settings -->
     <string name="title_activity_settings">Settings</string>
@@ -19,14 +20,76 @@
     <string name="about_us_text">On August 21, 2017, millions of people will view a total solar eclipse as it passes through the United States. However, for the visually impaired, or others who are unable to see the clipse with their own eyes, the Eclipse Soundscapes Project delivers a multisensory experience of this exciting celestial event. The project, from NASA\'s Heliophysics Education Consortium, will include illustrated audio descriptions of the eclipse in real time, recordings of the changing environmental sounds during the eclipse, and an interactive "rumble map" app that will allow users to visualize the eclipse through touch.</string>
     <string name="more_info_title">More Information</string>
 
+    <!-- Eclipse Center -->
+    <string name="hours">Hours</string>
+    <string name="days">Days</string>
+    <string name="hrs">Hours</string>
+    <string name="min">Minutes</string>
+    <string name="sec">Seconds</string>
+    <string name="countdown_title">Countdown Until Eclipse</string>
+    <string name="countdown_prefix">Countdown until eclipse from my location</string>
+    <string name="event_prefix">Event from my location</string>
+    <string name="local_time_prefix">local time</string>
+    <string name="ut_time_prefix">universal time</string>
 
-    <!-- menu -->
-    <string name="action_next">Next</string>
+    <string name="eclipse_center_permission">You don\'t want to miss this amazing astronomical event! We\'ll need your location to continue. Press to continue.</string>
+    <string name="settings_permission_off">Location settings is turned off. Go to More > Settings > Enable Location or tap to go.</string>
+    <string name="noPermissionRationale">Location services has been denied. This features requires your location permission to display information about the eclipse. Click this to enable, or go to Settings, Apps, Eclipse Soundscapes, Permissions </string>
+    <string name="app_settings_permission">Please turn on location permission in the app settings by either clicking here or go to About, Settings and enable location.</string>
+    <string name="location_search">Finding your location…</string>
+    <string name="location_search_stop">Tap to stop</string>
+
+    <string name="my_latitude">My latitude:</string>
+    <string name="my_longitude">My longitude:</string>
+    <string name="percent_eclipse">% Eclipse:</string>
+    <string name="eclipse_date">Date:</string>
+    <string name="eclipse_type">Eclipse type:</string>
+    <string name="eclipse_event">Event</string>
+    <string name="eclipse_local_time">Local Time</string>
+    <string name="eclipse_time_ut">Time (UT)</string>
+
+    <string name="eclipse_type_full">Total Solar Eclipse</string>
+    <string name="eclipse_type_partial">Partial Solar Eclipse</string>
+    <string name="eclipse_type_none">No Solar Eclipse</string>
+    <string name="eclipse_none_description">The solar eclipse is not visible from your location</string>
+
+    <string name="eclipse_start_partial">Start of partial eclipse</string>
+    <string name="eclipse_start_full">Start of total eclipse</string>
+    <string name="eclipse_end_partial">End of partial eclipse</string>
+    <string name="eclipse_end_full">End of total eclipse</string>
+    <string name="eclipse_max">Maximum eclipse</string>
+
+    <!-- Eclipse Features -->
+    <string name="bailys_beads_description">On the right side of the moon, orbs of glowing sunlight shimmer off the edge of the moon\'s black disk. Called Baily\'s Beads, these final areas of the sun\'s light appear as glimmering pearls on a wire, made intensely bright by the absence of light surrounding them.</string>
+    <string name="corona_description">During the totality, the moon completely covers the sun\'s glowing orb, and the sun’s outer atmosphere is revealed. As if the moon were the center of a celestial sunflower, the corona appears as soft white petals, massive flumes of faint light that taper out across the sky. Closer to the surface of the moon\'s flat ebony circle, the corona is a swirling chaos of loops and flares. Intense fiery lines of light appear to ignite the moon\'s black edge.</string>
+    <string name="diamond_ring_description">On the left side of the black moon, a sliver of sunlight blasts into view with white-hot intensity. As the area of re-emerging sunlight grows, it resembles a diamond, beaming out its brilliant light from its setting on the circular ring of the moon\'s edge.</string>
+    <string name="helmet_streamers_description">Projections of light from the sun\'s outer atmosphere called helmet streamers extend in all directions from behind the moon. In contrast to the black, featureless moon, the pale, wispy streamers appear as delicate as lace. The largest streamers have a tapered shape that resemble flower petals. They extend from opposite sides of the sun, with smaller rays of light between them.</string>
+    <string name="prominence_description">Fiery loops of hot pink light appear to leap off the moon\'s black surface.  With the sheer white corona as their backdrop, these pink prominences seem to dance above the moon like lines of liquid neon.</string>
+
+    <string name="bailys_beads_title">Bailey\'s Beads</string>
+    <string name="corona_title">Corona</string>
+    <string name="diamond_ring_title">Diamond Ring</string>
+    <string name="helmet_streamers_title">Helmet Streamers</string>
+    <string name="prominence_title">Prominence</string>
+
+    <string name="rumble_map_launch">Press to interact with Rumble Map</string>
+
+    <!-- content descriptions -->
+    <string name="nextImgButton">Show next eclipse image</string>
+    <string name="prevImgButton">show previous eclipse image</string>
+
+    <!-- rumble map interaction -->
+    <string name="rumble_map_inactive">Rumble map inactive</string>
+    <string name="rumble_map_running">Rumble map running, double tap to turn off</string>
 
 
+    <!-- Walkthrough -->
+    <string name="walkthrough_welcome">Welcome</string>
+    <string name="walkthrough_welcome_text">Thank you for downloading the Eclipse Soundscapes app. We hope to create an engaging multi-sensory experience of the August 21, 2017 eclipse for all participants, including people who are blind or visually impaired. Inside, you will find a countdown to the eclipse in your area, with illustrative audio descriptions of the eclipse in real time, provided by the National Center for Accessible Media.</string>
 
     <!-- Dialog -->
-    <string name="closeButton">Close Dialog</string>
+    <string name="closeDialogButton">Close Dialog</string>
+    <string name="closeButton">Close</string>
     <string name="cancelButton">CancelButton</string>
     <string name="permission_dialog_header">Hello Soundscapers!</string>
     <string name="permission_dialog_body">Don\'t miss the Eclipse. We need your permission to notify you about Eclipse Events.</string>
@@ -117,7 +180,13 @@
             where young women can experience the total solar eclipse complete with audio
             information.
         </item>
-        <item name="citizen_cate">The Citizen CATE (Continental-America Telescopic Eclipse) Experiment is an effort to document the 2017 Eclipse by capturing images of the inner solar corona using a network of more than 60 telescopes. CATE is working with high schools, universities, education groups, astronomy clubs, national science research labs, and corporate sponsors to produce 90 minutes of continuous, high-resolution, and rapid-cadence images detailing the Sun’s inner corona...More TBD</item>
+        <item name="citizen_cate">The Citizen CATE (Continental-America Telescopic Eclipse)
+            Experiment is an effort to document the 2017 Eclipse by capturing images of the inner
+            solar corona using a network of more than 60 telescopes. CATE is working with high
+            schools, universities, education groups, astronomy clubs, national science research
+            labs, and corporate sponsors to produce 90 minutes of continuous, high-resolution, and
+            rapid-cadence images detailing the Sun’s inner corona...More TBD
+        </item>
         <item name="brigham_young_uni_description">Brigham Young University (BYU) is a private
             research university with three locations, including Rexburg, Idaho. They are partnering
             with Eclipse Soundscapes to provide a series of field recordings of the 2017 Eclipse,
@@ -231,7 +300,12 @@
             environmental reporting, and is thrilled to work with a talented group to make the
             wonders of space accessible to everyone.
         </item>
-        <item name="member_wanda">Development in South Africa. When Dr. Winter invited Wanda to join the Eclipse Soundscapes team as a blind person and an astrophysicist, she accepted, saying she hoped the project could bring an innovative experience to the blind and visually impaired, to people who are not visually oriented, and to people who have never experienced an eclipse.</item>
+        <item name="member_wanda">Development in South Africa. When Dr. Winter invited Wanda to join
+            the Eclipse Soundscapes team as a blind person and an astrophysicist, she accepted,
+            saying she hoped the project could bring an innovative experience to the blind and
+            visually impaired, to people who are not visually oriented, and to people who have never
+            experienced an eclipse.
+        </item>
     </array>
 
     <string name="libraries_use_detail">The following sets forth attribution notices for third party software that may be contained in portions of the Eclipse Soundscapes product. We thank the open sources community for all of their contributions.\n</string>
