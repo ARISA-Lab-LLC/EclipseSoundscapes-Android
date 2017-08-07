@@ -1,5 +1,6 @@
 package org.eclipsesoundscapes.eclipsesoundscapes.adapters;
 
+import android.app.DialogFragment;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -11,15 +12,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.eclipsesoundscapes.eclipsesoundscapes.R;
+import org.eclipsesoundscapes.eclipsesoundscapes.activity.MainActivity;
 import org.eclipsesoundscapes.eclipsesoundscapes.activity.OurPartnersActivity;
 import org.eclipsesoundscapes.eclipsesoundscapes.activity.OurTeamActivity;
 import org.eclipsesoundscapes.eclipsesoundscapes.activity.SettingsActivity;
+import org.eclipsesoundscapes.eclipsesoundscapes.activity.WalkthroughActivity;
+import org.eclipsesoundscapes.eclipsesoundscapes.fragments.RumbleMapInstructionsFragment;
+import org.eclipsesoundscapes.eclipsesoundscapes.util.Constants;
 
 /**
  * Created by horus on 7/19/17.
  */
 
-public class MoreArrayAdapter extends RecyclerView.Adapter<MoreArrayAdapter.CustomViewHolder> {
+public class AboutArrayAdapter extends RecyclerView.Adapter<AboutArrayAdapter.CustomViewHolder> {
 
     private final String[] options;
     private final Integer[] optionImgs;
@@ -43,22 +48,30 @@ public class MoreArrayAdapter extends RecyclerView.Adapter<MoreArrayAdapter.Cust
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switch (options[position]){
-                    case "Our team":
+                switch (position){
+                    case 0:
+                        showRumbleInstructions();
+                        break;
+                    case 1:
                         mContext.startActivity(new Intent(mContext, OurTeamActivity.class));
                         break;
-                    case "Our partners":
+                    case 2:
                         mContext.startActivity(new Intent(mContext, OurPartnersActivity.class));
                         break;
-                    case "How to use this app":
-                        Toast.makeText(mContext, "Instructions", Toast.LENGTH_SHORT).show();
+                    case 3:
+                        Toast.makeText(mContext, "Future Eclipses", Toast.LENGTH_SHORT).show();
                         break;
-                    case "Settings":
+                    case 4:
+                        Intent walkthroughIntent = new Intent(mContext, WalkthroughActivity.class);
+                        walkthroughIntent.putExtra("mode", Constants.WALKTHROUGH_MODE_MENU);
+                        mContext.startActivity(walkthroughIntent);
+                        break;
+                    case 5:
                         Intent settingsIntent = new Intent(mContext, SettingsActivity.class);
                         settingsIntent.putExtra("settings", "settings");
                         mContext.startActivity(settingsIntent);
                         break;
-                    case "Legal":
+                    case 6:
                         Intent legalIntent = new Intent(mContext, SettingsActivity.class);
                         legalIntent.putExtra("settings", "legal");
                         mContext.startActivity(legalIntent);
@@ -66,6 +79,12 @@ public class MoreArrayAdapter extends RecyclerView.Adapter<MoreArrayAdapter.Cust
                 }
             }
         });
+    }
+
+    public void showRumbleInstructions(){
+        // Create the fragment and show it as a dialog.
+        DialogFragment newFragment = new RumbleMapInstructionsFragment();
+        newFragment.show(((MainActivity)mContext).getFragmentManager(), "dialog");
     }
 
     @Override
@@ -87,7 +106,7 @@ public class MoreArrayAdapter extends RecyclerView.Adapter<MoreArrayAdapter.Cust
     }
 
 
-    public MoreArrayAdapter(Context context, String[] options, Integer[] optionImgs) {
+    public AboutArrayAdapter(Context context, String[] options, Integer[] optionImgs) {
         this.mContext = context;
         this.options = options;
         this.optionImgs = optionImgs;

@@ -45,15 +45,6 @@ public class RumbleMapFragment extends Fragment {
         relativeLayout = (RelativeLayout) root.findViewById(R.id.rl_rumble_map);
         imageView = (ImageView) root.findViewById(R.id.contact_point_img);
 
-        // click to interact with rumble map
-        /*
-        relativeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                launchRumbleMap();
-            }
-        });
-        */
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override

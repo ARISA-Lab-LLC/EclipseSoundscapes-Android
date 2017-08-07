@@ -7,7 +7,7 @@
     <RelativeLayout
         android:id="@+id/rumble_map_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:focusable="true"
         android:clickable="true"
         android:contentDescription="@string/rumble_map_inactive"
@@ -16,19 +16,50 @@
         <ImageView
             android:id="@+id/eclipse_img"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
+            android:layout_height="match_parent"
             android:adjustViewBounds="true"
-            android:layout_centerInParent="true"/>
+            android:src="@drawable/eclipse_bailys_beads" />
 
     </RelativeLayout>
-    <Button
-        android:id="@+id/button_close_rumble_map"
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@android:color/white"
+        />
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:textColor="@android:color/white"
-        android:text="@string/closeButton"
-        android:layout_weight="0" />
+        android:orientation="horizontal"
+        android:paddingBottom="16dp"
+        android:weightSum="2">
+
+        <Button
+            android:id="@+id/button_close_rumble_map"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ripple"
+            android:textColor="@android:color/white"
+            android:text="@string/closeButton"
+            android:contentDescription="@string/closeButton"
+            android:layout_weight="1" />
+
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/white" />
+
+        <Button
+            android:id="@+id/button_instructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/ripple"
+            android:textColor="@android:color/white"
+            android:text="@string/instructions_button"
+            android:contentDescription="@string/instructions_button"
+            android:layout_weight="1" />
+    </LinearLayout>
 
 </LinearLayout>

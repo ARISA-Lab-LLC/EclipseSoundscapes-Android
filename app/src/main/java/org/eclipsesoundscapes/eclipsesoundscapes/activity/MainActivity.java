@@ -19,6 +19,7 @@ import org.eclipsesoundscapes.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.eclipsesoundscapes.fragments.AboutFragment;
 import org.eclipsesoundscapes.eclipsesoundscapes.fragments.EclipseCenterFragment;
 import org.eclipsesoundscapes.eclipsesoundscapes.fragments.EclipseFeaturesFragment;
+import org.eclipsesoundscapes.eclipsesoundscapes.fragments.MediaFragment;
 import org.eclipsesoundscapes.eclipsesoundscapes.util.BottomNavigationViewHelper;
 
 
@@ -49,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.navigation_eclipse_features:
                     fragmentClass = EclipseFeaturesFragment.class;
                     break;
-                /*
+
                 case R.id.navigation_media:
                     fragmentClass = MediaFragment.class;
                     break;
-                    */
+
                 case R.id.navigation_about:
                     fragmentClass = AboutFragment.class;
                     break;
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        BottomNavigationViewHelper.addShiftMode(navigation);
+        //BottomNavigationViewHelper.addShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         currentCP = 1;
 
@@ -141,9 +142,9 @@ public class MainActivity extends AppCompatActivity {
             case "EclipseCenterFragment":
                 id = R.id.navigation_eclipse_center;
                 break;
-            //case "MediaFragment":
-             //   id = R.id.navigation_media;
-              //  break;
+            case "MediaFragment":
+                id = R.id.navigation_media;
+                break;
             case "AboutFragment":
                 id = R.id.navigation_about;
                 break;

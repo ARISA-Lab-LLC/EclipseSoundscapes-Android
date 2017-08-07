@@ -1,5 +1,6 @@
 package org.eclipsesoundscapes.eclipsesoundscapes.fragments;
 
+import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
@@ -82,8 +83,10 @@ public class EclipseFeaturesFragment extends Fragment implements View.OnClickLis
             public void onPageSelected(int position) {
                 Fragment page = getChildFragmentManager().findFragmentByTag("android:switcher:" + R.id.viewpager + ":" + mViewPager.getCurrentItem());
                 if ( page != null) {
-                    if (position == 0)
-                        ((RumbleMapFragment)page).updateView(currentView);
+                    if (position == 0) {
+
+                        ((RumbleMapFragment) page).updateView(currentView);
+                    }
                     else if (position == 1)
                         ((DescriptionFragment)page).updateView(currentView);
                 }

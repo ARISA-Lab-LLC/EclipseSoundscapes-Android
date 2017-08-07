@@ -4,14 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.eclipsesoundscapes.eclipsesoundscapes.activity.WalkthroughActivity">
+    tools:context="org.eclipsesoundscapes.eclipsesoundscapes.activity.WalkthroughActivity"
+    android:background="@android:color/white">
 
 
     <ImageView
         android:id="@+id/walkthrough_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/logo_2"
+        android:src="@drawable/soundscapes_rumble_map"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         android:layout_above="@+id/bottom_view"/>
@@ -21,9 +22,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:textSize="12sp"
-        android:text="Page 1 of 5"
+        android:text="Page 2 of 5"
         android:layout_alignEnd="@+id/walkthrough_img"
         android:layout_alignBottom="@+id/walkthrough_img"
         android:layout_marginBottom="8dp"
@@ -43,7 +44,7 @@
             android:layout_marginTop="8dp"
             android:layout_gravity="center_horizontal"
             android:fontFamily="sans-serif-condensed"
-            android:text="@string/walkthrough_welcome"
+            android:text="@string/title_rumble_map"
             android:textStyle="bold"
             android:textSize="16sp" />
 
@@ -58,8 +59,23 @@
             android:layout_marginEnd="8dp"
             android:gravity="center"
             android:fontFamily="sans-serif-condensed"
-            android:text="@string/walkthrough_welcome_text"
+            android:text="@string/walkthrough_rumble_map_text"
             android:textSize="15sp" />
     </LinearLayout>
+
+
+    <ImageButton
+        android:id="@+id/exit_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        app:srcCompat="@drawable/ic_chevron_left_white"
+        android:scaleType="fitCenter"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/closeButton"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="4dp"
+        android:visibility="gone"/>
 
 </RelativeLayout>

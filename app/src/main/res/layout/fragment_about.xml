@@ -1,45 +1,55 @@
-
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ScrollView01"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    android:scrollbars="none"
     android:background="#303030"
+    android:orientation="vertical"
     tools:context="org.eclipsesoundscapes.eclipsesoundscapes.fragments.AboutFragment">
 
-    <LinearLayout
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:minHeight="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/banner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/eclipse_banner"
-            android:scaleType="fitXY" />
+        app:titleTextColor="@android:color/white"
+        android:background="?attr/colorPrimary" >
 
         <TextView
-            android:id="@+id/about_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:textColor="@color/material_drawer_dark_primary_text"
-            android:text="@string/about_us_title"
+            android:id="@+id/toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
             android:textSize="18sp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp" />
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:text="@string/about_us_title"
+            android:layout_gravity="center"
+            android:gravity="center"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/ScrollView01"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="none" >
 
         <LinearLayout
-            android:id="@+id/about_us_layout"
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@android:color/white" >
+            android:orientation="vertical"
+            android:background="@android:color/white"
+            android:layout_marginBottom="16dp">
+
+            <ImageView
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/eclipse_banner_2"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"/>
 
             <TextView
                 android:id="@+id/about_us_description"
@@ -62,27 +72,9 @@
                 android:id="@+id/about_list_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
+
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/more_info_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:textColor="@color/material_drawer_dark_primary_text"
-            android:text="@string/more_info_title"
-            android:textSize="18sp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp" />
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/more_list_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:background="@android:color/white" />
-
-    </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

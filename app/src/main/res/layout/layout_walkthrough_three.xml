@@ -11,7 +11,7 @@
         android:id="@+id/walkthrough_img"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/logo_2"
+        android:src="@drawable/soundscapes_eclipse_center"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         android:layout_above="@+id/bottom_view"/>
@@ -21,9 +21,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:textSize="12sp"
-        android:text="Page 1 of 5"
+        android:text="Page 3 of 5"
         android:layout_alignEnd="@+id/walkthrough_img"
         android:layout_alignBottom="@+id/walkthrough_img"
         android:layout_marginBottom="8dp"
@@ -43,10 +43,9 @@
             android:layout_marginTop="8dp"
             android:layout_gravity="center_horizontal"
             android:fontFamily="sans-serif-condensed"
-            android:text="@string/walkthrough_welcome"
+            android:text="@string/title_eclipse_center"
             android:textStyle="bold"
             android:textSize="16sp" />
-
 
         <TextView
             android:id="@+id/bottom_view_more"

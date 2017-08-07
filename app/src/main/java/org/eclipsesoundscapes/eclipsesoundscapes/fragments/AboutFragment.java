@@ -3,26 +3,25 @@ package org.eclipsesoundscapes.eclipsesoundscapes.fragments;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import org.eclipsesoundscapes.eclipsesoundscapes.R;
-import org.eclipsesoundscapes.eclipsesoundscapes.adapters.MoreArrayAdapter;
+import org.eclipsesoundscapes.eclipsesoundscapes.adapters.AboutArrayAdapter;
 
 
 public class AboutFragment extends Fragment {
 
     private Context mContext;
-    private RecyclerView listViewAbout;
-    private RecyclerView listViewMore;
-    private String[] aboutOptions;
-    private String[] moreOptions;
-    private Integer[] aboutImgs = {R.drawable.ic_team, R.drawable.ic_partners};
-    private Integer[] moreImgs = {R.drawable.ic_instructions,
-                                    R.drawable.ic_settings, R.drawable.ic_legal};
+    private RecyclerView listView;
+    private String[] listOptions;
+    private Integer[] listIcons = {R.drawable.ic_nav_elcipse_features, R.drawable.ic_team, R.drawable.ic_partners,
+                                     R.drawable.ic_nav_eclipse_center, R.drawable.ic_instructions, R.drawable.ic_settings, R.drawable.ic_legal};
 
     public AboutFragment() {
         // Required empty public constructor
@@ -40,8 +39,7 @@ public class AboutFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         // about us list and info list
-        aboutOptions = getResources().getStringArray(R.array.aboutOptions);
-        moreOptions = getResources().getStringArray(R.array.moreOptions);
+        listOptions = getResources().getStringArray(R.array.listOptions);
     }
 
     @Override
@@ -50,18 +48,18 @@ public class AboutFragment extends Fragment {
         // Inflate the layout for this fragment
         View root =  inflater.inflate(R.layout.fragment_about, container, false);
 
-        listViewAbout = (RecyclerView) root.findViewById(R.id.about_list_view);
-        listViewMore = (RecyclerView) root.findViewById(R.id.more_list_view);
+        // views
+        Toolbar toolbar = (Toolbar) root.findViewById(R.id.toolbar);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowTitleEnabled(false);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
-        listViewAbout.setLayoutManager(new LinearLayoutManager(mContext));
-        listViewMore.setLayoutManager(new LinearLayoutManager(mContext));
+        listView = (RecyclerView) root.findViewById(R.id.about_list_view);
+        listView.setLayoutManager(new LinearLayoutManager(mContext));
 
         // adapters
-        MoreArrayAdapter aboutAdapter = new MoreArrayAdapter(mContext, aboutOptions, aboutImgs );
-        listViewAbout.setAdapter(aboutAdapter);
-
-        MoreArrayAdapter moreAdapter = new MoreArrayAdapter(mContext, moreOptions, moreImgs);
-        listViewMore.setAdapter(moreAdapter);
+        AboutArrayAdapter aboutAdapter = new AboutArrayAdapter(mContext, listOptions, listIcons );
+        listView.setAdapter(aboutAdapter);
 
         return root;
     }

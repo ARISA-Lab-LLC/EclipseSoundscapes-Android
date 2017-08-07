@@ -2,7 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/rl_rumble_map">
+    android:id="@+id/rl_rumble_map"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:clickable="true"
+    android:contentDescription="@string/rumble_map_launch">
 
     <ImageView
         android:id="@+id/contact_point_img"
@@ -10,10 +14,11 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:clickable="true"
-        android:contentDescription="@string/rumble_map_launch"/>
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:clickable="false"
+        android:contentDescription="@string/rumble_map_launch"
+        />
 
     <TextView
         android:layout_width="match_parent"

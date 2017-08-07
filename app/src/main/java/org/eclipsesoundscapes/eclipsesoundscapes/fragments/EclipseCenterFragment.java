@@ -245,13 +245,23 @@ public class EclipseCenterFragment extends Fragment {
             hideSearchingProgress();
             Log.d("GPSResult", String.valueOf(latitude));
             Log.d("GPSResult", String.valueOf(longitude));
+            String latitudeFormat = String.format(Locale.getDefault(), "%.3f", Math.abs(latitude));
+            String longitudeFormat = String.format(Locale.getDefault(), "%.3f", Math.abs(longitude));
 
             // generate first contact timing
             eclipseTimeGenerator = new EclipseTimeGenerator(latitude, longitude);
             EclipseTimeGenerator.EclipseEvent eclipseEvent = eclipseTimeGenerator.contact1();
 
-            latitudeView.setText(String.valueOf(latitude));
-            longitudeView.setText(String.valueOf(longitude));
+            if (latitude > 0 )
+                latitudeView.setText(String.valueOf(latitudeFormat).concat(" " .concat((char) 0x00B0 + " North")));
+            else
+                latitudeView.setText(String.valueOf(latitudeFormat).concat(" ".concat((char) 0x00B0 + " South")));
+
+            if (longitude > 0)
+                longitudeView.setText(String.valueOf(longitudeFormat).concat(" ".concat((char) 0x00B0 + " East")));
+            else
+                longitudeView.setText(String.valueOf(longitudeFormat).concat(" ".concat((char) 0x00B0 + " West")));
+
             dateView.setText(eclipseEvent.date);
             percentEclipseView.setText(eclipseTimeGenerator.getcoverage());
 
@@ -438,16 +448,16 @@ public class EclipseCenterFragment extends Fragment {
                     secPrimary.setText(String.valueOf(0));
                     secSecondary.setText(String.valueOf(seconds));
                 }
+                String countdown_prefix = "";
+                if(isAdded())
+                    countdown_prefix = getString(R.string.countdown_prefix);
 
-                String countdown_prefix = getString(R.string.countdown_prefix);
                 String time = countdown_prefix.concat(", ").concat(daysPrimary.getText().toString().concat(daysSecondary.getText().toString())
                         .concat(" days, ").concat(hoursPrimary.getText().toString().concat(hoursSecondary.getText().toString()))
                         .concat(" hours, ").concat(minPrimary.getText().toString().concat(minSecondary.getText().toString()))
                         .concat(" minutes and ").concat(secPrimary.getText().toString().concat(secSecondary.getText().toString()))
                         .concat(" seconds "));
                 countdownView.setContentDescription(time);
-
-
             }
 
             @Override
@@ -459,24 +469,21 @@ public class EclipseCenterFragment extends Fragment {
     }
 
     public String convertLocalTime(String time) {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss.S");
-        simpleDateFormat.setTimeZone(TimeZone.getDefault());
-        Date myDate = null;
+
+        SimpleDateFormat dtf = new SimpleDateFormat("HH:mm:ss.S");
+        dtf.setTimeZone(TimeZone.getTimeZone("UTC"));
+        Date date = null;
         try {
-            myDate = simpleDateFormat.parse(time);
+            date = dtf.parse(time);
         } catch (ParseException e) {
             e.printStackTrace();
         }
 
-        Calendar cal = Calendar.getInstance();
-        cal.setTime(myDate);
-        int hours = cal.get(Calendar.HOUR);
-        int minutes = cal.get(Calendar.MINUTE);
-        int sec = cal.get(Calendar.SECOND);
-        int amPM = cal.get(Calendar.AM_PM);
-
-        return String.format(Locale.getDefault(), "%02d:%02d:%02d %s", hours, minutes, sec, amPM == Calendar.AM ? "AM" : "PM");
-
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(" h:mm:ss a", Locale.getDefault());
+        simpleDateFormat.setTimeZone(TimeZone.getDefault());
+        String myDate = null;
+        myDate = simpleDateFormat.format(date);
+        return  myDate;
     }
 
 
