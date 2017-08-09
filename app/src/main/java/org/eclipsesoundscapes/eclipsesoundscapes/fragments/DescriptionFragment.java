@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.eclipsesoundscapes.eclipsesoundscapes.R;
@@ -24,7 +23,6 @@ public class DescriptionFragment extends Fragment {
     public DescriptionFragment() {
         // Required empty public constructor
     }
-
 
     public static DescriptionFragment newInstance(String param1, String param2) {
         DescriptionFragment fragment = new DescriptionFragment();
@@ -49,7 +47,6 @@ public class DescriptionFragment extends Fragment {
         return root;
     }
 
-
     public void updateView(int contactPoint){
         switch (contactPoint){
             case 1:
@@ -69,8 +66,6 @@ public class DescriptionFragment extends Fragment {
                 break;
         }
     }
-
-
 
     @Override
     public void onAttach(Context context) {

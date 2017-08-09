@@ -3,16 +3,20 @@ package org.eclipsesoundscapes.eclipsesoundscapes.fragments;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.support.design.widget.TabLayout;
 import android.support.v13.app.FragmentPagerAdapter;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
@@ -110,6 +114,7 @@ public class EclipseFeaturesFragment extends Fragment implements View.OnClickLis
     }
 
 
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -120,6 +125,16 @@ public class EclipseFeaturesFragment extends Fragment implements View.OnClickLis
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getActivity().getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(ContextCompat.getColor(mContext, R.color.colorPrimaryDark));
+        }
     }
 
     @Override

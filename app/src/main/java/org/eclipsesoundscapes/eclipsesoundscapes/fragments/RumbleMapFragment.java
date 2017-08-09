@@ -3,10 +3,14 @@ package org.eclipsesoundscapes.eclipsesoundscapes.fragments;
 import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
@@ -45,7 +49,6 @@ public class RumbleMapFragment extends Fragment {
         relativeLayout = (RelativeLayout) root.findViewById(R.id.rl_rumble_map);
         imageView = (ImageView) root.findViewById(R.id.contact_point_img);
 
-
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,7 +60,15 @@ public class RumbleMapFragment extends Fragment {
         return root;
     }
 
-
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window window = getActivity().getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(ContextCompat.getColor(mContext, R.color.colorPrimaryDark));
+        }
+    }
 
     public void updateView(int contactPoint){
         switch (contactPoint){

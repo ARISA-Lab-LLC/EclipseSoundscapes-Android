@@ -66,6 +66,13 @@
     <string name="helmet_streamers_description">Projections of light from the sun\'s outer atmosphere called helmet streamers extend in all directions from behind the moon. In contrast to the black, featureless moon, the pale, wispy streamers appear as delicate as lace. The largest streamers have a tapered shape that resemble flower petals. They extend from opposite sides of the sun, with smaller rays of light between them.</string>
     <string name="prominence_description">Fiery loops of hot pink light appear to leap off the moon\'s black surface.  With the sheer white corona as their backdrop, these pink prominences seem to dance above the moon like lines of liquid neon.</string>
 
+
+    <!-- Media player -->
+    <string name="bailys_beads_short">For the next six minutes the Rumble map will be disabled so that you can hear about in real time the events surrounding totality. On the right side of the moon, orbs of glowing sunlight shimmer off the edge of the moon\'s black disk. Called Baily\'s Beads, these final areas of the sun\'s light appear as glimmering pearls on a wire, made intensely bright by the absence of light surrounding them.</string>
+    <string name="first_contact_short">The eclipse has begun and this is the first moment that the moon appears to touch the Sun. The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk. For the approximately 90 minutes you will have the opportunity to interact with the Rumble map and explore features of the Sun that are revealed during an eclipse. Then, during six minutes leading up to, during, and just after totality, the Rumble map will be disabled so that you can hear about the events surrounding totality in real time.</string>
+    <string name="diamond_ring_short">On the left side of the black moon, a sliver of sunlight blasts into view with white-hot intensity. As the area of re-emerging sunlight grows, it resembles a diamond ring, beaming out its brilliant light.</string>
+    <string name="totality_short">This is the full eclipse - for just approximately two minutes, the moon\'s black disk completely covers the sun, revealing the sun\'s massive outer corona. Grand flourishes of light extend from the moon in all directions like flower petals.  Intensely bright at the moon\'s edge, these helmet streamers fade to wisps of ghostly white as they stretch across space.</string>
+
     <string name="bailys_beads_title">Bailey\'s Beads</string>
     <string name="corona_title">Corona</string>
     <string name="diamond_ring_title">Diamond Ring</string>
