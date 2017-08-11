@@ -17,6 +17,8 @@ import android.widget.RelativeLayout;
 import org.eclipsesoundscapes.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.eclipsesoundscapes.activity.MainActivity;
 
+import java.util.HashMap;
+
 
 public class RumbleMapFragment extends Fragment {
 
@@ -24,6 +26,7 @@ public class RumbleMapFragment extends Fragment {
     private ImageView imageView;
     private RelativeLayout relativeLayout;
     private int currentEclipseID; // current eclipse img displaying
+    private HashMap<Integer, Integer> currentImgs;
 
     public RumbleMapFragment() {
         // Required empty public constructor
@@ -38,7 +41,13 @@ public class RumbleMapFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        currentImgs = new HashMap<>();
+        //currentImgs.put(1, getString(R.string.first_contact_title));
+        currentImgs.put(1, R.drawable.eclipse_bailys_beads);
+        currentImgs.put(2, R.drawable.eclipse_corona);
+        currentImgs.put(3, R.drawable.eclipse_diamond_ring);
+        currentImgs.put(4, R.drawable.helmet_streamers);
+        currentImgs.put(5, R.drawable.eclipse_prominence);
     }
 
     @Override
@@ -71,28 +80,8 @@ public class RumbleMapFragment extends Fragment {
     }
 
     public void updateView(int contactPoint){
-        switch (contactPoint){
-            case 1:
-                imageView.setImageResource(R.drawable.eclipse_bailys_beads);
-                currentEclipseID = R.drawable.eclipse_bailys_beads;
-                break;
-            case 2:
-                imageView.setImageResource(R.drawable.eclipse_corona);
-                currentEclipseID = R.drawable.eclipse_corona;
-                break;
-            case 3:
-                imageView.setImageResource(R.drawable.eclipse_diamond_ring);
-                currentEclipseID = R.drawable.eclipse_diamond_ring;
-                break;
-            case 4:
-                imageView.setImageResource(R.drawable.helmet_streamers);
-                currentEclipseID = R.drawable.helmet_streamers;
-                break;
-            case 5:
-                imageView.setImageResource(R.drawable.eclipse_prominence);
-                currentEclipseID = R.drawable.eclipse_prominence;
-                break;
-        }
+        imageView.setImageResource(currentImgs.get(contactPoint));
+        currentEclipseID = currentImgs.get(contactPoint);
     }
 
     void launchRumbleMap() {

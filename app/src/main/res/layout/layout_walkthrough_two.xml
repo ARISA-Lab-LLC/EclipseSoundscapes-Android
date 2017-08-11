@@ -15,7 +15,8 @@
         android:src="@drawable/soundscapes_rumble_map"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
-        android:layout_above="@+id/bottom_view"/>
+        android:layout_above="@+id/bottom_view"
+        android:importantForAccessibility="no"/>
 
     <TextView
         android:id="@+id/current_page"
@@ -30,12 +31,14 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"/>
 
+
     <LinearLayout
         android:id="@+id/bottom_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:focusable="true">
 
         <TextView
             android:id="@+id/bottom_view_title"
@@ -46,8 +49,8 @@
             android:fontFamily="sans-serif-condensed"
             android:text="@string/title_rumble_map"
             android:textStyle="bold"
-            android:textSize="16sp" />
-
+            android:textSize="16sp"
+            android:focusable="false"/>
 
         <TextView
             android:id="@+id/bottom_view_more"
@@ -60,7 +63,8 @@
             android:gravity="center"
             android:fontFamily="sans-serif-condensed"
             android:text="@string/walkthrough_rumble_map_text"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:focusable="false"/>
     </LinearLayout>
 
 

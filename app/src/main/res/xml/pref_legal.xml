@@ -9,4 +9,8 @@
         android:key="libraries_display"
         android:title="@string/pref_title_libraries" />
 
+    <Preference
+        android:key="credits_display"
+        android:title="@string/pref_title_credit" />
+
 </PreferenceScreen>

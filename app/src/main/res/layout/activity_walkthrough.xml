@@ -6,8 +6,6 @@
     android:layout_height="match_parent"
     tools:context="org.eclipsesoundscapes.eclipsesoundscapes.activity.WalkthroughActivity">
 
-
-
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
@@ -17,7 +15,6 @@
 
     </android.support.v4.view.ViewPager>
 
-
     <ImageButton
         android:id="@+id/prev_button"
         android:layout_width="48dp"
@@ -26,6 +23,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="16dp"
         android:layout_marginStart="8dp"
+        android:contentDescription="@string/prev_page_button"
         android:scaleType="fitCenter"
         app:srcCompat="@drawable/ic_chevron_left_white"
         android:background="@android:color/transparent" />
@@ -38,6 +36,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:scaleType="fitCenter"
+        android:contentDescription="@string/next_page_button"
         app:srcCompat="@drawable/ic_chevron_right_white"
         android:background="@android:color/transparent" />
 
@@ -51,6 +50,7 @@
         android:fontFamily="sans-serif-condensed"
         android:textColor="@color/colorAccent"
         android:gravity="top|center_horizontal"
+        android:contentDescription="@string/walkthrough_skip_button"
         android:text="@string/walkthrough_skip_button"
         android:textAllCaps="false"
         android:layout_alignStart="@+id/next_button" />

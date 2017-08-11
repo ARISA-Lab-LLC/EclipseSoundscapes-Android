@@ -40,7 +40,7 @@ public class EclipseFeaturesFragment extends Fragment implements View.OnClickLis
     private CustomViewPager mViewPager;
     private ViewFlipper viewFlipper;
     private int currentView;
-    private HashMap<Integer, String> viewToText;
+    private HashMap<Integer, String> currentImgs;
 
     public EclipseFeaturesFragment() {
         // Required empty public constructor
@@ -51,6 +51,13 @@ public class EclipseFeaturesFragment extends Fragment implements View.OnClickLis
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        currentImgs = new HashMap<>();
+        //currentImgs.put(1, getString(R.string.first_contact_title));
+        currentImgs.put(1, getString(R.string.bailys_beads_title));
+        currentImgs.put(2, getString(R.string.corona_title));
+        currentImgs.put(3, getString(R.string.diamond_ring_title));
+        currentImgs.put(4, getString(R.string.helmet_streamers_title));
+        currentImgs.put(5, getString(R.string.prominence_title));
     }
 
     @Override
@@ -58,13 +65,6 @@ public class EclipseFeaturesFragment extends Fragment implements View.OnClickLis
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_eclipse_features, container, false);
-
-        viewToText = new HashMap<>();
-        viewToText.put(1, "Bailey's Beads");
-        viewToText.put(2, "Corona");
-        viewToText.put(3, "Diamond Ring");
-        viewToText.put(4, "Helmet Streamers");
-        viewToText.put(5, "Prominence");
 
         // views
         toolbar = (Toolbar) root.findViewById(R.id.toolbar);
@@ -88,11 +88,10 @@ public class EclipseFeaturesFragment extends Fragment implements View.OnClickLis
                 Fragment page = getChildFragmentManager().findFragmentByTag("android:switcher:" + R.id.viewpager + ":" + mViewPager.getCurrentItem());
                 if ( page != null) {
                     if (position == 0) {
-
-                        ((RumbleMapFragment) page).updateView(currentView);
+                        ((DescriptionFragment)page).updateView(currentView);
                     }
                     else if (position == 1)
-                        ((DescriptionFragment)page).updateView(currentView);
+                        ((RumbleMapFragment) page).updateView(currentView);
                 }
             }
 
@@ -150,7 +149,7 @@ public class EclipseFeaturesFragment extends Fragment implements View.OnClickLis
 
         switch (view.getId()){
             case R.id.nextButton:
-                if (currentView < 5) {
+                if (currentView < currentImgs.size()) {
                     currentView++;
                 } else {
                     currentView = 1;
@@ -159,55 +158,40 @@ public class EclipseFeaturesFragment extends Fragment implements View.OnClickLis
                 setTitleFromView(currentView);
 
                 if (mViewPager.getCurrentItem() == 0 && page != null) {
-                    ((RumbleMapFragment)page).updateView(currentView);
-                    toolbarTitle.announceForAccessibility("Now viewing, " + viewToText.get(currentView));
-                } else if (mViewPager.getCurrentItem() == 1 && page != null) {
                     ((DescriptionFragment) page).updateView(currentView);
-                    toolbarTitle.announceForAccessibility("Now showing description about " + viewToText.get(currentView));
+                } else if (mViewPager.getCurrentItem() == 1 && page != null) {
+                    ((RumbleMapFragment)page).updateView(currentView);
                 }
                 break;
             case R.id.previousButton:
                 if (currentView > 1) {
                     currentView--;
                 } else {
-                    currentView = 5;
+                    // last img
+                    currentView = currentImgs.size();
                 }
                 setTitleFromView(currentView);
                 if (mViewPager.getCurrentItem() == 0 && page != null) {
-                    ((RumbleMapFragment)page).updateView(currentView);
-                    toolbarTitle.announceForAccessibility("Now viewing, " + viewToText.get(currentView));
-                } else if (mViewPager.getCurrentItem() == 1 && page != null) {
                     ((DescriptionFragment) page).updateView(currentView);
-                    toolbarTitle.announceForAccessibility("Now showing description about " + viewToText.get(currentView));
+                } else if (mViewPager.getCurrentItem() == 1 && page != null) {
+                    ((RumbleMapFragment)page).updateView(currentView);
                 }
                 break;
         }
     }
 
     public void setTitleFromView(int view){
-        switch (view){
-            case 1: // baily's beads
-                toolbarTitle.setText(getString(R.string.bailys_beads_title));
-                break;
-            case 2: // corona
-                toolbarTitle.setText(getString(R.string.corona_title));
-                break;
-            case 3: // diamond ring
-                toolbarTitle.setText(getString(R.string.diamond_ring_title));
-                break;
-            case 4: // helmet streamers
-                toolbarTitle.setText(getString(R.string.helmet_streamers_title));
-                break;
-            case 5: // prominence
-                toolbarTitle.setText(getString(R.string.prominence_title));
-                break;
-        }
+        toolbarTitle.setText(currentImgs.get(view));
+    }
+
+    public void setCurrentImgs(HashMap<Integer, String> newImgs){
+        currentImgs = newImgs;
     }
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new RumbleMapFragment(), "Rumble Map");
         adapter.addFragment(new DescriptionFragment(), "Description");
+        adapter.addFragment(new RumbleMapFragment(), "Rumble Map");
         viewPager.setAdapter(adapter);
     }
 

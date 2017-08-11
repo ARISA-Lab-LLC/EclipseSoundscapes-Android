@@ -15,8 +15,9 @@
         android:textStyle="bold"
         android:textColor="@android:color/black"
         android:textSize="21sp"
-        android:text="@string/walkthrough_title_access"
-        android:contentDescription="@string/walkthrough_title_access"/>
+        android:text="@string/walkthrough_location_page"
+        android:contentDescription="@string/walkthrough_title_access"
+        android:focusable="true"/>
 
     <ImageView
         android:id="@+id/logo"
@@ -42,7 +43,7 @@
         android:textSize="14sp"
         android:textAllCaps="false"
         android:text="@string/pref_title_location"
-        android:contentDescription="@string/pref_title_location"
+        android:contentDescription="@string/location_permission"
         android:layout_margin="16dp" />
 
     <Button

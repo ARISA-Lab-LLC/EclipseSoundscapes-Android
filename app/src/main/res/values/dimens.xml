@@ -7,6 +7,9 @@
     <dimen name="ma_list_item_text_edge_padding_start">72dp</dimen>
     <dimen name="ma_list_item_primary_text">16sp</dimen>
     <dimen name="ma_list_item_end_icon_padding_start">16dp</dimen>
+    <dimen name="ma_list_multi_line_item_avatar_icon_padding_top">16dp</dimen>
+    <dimen name="ma_list_item_line_spacing">4dp</dimen>
+    <dimen name="ma_list_item_secondary_text">14sp</dimen>
 
     <dimen name="ma_divider_thickness">1dp</dimen>
     <dimen name="ma_divider_thickness_light">0.5dp</dimen>

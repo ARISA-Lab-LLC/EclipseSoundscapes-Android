@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -30,6 +31,7 @@ public class MediaPlayerFragment extends DialogFragment implements SeekBar.OnSee
     private int descriptionId;
     private int imgId;
     private int audioId;
+    private boolean liveExperience; // live feed of the eclipse
 
     private Context mContext;
     private ImageView eclipseImg;
@@ -45,13 +47,14 @@ public class MediaPlayerFragment extends DialogFragment implements SeekBar.OnSee
     private Handler mHandler = new Handler();
     private MediaHelper utils;
 
-    public static MediaPlayerFragment newInstance(String title, int imgId, int audioId, int description ) {
+    public static MediaPlayerFragment newInstance(String title, int imgId, int audioId, int description, boolean liveExperience) {
         MediaPlayerFragment f = new MediaPlayerFragment();
         Bundle args = new Bundle();
         args.putInt("img", imgId);
         args.putInt("audio", audioId);
         args.putString("title", title);
         args.putInt("description", description);
+        args.putBoolean("live", liveExperience);
         f.setArguments(args);
         return f;
     }
@@ -72,6 +75,7 @@ public class MediaPlayerFragment extends DialogFragment implements SeekBar.OnSee
         descriptionId = getArguments().getInt("description");
         imgId = getArguments().getInt("img");
         audioId = getArguments().getInt("audio");
+        liveExperience = getArguments().getBoolean("live");
 
     }
 
@@ -100,15 +104,15 @@ public class MediaPlayerFragment extends DialogFragment implements SeekBar.OnSee
         // listeners
         audioProgressBar.setOnSeekBarChangeListener(this); // Important
         mp.setOnCompletionListener(this); // Important
+
+        playAudio(audioId);
+
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dismiss();
             }
         });
-
-        playAudio(audioId);
-
         playButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -131,7 +135,26 @@ public class MediaPlayerFragment extends DialogFragment implements SeekBar.OnSee
 
             }
         });
+
+        if (isLive()){
+            audioProgressBar.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    return true;
+                }
+            });
+            backButton.setVisibility(View.GONE);
+            playButton.setVisibility(View.GONE);
+        }
         return v;
+    }
+
+    public void liveOver(){
+        backButton.setVisibility(View.VISIBLE);
+    }
+
+    public boolean isLive(){
+        return liveExperience;
     }
 
     public void playAudio(int audioSrc){

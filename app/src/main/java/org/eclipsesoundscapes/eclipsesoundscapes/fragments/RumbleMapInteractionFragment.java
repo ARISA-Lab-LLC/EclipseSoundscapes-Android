@@ -68,7 +68,8 @@ public class RumbleMapInteractionFragment extends DialogFragment implements View
     // rumble map interaction
     private MediaPlayer tick_sound;
     private double modControl = 0.0;
-    private final double modScale = 12.0;
+    private double modAmpControl = 0.0;
+    private final double modScale = 6.0;
 
 
     // views
@@ -110,17 +111,30 @@ public class RumbleMapInteractionFragment extends DialogFragment implements View
         lineOut = new LineOut();
         sineOsc1 = new SineOscillator();
         sineOsc2 = new SineOscillator();
+        ampEnv = new EnvelopeAttackDecay();
         synthesizer.add(lineOut);
         synthesizer.add(sineOsc1);
         synthesizer.add(sineOsc2);
+        //synthesizer.add(ampEnv);
 
-        sineOsc1.amplitude.set(440.0);
-        sineOsc1.frequency.set(60);
-        sineOsc2.amplitude.set(1);
+        //sineOsc1.amplitude.set(440.0);
+        //sineOsc1.frequency.set(60);
+        //sineOsc2.amplitude.set(1);
+        sineOsc1.amplitude.setup(55.0, 220.0, 1200.0);
+        sineOsc1.frequency.set(55);
+        sineOsc2.amplitude.setup(0.1, 1.0, 1.0);
 
+        // env
+        //ampEnv.amplitude.setup(0.001, 1.0, 8.0);
+        //ampEnv.decay.setup(0.001, 0.1, 8.0);
+        //sineOsc2.output.connect(ampEnv.amplitude);
+
+        //sineOsc2.frequency.set(sineOsc1.output.getValue());
         sineOsc1.output.connect( sineOsc2.frequency);
         sineOsc2.output.connect( 0, lineOut.input, 0 );
         sineOsc2.output.connect( 0, lineOut.input, 1 );
+
+        synthesizer.start();
 
 
 
@@ -153,6 +167,7 @@ public class RumbleMapInteractionFragment extends DialogFragment implements View
         eclipse.setImageResource(eclipseRes);
         eclipseBitmap = ((BitmapDrawable)eclipse.getDrawable()).getBitmap();
         rumbleMapLayout = (RelativeLayout) v.findViewById(R.id.rumble_map_layout);
+
         rumbleMapLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
@@ -213,8 +228,17 @@ public class RumbleMapInteractionFragment extends DialogFragment implements View
     }
 
     public void modulateSound(){
-        sineOsc2.frequency.set(modControl);
-        synthesizer.start();
+
+        //sineOsc2.frequency.set(modAmpControl * 220.0);
+
+
+        if (modAmpControl < 1)
+            modAmpControl += 1;
+
+        sineOsc1.amplitude.set(modAmpControl * 220.0);
+        sineOsc2.amplitude.set(modControl);
+
+        //ampEnv.input.trigger();
         lineOut.start();
     }
 
@@ -232,51 +256,54 @@ public class RumbleMapInteractionFragment extends DialogFragment implements View
                 stopSound();
                 break;
             case MotionEvent.ACTION_DOWN:
-                //case MotionEvent.ACTION_MOVE:
+                case MotionEvent.ACTION_MOVE:
                 int x = (int)event.getRawX();
                 int y = (int)event.getRawY();
+
                 if(!isViewInBounds(eclipse, x, y)) {
                     rumbleMapLayout.dispatchTouchEvent(event);
                 }
-                else if(isViewInBounds(eclipse, x, y)){
+                else if(isViewInBounds(eclipse, x, y)) {
                     Log.d("touchListener", "onTouch eclipse");
 
                     float eventX = event.getX();
                     float eventY = event.getY();
-                    float[] eventXY = new float[] {eventX, eventY};
+                    float[] eventXY = new float[]{eventX, eventY};
 
                     Matrix invertMatrix = new Matrix();
-                    ((ImageView)view).getImageMatrix().invert(invertMatrix);
+                    ((ImageView) view).getImageMatrix().invert(invertMatrix);
 
                     invertMatrix.mapPoints(eventXY);
-                    int x2 = Integer.valueOf((int)eventXY[0]);
-                    int y2 = Integer.valueOf((int)eventXY[1]);
+                    int x2 = Integer.valueOf((int) eventXY[0]);
+                    int y2 = Integer.valueOf((int) eventXY[1]);
 
-                    Drawable imgDrawable = ((ImageView)view).getDrawable();
-                    Bitmap bitmap = ((BitmapDrawable)imgDrawable).getBitmap();
+                    Drawable imgDrawable = ((ImageView) view).getDrawable();
+                    Bitmap bitmap = ((BitmapDrawable) imgDrawable).getBitmap();
 
                     //Limit x, y range within bitmap
-                    if(x2 < 0)
+                    if (x2 < 0)
                         x2 = 0;
-                    else if(x2 > bitmap.getWidth() - 1)
+                    else if (x2 > bitmap.getWidth() - 1)
                         x2 = bitmap.getWidth() - 1;
 
-                    if(y2 < 0)
+                    if (y2 < 0)
                         y2 = 0;
-                    else if(y2 > bitmap.getHeight() - 1)
+                    else if (y2 > bitmap.getHeight() - 1)
                         y2 = bitmap.getHeight() - 1;
 
                     int pixel = bitmap.getPixel(x2, y2);
                     int red = Color.red(pixel);
                     int blue = Color.blue(pixel);
                     int green = Color.green(pixel);
-                    double grayscale = (red + green + blue) / 3;
-                    modControl = grayscale * modScale;
+                    double grayscale = (red + green + blue) / 3; // 0 - 255
+                    double grayScaleZero = ((red / 255) + (green / 255) + (blue / 255)) / 3;
+                    modAmpControl = grayScaleZero * modScale;
+                    modControl = grayScaleZero;
                     modulateSound();
                     break;
                 }
         }
-                // Further touch is not handled
+        // Further touch is not handled
                 return true;
     }
 

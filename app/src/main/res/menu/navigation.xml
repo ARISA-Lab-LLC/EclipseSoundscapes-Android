@@ -3,15 +3,14 @@
 
 
     <item
-        android:id="@+id/navigation_eclipse_center"
-        android:icon="@drawable/ic_nav_eclipse_center"
-        android:title="@string/title_eclipse_center" />
-
-    <item
         android:id="@+id/navigation_eclipse_features"
         android:icon="@drawable/ic_nav_elcipse_features"
         android:title="@string/title_eclipse_features" />
 
+    <item
+        android:id="@+id/navigation_eclipse_center"
+        android:icon="@drawable/ic_nav_eclipse_center"
+        android:title="@string/title_eclipse_center" />
 
     <item
         android:id="@+id/navigation_media"

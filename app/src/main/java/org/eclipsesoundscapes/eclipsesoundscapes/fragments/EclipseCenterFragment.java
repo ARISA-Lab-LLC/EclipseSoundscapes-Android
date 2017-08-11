@@ -238,6 +238,45 @@ public class EclipseCenterFragment extends Fragment {
         }
     }
 
+    // user has denied permission to location and checked "Never show again"
+    public void onPermissionNeverAsk(){
+        if (permissionDialogFragment != null && permissionDialogFragment.getDialog() != null
+                && permissionDialogFragment.getDialog().isShowing()) {
+            permissionDialogFragment.dismiss();
+        }
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        builder.setTitle("Important")
+                .setMessage("Permission denied. Please, go to settings and allow permission to access location")
+                .setPositiveButton("Settings", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        Uri uri = Uri.fromParts("package", getActivity().getPackageName(), null);
+                        intent.setData(uri);
+                        startActivityForResult(intent, REQUEST_PERMISSION_SETTING);
+                    }
+                })
+                .setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+
+        permissionView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+                Uri uri = Uri.fromParts("package", getActivity().getPackageName(), null);
+                intent.setData(uri);
+                startActivityForResult(intent, REQUEST_PERMISSION_SETTING);
+            }
+        });
+
+        builder.show();
+    }
+
     public void startLocationUpdates(){
         gpsTracker = new GPSTracker(getActivity());
 

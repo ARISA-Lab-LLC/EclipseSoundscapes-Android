@@ -258,6 +258,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
 
             Preference license = findPreference("license_display");
             Preference libraries = findPreference("libraries_display");
+            Preference credits = findPreference("credits_display");
 
             license.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
@@ -274,6 +275,16 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 public boolean onPreferenceClick(Preference preference) {
                     Intent legalIntent = new Intent(mContext, LegalActivity.class);
                     legalIntent.putExtra("legal", "libraries");
+                    mContext.startActivity(legalIntent);
+                    return true;
+                }
+            });
+
+            credits.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    Intent legalIntent = new Intent(mContext, LegalActivity.class);
+                    legalIntent.putExtra("legal", "credits");
                     mContext.startActivity(legalIntent);
                     return true;
                 }

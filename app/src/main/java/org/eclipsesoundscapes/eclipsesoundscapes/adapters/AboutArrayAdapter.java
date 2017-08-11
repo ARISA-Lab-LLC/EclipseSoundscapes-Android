@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.eclipsesoundscapes.eclipsesoundscapes.R;
+import org.eclipsesoundscapes.eclipsesoundscapes.activity.FutureEclipsesActivity;
 import org.eclipsesoundscapes.eclipsesoundscapes.activity.MainActivity;
 import org.eclipsesoundscapes.eclipsesoundscapes.activity.OurPartnersActivity;
 import org.eclipsesoundscapes.eclipsesoundscapes.activity.OurTeamActivity;
@@ -59,7 +60,7 @@ public class AboutArrayAdapter extends RecyclerView.Adapter<AboutArrayAdapter.Cu
                         mContext.startActivity(new Intent(mContext, OurPartnersActivity.class));
                         break;
                     case 3:
-                        Toast.makeText(mContext, "Future Eclipses", Toast.LENGTH_SHORT).show();
+                        mContext.startActivity(new Intent(mContext, FutureEclipsesActivity.class));
                         break;
                     case 4:
                         Intent walkthroughIntent = new Intent(mContext, WalkthroughActivity.class);

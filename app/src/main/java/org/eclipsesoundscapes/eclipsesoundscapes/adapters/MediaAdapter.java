@@ -49,7 +49,7 @@ public class MediaAdapter extends RecyclerView.Adapter<MediaAdapter.ViewHolder> 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DialogFragment newFragment = MediaPlayerFragment.newInstance(events[position], eventImgs[position], eventAudios[position], descriptions[position]);
+                DialogFragment newFragment = MediaPlayerFragment.newInstance(events[position], eventImgs[position], eventAudios[position], descriptions[position], false);
                 newFragment.show(((MainActivity)mContext).getFragmentManager(), "dialog");
             }
         });

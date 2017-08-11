@@ -11,6 +11,7 @@
     <string name="pref_title_location">Location</string>
     <string name="pref_title_license">License</string>
     <string name="pref_title_libraries">Open Source Libraries</string>
+    <string name="pref_title_credit">Photo Credits</string>
     <string name="settings_legal">Legal</string>
     <string name="legal_soundscape_title">Eclipse Soundscape</string>
     <string name="legal_libraries_use">Libraries We Use</string>
@@ -60,24 +61,29 @@
     <string name="eclipse_max">Maximum eclipse</string>
 
     <!-- Eclipse Features -->
-    <string name="bailys_beads_description">On the right side of the moon, orbs of glowing sunlight shimmer off the edge of the moon\'s black disk. Called Baily\'s Beads, these final areas of the sun\'s light appear as glimmering pearls on a wire, made intensely bright by the absence of light surrounding them.</string>
-    <string name="corona_description">During the totality, the moon completely covers the sun\'s glowing orb, and the sun’s outer atmosphere is revealed. As if the moon were the center of a celestial sunflower, the corona appears as soft white petals, massive flumes of faint light that taper out across the sky. Closer to the surface of the moon\'s flat ebony circle, the corona is a swirling chaos of loops and flares. Intense fiery lines of light appear to ignite the moon\'s black edge.</string>
-    <string name="diamond_ring_description">On the left side of the black moon, a sliver of sunlight blasts into view with white-hot intensity. As the area of re-emerging sunlight grows, it resembles a diamond, beaming out its brilliant light from its setting on the circular ring of the moon\'s edge.</string>
-    <string name="helmet_streamers_description">Projections of light from the sun\'s outer atmosphere called helmet streamers extend in all directions from behind the moon. In contrast to the black, featureless moon, the pale, wispy streamers appear as delicate as lace. The largest streamers have a tapered shape that resemble flower petals. They extend from opposite sides of the sun, with smaller rays of light between them.</string>
-    <string name="prominence_description">Fiery loops of hot pink light appear to leap off the moon\'s black surface.  With the sheer white corona as their backdrop, these pink prominences seem to dance above the moon like lines of liquid neon.</string>
-
+    <string name="first_contact_description">This is the first moment that the moon, slowly moving from left to right, appears to touch the sun. The intensity of the sun\'s light makes it unsafe to look at without special eye protection until the totality, the few minutes during which the moon completely eclipses the sun. The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk. For the next 90 minutes, the moon\'s black disk will creep across the sun, progressively blocking more of sun\'s light and heat until the totality.\n\nYou can use this time to explore rumble map images and audio descriptions of phenomena unique to a total eclipse. In the moments before, during and after totality, this app will provide a play-by-play of the action, providing images and descriptions of this rare and fascinating stellar event.\n\nAdditional scientific info:\nThe outer atmosphere of the Sun, called the corona, is usually not visible from the surface of the Earth. To study the corona, scientists send satellites into space to make observations of the corona in wavelengths of light that the human eye cannot see, such as this image of the Sun in X-rays taken by the X-ray Telescope on the Hinode spacecraft. This X-ray image shows the view of the Sun being eclipsed by the moon a seen from space. The total solar eclipse on August 21, 2017 provides the rare opportunity to see the corona from the ground in visible light.</string>
+    <string name="bailys_beads_description">On the right side of the moon, orbs of glowing sunlight shimmer off the edge of the moon\'s black disk. Called Baily\'s Beads, these final areas of the sun\'s light appear as glimmering pearls on a wire, made intensely bright by the absence of light surrounding them.\n\nExplanation of what you might feel as you interact: \nOn the rumble map, explore the difference between the moon, the sun\'s corona and Baily\'s beads which are intense and irregular.\n\nAdditional scientific info: \nEven this small section of the Sun\'s light cannot be viewed without special eye protection. Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes.\nBaily\'s beads are caused because the moon\'s surface is not a smooth, perfect sphere. Rays of light peer through the ravines and valleys between mountains on the moon causing this spectacular feature.</string>
+    <string name="corona_description">During the totality, the moon completely covers the sun\'s glowing orb, and the sun\'s outer atmosphere is revealed. As if the moon were the center of a celestial sunflower, the corona appears as soft white petals, massive flumes of faint light that taper out across the sky. Closer to the surface of the moon\'s flat ebony circle, the corona is a swirling chaos of loops and flares. Intense fiery lines of light appear to ignite the moon’s black edge.\n\nHow to interact with the rumble map:\nOn the rumble map, explore the difference between the moon and the sun’s corona. You will hear/feel variations as your fingers pass over different features of the corona. \n\nAdditional scientific info:\nThe corona is the thin outer atmosphere of the Sun.  With temperatures at over 1 million degrees Fahrenheit, it radiates light in wavelengths that are too short for the human eye to see (like X-rays) and that are absorbed by the Earth\'s atmosphere.  However, the corona reflects some of the white light from the Sun\'s photosphere below it.  This faint reflection is only seen when the much brighter photosphere is blocked, like during a total eclipse.</string>
+    <string name="diamond_ring_description">On the left side of the black moon, a sliver of sunlight blasts into view with white-hot intensity. As the area of re-emerging sunlight grows, it resembles a diamond, beaming out its brilliant light from its setting on the circular ring of the moon\'s edge.\n\nAdditional scientific info:\nEven this small section of the Sun\'s light cannot be viewed without special eye protection. Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes.\nAs the moon barely moves away from the solar surface, the powerful light of the Sun peers around the side of the moon.  This light is so intense that even this small fraction of it dominates the sky.</string>
+    <string name="helmet_streamers_description">Projections of light from the sun\'s outer atmosphere called helmet streamers extend in all directions from behind the moon. In contrast to the black, featureless moon, the pale, wispy streamers appear as delicate as lace. The largest streamers have a tapered shape that resemble flower petals. They extend from opposite sides of the sun, with smaller rays of light between them.\n\nExplanation of what you might feel as you interact:\nAs you trace your finger along a helmet streamer, you can feel the smooth arches come to long sharp points as they extend from the base of the Sun outward.\n\nAdditional scientific info:\nHelmet streamers get their shape from two different processes. The arch shape of streamers come from magnetic fields from concentrations of magnetic field on the surface of the Sun extending out into the corona and then arching back down to the surface to connect to other regions of magnetic field of opposite polarity.  The long, pointed tops of helmet streamers come from streams of gas flowing out from the corona into interplanetary space forming the solar wind.</string>
+    <string name="prominence_description">Fiery loops of hot pink light appear to leap off the moon\'s black surface.  With the sheer white corona as their backdrop, these pink prominences seem to dance above the moon like lines of liquid neon.\n\nExplanation of what you might feel as you interact:\nYou will notice a sharp contrast when you interact with a prominence due to its intense brightness relative to the background.\n\nAdditional scientific info:\nProminences are magnetic fields that are filled with very dense material making them much brighter than the surrounding background. The magnetic fields of prominences can be very complicated giving them complex and dynamic shapes.</string>
+    <string name="totality_description">This is the full eclipse, when the moon\'s black disk completely covers the sun. Now, in the absence of the sun\'s full light, its massive outer corona is revealed. Uniquely visible during a full eclipse, grand flourishes of light called helmet streamers extend in all directions behind the moon’s black disk. At the edge of the moon, the helmet streamers are intensely bright, fading to wisps of ghostly white as they stretch across space, far from the moon, like flower petals.\n\nExplanation of what you might feel as you interact:\nOn the rumble map, explore the difference between the moon and the sun\'s corona.\n\nAdditional scientific info:\nYou may notice changes in temperature and natural sounds, such a birds and wind during the total eclipse.\nDuring the total solar eclipse, and only during totality, you can view the corona of the Sun without eye protection. The Sun\'s outer atmosphere, the corona, is in full display and viewable from the ground. The highly structured nature of the corona is clearly evident. This structure is caused by the Sun\'s intense and complicated magnetic fields interacting with the material that makes up the corona. This material is called a plasma, which is like a gas, but is susceptible to magnetic fields. The magnetic fields can then shape the plasma in the corona into the complicated patterns that are viewable during the eclipse.</string>
+    <string name="sun_as_star_description">Framed by a larger view of space, the solar wind draws the helmet streamers far out into space as other stars come into view. Many of these stars also have planets orbiting them. Those planets can eclipse their parent star just as the moon eclipsed our Sun. Scientists can detect planets eclipsing their stars and determine both, how far the planet is from its star and the planet’s mass. From these clues and other observations, scientists are attempting to discover if there is life on these other planets that may be experiencing their own eclipse.</string>
 
     <!-- Media player -->
-    <string name="bailys_beads_short">For the next six minutes the Rumble map will be disabled so that you can hear about in real time the events surrounding totality. On the right side of the moon, orbs of glowing sunlight shimmer off the edge of the moon\'s black disk. Called Baily\'s Beads, these final areas of the sun\'s light appear as glimmering pearls on a wire, made intensely bright by the absence of light surrounding them.</string>
-    <string name="first_contact_short">The eclipse has begun and this is the first moment that the moon appears to touch the Sun. The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk. For the approximately 90 minutes you will have the opportunity to interact with the Rumble map and explore features of the Sun that are revealed during an eclipse. Then, during six minutes leading up to, during, and just after totality, the Rumble map will be disabled so that you can hear about the events surrounding totality in real time.</string>
+    <string name="more_audio_coming">More audio descriptions coming soon…</string>
+    <string name="bailys_beads_short">For the next six minutes the Rumble map will be disabled so that you can hear about in real time the events surrounding totality.\n\nOn the right side of the moon, orbs of glowing sunlight shimmer off the edge of the moon’s black disk. Called Baily\'s Beads, these final areas of the sun\'s light appear as glimmering pearls on a wire, made intensely bright by the absence of light surrounding them.</string>
+    <string name="first_contact_short">The eclipse has begun and this is the first moment that the moon appears to touch the Sun. The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk.\n\nFor the approximately 90 minutes you will have the opportunity to interact with the Rumble map and explore features of the Sun that are revealed during an eclipse. Then, during six minutes leading up to, during, and just after totality, the Rumble map will be disabled so that you can hear about the events surrounding totality in real time.</string>
     <string name="diamond_ring_short">On the left side of the black moon, a sliver of sunlight blasts into view with white-hot intensity. As the area of re-emerging sunlight grows, it resembles a diamond ring, beaming out its brilliant light.</string>
-    <string name="totality_short">This is the full eclipse - for just approximately two minutes, the moon\'s black disk completely covers the sun, revealing the sun\'s massive outer corona. Grand flourishes of light extend from the moon in all directions like flower petals.  Intensely bright at the moon\'s edge, these helmet streamers fade to wisps of ghostly white as they stretch across space.</string>
+    <string name="totality_short">This is the full eclipse - for just approximately two minutes, the moon\'s black disk completely covers the sun, revealing the sun\'s massive outer corona. Grand flourishes of light extend from the moon in all directions like flower petals. Intensely bright at the moon\'s edge, these helmet streamers fade to wisps of ghostly white as they stretch across space.</string>
 
+    <string name="first_contact_title">First Contact</string>
     <string name="bailys_beads_title">Bailey\'s Beads</string>
     <string name="corona_title">Corona</string>
     <string name="diamond_ring_title">Diamond Ring</string>
     <string name="helmet_streamers_title">Helmet Streamers</string>
     <string name="prominence_title">Prominence</string>
+
 
     <string name="rumble_map_launch">Press to interact with Rumble Map</string>
 
@@ -93,17 +99,24 @@
     <string name="rumble_map_running">Rumble map running, double tap to turn off</string>
 
 
+    <!-- About -->
+    <string name="future_eclipse_label">Eclipses we support</string>
+
     <!-- Walkthrough -->
+    <string name="walkthrough_label">Eclipse Soundscapes Walkthrough</string>
     <string name="walkthrough_welcome">Welcome</string>
     <string name="title_rumble_map">Rumble Map</string>
     <string name="title_audio_descriptions">Audio Descriptions</string>
     <string name="walkthrough_skip_button">Skip</string>
     <string name="walkthrough_title_access">Please allow location access</string>
+    <string name="walkthrough_location_page">Access to location</string>
     <string name="walkthrough_ask_later">Ask Later</string>
     <string name="walkthrough_welcome_text">Thank you for downloading the Eclipse Soundscapes app, a multi-sensory experience for people of all learning styles to engage with astronomical events, including total solar eclipses. Inside this app, you will find countdowns to major astronomical events in your area, and real time narrations of those events with illustrative audio descriptions provided by the National Center for Accessible Media. You can also explore the cosmos with high quality photos, educational information, and accessible learning tools.</string>
     <string name="walkthrough_rumble_map_text">Our Rumble Map tool is designed for you to hear and feel astronomical phenomena, such as eclipses, using the touchscreen and the speakers on your smartphone. For example: the Rumble Map will display photos of the Moon passing in front of the Sun during the most engaging and educational moments of an eclipse. When you touch the image on the screen, the app will read the grayscale value of a pixel underneath your finger, and play an audio tone which will vibrate your phone with a strength relative to the brightness of that section. As you move your finger onto the bright sections of the Sun, your phone will vibrate more. As you move your finger into the dark spaces blocked by the Moon’s disk, the vibration will diminish and disappear. By paying close attention to the audio tones and the strength of your phone\'s vibration, you can learn how much sunlight is visible at each stage of the eclipse, and explore some of the fascinating features of the Sun\'s corona.</string>
     <string name="walkthrough_eclipse_center">The Eclipse Center is your go-to destination for learning about eclipses in your area so you can discover them as they happen. When you open the Eclipse Center, it will ask to pinpoint your geographic location. Once you accept, you will find a countdown to the next eclipse, information on whether you will experience a total or a partial solar eclipse in your area, and the exact start time, peak time, and end time of the eclipse. </string>
     <string name="walkthrough_audio_description">When it is time for the next eclipse to start, you will receive a push notification to open Eclipse Soundscapes. The app will then guide you through the main event with illustrative audio descriptions of an eclipse\'s most important moments. These audio descriptions, provided by the National Center for Accessible Media, are explanations of photos developed with specialized language to help people who are blind and visually impaired engage with an eclipse. After each audio description ends, you will have the option to either hear more educational information or explore that feature of an eclipse using the Rumble Map.</string>
+    <string name="prev_page_button">previous page</string>
+    <string name="next_page_button">next page</string>
 
     <!-- Dialog -->
     <string name="closeDialogButton">Close Dialog</string>
@@ -118,13 +131,69 @@
     <!-- permissions -->
     <string name="permission_rationale_location">Access to the location service is required to provide Eclipse information based on your location.</string>
     <string name="location_permission_denied">Permission to access the device\'s location has been denied. Please grant access by enabling the location permission from the System Settings &gt; Apps &gt; \'Eclipse Soundscapes\'.</string>
+    <string name="location_permission">Location permission</string>
+
+    <array name="eclipse_imgs_title">
+        <item name="diamond_ring">Diamond Ring</item>
+        <item name="helmet_streamers">Helmet Streamers</item>
+        <item name="prominence">Prominence</item>
+        <item name="sun_as_star">Sun as a Star</item>
+        <item name="first_contact">1st Contact</item>
+        <item name="totality">Totality</item>
+        <item name="baileys_beads">Bailey\'s Beads</item>
+        <item name="corona">Corona</item>
+    </array>
+
+    <array name="eclipse_img_credits">
+        <item name="diamond_ring">©1991 Bill Reyna\n©2005 Hana Druckmüllerová, Miloslav
+            Druckmüller
+        </item>
+        <item name="helmet_streamers">©1994 Úpice Observatory and Vojtech Rušin\n©2007 Miloslav
+            Druckmüller
+        </item>
+        <item name="prominence">©1991 Peter Aniol\n©2010 Miloslav Druckmüller</item>
+        <item name="sun_as_star">©2006 Martin Antoš, Hana Druckmüllerová, Miloslav Druckmüller,
+            ESA/NASA
+        </item>
+        <item name="first_contact">XRT team(SAO, NASA, JAXA, NAOJ)</item>
+        <item name="totality">©2006 Miloslav Druckmüller, Peter Aniol</item>
+        <item name="baileys_beads">©2013 Úpice observatory Petr Horálek, Jan Sládeček\n©2014
+            Miloslav Duckmüller
+        </item>
+        <item name="corona">©2002 Arne Danielsen\n©2005 Miloslav Druckmüller</item>
+    </array>
+
+    <array name="eclipse_img_credit_links">
+        <item name="diamond_ring">
+            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1991m/Ecl1991_rdd_dr/0-info.htm
+        </item>
+        <item name="helmet_streamers">
+            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1994ch/Mid_ecl/0-info.htm
+        </item>
+        <item name="prominence">
+            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1991a/Ecl1991a_in03/0-info.htm
+        </item>
+        <item name="sun_as_star">
+            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2006th/Tse2006tc_m200_inh30_32_c3/0-info.htm
+        </item>
+        <item name="first_contact">https://xrt.cfa.harvard.edu/xpow/20160315.html</item>
+        <item name="totality">
+            http://www.zam.fme.vutbr.cz/~druck/eclipse/ecl2006l/Tse2006l_1640_15/0-info.htm
+        </item>
+        <item name="baileys_beads">
+            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2013u/Tse_2013_bp-7430/0-info.htm
+        </item>
+        <item name="corona">
+            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2002a/Ecl2002_dd_cor/0-info.htm
+        </item>
+    </array>
 
     <array name="listOptions">
         <item name="item_rumble_map">How to use the Rumble Map</item>
         <item name="item_team">Our team</item>
         <item name="item_partners">Our partners</item>
-        <item name="item_future_eclipses">Future Eclipses</item>
-        <item name="item_instructions">WalkThrough</item>
+        <item name="item_future_eclipses">Eclipses We Support</item>
+        <item name="item_instructions">Walkthrough</item>
         <item name="item_settings">Settings</item>
         <item name="item_legal">Legal</item>
     </array>

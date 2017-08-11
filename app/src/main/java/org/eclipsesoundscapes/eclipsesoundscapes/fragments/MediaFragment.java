@@ -27,13 +27,13 @@ import org.eclipsesoundscapes.eclipsesoundscapes.adapters.MediaAdapter;
 
 public class MediaFragment extends Fragment {
 
-    private String[] events = {"First Contact", "Baily's Beads", "Diamond Ring", "Totality"};
-    private Integer[] descriptions = {R.string.first_contact_short, R.string.bailys_beads_short,
-                                R.string.diamond_ring_short, R.string.totality_short};
-    private Integer[] eventImgs = {R.drawable.eclipse_first_contact, R.drawable.eclipse_bailys_beads,
-                                R.drawable.eclipse_diamond_ring, R.drawable.eclipse_totality};
-    private Integer[] eventAudio = {R.raw.first_contact_short, R.raw.bailys_beads_short, R.raw.diamond_ring_short,
-                                R.raw.totality_short};
+    private String[] events = {"Baily's Beads", "Prominence", "Corona", "Helmet Streamers", "Diamond Ring"};
+    private Integer[] descriptions = {R.string.bailys_beads_description, R.string.prominence_description,
+                                R.string.corona_description, R.string.helmet_streamers_description, R.string.diamond_ring_description};
+    private Integer[] eventImgs = {R.drawable.eclipse_bailys_beads, R.drawable.eclipse_prominence,
+                                R.drawable.eclipse_corona, R.drawable.helmet_streamers, R.drawable.eclipse_diamond_ring};
+    private Integer[] eventAudio = {R.raw.bailys_beads_full, R.raw.prominence_full, R.raw.corona_full,
+                                R.raw.helmet_streamers_full, R.raw.diamond_ring_full};
 
     private Context mContext;
     private RecyclerView recyclerView;

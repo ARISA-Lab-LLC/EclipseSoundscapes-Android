@@ -22,6 +22,8 @@ import org.eclipsesoundscapes.eclipsesoundscapes.fragments.EclipseFeaturesFragme
 import org.eclipsesoundscapes.eclipsesoundscapes.fragments.MediaFragment;
 import org.eclipsesoundscapes.eclipsesoundscapes.util.BottomNavigationViewHelper;
 
+import java.util.HashMap;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     Fragment fragment;
     Class fragmentClass;
     BottomNavigationView navigation;
+
 
     // fragment support
     int currentCP; // current contact point
@@ -44,11 +47,12 @@ public class MainActivity extends AppCompatActivity {
             Class fragmentClass;
 
             switch (item.getItemId()) {
-                case R.id.navigation_eclipse_center:
-                    fragmentClass = EclipseCenterFragment.class;
-                    break;
                 case R.id.navigation_eclipse_features:
                     fragmentClass = EclipseFeaturesFragment.class;
+                    break;
+
+                case R.id.navigation_eclipse_center:
+                    fragmentClass = EclipseCenterFragment.class;
                     break;
 
                 case R.id.navigation_media:
@@ -85,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         currentCP = 1;
 
         // display rumble map by default
-        loadEclipseCenter();
+        loadEclipseFeatures();
     }
 
     public void replaceFragment (Fragment fragment){
@@ -103,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public void loadEclipseCenter(){
+    public void loadEclipseFeatures(){
         fragmentManager = getFragmentManager();
         fragmentManager.addOnBackStackChangedListener(
                 new FragmentManager.OnBackStackChangedListener() {
@@ -113,12 +117,12 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         try {
-            Fragment eclipseCenterFragment = EclipseCenterFragment.class.newInstance();
+            Fragment eclipseFeaturesFragment = EclipseFeaturesFragment.class.newInstance();
             FragmentTransaction ft = fragmentManager.beginTransaction();
-            ft.replace(R.id.navigation_content, eclipseCenterFragment, eclipseCenterFragment.getClass().getName());
-            ft.addToBackStack( eclipseCenterFragment.getClass().getName());
+            ft.replace(R.id.navigation_content, eclipseFeaturesFragment, eclipseFeaturesFragment.getClass().getName());
+            ft.addToBackStack( eclipseFeaturesFragment.getClass().getName());
             ft.commit();
-            navigation.setSelectedItemId(R.id.navigation_eclipse_center);
+            navigation.setSelectedItemId(R.id.navigation_eclipse_features);
         } catch (InstantiationException | IllegalAccessException e) {
             e.printStackTrace();
         }
@@ -188,8 +192,12 @@ public class MainActivity extends AppCompatActivity {
         } if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_DENIED) {
             String backStateName =  EclipseCenterFragment.class.getName();
             EclipseCenterFragment fragment = (EclipseCenterFragment) getFragmentManager().findFragmentByTag(backStateName);
-            if (fragment != null)
-                fragment.onPermissionDenied();
+            if (fragment != null) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+                    fragment.onPermissionDenied();
+                } else
+                    fragment.onPermissionNeverAsk();
+            }
         }
     }
 
@@ -214,5 +222,4 @@ public class MainActivity extends AppCompatActivity {
         else
             super.onBackPressed();
     }
-
 }

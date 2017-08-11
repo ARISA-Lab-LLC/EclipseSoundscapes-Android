@@ -11,6 +11,8 @@ import android.widget.TextView;
 import org.eclipsesoundscapes.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.eclipsesoundscapes.activity.MainActivity;
 
+import java.util.HashMap;
+
 /**
  * Created by horus on 7/27/17.
  */
@@ -19,6 +21,7 @@ public class DescriptionFragment extends Fragment {
 
     TextView eclipseDescription;
     Context context;
+    private HashMap<Integer, String> currentDescriptions;
 
     public DescriptionFragment() {
         // Required empty public constructor
@@ -26,13 +29,19 @@ public class DescriptionFragment extends Fragment {
 
     public static DescriptionFragment newInstance(String param1, String param2) {
         DescriptionFragment fragment = new DescriptionFragment();
-
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        currentDescriptions = new HashMap<>();
+        currentDescriptions.put(1, getString(R.string.bailys_beads_description));
+        currentDescriptions.put(2, getString(R.string.corona_description));
+        currentDescriptions.put(3, getString(R.string.diamond_ring_description));
+        currentDescriptions.put(4, getString(R.string.helmet_streamers_description));
+        currentDescriptions.put(5, getString(R.string.prominence_description));
     }
 
     @Override
@@ -48,23 +57,7 @@ public class DescriptionFragment extends Fragment {
     }
 
     public void updateView(int contactPoint){
-        switch (contactPoint){
-            case 1:
-                eclipseDescription.setText(getString(R.string.bailys_beads_description));
-                break;
-            case 2:
-                eclipseDescription.setText(getString(R.string.corona_description));
-                break;
-            case 3:
-                eclipseDescription.setText(getString(R.string.diamond_ring_description));
-                break;
-            case 4:
-                eclipseDescription.setText(getString(R.string.helmet_streamers_description));
-                break;
-            case 5:
-                eclipseDescription.setText(getString(R.string.prominence_description));
-                break;
-        }
+        eclipseDescription.setText(currentDescriptions.get(contactPoint));
     }
 
     @Override

@@ -62,8 +62,10 @@ public class WalkthroughActivity extends AppCompatActivity implements View.OnCli
 
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         skipCloseButton = (Button) findViewById(R.id.skip_close_button);
-        if (isMenuMode())
+        if (isMenuMode()) {
             skipCloseButton.setText(getString(R.string.closeButton));
+            skipCloseButton.setContentDescription(getString(R.string.closeButton));
+        }
         nextButton = (ImageButton) findViewById(R.id.next_button);
         prevButton = (ImageButton) findViewById(R.id.prev_button);
         nextButton.setColorFilter(ContextCompat.getColor(context, R.color.colorAccent));
