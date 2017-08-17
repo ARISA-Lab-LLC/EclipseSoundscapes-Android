@@ -43,7 +43,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="16sp"
         android:textColor="@android:color/white"
-        android:text="-" />
+        android:text="0" />
 
 
     <TextView
@@ -58,7 +58,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="16sp"
         android:textColor="@android:color/white"
-        android:text="-"/>
+        android:text="0"/>
 
 
     <TextView
@@ -89,7 +89,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="16sp"
         android:textColor="@android:color/white"
-        android:text="-" />
+        android:text="0" />
 
 
     <TextView
@@ -104,7 +104,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="16sp"
         android:textColor="@android:color/white"
-        android:text="-"/>
+        android:text="0"/>
 
 
 
@@ -136,7 +136,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="16sp"
         android:textColor="@android:color/white"
-        android:text="-" />
+        android:text="0" />
 
 
     <TextView
@@ -151,7 +151,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="16sp"
         android:textColor="@android:color/white"
-        android:text="-"/>
+        android:text="0"/>
 
     <TextView
         android:id="@+id/countdown_seconds"
@@ -180,7 +180,7 @@
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="16sp"
         android:textColor="@android:color/white"
-        android:text="-" />
+        android:text="0" />
 
 
     <TextView
@@ -195,5 +195,5 @@
         android:fontFamily="sans-serif-smallcaps"
         android:textSize="16sp"
         android:textColor="@android:color/white"
-        android:text="-"/>
+        android:text="0"/>
 </RelativeLayout>

@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="org.eclipsesoundscapes.eclipsesoundscapes.fragments.EclipseFeaturesFragment">
+    tools:context="org.eclipsesoundscapes.fragments.EclipseFeaturesFragment">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -68,7 +68,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <org.eclipsesoundscapes.eclipsesoundscapes.util.CustomViewPager
+    <org.eclipsesoundscapes.util.CustomViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
