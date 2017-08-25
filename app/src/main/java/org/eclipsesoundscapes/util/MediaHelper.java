@@ -1,7 +1,25 @@
 package org.eclipsesoundscapes.util;
 
+/*
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
+ * */
+
+
 /**
- * Created by horus on 8/8/17.
+ * @author Joel Goncalves
+ *
+ * Helper to handle media / audio player progress
  */
 
 public class MediaHelper {
@@ -38,8 +56,8 @@ public class MediaHelper {
 
     /**
      * Function to get Progress percentage
-     * @param currentDuration
-     * @param totalDuration
+     * @param currentDuration current time lapsed
+     * @param totalDuration total audio time
      * */
     public int getProgressPercentage(long currentDuration, long totalDuration){
         Double percentage = (double) 0;
@@ -56,8 +74,8 @@ public class MediaHelper {
 
     /**
      * Function to change progress to timer
-     * @param progress -
-     * @param totalDuration
+     * @param progress current time lapsed
+     * @param totalDuration total audio time
      * returns current duration in milliseconds
      * */
     public int progressToTimer(int progress, int totalDuration) {

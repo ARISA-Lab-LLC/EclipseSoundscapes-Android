@@ -19,12 +19,29 @@ import android.widget.TextView;
 
 import org.eclipsesoundscapes.activity.MainActivity;
 
+/*
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
+  * */
+
+
 /**
- * Dialog to handle location permission and display enabled/disabled states accordingly
+ * @author Joel Goncalves
+ *
+ * Handle location permission and show explanation
  */
 
 public class PermissionDialogFragment  extends DialogFragment {
-
 
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 47;
     Context mContext;
@@ -36,12 +53,10 @@ public class PermissionDialogFragment  extends DialogFragment {
         return new PermissionDialogFragment();
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(org.eclipsesoundscapes.R.layout.dialog_location_permission, container, false);
-
 
         ImageButton exit = (ImageButton) v.findViewById(org.eclipsesoundscapes.R.id.close_button);
         permissionText = (TextView) v.findViewById(org.eclipsesoundscapes.R.id.details) ;
@@ -80,7 +95,6 @@ public class PermissionDialogFragment  extends DialogFragment {
     }
 
     private void requestLocationPermission() {
-
         final String[] permissions = new String[]{Manifest.permission.ACCESS_FINE_LOCATION};
         if (!ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
                 Manifest.permission.ACCESS_FINE_LOCATION)) {
@@ -137,7 +151,6 @@ public class PermissionDialogFragment  extends DialogFragment {
     @Override
     public void onResume() {
         super.onResume();
-
         int rc = ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION);
         if (rc == PackageManager.PERMISSION_GRANTED) {
 

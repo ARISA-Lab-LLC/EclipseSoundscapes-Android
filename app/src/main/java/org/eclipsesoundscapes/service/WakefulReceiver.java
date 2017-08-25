@@ -1,9 +1,5 @@
 package org.eclipsesoundscapes.service;
 
-/**
- * Created by joel on 8/14/17.
- */
-
 import android.app.AlarmManager;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -24,10 +20,28 @@ import org.eclipsesoundscapes.util.Constants;
 import java.util.Calendar;
 import java.util.Date;
 
+/*
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
+  * */
+
+
 /**
+ * @author Joel Goncalves
  * When the alarm fires, this WakefulBroadcastReceiver receives the broadcast Intent
- * and then posts the notification.
+ * and then posts the notification for first and second contact.
  */
+
 public class WakefulReceiver extends WakefulBroadcastReceiver {
     // provides access to the system alarm services.
     private AlarmManager mAlarmManager;
@@ -78,8 +92,15 @@ public class WakefulReceiver extends WakefulBroadcastReceiver {
         WakefulReceiver.completeWakefulIntent(intent);
     }
 
+    /**
+     * Create a notification that will launch the media player
+     * @see MediaPlayerActivity
+     * @param context Activitys context
+     * @param title Notification title
+     * @param content Notification description
+     * @param mediaIntent intent to launch media player with required extras
+     */
     public void createNotification(Context context, String title, String content, Intent mediaIntent){
-
         long[] pattern = {0, 300, 0};
         PendingIntent pi = PendingIntent.getActivity(context, 0, mediaIntent,  PendingIntent.FLAG_UPDATE_CURRENT);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context)
@@ -98,7 +119,7 @@ public class WakefulReceiver extends WakefulBroadcastReceiver {
     }
 
     /**
-     * Sets the next alarm to run. When the alarm fires,
+     * Sets the first contact alarm to run. When the alarm fires,
      * the app broadcasts an Intent to this WakefulBroadcastReceiver.
      *
      * @param context the context of the app's Activity.
@@ -142,7 +163,7 @@ public class WakefulReceiver extends WakefulBroadcastReceiver {
     }
 
     /**
-     * Cancels the next alarm from running. Removes any intents set by this
+     * Cancels first contact alarm from running. Removes any intents set by this
      * WakefulBroadcastReceiver.
      *
      * @param context the context of the app's Activity
@@ -157,13 +178,18 @@ public class WakefulReceiver extends WakefulBroadcastReceiver {
         mAlarmManager.cancel(alarmIntentPrimary);
         mAlarmManager.cancel(alarmIntentSecondary);
 
-
         ComponentName receiver = new ComponentName(context, BootReceiver.class);
         PackageManager pm = context.getPackageManager();
         pm.setComponentEnabledSetting(receiver, PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
                 PackageManager.DONT_KILL_APP);
     }
 
+    /**
+     * Sets the second contact alarm to run. When the alarm fires,
+     * the app broadcasts an Intent to this WakefulBroadcastReceiver.
+     *
+     * @param context the context of the app's Activity.
+     */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void setTotalityAlarm(Context context, Calendar calendar) {
         mAlarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
@@ -205,7 +231,7 @@ public class WakefulReceiver extends WakefulBroadcastReceiver {
     }
 
     /**
-     * Cancels the next alarm from running. Removes any intents set by this
+     * Cancels the second contact alarm from running. Removes any intents set by this
      * WakefulBroadcastReceiver.
      *
      * @param context the context of the app's Activity

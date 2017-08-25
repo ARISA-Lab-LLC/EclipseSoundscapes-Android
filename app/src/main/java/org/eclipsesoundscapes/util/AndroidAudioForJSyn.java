@@ -16,14 +16,15 @@ package org.eclipsesoundscapes.util;
  * limitations under the License.
  */
 
-        import java.util.ArrayList;
-        import android.os.Process;
-        import android.media.AudioFormat;
-        import android.media.AudioManager;
-        import android.media.AudioTrack;
-        import com.jsyn.devices.AudioDeviceManager;
-        import com.jsyn.devices.AudioDeviceInputStream;
-        import com.jsyn.devices.AudioDeviceOutputStream;
+import java.util.ArrayList;
+import android.os.Process;
+import android.media.AudioFormat;
+import android.media.AudioManager;
+import android.media.AudioTrack;
+import com.jsyn.devices.AudioDeviceManager;
+import com.jsyn.devices.AudioDeviceInputStream;
+import com.jsyn.devices.AudioDeviceOutputStream;
+
 /**
  * Implement JSyn's AudioDeviceManager. Use Android AudioTrack to access the
  * audio hardware.
@@ -116,8 +117,10 @@ public class AndroidAudioForJSyn implements AudioDeviceManager {
             audioTrack.write(floatBuffer, 0, count, AudioTrack.WRITE_BLOCKING);
         }
         public void stop() {
-            audioTrack.stop();
-            audioTrack.release();
+            if (audioTrack != null) {
+                audioTrack.stop();
+                audioTrack.release();
+            }
         }
         public void close() {
         }

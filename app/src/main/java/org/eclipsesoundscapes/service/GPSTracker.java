@@ -12,26 +12,41 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.provider.Settings;
 
+/*
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
+ * */
+
+
 /**
- * Created by horus on 7/31/17.
+ * @author Joel Goncalves
+ *
+ * Service to fetch users location
  */
 
 public class GPSTracker extends Service implements LocationListener {
 
     private final Context context;
-
     boolean isGPSEnabled = false;
     boolean isNetworkEnabled = false;
     public boolean canGetLocation = false;
 
     Location location;
-
     double latitude;
     double longitude;
 
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10;
     private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 1;
-
     protected LocationManager locationManager;
 
     public GPSTracker(Context context) {
@@ -39,6 +54,9 @@ public class GPSTracker extends Service implements LocationListener {
         getLocation();
     }
 
+    /**
+     * Get location from either gps provider or network provider, which ever is available
+     */
     public Location getLocation() {
         try {
             locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
@@ -97,7 +115,6 @@ public class GPSTracker extends Service implements LocationListener {
         return location;
     }
 
-
     public void stopUsingGPS() {
         if(locationManager != null) {
             locationManager.removeUpdates(GPSTracker.this);
@@ -115,7 +132,6 @@ public class GPSTracker extends Service implements LocationListener {
         if(location != null) {
             longitude = location.getLongitude();
         }
-
         return longitude;
     }
 
@@ -156,8 +172,6 @@ public class GPSTracker extends Service implements LocationListener {
         }
     }
 
-
-
     @Override
     public void onLocationChanged(Location location) {
         latitude = location.getLatitude();
@@ -167,19 +181,16 @@ public class GPSTracker extends Service implements LocationListener {
     @Override
     public void onProviderDisabled(String arg0) {
         // TODO Auto-generated method stub
-
     }
 
     @Override
     public void onProviderEnabled(String arg0) {
         // TODO Auto-generated method stub
-
     }
 
     @Override
     public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
         // TODO Auto-generated method stub
-
     }
 
     @Override
@@ -187,5 +198,4 @@ public class GPSTracker extends Service implements LocationListener {
         // TODO Auto-generated method stub
         return null;
     }
-
 }

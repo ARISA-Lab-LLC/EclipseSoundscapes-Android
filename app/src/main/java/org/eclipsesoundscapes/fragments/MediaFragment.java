@@ -17,15 +17,36 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.activity.MainActivity;
 import org.eclipsesoundscapes.adapters.MediaAdapter;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.TimeZone;
+
+/*
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
+ * */
+
 
 /**
- * Created by horus on 7/27/17.
+ * @author Joel Goncalves
+ *
+ * Provides a list view of media/audio content of different eclipse view and launches
+ * {@link org.eclipsesoundscapes.activity.MediaPlayerActivity}
  */
 
 public class MediaFragment extends Fragment {
@@ -56,9 +77,9 @@ public class MediaFragment extends Fragment {
         descriptionList = new ArrayList<>();
         eventImgList = new ArrayList<>();
         eventAudioList = new ArrayList<>();
+        eclipseDate = getEclipseDate();
 
-        eclipseDate = ((MainActivity)mContext).getEclipseDate();
-
+        // add default media content
         addMedia(-1, "Baily's Beads", org.eclipsesoundscapes.R.string.bailys_beads_description, org.eclipsesoundscapes.R.drawable.eclipse_bailys_beads, org.eclipsesoundscapes.R.raw.bailys_beads_full);
         addMedia(-1, "Prominence", org.eclipsesoundscapes.R.string.prominence_description, org.eclipsesoundscapes.R.drawable.eclipse_prominence, org.eclipsesoundscapes.R.raw.prominence_full);
         addMedia(-1, "Corona", org.eclipsesoundscapes.R.string.corona_description, org.eclipsesoundscapes.R.drawable.eclipse_corona, org.eclipsesoundscapes.R.raw.corona_full);
@@ -69,7 +90,7 @@ public class MediaFragment extends Fragment {
             addMedia(0, "First Contact", org.eclipsesoundscapes.R.string.first_contact_description, org.eclipsesoundscapes.R.drawable.eclipse_first_contact, org.eclipsesoundscapes.R.raw.first_contact_short);
             addMedia(-1, "Totality", org.eclipsesoundscapes.R.string.totality_description, org.eclipsesoundscapes.R.drawable.eclipse_totality, org.eclipsesoundscapes.R.raw.totality_short);
             addMedia(-1, "Sun as a Star", org.eclipsesoundscapes.R.string.sun_as_star_description, org.eclipsesoundscapes.R.drawable.sun_as_a_star, org.eclipsesoundscapes.R.raw.sun_as_a_star);
-            addMedia(-1, "Eclipse Experience", org.eclipsesoundscapes.R.string.bailys_beads_description, org.eclipsesoundscapes.R.drawable.eclipse_bailys_beads, org.eclipsesoundscapes.R.raw.bailys_beads_full);
+            addMedia(-1, "Eclipse Experience", org.eclipsesoundscapes.R.string.bailys_beads_description, org.eclipsesoundscapes.R.drawable.eclipse_bailys_beads, R.raw.realtime_eclipse_shorts_saas);
         }
 
     }
@@ -88,8 +109,8 @@ public class MediaFragment extends Fragment {
         // views
         moreContentView = (TextView) root.findViewById(org.eclipsesoundscapes.R.id.more_content);
         recyclerView = (RecyclerView) root.findViewById(org.eclipsesoundscapes.R.id.media_recycler);
-        layoutManager = new LinearLayoutManager(mContext);
-        mediaAdapter = new MediaAdapter(mContext, eventList, descriptionList, eventImgList, eventAudioList);
+        layoutManager = new LinearLayoutManager(getActivity());
+        mediaAdapter = new MediaAdapter(getActivity(), eventList, descriptionList, eventImgList, eventAudioList);
         dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
                 layoutManager.getOrientation());
         recyclerView.setLayoutManager(layoutManager);
@@ -107,6 +128,7 @@ public class MediaFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        mContext = getActivity();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getActivity().getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
@@ -121,6 +143,7 @@ public class MediaFragment extends Fragment {
         Date firstContact = ((MainActivity)mContext).getFirstContact();
         Date secondContact = ((MainActivity)mContext).getSecondContact();
 
+        // add first contact media content during/after its occurrence
         if (!eventList.contains("First Contact") && firstContact != null){
             if (calendar.getTime().after(firstContact)){
                 addMedia(0, "First Contact", org.eclipsesoundscapes.R.string.first_contact_description, org.eclipsesoundscapes.R.drawable.eclipse_first_contact, org.eclipsesoundscapes.R.raw.first_contact_short);
@@ -128,12 +151,13 @@ public class MediaFragment extends Fragment {
             }
         }
 
+        // add totality media content during/after its occurrence
         if (!eventList.contains("Totality") && secondContact != null){
             if (calendar.getTime().after(secondContact)){
                 moreContentView.setVisibility(View.GONE);
                 addMedia(6, "Totality", org.eclipsesoundscapes.R.string.totality_description, org.eclipsesoundscapes.R.drawable.eclipse_totality, org.eclipsesoundscapes.R.raw.totality_short);
                 addMedia(7, "Sun as a Star", org.eclipsesoundscapes.R.string.sun_as_star_description, org.eclipsesoundscapes.R.drawable.sun_as_a_star, org.eclipsesoundscapes.R.raw.sun_as_a_star);
-                addMedia(8, "Eclipse Experience", org.eclipsesoundscapes.R.string.bailys_beads_description, org.eclipsesoundscapes.R.drawable.eclipse_bailys_beads, org.eclipsesoundscapes.R.raw.bailys_beads_full);
+                addMedia(8, "Eclipse Experience", org.eclipsesoundscapes.R.string.bailys_beads_description, org.eclipsesoundscapes.R.drawable.eclipse_bailys_beads, R.raw.realtime_eclipse_shorts_saas);
                 mediaAdapter.notifyItemInserted(6);
                 mediaAdapter.notifyItemInserted(7);
                 mediaAdapter.notifyItemInserted(8);
@@ -141,6 +165,14 @@ public class MediaFragment extends Fragment {
         }
     }
 
+    /**
+     * Add new media content for list view
+     * @param pos position to insert content
+     * @param title title for media content
+     * @param description description resource id
+     * @param img image resource id
+     * @param audio audio resource
+     */
     public void addMedia(int pos, String title, int description, int img, int audio){
         if (pos == -1){
             eventList.add(title);
@@ -153,6 +185,19 @@ public class MediaFragment extends Fragment {
             eventImgList.add(pos, img);
             eventAudioList.add(pos, audio);
         }
+    }
+
+    // get current eclipse date, set to Aug 21st
+    public Date getEclipseDate(){
+        Calendar eclipseDate = Calendar.getInstance();
+        eclipseDate.setTimeZone(TimeZone.getTimeZone("UTC"));
+        eclipseDate.set(Calendar.YEAR, 2017);
+        eclipseDate.set(Calendar.MONTH, Calendar.AUGUST);
+        eclipseDate.set(Calendar.DAY_OF_MONTH, 21);
+        eclipseDate.set(Calendar.HOUR_OF_DAY, 20);
+        eclipseDate.set(Calendar.MINUTE, 11);
+        eclipseDate.set(Calendar.SECOND, 14);
+        return eclipseDate.getTime();
     }
 
     @Override

@@ -2,7 +2,6 @@ package org.eclipsesoundscapes.fragments;
 
 import android.Manifest;
 import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.view.LayoutInflater;
@@ -15,8 +14,28 @@ import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.activity.MainActivity;
 import org.eclipsesoundscapes.activity.WalkthroughActivity;
 
+/*
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
+  * */
+
+
 /**
- * Created by joel on 8/3/17.
+ * @author Joel Goncalves
+ *
+ * Reycled in the walk-through viewpager to display layouts
+ * @see WalkthroughActivity
+ *
  */
 
 public class WalkthroughFragment extends Fragment implements View.OnClickListener {
@@ -25,7 +44,6 @@ public class WalkthroughFragment extends Fragment implements View.OnClickListene
     private static String LAYOUT_POS = "layout_pos";
     private static String LAYOUT_TOTAL = "layout_total";
 
-    private Context mContext;
 
     /* Each fragment has got an R reference to the image it will display
      * an R reference to the title it will display, and an R reference to the
@@ -33,7 +51,7 @@ public class WalkthroughFragment extends Fragment implements View.OnClickListene
      */
     private int layoutId;
     private int position;
-    private int total; // total pages for walkt hrough
+    private int total; // total pages for walkthrough
 
     public static WalkthroughFragment newInstance(int layoutId, int position, int total) {
         final WalkthroughFragment f = new WalkthroughFragment();
@@ -77,26 +95,14 @@ public class WalkthroughFragment extends Fragment implements View.OnClickListene
             askLaterButton.setOnClickListener(this);
             locationButton.setOnClickListener(this);
         }
-
         return rootView;
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-         mContext = context;
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.button_ask_later:
-                ((WalkthroughActivity)mContext).onCompleteWalkthrough();
+                ((WalkthroughActivity)getActivity()).onCompleteWalkthrough();
                 break;
             case R.id.button_location:
                 permissionLocation();
@@ -104,8 +110,8 @@ public class WalkthroughFragment extends Fragment implements View.OnClickListene
         }
     }
 
+    // ask user for location permission during walk through
     public void permissionLocation(){
-
         final String[] permissions = new String[]{Manifest.permission.ACCESS_FINE_LOCATION};
         if (!ActivityCompat.shouldShowRequestPermissionRationale(getActivity(),
                 Manifest.permission.ACCESS_FINE_LOCATION)) {

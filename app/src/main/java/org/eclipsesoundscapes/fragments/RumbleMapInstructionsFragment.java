@@ -1,9 +1,5 @@
 package org.eclipsesoundscapes.fragments;
 
-/**
- * Created by horus on 8/4/17.
- */
-
 import android.app.DialogFragment;
 import android.content.Context;
 import android.os.Bundle;
@@ -16,13 +12,32 @@ import android.widget.ImageButton;
 
 import android.widget.TextView;
 
+import org.eclipsesoundscapes.activity.WalkthroughActivity;
+
+/*
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
+  * */
+
+
 /**
- * Created by horus on 8/2/17.
+ * @author Joel Goncalves
+ *
+ * Display instructions on how to interact with the rumble map
+ * @see org.eclipsesoundscapes.activity.RumbleMapInteractionActivity
  */
 
 public class RumbleMapInstructionsFragment extends DialogFragment {
-
-
     Context mContext;
 
     static RumbleMapInstructionsFragment newInstance() {
@@ -44,14 +59,14 @@ public class RumbleMapInstructionsFragment extends DialogFragment {
 
         v.findViewById(org.eclipsesoundscapes.R.id.current_page).setVisibility(View.GONE);
         TextView title = (TextView) v.findViewById(org.eclipsesoundscapes.R.id.bottom_view_title);
-        title.setTextColor(ContextCompat.getColor(mContext, android.R.color.black));
+        title.setTextColor(ContextCompat.getColor(getActivity(), android.R.color.black));
         TextView body = (TextView) v.findViewById(org.eclipsesoundscapes.R.id.bottom_view_more);
-        body.setTextColor(ContextCompat.getColor(mContext, android.R.color.black));
+        body.setTextColor(ContextCompat.getColor(getActivity(), android.R.color.black));
         body.setText(getString(org.eclipsesoundscapes.R.string.rumble_map_instructions));
 
         ImageButton closeButton = (ImageButton) v.findViewById(org.eclipsesoundscapes.R.id.exit_button);
         closeButton.setVisibility(View.VISIBLE);
-        closeButton.setColorFilter(ContextCompat.getColor(mContext, android.R.color.black));
+        closeButton.setColorFilter(ContextCompat.getColor(getActivity(), android.R.color.black));
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,6 +84,7 @@ public class RumbleMapInstructionsFragment extends DialogFragment {
     @Override
     public void onStart() {
         super.onStart();
+        mContext = getActivity();
 
     }
 
@@ -77,5 +93,4 @@ public class RumbleMapInstructionsFragment extends DialogFragment {
         super.onAttach(context);
         mContext = context;
     }
-
 }

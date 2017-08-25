@@ -9,17 +9,33 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
 /*
- * reads data from assets folder - future_eclipses.json file to present a list of future
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
+  * */
+
+
+/**
+ * @author Joel Goncalves
+ *
+ * Reads json data in assets folder (future_eclipses.json) file to present a list of future
  * eclipses supported by this application
  */
 
@@ -32,6 +48,7 @@ public class FutureEclipsesActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Eclipses We Support");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        // get parse json data and create a FutureEclipse object for each entry
         ArrayList<FutureEclipse> futureEclipses = new ArrayList<>();
         JSONArray jsonArray = null;
         try {
@@ -45,6 +62,7 @@ public class FutureEclipsesActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        // present in list view
         RecyclerView recyclerView = (RecyclerView) findViewById(org.eclipsesoundscapes.R.id.future_recycler);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -61,6 +79,10 @@ public class FutureEclipsesActivity extends AppCompatActivity {
             return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Parses json into a String
+     * @return
+     */
     public String loadJSONFromAsset() {
         String json = null;
         try {
@@ -88,6 +110,10 @@ public class FutureEclipsesActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * Class represents a future eclipse object, includes date, time, type and
+     * what interactive features will be available through Eclipse Soundscapes application
+     */
     private class FutureEclipse {
 
         String date;
@@ -120,6 +146,9 @@ public class FutureEclipsesActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Simple adapter for future eclipse objects in a list view
+     */
     class FutureEclipseAdapter extends RecyclerView.Adapter<FutureEclipseAdapter.ViewHolder> {
 
         ArrayList<FutureEclipse> futureEclipses;

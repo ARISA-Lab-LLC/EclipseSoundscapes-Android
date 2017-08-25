@@ -1,6 +1,5 @@
 package org.eclipsesoundscapes.activity;
 
-
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
@@ -26,10 +25,29 @@ import android.view.MenuItem;
 
 import org.eclipsesoundscapes.fragments.PermissionDialogFragment;
 
+/*
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
+  * */
+
+
 /**
- *  SettingsActivity used to track user permissions for notifications and location
- *  Also used to display legal documents, copyrights, license and acknowledgements
- *  for the Eclipse Soundscapes Project.
+ * @author Joel Goncalves
+ *
+ * Track user permissions for notifications and location access
+ * Also display legal documents, copyrights, license and acknowledgements
+ * for the Eclipse Soundscapes Project.
+ * See {@link org.eclipsesoundscapes.activity.LegalActivity}
  */
 
 public class SettingsActivity extends AppCompatPreferenceActivity {
@@ -56,18 +74,19 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         setupActionBar();
 
         preference = PreferenceManager.getDefaultSharedPreferences(this);
-
         settingsMode = getIntent().getStringExtra("settings");
         mContext = this;
 
         if (settingsMode != null && !settingsMode.isEmpty()) {
             if (settingsMode.equals("settings")) {
+                // show notification and location view
                 setTitle(getString(org.eclipsesoundscapes.R.string.title_activity_settings));
                 getFragmentManager().beginTransaction().replace(android.R.id.content,
                         new SettingsPreferenceFragment())
                         .commit();
             }
             else {
+                // show legal preference fragment
                 setTitle(getString(org.eclipsesoundscapes.R.string.settings_legal));
                 getFragmentManager().beginTransaction().replace(android.R.id.content,
                         new LegalPreferenceFragment())
@@ -76,6 +95,16 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         }
     }
 
+    private void setupActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
+    }
+
+    /******************************************************************************
+     * Handle location access from user
+     *****************************************************************************/
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -101,6 +130,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
 
         DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
+                // go to device settings for app permissions
                 Intent intent = new Intent();
                 intent.setAction(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
                 Uri uri = Uri.fromParts("package", getPackageName(), null);
@@ -122,14 +152,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 .show();
     }
 
-    private void setupActionBar() {
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            // Show the Up button in the action bar.
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-    }
-
+    // handle activity result from device settings for location permission
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -148,8 +171,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         if (item.getItemId() == android.R.id.home) {
             finish();
             return true;
-        }
-        else
+        } else
             return super.onOptionsItemSelected(item);
     }
 
@@ -186,9 +208,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             locationPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object o) {
-                    boolean isEnabled = (Boolean) o;
                     if (!locationPref.isChecked()) {
-                        int rc = ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION);
+                        int rc = ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION);
                         if (rc != PackageManager.PERMISSION_GRANTED) {
                             showLocationDialog();
                             return false;
@@ -201,18 +222,22 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         }
 
         @Override
+        public void onStart() {
+            super.onStart();
+            mContext = getActivity();
+            sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        }
+
+        @Override
         public void onAttach(Context context) {
             super.onAttach(context);
             mContext = context;
-            sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         }
-
 
         @Override
         public void onResume() {
             super.onResume();
-
-            int rc = ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION);
+            int rc = ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION);
             if (rc != PackageManager.PERMISSION_GRANTED) {
               locationPref.setChecked(false);
             } else {
@@ -221,23 +246,20 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             }
         }
 
-        @Override
-        public void onPause() {
-            super.onPause();
-        }
-
+        /**
+         * Show explanation and request location permission
+         */
         public void showLocationDialog(){
             newFragment = PermissionDialogFragment.newInstance();
             newFragment.show(getFragmentManager(), "dialog");
         }
-
-
     }
 
-
+    /******************************************************************************
+     * Preference fragment to display legal documents
+     *****************************************************************************/
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static class LegalPreferenceFragment extends PreferenceFragment {
-
         Context mContext;
 
         @Override
@@ -253,7 +275,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             license.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                    Intent legalIntent = new Intent(mContext, LegalActivity.class);
+                    Intent legalIntent = new Intent(getActivity(), LegalActivity.class);
                     legalIntent.putExtra("legal", "license");
                     mContext.startActivity(legalIntent);
                     return true;
@@ -263,7 +285,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             libraries.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                    Intent legalIntent = new Intent(mContext, LegalActivity.class);
+                    Intent legalIntent = new Intent(getActivity(), LegalActivity.class);
                     legalIntent.putExtra("legal", "libraries");
                     mContext.startActivity(legalIntent);
                     return true;
@@ -273,7 +295,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             credits.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                    Intent legalIntent = new Intent(mContext, LegalActivity.class);
+                    Intent legalIntent = new Intent(getActivity(), LegalActivity.class);
                     legalIntent.putExtra("legal", "credits");
                     mContext.startActivity(legalIntent);
                     return true;
@@ -286,6 +308,12 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         public void onAttach(Context context) {
             super.onAttach(context);
             mContext = context;
+        }
+
+        @Override
+        public void onStart() {
+            super.onStart();
+            mContext = getActivity();
         }
 
         @Override

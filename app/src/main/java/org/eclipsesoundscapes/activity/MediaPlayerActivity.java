@@ -1,6 +1,5 @@
 package org.eclipsesoundscapes.activity;
 
-import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -15,17 +14,41 @@ import android.widget.TextView;
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.util.MediaHelper;
 
-public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, MediaPlayer.OnCompletionListener {
+/*
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
+  * */
+
+
+/**
+ * @author Joel Goncalves
+ *
+ * Audio player class for verbal and text description of an eclipse
+ * Also launched during first and second contact of eclipse from notifications for live audio
+ * See {@link org.eclipsesoundscapes.fragments.MediaFragment}
+ * See also {@link org.eclipsesoundscapes.service.WakefulReceiver}
+ */
+
+public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, MediaPlayer.OnCompletionListener, View.OnClickListener {
 
     // bundle
     private String title;
     private int descriptionId;
     private int imgId;
     private int audioId;
-    private boolean liveExperience; // live feed of the eclipse
-    private boolean firstContact;
+    private boolean liveExperience; // live audio feed during eclipse
 
-    private Context mContext;
+    // views
     private ImageView eclipseImg;
     private TextView eclipseTitle;
     private TextView eclipseDescription;
@@ -35,105 +58,72 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
     private TextView timeTotal;
     private SeekBar audioProgressBar;
     private MediaPlayer mp;
-    // Handler to update UI timer, progress bar etc,.
+
+    // Handler to update UI timer, progress bar etc..
     private Handler mHandler = new Handler();
     private MediaHelper utils;
-    boolean mDownTouch = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_media_player);
 
-
-        // get extras
+        // get intent extras
         title = getIntent().getStringExtra("title");
         descriptionId = getIntent().getIntExtra("description", 0);
         imgId = getIntent().getIntExtra("img", 0);
         audioId = getIntent().getIntExtra("audio", 0);
         liveExperience = getIntent().getBooleanExtra("live", false);
-        firstContact = getIntent().getBooleanExtra("firstContact", false);
 
         // views
         eclipseImg = (ImageView) findViewById(R.id.eclipse_img);
-        eclipseTitle = (TextView) findViewById(R.id.eclipse_title);
-        eclipseDescription = (TextView) findViewById(R.id.eclipse_description);
-
         eclipseImg.setImageResource(imgId);
+        eclipseTitle = (TextView) findViewById(R.id.eclipse_title);
         eclipseTitle.setText(title);
+        eclipseDescription = (TextView) findViewById(R.id.eclipse_description);
         eclipseDescription.setText(getString(descriptionId));
-
         backButton = (ImageButton) findViewById(R.id.back_button);
         playButton = (ImageButton) findViewById(R.id.play_button);
         audioProgressBar = (SeekBar) findViewById(R.id.audio_progress);
         timeLapsed = (TextView) findViewById(R.id.time_lapsed);
         timeTotal = (TextView) findViewById(R.id.time_total);
 
-
+        // setup live audio UI
+        if (isLive())
+            setupLiveAudio();
 
         // Media player
         mp = new MediaPlayer();
         utils = new MediaHelper();
-
-        // listeners
         mHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                // allow time for accessibility to read label
+                // allow time for accessibility to read label before playing audio
                 playAudio(audioId);
 
             }
         }, 800);
 
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-        playButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View arg0) {
-                // check for already playing
-                if(mp.isPlaying()){
-                    if(mp != null){
-                        mp.pause();
-                        // Changing button image to play button
-                        playButton.setImageResource(R.drawable.ic_play);
-                        playButton.setContentDescription(getString(R.string.playButton));
-                    }
-                }else{
-                    // Resume song
-                    if(mp != null){
-                        mp.start();
-                        // Changing button image to pause button
-                        playButton.setImageResource(R.drawable.ic_pause);
-                        playButton.setContentDescription(getString(R.string.pauseButton));
-
-                    }
-                }
-
-            }
-        });
-
-        if (isLive()){
-            audioProgressBar.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View view, MotionEvent motionEvent) {
-                    return true;
-                }
-            });
-
-            playButton.setVisibility(View.GONE);
-            eclipseTitle.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
-            eclipseDescription.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
-        }
-
+        // listeners
+        backButton.setOnClickListener(this);
+        playButton.setOnClickListener(this);
     }
 
+    // disable seek bar, play/pause control and accessibility during live audio of eclipse event
+    public void setupLiveAudio(){
+        audioProgressBar.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                return true;
+            }
+        });
 
+        playButton.setVisibility(View.GONE);
+        eclipseTitle.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+        eclipseDescription.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO);
+    }
 
+    // resume user control over media player
     public void liveOver(){
         audioProgressBar.setOnTouchListener(null);
         playButton.setVisibility(View.VISIBLE);
@@ -146,15 +136,17 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
         return liveExperience;
     }
 
+    /**
+     * Create media player and start audio from provided resource
+     * @param audioSrc Raw resource id for audio
+     */
     public void playAudio(int audioSrc){
-        // Play song
         try {
             mp = MediaPlayer.create(this, audioSrc);
             mp.start();
 
             audioProgressBar.setOnSeekBarChangeListener(this);
             mp.setOnCompletionListener(this); // Important
-
 
             // Changing Button Image to pause image
             playButton.setImageResource(R.drawable.ic_pause);
@@ -173,14 +165,14 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
 
     /**
      * Update timer on seekbar
-     * */
+     */
     public void updateProgressBar() {
         mHandler.postDelayed(mUpdateTimeTask, 100);
     }
 
     /**
      * Background Runnable thread
-     * */
+     */
     private Runnable mUpdateTimeTask = new Runnable() {
         public void run() {
             if (mp == null)
@@ -189,6 +181,7 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
             long totalDuration = mp.getDuration();
             long currentDuration = mp.getCurrentPosition();
 
+            // total time of audio
             timeTotal.setText(String.valueOf(utils.milliSecondsToTimer(totalDuration)));
             String total;
             String[] time = timeTotal.getText().toString().split(":");
@@ -203,8 +196,7 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
                 timeTotal.setContentDescription(total);
             }
 
-
-            // Displaying time completed playing
+            // update time lapsed
             timeLapsed.setText(String.valueOf(utils.milliSecondsToTimer(currentDuration)));
             String curr;
             String[] lapse = timeLapsed.getText().toString().split(":");
@@ -219,12 +211,12 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
                 timeLapsed.setContentDescription(curr.concat(" of ").concat(total));
             }
 
-
             // Updating progress bar
             int progress = (int)(utils.getProgressPercentage(currentDuration, totalDuration));
             audioProgressBar.setProgress(progress);
             audioProgressBar.setContentDescription(curr.concat(" of ".concat(total)));
 
+            // only update live event during second contact
             if (isLive() && !eclipseTitle.getText().toString().equals("First Contact"))
                 updateLiveContent();
 
@@ -242,39 +234,44 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
         mHandler.removeCallbacks(mUpdateTimeTask);
     }
 
-    // display img, title, description based on current media content
-    // first content is baily's beads
+    /**
+     * Updates UI based on current audio description of eclipse event
+     * Currently setup for the eclipse August 21st
+     */
     public void updateLiveContent(){
-        if (mp.getCurrentPosition() < 120000){ // bailys beads < 2:01
-            if (!eclipseTitle.getText().toString().equals("Baily's Beads")) { // only set once
-                eclipseTitle.setText(getString(R.string.bailys_beads_title));
-                eclipseDescription.setText(getString(R.string.bailys_beads_description));
-                eclipseImg.setImageResource(R.drawable.eclipse_bailys_beads);
-            }
+        if (mp.getCurrentPosition() < 120000){ // baily'ss beads < 2:01
+            if (!eclipseTitle.getText().toString().equals("Baily's Beads"))
+                updateDescription(R.string.bailys_beads_title, R.string.bailys_beads_description, R.drawable.eclipse_bailys_beads);
+
         } else if (mp.getCurrentPosition() >= 120000 && mp.getCurrentPosition() < 200000) { // totality >= 2:01 < 5:21
-            if (!eclipseTitle.getText().toString().equals("Totality")) {
-                eclipseTitle.setText(getString(R.string.totality_title));
-                eclipseDescription.setText(getString(R.string.totality_description));
-                eclipseImg.setImageResource(R.drawable.eclipse_totality);
-            }
+            if (!eclipseTitle.getText().toString().equals("Totality"))
+                updateDescription(R.string.totality_title, R.string.totality_description, R.drawable.eclipse_totality);
+
         } else if (mp.getCurrentPosition() >= 200500 && mp.getCurrentPosition() < 320000){ // diamond ring >= 3:21
-            if (!eclipseTitle.getText().toString().equals("Diamond Ring")) {
-                eclipseTitle.setText(getString(R.string.diamond_ring_title));
-                eclipseDescription.setText(getString(R.string.diamond_ring_description));
-                eclipseImg.setImageResource(R.drawable.eclipse_diamond_ring);
-            }
+            if (!eclipseTitle.getText().toString().equals("Diamond Ring"))
+                updateDescription(R.string.diamond_ring_title, R.string.diamond_ring_description, R.drawable.eclipse_diamond_ring);
+
         } else if (mp.getCurrentPosition() >= 320500){ // sun as a star 5:21
-            if (!eclipseTitle.getText().toString().equals("Sun as a Star")) {
-                eclipseTitle.setText(getString(R.string.sun_as_star_title));
-                eclipseDescription.setText(getString(R.string.sun_as_star_description));
-                eclipseImg.setImageResource(R.drawable.sun_as_a_star);
-            }
+            if (!eclipseTitle.getText().toString().equals("Sun as a Star"))
+                updateDescription(R.string.sun_as_star_title, R.string.sun_as_star_description, R.drawable.sun_as_a_star);
         }
     }
 
     /**
-     * When user stops moving the progress handler
-     * */
+     * Update title, description and image based on audio timing
+     * @param titleId String resource id for title
+     * @param descriptionId String resource id for description
+     * @param imgId Drawable resource id for image
+     */
+    public void updateDescription(int titleId, int descriptionId, int imgId){
+        eclipseTitle.setText(getString(titleId));
+        eclipseDescription.setText(getString(descriptionId));
+        eclipseImg.setImageResource(imgId);
+    }
+
+    /**
+     * Fast forward/rewind progress handler
+     */
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
         mHandler.removeCallbacks(mUpdateTimeTask);
@@ -287,6 +284,7 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
         // update timer progress again
         updateProgressBar();
     }
+
 
     @Override
     public void onCompletion(MediaPlayer mediaPlayer) {
@@ -308,6 +306,36 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
         }
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.back_button:
+                finish();
+                break;
+            case R.id.play_button:
+                updateMediaStatus();
+                break;
+        }
+    }
+
+    // player or pause audio
+    public void updateMediaStatus(){
+        // check for already playing
+        if (mp != null){
+            if(mp.isPlaying()){
+                mp.pause();
+                // Changing button image to play button
+                playButton.setImageResource(R.drawable.ic_play);
+                playButton.setContentDescription(getString(R.string.playButton));
+            } else {
+                // Resume song
+                mp.start();
+                // Changing button image to pause button
+                playButton.setImageResource(R.drawable.ic_pause);
+                playButton.setContentDescription(getString(R.string.pauseButton));
+            }
+        }
+    }
 
     @Override
     public void onDestroy() {

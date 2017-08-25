@@ -8,38 +8,34 @@ buildscript {
     }
 }
 apply plugin: 'com.android.application'
-//apply plugin: 'io.fabric'
+apply plugin: 'io.fabric'
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
 
-
-
-
 android {
-    /*
     signingConfigs {
+        /*
         signRelease {
-            keyAlias 'key'
-            keyPassword 'pass'
-            storeFile file('{path}/keystore.jks')
-            storePassword 'password'
+            keyAlias ''
+            keyPassword ''
+            storeFile file('')
+            storePassword ''
         }
+        */
     }
-    */
     compileSdkVersion 25
     buildToolsVersion "25.0.3"
     defaultConfig {
         applicationId "org.eclipsesoundscapes"
         minSdkVersion 21
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode 4
+        versionName "1.0.3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
-    /*
     buildTypes {
         release {
             minifyEnabled false
@@ -47,7 +43,6 @@ android {
             signingConfig signingConfigs.signRelease
         }
     }
-    */
 }
 
 dependencies {

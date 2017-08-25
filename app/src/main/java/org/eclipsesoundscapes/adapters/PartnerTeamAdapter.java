@@ -8,17 +8,38 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+/*
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
+  * */
+
+
 /**
- * Adapter used for both partner and team listings
+ * @author Joel Goncalves
+ *
+ * Adapter for linear recyclerview in OurTeamAcitivty and OurPartnersAcitivty
+ * @see org.eclipsesoundscapes.activity.OurPartnersActivity
+ * @see org.eclipsesoundscapes.activity.OurTeamActivity
+ *
  */
 
 public class PartnerTeamAdapter extends RecyclerView.Adapter<PartnerTeamAdapter.PartnerTeamViewHolder> {
 
-    String[] partnersTeams;
-    String[] descriptions;
-    String[] extra; // partner link or team member title
-    Integer[] images;
-    public boolean isTeam;
+    private String[] partnersTeams;
+    private String[] descriptions;
+    private String[] extra; // partner link or team member title
+    private Integer[] images;
+    private boolean isTeam;
 
     @Override
     public PartnerTeamViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

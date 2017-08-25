@@ -31,6 +31,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.activity.SettingsActivity;
 import org.eclipsesoundscapes.activity.MainActivity;
 import org.eclipsesoundscapes.service.GPSTracker;
@@ -51,15 +52,37 @@ import java.util.Locale;
 import java.util.TimeZone;
 import java.util.concurrent.TimeUnit;
 
+/*
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
+  * */
+
+
+/**
+ * @author Joel Goncalves
+ *
+ * Generates a countdown until eclipse and provides a list view of related information by
+ * location.
+ * @see EclipseTimeGenerator
+ */
+
 public class EclipseCenterFragment extends Fragment {
 
     public static int REQUEST_PERMISSION_SETTING = 48;
-
     Context mContext;
     EclipseTimeGenerator eclipseTimeGenerator;
     GPSTracker gpsTracker;
     SimpleDateFormat dateFormat;
-    SharedPreferences sharedPreferences;
     DialogFragment permissionDialogFragment;
     WakefulReceiver wakefulReceiver; // notifications
     SharedPreferences preference;
@@ -111,8 +134,6 @@ public class EclipseCenterFragment extends Fragment {
         dateFormat = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss.S");
         dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         wakefulReceiver = new WakefulReceiver();
-        preference = PreferenceManager.getDefaultSharedPreferences(mContext);
-
     }
 
     @Override
@@ -152,22 +173,17 @@ public class EclipseCenterFragment extends Fragment {
         return  root;
     }
 
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        mContext = context;
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-    }
-
     @Override
     public void onStart() {
         super.onStart();
+        mContext = getActivity();
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getActivity().getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(ContextCompat.getColor(mContext, org.eclipsesoundscapes.R.color.colorPrimaryDark));
+            window.setStatusBarColor(ContextCompat.getColor(getActivity(), R.color.colorPrimaryDark));
         }
+        preference = PreferenceManager.getDefaultSharedPreferences(getActivity());
     }
 
     @Override
@@ -176,8 +192,11 @@ public class EclipseCenterFragment extends Fragment {
         checkLocationPermission();
     }
 
+    /**
+     * Check if user has granted permission to access device's location. If not than ask for it
+     */
     public void checkLocationPermission(){
-        int rc = ActivityCompat.checkSelfPermission(mContext, Manifest.permission.ACCESS_FINE_LOCATION);
+        int rc = ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION);
         if (rc != PackageManager.PERMISSION_GRANTED) {
             eclipseCenterView.setVisibility(View.GONE);
             permissionView.setVisibility(View.VISIBLE);
@@ -188,7 +207,7 @@ public class EclipseCenterFragment extends Fragment {
                     permissionDialogFragment.show(getFragmentManager(), "dialog");
                 }
             });
-        } else if(!sharedPreferences.getBoolean("settings_location", false)) {
+        } else if(!preference.getBoolean("settings_location", false)) {
             permissionView.setVisibility(View.VISIBLE);
             eclipseCenterView.setVisibility(View.GONE);
             TextView msg = (TextView) permissionView.findViewById(org.eclipsesoundscapes.R.id.permission_msg);
@@ -207,7 +226,7 @@ public class EclipseCenterFragment extends Fragment {
             permissionView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent settingsIntent = new Intent(mContext, SettingsActivity.class);
+                    Intent settingsIntent = new Intent(getActivity(), SettingsActivity.class);
                     settingsIntent.putExtra("settings", "settings");
                     if (snackbar.isShown())
                         snackbar.dismiss();
@@ -225,9 +244,12 @@ public class EclipseCenterFragment extends Fragment {
         }
     }
 
-    // called by parent activity (MainActivity)
+    /**
+     * User has granted us permission, handled by parent activity
+     * @see MainActivity
+     */
     public void onPermissionResult(){
-        SharedPreferences.Editor editor = sharedPreferences.edit();
+        SharedPreferences.Editor editor = preference.edit();
         editor.putBoolean("settings_location", true);
         editor.apply();
 
@@ -245,6 +267,9 @@ public class EclipseCenterFragment extends Fragment {
         startLocationUpdates();
     }
 
+    /**
+     * User has denied us permission
+     */
     public void onPermissionDenied(){
         if (permissionDialogFragment != null && permissionDialogFragment.getDialog() != null
                 && permissionDialogFragment.getDialog().isShowing()) {
@@ -252,13 +277,16 @@ public class EclipseCenterFragment extends Fragment {
         }
     }
 
-    // user has denied permission to location and checked "Never show again"
+    /**
+     * User has denied us permission and checked "Never show again"
+     */
     public void onPermissionNeverAsk(){
         if (permissionDialogFragment != null && permissionDialogFragment.getDialog() != null
                 && permissionDialogFragment.getDialog().isShowing()) {
             permissionDialogFragment.dismiss();
         }
 
+        // direct user to device's app settings to enable it
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
         builder.setTitle("Important")
                 .setMessage("Permission denied. Please, go to settings and allow permission to access location")
@@ -291,6 +319,10 @@ public class EclipseCenterFragment extends Fragment {
         builder.show();
     }
 
+    /**
+     * Start service to fetch users location and generate countdown based on that
+     * @see GPSTracker
+     */
     public void startLocationUpdates(){
         gpsTracker = new GPSTracker(getActivity());
 
@@ -308,7 +340,6 @@ public class EclipseCenterFragment extends Fragment {
             location.setLongitude(longitude);
             closestLocation  = closestPointOnPath(location);
             eclipseTimeGenerator = new EclipseTimeGenerator(latitude, longitude);
-
 
             if (latitude > 0 )
                 latitudeView.setText(String.valueOf(latitudeFormat).concat(" " .concat((char) 0x00B0 + " North")));
@@ -331,19 +362,26 @@ public class EclipseCenterFragment extends Fragment {
                 eclipseTypeView.setText(getString(org.eclipsesoundscapes.R.string.eclipse_type_none));
 
             populateEvents();
-            EclipseTimeGenerator.EclipseEvent eclipseEvent = eclipseTimeGenerator.contact1();
-            dateView.setText(eclipseEvent.date);
 
-            // countdown until first contact
-            String date = eclipseEvent.date.concat(" ").concat(eclipseEvent.time);
-            setupNotifications();
-            startCountDown(date);
+            // only generate countdown and set notifications if eclipse type is at least partial
+            if (eclipseTimeGenerator.type != EclipseTimeGenerator.EclipseType.NONE) {
+                EclipseTimeGenerator.EclipseEvent eclipseEvent = eclipseTimeGenerator.contact1();
+                dateView.setText(eclipseEvent.date);
 
+                // countdown until first contact
+                String date = eclipseEvent.date.concat(" ").concat(eclipseEvent.time);
+                setupNotifications();
+                startCountDown(date);
+            }
         } else {
             gpsTracker.showSettingsAlert();
         }
     }
 
+    /**
+     * populate view with information about eclipse events based on users location
+     * such as eclipse type, date, time etc..
+     */
     public void populateEvents(){
         switch (eclipseTimeGenerator.type){
             case NONE:
@@ -366,10 +404,6 @@ public class EclipseCenterFragment extends Fragment {
                     simulateEclipse();
                     generateFullContact();
                 }
-                //TextView type = (TextView) contactOneStub.findViewById(R.id.eclipse_event);
-                //type.setText(getString(R.string.eclipse_type_none));
-                //contactOneStub.setContentDescription(getString(R.string.eclipse_none_description));
-                //contactOneStub.setVisibility(View.VISIBLE);
                 break;
             case PARTIAL:
                 generatePartialContact();
@@ -380,6 +414,10 @@ public class EclipseCenterFragment extends Fragment {
         }
     }
 
+    /**
+     * User is not in the path of eclipse, simulate count down and details from nearest point
+     * in the path of totality
+     */
     public void simulateEclipse(){
         Double lat = closestLocation.getLatitude();
         Double lng = closestLocation.getLongitude();
@@ -399,8 +437,6 @@ public class EclipseCenterFragment extends Fragment {
             longitudeView.setText(String.valueOf(longitudeFormat).concat(" ".concat((char) 0x00B0 + " West")));
 
         percentEclipseView.setText(eclipseTimeGenerator.getcoverage());
-
-
 
         // partial or full?
         if (eclipseTimeGenerator.type == EclipseTimeGenerator.EclipseType.FULL)
@@ -501,14 +537,23 @@ public class EclipseCenterFragment extends Fragment {
         contactFourStub.setVisibility(View.VISIBLE);
     }
 
+    /**
+     *
+     * @param event type of visible eclipse (none, partial or full)
+     * @param localTime local time of first contact
+     * @param uniTime universal time of first contact
+     */
     public String generateContentDescription(String event, String localTime, String uniTime){
         return getString(org.eclipsesoundscapes.R.string.event_prefix).concat(",").concat(event)
                 .concat(",").concat(getString(org.eclipsesoundscapes.R.string.local_time_prefix)).concat(",").concat(localTime)
                 .concat(",").concat(getString(org.eclipsesoundscapes.R.string.ut_time_prefix)).concat(",").concat(uniTime);
     }
 
+    /**
+     * Start a count down from provided date and time
+     * @param contactDate date generated until first contact from users location
+     */
     public void startCountDown(String contactDate){
-
         Date date = null;
         try {
             date = dateFormat.parse(contactDate);
@@ -587,6 +632,10 @@ public class EclipseCenterFragment extends Fragment {
         cdt.start();
     }
 
+    /**
+     * Convert universal time to local time, takes into account daylight sacings
+     * @param time date/time for conversion
+     */
     public String convertLocalTime(String time) {
         float ONE_HOUR_MILLIS = 60 * 60 * 1000;
 
@@ -619,6 +668,11 @@ public class EclipseCenterFragment extends Fragment {
             return  myDate;
     }
 
+    /**
+     * Set up notification for first and second contact
+     * @see WakefulReceiver
+     * @see org.eclipsesoundscapes.service.BootReceiver
+     */
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public void setupNotifications(){
 
@@ -633,6 +687,11 @@ public class EclipseCenterFragment extends Fragment {
             createNotification(eclipseTimeGenerator.contact1(), eclipseTimeGenerator.contact2());
     }
 
+    /**
+     * Create notification based on date of first and second contact relative to users location
+     * @param contactOne First contact event
+     * @param contactTwo Second contact event
+     */
     public void createNotification(EclipseTimeGenerator.EclipseEvent contactOne, EclipseTimeGenerator.EclipseEvent contactTwo){
 
         String dateTime = contactOne.date + " " + contactOne.time;
@@ -681,7 +740,9 @@ public class EclipseCenterFragment extends Fragment {
         progressView.setVisibility(View.GONE);
     }
 
-
+    /**
+     * Parse json into a String
+     */
     public String loadJSONFromAsset() {
         String json = null;
         try {
@@ -708,7 +769,10 @@ public class EclipseCenterFragment extends Fragment {
         return json;
     }
 
-
+    /**
+     * Create a map of points in the path of totality from String parsed Json including lat, lng
+     * Used to simulate eclipse event
+     */
     public HashMap<Double, Double> parseJson(){
         HashMap<Double, Double> locations = new HashMap<>();
         JSONArray jsonArray = null;
@@ -726,6 +790,10 @@ public class EclipseCenterFragment extends Fragment {
         return locations;
     }
 
+    /**
+     * Find the closest point in the path of totality from this location
+     * @param location location not in path of totality
+     */
     public Location closestPointOnPath(Location location){
         HashMap<Double, Double> locations = parseJson();
 
@@ -748,9 +816,6 @@ public class EclipseCenterFragment extends Fragment {
         return shortestLocation;
     }
 
-
-
-
     @Override
     public void onPause() {
         super.onPause();
@@ -763,7 +828,6 @@ public class EclipseCenterFragment extends Fragment {
         if (gpsTracker != null)
             gpsTracker.stopUsingGPS();
     }
-
 
     @Override
     public void onDetach() {

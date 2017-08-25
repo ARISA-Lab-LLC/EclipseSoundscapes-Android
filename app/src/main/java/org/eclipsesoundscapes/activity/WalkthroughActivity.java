@@ -20,18 +20,34 @@ import android.widget.ImageButton;
 import org.eclipsesoundscapes.fragments.WalkthroughFragment;
 import org.eclipsesoundscapes.util.Constants;
 
-
 /*
- * Displays the walk through by loading each layout corresponding to each feature
- * If activity is passed with extra intent mode_menu, then it will display walk through
- * without last layout (permission)
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
+  * */
+
+
+/**
+ * @author Joel Goncalves
+ *
+ * Create a walk through with view pager
+ * Displayed during applications first launch or launched from {@link org.eclipsesoundscapes.fragments.AboutFragment}
+ * @see WalkthroughFragment
  */
 
 public class WalkthroughActivity extends AppCompatActivity implements View.OnClickListener {
-
     private Context context;
     private SharedPreferences sharedPreferences;
-    private String mode;
+    private String mode; // either initial launch or from AboutFragment
 
     // views
     private ViewPager mViewPager;
@@ -39,13 +55,16 @@ public class WalkthroughActivity extends AppCompatActivity implements View.OnCli
     private ImageButton nextButton;
     private ImageButton prevButton;
 
+    // walk through fragment layouts for first time launch
     private static final int[] LAYOUT_RES_IDS = {
             org.eclipsesoundscapes.R.layout.layout_walkthrough_one, org.eclipsesoundscapes.R.layout.layout_walkthrough_two, org.eclipsesoundscapes.R.layout.layout_walkthrough_three,
             org.eclipsesoundscapes.R.layout.layout_walkthrough_four, org.eclipsesoundscapes.R.layout.layout_walkthrough_five};
 
+    // walk through fragment layouts launched from AboutFragment, omits permission
     private static final int[] LAYOUT_RES_MENU = {
             org.eclipsesoundscapes.R.layout.layout_walkthrough_one, org.eclipsesoundscapes.R.layout.layout_walkthrough_two, org.eclipsesoundscapes.R.layout.layout_walkthrough_three,
             org.eclipsesoundscapes.R.layout.layout_walkthrough_four};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,9 +72,9 @@ public class WalkthroughActivity extends AppCompatActivity implements View.OnCli
         setContentView(org.eclipsesoundscapes.R.layout.activity_walkthrough);
         context = this;
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-
         mode = getIntent().getStringExtra("mode");
 
+        // views
         mViewPager = (ViewPager) findViewById(org.eclipsesoundscapes.R.id.viewpager);
         skipCloseButton = (Button) findViewById(org.eclipsesoundscapes.R.id.skip_close_button);
         if (isMenuMode()) {
@@ -67,6 +86,7 @@ public class WalkthroughActivity extends AppCompatActivity implements View.OnCli
         nextButton.setColorFilter(ContextCompat.getColor(context, org.eclipsesoundscapes.R.color.colorAccent));
         prevButton.setColorFilter(ContextCompat.getColor(context, org.eclipsesoundscapes.R.color.colorAccent));
 
+        // listeners
         nextButton.setOnClickListener(this);
         prevButton.setOnClickListener(this);
         skipCloseButton.setOnClickListener(this);
@@ -92,20 +112,25 @@ public class WalkthroughActivity extends AppCompatActivity implements View.OnCli
                     }
                 }
             }
+            @Override
+            public void onPageSelected(int position) {}
 
             @Override
-            public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
+            public void onPageScrollStateChanged(int state) {}
         });
     }
 
+    // User has selected to view walk through from AboutFragment
+    public boolean isMenuMode(){
+        return mode != null && !mode.isEmpty();
+    }
 
+    /**
+     * Updates next and previous button visibility and color
+     * when walk through is accessed through AboutFragment
+     * @param position current position in view pager
+     * @param size number of pages in view pager
+     */
     public void updateNavigationButtons(int position, int size){
         if (position == size - 1) { // hide next button on last layout
             nextButton.setVisibility(View.INVISIBLE);
@@ -118,15 +143,6 @@ public class WalkthroughActivity extends AppCompatActivity implements View.OnCli
             if (!nextButton.isShown())
                 nextButton.setVisibility(View.VISIBLE);
         }
-    }
-
-    private void setupViewPager(ViewPager viewPager) {
-        WalkthroughPagerAdapter adapter = new WalkthroughPagerAdapter(getFragmentManager());
-        if (isMenuMode())
-            viewPager.setOffscreenPageLimit(LAYOUT_RES_MENU.length);
-        else
-            viewPager.setOffscreenPageLimit(LAYOUT_RES_IDS.length); // Helps to keep fragment alive, otherwise I will have to load again images
-        viewPager.setAdapter(adapter);
     }
 
     @Override
@@ -148,6 +164,7 @@ public class WalkthroughActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
+    // update preference, user has completed / skipped walk-through
     public void onCompleteWalkthrough(){
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(Constants.PREFERENCE_WALKTHROUGH, true);
@@ -156,6 +173,7 @@ public class WalkthroughActivity extends AppCompatActivity implements View.OnCli
         finish();
     }
 
+    // handle location permission during initial launch
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -175,13 +193,22 @@ public class WalkthroughActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-    public boolean isMenuMode(){
-        return mode != null && !mode.isEmpty();
+    /**
+     * Setup viewpager layout based on mode
+     * @param viewPager uses same fragment to display several different layout
+     */
+    private void setupViewPager(ViewPager viewPager) {
+        WalkthroughPagerAdapter adapter = new WalkthroughPagerAdapter(getFragmentManager());
+        if (isMenuMode())
+            viewPager.setOffscreenPageLimit(LAYOUT_RES_MENU.length);
+        else
+            viewPager.setOffscreenPageLimit(LAYOUT_RES_IDS.length); // Helps to keep fragment alive, otherwise I will have to load again images
+        viewPager.setAdapter(adapter);
     }
 
-    public class WalkthroughPagerAdapter extends FragmentStatePagerAdapter {
+    private class WalkthroughPagerAdapter extends FragmentStatePagerAdapter {
 
-        public WalkthroughPagerAdapter(FragmentManager fm) {
+        WalkthroughPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
@@ -191,7 +218,6 @@ public class WalkthroughActivity extends AppCompatActivity implements View.OnCli
                 return WalkthroughFragment.newInstance(LAYOUT_RES_MENU[position], position, LAYOUT_RES_MENU.length);
             else
                 return WalkthroughFragment.newInstance(LAYOUT_RES_IDS[position], position, LAYOUT_RES_IDS.length);
-
         }
 
         @Override
@@ -203,5 +229,3 @@ public class WalkthroughActivity extends AppCompatActivity implements View.OnCli
         }
     }
 }
-
-

@@ -19,7 +19,9 @@
             android:layout_height="match_parent"
             android:src="@drawable/soundscapes_audiorecordings"
             android:scaleType="centerCrop"
-            android:adjustViewBounds="true"/>
+            android:adjustViewBounds="true"
+            android:importantForAccessibility="no"/>
+
 
         <TextView
             android:id="@+id/current_page"

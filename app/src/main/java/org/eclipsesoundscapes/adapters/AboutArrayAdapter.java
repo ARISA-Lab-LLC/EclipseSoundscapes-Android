@@ -19,8 +19,28 @@ import org.eclipsesoundscapes.fragments.RumbleMapInstructionsFragment;
 import org.eclipsesoundscapes.util.Constants;
 import org.eclipsesoundscapes.activity.MainActivity;
 
+/*
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
+  * */
+
+
 /**
- * Created by horus on 7/19/17.
+ * @author Joel Goncalves
+ *
+ * Adapter for AboutFragment reyclerview, handles on click listener
+ * @see org.eclipsesoundscapes.fragments.AboutFragment
+ *
  */
 
 public class AboutArrayAdapter extends RecyclerView.Adapter<AboutArrayAdapter.CustomViewHolder> {
@@ -49,28 +69,35 @@ public class AboutArrayAdapter extends RecyclerView.Adapter<AboutArrayAdapter.Cu
             public void onClick(View view) {
                 switch (position){
                     case 0:
+                        // Rumble map instruction
                         showRumbleInstructions();
                         break;
                     case 1:
+                        // Our team
                         mContext.startActivity(new Intent(mContext, OurTeamActivity.class));
                         break;
                     case 2:
+                        // Our partners
                         mContext.startActivity(new Intent(mContext, OurPartnersActivity.class));
                         break;
                     case 3:
+                        // Future eclipses supported
                         mContext.startActivity(new Intent(mContext, FutureEclipsesActivity.class));
                         break;
                     case 4:
+                        // launch walkthrough again as menu mode
                         Intent walkthroughIntent = new Intent(mContext, WalkthroughActivity.class);
                         walkthroughIntent.putExtra("mode", Constants.WALKTHROUGH_MODE_MENU);
                         mContext.startActivity(walkthroughIntent);
                         break;
                     case 5:
+                        // settings
                         Intent settingsIntent = new Intent(mContext, SettingsActivity.class);
                         settingsIntent.putExtra("settings", "settings");
                         mContext.startActivity(settingsIntent);
                         break;
                     case 6:
+                        // Legal details
                         Intent legalIntent = new Intent(mContext, SettingsActivity.class);
                         legalIntent.putExtra("settings", "legal");
                         mContext.startActivity(legalIntent);
@@ -80,7 +107,7 @@ public class AboutArrayAdapter extends RecyclerView.Adapter<AboutArrayAdapter.Cu
         });
     }
 
-    public void showRumbleInstructions(){
+    private void showRumbleInstructions(){
         // Create the fragment and show it as a dialog.
         DialogFragment newFragment = new RumbleMapInstructionsFragment();
         newFragment.show(((MainActivity)mContext).getFragmentManager(), "dialog");
@@ -103,7 +130,6 @@ public class AboutArrayAdapter extends RecyclerView.Adapter<AboutArrayAdapter.Cu
 
         }
     }
-
 
     public AboutArrayAdapter(Context context, String[] options, Integer[] optionImgs) {
         this.mContext = context;

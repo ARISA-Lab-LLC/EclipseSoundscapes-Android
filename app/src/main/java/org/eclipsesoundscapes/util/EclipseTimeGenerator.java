@@ -2,26 +2,39 @@ package org.eclipsesoundscapes.util;
 
 import java.util.Locale;
 
+/*
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see [http://www.gnu.org/licenses/].
+ * */
+
+
 /**
- * Created by horus on 7/30/17.
+ * @author Joel Goncalves
+ *
+ * Generate eclipse events based on latitude, longitude
  */
-
-
 
 public class EclipseTimeGenerator {
 
     public EclipseType type = EclipseType.FULL;
-
     private Double longitude;
     private Double latitude;
-
 
     private boolean isEclipse = true;
     private boolean isPartial = false;
 
     private double R2D = 180.0 / Math.PI;
     private double D2R = Math.PI / 180;
-
 
     private Double[] obsvconst = new Double[10];
     private Double[] elements = {2457987.268521, 18.0, -4.0, 4.0, 68.4, -0.12957627, 0.54064089,
@@ -30,13 +43,11 @@ public class EclipseTimeGenerator {
             15.00393677, 0.00000149, 0.54211175, 0.00012407, -0.00001177,
             -0.00402530, 0.00012346, -0.00001172, 0.00462223, 0.00459921};
 
-
     private Double[] c1 = new Double[40];
     private Double[] c2 = new Double[40];
     private Double[] mid = new Double[40];
     private Double[] c3 = new Double[40];
     private Double[] c4 = new Double[40];
-
 
     public EclipseTimeGenerator(Double latitude, Double longitude) {
         this.longitude = longitude;
@@ -48,7 +59,6 @@ public class EclipseTimeGenerator {
     public String latString() {
         return String.format(Locale.getDefault(), "%.3f\u00B0%s", Math.abs(latitude), latitude > 0 ? "North" : "South");
     }
-
 
     public String lonString() {
         return String.format(Locale.getDefault(), "%.3f\u00B0%s", Math.abs(longitude), longitude > 0 ? "East" : "West");
@@ -62,14 +72,12 @@ public class EclipseTimeGenerator {
             return String.valueOf(Math.round(mid[34] * 1000) / 1000);
     }
 
-
     public String duration() {
         if (type == EclipseType.FULL)
             return getduration();
         else
             return null;
     }
-
 
     public String coverage() {
         if (type == EclipseType.FULL)
@@ -725,7 +733,6 @@ public class EclipseTimeGenerator {
             this.azi = azi;
         }
     }
-
 
     public enum EclipseType {
         PARTIAL, FULL, NONE
