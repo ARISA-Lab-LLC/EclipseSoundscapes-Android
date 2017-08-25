@@ -4,7 +4,7 @@
     android:id="@+id/coordinator_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.eclipsesoundscapes.eclipsesoundscapes.fragments.EclipseCenterFragment"
+    tools:context="org.eclipsesoundscapes.fragments.EclipseCenterFragment"
     android:background="@drawable/custom_background">
 
     <LinearLayout
@@ -21,6 +21,11 @@
             layout="@layout/layout_location_search"
             android:visibility="gone"/>
 
+        <include
+            android:id="@+id/outside_view"
+            layout="@layout/layout_outside_view"
+            android:visibility="gone"/>
+
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -31,6 +36,16 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center">
+
+
+                <ImageView
+                    android:id="@+id/banner"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:src="@drawable/eclipse_banner_2"
+                    android:scaleType="centerCrop"
+                    android:adjustViewBounds="true"/>
+
 
                 <include
                     android:id="@+id/eclipse_countdown"
@@ -205,6 +220,41 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/duration_totality_layout"
+                    android:focusable="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="2"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:id="@+id/duration_totality_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:text="@string/percent_eclipse"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:layout_weight="1"/>
+
+                    <TextView
+                        android:id="@+id/duration_totality"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="sans-serif-condensed"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:layout_weight="1"
+                        android:gravity="end"/>
+                </LinearLayout>
+
+                <LinearLayout
                     android:id="@+id/eclipse_event_layout"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
@@ -212,6 +262,7 @@
                     android:background="@color/colorAccent"
                     android:gravity="center"
                     android:orientation="horizontal"
+                    android:contentDescription="@string/event_layout_description"
                     android:weightSum="3">
 
                     <TextView
@@ -252,7 +303,8 @@
                     android:layout_below="@+id/eclipse_event_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:layout_marginBottom="32dp">
 
                    <include
                        android:id="@+id/stub_contact_one"

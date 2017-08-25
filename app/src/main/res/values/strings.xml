@@ -28,10 +28,12 @@
     <string name="min">Minutes</string>
     <string name="sec">Seconds</string>
     <string name="countdown_title">Countdown Until Eclipse</string>
-    <string name="countdown_prefix">Countdown until eclipse from my location</string>
-    <string name="event_prefix">Event from my location</string>
+    <string name="countdown_prefix">Countdown until eclipse from your location</string>
+    <string name="event_prefix">Event from your location</string>
     <string name="local_time_prefix">local time</string>
     <string name="ut_time_prefix">universal time</string>
+    <string name="event_layout_description">Events at your location are below. Events include your local time and universal time.</string>
+    <string name="totality_duration">Duration of Totality: </string>
 
     <string name="eclipse_center_permission">You don\'t want to miss this amazing astronomical event! We\'ll need your location to continue. Press to continue.</string>
     <string name="settings_permission_off">Location settings is turned off. Go to More > Settings > Enable Location or tap to go.</string>
@@ -40,8 +42,11 @@
     <string name="location_search">Finding your location…</string>
     <string name="location_search_stop">Tap to stop</string>
 
-    <string name="my_latitude">My latitude:</string>
-    <string name="my_longitude">My longitude:</string>
+    <string name="outside_path_of_eclipse">Unfortunately the Eclipse is not visible from your location</string>
+    <string name="get_closest_location">Get closest location from me</string>
+
+    <string name="my_latitude">Your latitude:</string>
+    <string name="my_longitude">Your longitude:</string>
     <string name="percent_eclipse">% Eclipse:</string>
     <string name="eclipse_date">Date:</string>
     <string name="eclipse_type">Eclipse type:</string>
@@ -78,22 +83,28 @@
     <string name="totality_short">This is the full eclipse - for just approximately two minutes, the moon\'s black disk completely covers the sun, revealing the sun\'s massive outer corona. Grand flourishes of light extend from the moon in all directions like flower petals. Intensely bright at the moon\'s edge, these helmet streamers fade to wisps of ghostly white as they stretch across space.</string>
 
     <string name="first_contact_title">First Contact</string>
-    <string name="bailys_beads_title">Bailey\'s Beads</string>
+    <string name="bailys_beads_title">Baily\'s Beads</string>
+    <string name="bailys_beads_closeup_title">Baily\'s Beads Closeup</string>
     <string name="corona_title">Corona</string>
     <string name="diamond_ring_title">Diamond Ring</string>
     <string name="helmet_streamers_title">Helmet Streamers</string>
+    <string name="helmet_streamers_closeup_title">Helmet Streamers Closeup</string>
     <string name="prominence_title">Prominence</string>
+    <string name="prominence_closeup_title">Prominence Closeup</string>
+    <string name="totality_title">Totality</string>
+    <string name="sun_as_star_title">Sun as a Star</string>
 
 
     <string name="rumble_map_launch">Press to interact with Rumble Map</string>
 
     <!-- content descriptions -->
-    <string name="nextImgButton">Show next eclipse image</string>
-    <string name="prevImgButton">show previous eclipse image</string>
+    <string name="nextImgButton">Show next image</string>
+    <string name="prevImgButton">show previous image</string>
 
     <!-- rumble map interaction -->
     <string name="instructions_button">Instructions</string>
-    <string name="rumble_map_instructions">To use the Rumble Map, touch your screen with only one finger. The map will produce audio tones and vibrations depending on how much light is underneath that particular spot. For best results, drag your finger across the touchscreen slowly. As you move your finger onto the bright sections of the Sun, your phone will vibrate more and produce a sharper, more pronounced audio tone. As you move your finger into the dark spaces blocked by the Moon’s disk, the vibration will diminish as the audio tone darkens and disappears. At times, you may hear a metronome-like ticking sound: that means you have entered an area of total darkness, either on the face of the Moon, or in the dark space outside the sphere of the Sun. By paying close attention to the audio tones and the strength of your phone’s vibration, you can learn how much sunlight is visible at each stage of the eclipse, and even explore some of the fascinating features of the Sun’s corona such as Bailey’s Beads, Helmet Streamers, Prominences, and the Diamond Ring effect. If a specific section of an image interests you and you want to return to it later, hold down your finger in one place until you hear a “blip” noise. You’ve created a marker! Next time your finger passes over this point, you will hear the “blip” again so you can continue to explore that area.
+    <string name="eclipse_image">Eclipse image</string>
+    <string name="rumble_map_instructions">To use the Rumble Map, touch your screen with only one finger. The map will produce audio tones and vibrations depending on how much light is underneath that particular spot. For best results, drag your finger across the touchscreen slowly. As you move your finger onto the bright sections of the Sun, your phone will vibrate more and produce a sharper, more pronounced audio tone. As you move your finger into the dark spaces blocked by the Moon’s disk, the vibration will diminish as the audio tone darkens and disappears. At times, you may hear a metronome-like ticking sound: that means you have entered an area of total darkness, either on the face of the Moon, or in the dark space outside the sphere of the Sun. By paying close attention to the audio tones and the strength of your phone’s vibration, you can learn how much sunlight is visible at each stage of the eclipse, and even explore some of the fascinating features of the Sun’s corona such as Baily’s Beads, Helmet Streamers, Prominences, and the Diamond Ring effect. If a specific section of an image interests you and you want to return to it later, hold down your finger in one place until you hear a “blip” noise. You’ve created a marker! Next time your finger passes over this point, you will hear the “blip” again so you can continue to explore that area.
 </string>
     <string name="rumble_map_inactive">Rumble map inactive</string>
     <string name="rumble_map_running">Rumble map running, double tap to turn off</string>
@@ -121,6 +132,8 @@
     <!-- Dialog -->
     <string name="closeDialogButton">Close Dialog</string>
     <string name="closeButton">Close</string>
+    <string name="playButton">Play</string>
+    <string name="pauseButton">Pause</string>
     <string name="cancelButton">CancelButton</string>
     <string name="permission_dialog_header">Hello Soundscapers!</string>
     <string name="permission_dialog_body">Don\'t miss the Eclipse. We need your permission to notify you about Eclipse Events.</string>
@@ -140,7 +153,7 @@
         <item name="sun_as_star">Sun as a Star</item>
         <item name="first_contact">1st Contact</item>
         <item name="totality">Totality</item>
-        <item name="baileys_beads">Bailey\'s Beads</item>
+        <item name="bailys_beads">Baily\'s Beads</item>
         <item name="corona">Corona</item>
     </array>
 
@@ -157,7 +170,7 @@
         </item>
         <item name="first_contact">XRT team(SAO, NASA, JAXA, NAOJ)</item>
         <item name="totality">©2006 Miloslav Druckmüller, Peter Aniol</item>
-        <item name="baileys_beads">©2013 Úpice observatory Petr Horálek, Jan Sládeček\n©2014
+        <item name="bailys_beads">©2013 Úpice observatory Petr Horálek, Jan Sládeček\n©2014
             Miloslav Duckmüller
         </item>
         <item name="corona">©2002 Arne Danielsen\n©2005 Miloslav Druckmüller</item>
@@ -180,7 +193,7 @@
         <item name="totality">
             http://www.zam.fme.vutbr.cz/~druck/eclipse/ecl2006l/Tse2006l_1640_15/0-info.htm
         </item>
-        <item name="baileys_beads">
+        <item name="bailys_beads">
             http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2013u/Tse_2013_bp-7430/0-info.htm
         </item>
         <item name="corona">

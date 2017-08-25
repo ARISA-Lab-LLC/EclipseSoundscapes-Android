@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.eclipsesoundscapes.eclipsesoundscapes">
+    package="org.eclipsesoundscapes">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <uses-feature android:name="android.hardware.location.gps" />
 
@@ -17,7 +20,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.SplashActivity"
+            android:name="org.eclipsesoundscapes.activity.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,33 +29,58 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.MainActivity"
+            android:name="org.eclipsesoundscapes.activity.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.OurPartnersActivity"
+            android:name="org.eclipsesoundscapes.activity.OurPartnersActivity"
             android:label="Our Partners"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.OurTeamActivity"
+            android:name="org.eclipsesoundscapes.activity.OurTeamActivity"
             android:label="Our Team"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.SettingsActivity"
+            android:name="org.eclipsesoundscapes.activity.SettingsActivity"
             android:label="@string/title_activity_settings"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.LegalActivity"
+            android:name="org.eclipsesoundscapes.activity.LegalActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.WalkthroughActivity"
-            android:screenOrientation="portrait"
+            android:name="org.eclipsesoundscapes.activity.WalkthroughActivity"
             android:label="@string/walkthrough_label"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activity.FutureEclipsesActivity"
+        <activity
+            android:name="org.eclipsesoundscapes.activity.FutureEclipsesActivity"
             android:label="@string/future_eclipse_label"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="org.eclipsesoundscapes.activity.MediaPlayerActivity"
+            android:label="Media Player"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <receiver android:name="org.eclipsesoundscapes.service.WakefulReceiver" />
+        <receiver
+            android:name="org.eclipsesoundscapes.service.BootReceiver"
+            android:enabled="false"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <activity android:name="org.eclipsesoundscapes.activity.RumbleMapInteractionActivity"
+            android:label="Rumble Map Interaction"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="f21a623561206f3afe3d5346b43183b640dddd71" />
     </application>
 
 </manifest>

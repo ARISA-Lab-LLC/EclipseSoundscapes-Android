@@ -1,85 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.eclipsesoundscapes.eclipsesoundscapes.activity.WalkthroughActivity"
-    android:background="@android:color/white">
+    tools:context="org.eclipsesoundscapes.activity.WalkthroughActivity"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:focusable="true"
+    android:weightSum="2">
 
 
-    <ImageView
-        android:id="@+id/walkthrough_img"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/soundscapes_rumble_map"
-        android:scaleType="centerCrop"
-        android:adjustViewBounds="true"
-        android:layout_above="@+id/bottom_view"
-        android:importantForAccessibility="no"/>
+        android:layout_weight="1">
 
-    <TextView
-        android:id="@+id/current_page"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="@android:color/black"
-        android:textSize="12sp"
-        android:text="Page 2 of 5"
-        android:layout_alignEnd="@+id/walkthrough_img"
-        android:layout_alignBottom="@+id/walkthrough_img"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"/>
-
-
-    <LinearLayout
-        android:id="@+id/bottom_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:orientation="vertical"
-        android:focusable="true">
+        <ImageView
+            android:id="@+id/walkthrough_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/soundscapes_rumble_map"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:importantForAccessibility="no"/>
 
         <TextView
-            android:id="@+id/bottom_view_title"
+            android:id="@+id/current_page"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-condensed"
+            android:textColor="@android:color/black"
+            android:textSize="12sp"
+            android:text="Page 2 of 5"
+            android:layout_alignEnd="@+id/walkthrough_img"
+            android:layout_alignBottom="@+id/walkthrough_img"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"/>
+
+        <ImageButton
+            android:id="@+id/exit_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:srcCompat="@drawable/ic_chevron_left_white"
+            android:scaleType="fitCenter"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/closeButton"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
             android:layout_marginTop="8dp"
-            android:layout_gravity="center_horizontal"
-            android:fontFamily="sans-serif-condensed"
-            android:text="@string/title_rumble_map"
-            android:textStyle="bold"
-            android:textSize="16sp"
-            android:focusable="false"/>
+            android:layout_marginStart="4dp"
+            android:visibility="gone"/>
 
-        <TextView
-            android:id="@+id/bottom_view_more"
-            android:layout_width="wrap_content"
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/bottom_view"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:gravity="center"
-            android:fontFamily="sans-serif-condensed"
-            android:text="@string/walkthrough_rumble_map_text"
-            android:textSize="15sp"
-            android:focusable="false"/>
-    </LinearLayout>
+            android:orientation="vertical"
+            android:focusable="true">
 
+            <TextView
+                android:id="@+id/bottom_view_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/title_rumble_map"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:focusable="false"/>
 
-    <ImageButton
-        android:id="@+id/exit_button"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        app:srcCompat="@drawable/ic_chevron_left_white"
-        android:scaleType="fitCenter"
-        android:background="@android:color/transparent"
-        android:contentDescription="@string/closeButton"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="4dp"
-        android:visibility="gone"/>
+            <TextView
+                android:id="@+id/bottom_view_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center"
+                android:fontFamily="sans-serif-condensed"
+                android:text="@string/walkthrough_rumble_map_text"
+                android:textSize="15sp"
+                android:focusable="false"/>
+        </LinearLayout>
 
-</RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

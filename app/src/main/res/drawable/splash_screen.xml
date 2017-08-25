@@ -7,7 +7,7 @@
     <item>
         <bitmap
             android:gravity="center"
-            android:src="@mipmap/soundscape_logo"/>
+            android:src="@drawable/eclipse_soundscapes_logo"/>
     </item>
 
 </layer-list>
