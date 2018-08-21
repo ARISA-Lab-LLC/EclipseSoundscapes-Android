@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    card_view:cardElevation="5dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    card_view:cardElevation="4dp"
     card_view:cardUseCompatPadding="true">
 
     <RelativeLayout
@@ -14,23 +14,21 @@
 
         <ImageView
             android:id="@+id/partner_logo"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_margin="16dp"
-            android:scaleType="centerInside"
-            android:src="@drawable/nasa" />
+            tools:srcCompat="@drawable/nasa" />
 
         <TextView
             android:id="@+id/partner_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/partner_logo"
-            android:layout_toRightOf="@+id/partner_logo"
             android:layout_marginTop="32dp"
-            android:fontFamily="sans-serif-condensed"
+            android:layout_toEndOf="@+id/partner_logo"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/text_color_primary"
             android:textSize="18sp"
-            android:textStyle="bold" />
-
+            tools:text="NASA"/>
 
         <TextView
             android:id="@+id/extra_detail"
@@ -38,17 +36,19 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/partner_name"
             android:layout_toEndOf="@+id/partner_logo"
-            android:layout_toRightOf="@+id/partner_logo"
-            android:layout_marginTop="8dp"
-            android:fontFamily="sans-serif-light"
-            android:textSize="14sp" />
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/text_color_secondary"
+            android:textSize="16sp"/>
 
         <View
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="@dimen/ma_divider_thickness_light"
             android:layout_below="@id/partner_logo"
-            android:background="@color/divider_color"/>
+            android:background="@color/divider_color"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"/>
 
 
         <TextView
@@ -57,8 +57,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:layout_below="@+id/divider"
-            android:fontFamily="sans-serif-medium"
-            android:textSize="16sp" />
+            android:fontFamily="sans-serif"
+            android:textSize="16sp"
+            android:textColor="@color/text_color_primary"/>
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

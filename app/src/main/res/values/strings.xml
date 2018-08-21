@@ -5,10 +5,17 @@
     <string name="title_media">Media</string>
     <string name="title_about">About</string>
 
+    <!-- Notifications -->
+    <string name="first_contact_reminder">The Solar Eclipse is going to begin soon.</string>
+    <string name="first_contact_begun">The Solar Eclipse has begun!</string>
+    <string name="totality_reminder">The Total Solar Eclipse is going to begin soon.</string>
+    <string name="totality_begun">The Total Solar Eclipse has begun!</string>
+    <string name="tap_listen">Tap to listen now.</string>
+
     <!-- Settings -->
     <string name="title_activity_settings">Settings</string>
-    <string name="pref_title_notifications">Notifications</string>
-    <string name="pref_title_location">Location</string>
+    <string name="pref_title_notifications">Enable Notifications</string>
+    <string name="pref_title_location">Access Location</string>
     <string name="pref_title_license">License</string>
     <string name="pref_title_libraries">Open Source Libraries</string>
     <string name="pref_title_credit">Photo Credits</string>
@@ -35,10 +42,18 @@
     <string name="event_layout_description">Events at your location are below. Events include your local time and universal time.</string>
     <string name="totality_duration">Duration of Totality: </string>
 
-    <string name="eclipse_center_permission">You don\'t want to miss this amazing astronomical event! We\'ll need your location to continue. Press to continue.</string>
+    <string name="eclipse_center_permission">You don\'t want to miss this amazing astronomical event! We\'ll need your location to access this feature.\nPress anywhere on the screen to continue.</string>
+    <string name="walkthrough_location_permission">You don\'t want to miss this amazing astronomical event! We\'ll need access to your location to show you information about the eclipse.</string>
+
     <string name="settings_permission_off">Location settings is turned off. Go to More > Settings > Enable Location or tap to go.</string>
-    <string name="noPermissionRationale">Location services has been denied. This features requires your location permission to display information about the eclipse. Click this to enable, or go to Settings, Apps, Eclipse Soundscapes, Permissions </string>
-    <string name="app_settings_permission">Please turn on location permission in the app settings by either clicking here or go to About, Settings and enable location.</string>
+    <string name="noPermissionRationale">Access to location services has been denied. This features requires access to your current location to display information about the eclipse. </string>
+    <!--<string name="app_settings_permission">Please turn on location permission in the app settings by either clicking here or go to About, Settings and enable location.</string>-->
+
+
+    <string name="device_settings_permission">To continue, please allow access to your location from your device settings.</string>
+    <string name="app_settings_permission">To continue, please allow access to your location from the application settings.</string>
+
+
     <string name="location_search">Finding your location…</string>
     <string name="location_search_stop">Tap to stop</string>
 
@@ -93,25 +108,28 @@
     <string name="prominence_closeup_title">Prominence Closeup</string>
     <string name="totality_title">Totality</string>
     <string name="sun_as_star_title">Sun as a Star</string>
+    <string name="eclipse_experience_title">Eclipse Experience</string>
 
 
     <string name="rumble_map_launch">Press to interact with Rumble Map</string>
 
     <!-- content descriptions -->
-    <string name="nextImgButton">Show next image</string>
-    <string name="prevImgButton">show previous image</string>
+    <string name="nextImgButton">Show next</string>
+    <string name="prevImgButton">show previous</string>
 
     <!-- rumble map interaction -->
     <string name="instructions_button">Instructions</string>
     <string name="eclipse_image">Eclipse image</string>
+    <string name="rumble_map_instructions_title">Rumble Map Instructions</string>
     <string name="rumble_map_instructions">To use the Rumble Map, touch your screen with only one finger. The map will produce audio tones and vibrations depending on how much light is underneath that particular spot. For best results, drag your finger across the touchscreen slowly. As you move your finger onto the bright sections of the Sun, your phone will vibrate more and produce a sharper, more pronounced audio tone. As you move your finger into the dark spaces blocked by the Moon’s disk, the vibration will diminish as the audio tone darkens and disappears. At times, you may hear a metronome-like ticking sound: that means you have entered an area of total darkness, either on the face of the Moon, or in the dark space outside the sphere of the Sun. By paying close attention to the audio tones and the strength of your phone’s vibration, you can learn how much sunlight is visible at each stage of the eclipse, and even explore some of the fascinating features of the Sun’s corona such as Baily’s Beads, Helmet Streamers, Prominences, and the Diamond Ring effect. If a specific section of an image interests you and you want to return to it later, hold down your finger in one place until you hear a “blip” noise. You’ve created a marker! Next time your finger passes over this point, you will hear the “blip” again so you can continue to explore that area.
 </string>
-    <string name="rumble_map_inactive">Rumble map inactive</string>
+    <string name="rumble_map_inactive">Rumble map inactive, double tap to turn on.</string>
     <string name="rumble_map_running">Rumble map running, double tap to turn off</string>
 
 
     <!-- About -->
     <string name="future_eclipse_label">Eclipses we support</string>
+    <string name="link_feedback_form"><![CDATA[ https://docs.google.com/forms/d/e/1FAIpQLSez-hoTy2NkUO5FDud0eOCvjDXCx9jNsdCMrqV_GgMG6tFOiw/viewform]]></string>
 
     <!-- Walkthrough -->
     <string name="walkthrough_label">Eclipse Soundscapes Walkthrough</string>
@@ -121,7 +139,7 @@
     <string name="walkthrough_skip_button">Skip</string>
     <string name="walkthrough_title_access">Please allow location access</string>
     <string name="walkthrough_location_page">Access to location</string>
-    <string name="walkthrough_ask_later">Ask Later</string>
+    <string name="walkthrough_ask_later">Not Now</string>
     <string name="walkthrough_welcome_text">Thank you for downloading the Eclipse Soundscapes app, a multi-sensory experience for people of all learning styles to engage with astronomical events, including total solar eclipses. Inside this app, you will find countdowns to major astronomical events in your area, and real time narrations of those events with illustrative audio descriptions provided by the National Center for Accessible Media. You can also explore the cosmos with high quality photos, educational information, and accessible learning tools.</string>
     <string name="walkthrough_rumble_map_text">Our Rumble Map tool is designed for you to hear and feel astronomical phenomena, such as eclipses, using the touchscreen and the speakers on your smartphone. For example: the Rumble Map will display photos of the Moon passing in front of the Sun during the most engaging and educational moments of an eclipse. When you touch the image on the screen, the app will read the grayscale value of a pixel underneath your finger, and play an audio tone which will vibrate your phone with a strength relative to the brightness of that section. As you move your finger onto the bright sections of the Sun, your phone will vibrate more. As you move your finger into the dark spaces blocked by the Moon’s disk, the vibration will diminish and disappear. By paying close attention to the audio tones and the strength of your phone\'s vibration, you can learn how much sunlight is visible at each stage of the eclipse, and explore some of the fascinating features of the Sun\'s corona.</string>
     <string name="walkthrough_eclipse_center">The Eclipse Center is your go-to destination for learning about eclipses in your area so you can discover them as they happen. When you open the Eclipse Center, it will ask to pinpoint your geographic location. Once you accept, you will find a countdown to the next eclipse, information on whether you will experience a total or a partial solar eclipse in your area, and the exact start time, peak time, and end time of the eclipse. </string>
@@ -207,6 +225,7 @@
         <item name="item_partners">Our partners</item>
         <item name="item_future_eclipses">Eclipses We Support</item>
         <item name="item_instructions">Walkthrough</item>
+        <item name="item_feedback">Give Us Feedback</item>
         <item name="item_settings">Settings</item>
         <item name="item_legal">Legal</item>
     </array>
@@ -310,6 +329,7 @@
         <item name="member_henry_winter">Dr. Henry Winter</item>
         <item name="member_marykay">MaryKay Severino</item>
         <item name="member_arlindo">Arlindo Goncalves</item>
+        <item name="member_joel">Joel Goncalves</item>
         <item name="member_miles">Miles Gordon</item>
         <item name="member_christina">Christina Migliore</item>
         <item name="member_kristin">Kristin DiVona</item>
@@ -321,6 +341,7 @@
         <item name="member_henry_winter">Principal Investigator</item>
         <item name="member_marykay">Project Manager</item>
         <item name="member_arlindo">iOS Developer</item>
+        <item name="member_joel">Android Developer</item>
         <item name="member_miles">Audio Engineer</item>
         <item name="member_christina">Image Analysis Intern</item>
         <item name="member_kristin">Graphic Designer</item>
@@ -364,6 +385,11 @@
             Boston. He aspires to develop applications that help schools and other institution
             engage youth, making education a focus point in their lives. In his free time, Arlindo
             enjoys playing soccer and cooking for his family and friends.
+        </item>
+        <item name="member_joel">Joel Goncalves is an Android developer from Brockton, Massachusetts
+            and a Computer Science graduate from the University of Massachusetts, Boston.
+            As a developer and budding entrepreneur, he is passionate about creating and contributing
+            to meaningful applications. As a hobby, he likes to travel, read philosophy and produce music.
         </item>
         <item name="member_miles">Miles Gordon is an audio engineer and multi-media artist from New
             England. Between mixing and mastering tracks for his friends and his work on the Eclipse

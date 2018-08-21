@@ -16,8 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/ma_list_item_line_spacing"
-        android:fontFamily="sans-serif-condensed"
-        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text_color_primary"
         android:textSize="@dimen/ma_list_item_primary_text"
         tools:text="Three-line item" />
 
@@ -26,8 +26,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/ma_list_item_line_spacing"
-        android:fontFamily="sans-serif-condensed"
-        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text_color_primary"
         android:textSize="@dimen/ma_list_item_primary_text"
         tools:text="Secondary text"/>
 
@@ -36,8 +36,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/ma_list_item_line_spacing"
-        android:fontFamily="sans-serif-condensed"
-        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text_color_primary"
         android:textSize="@dimen/ma_list_item_primary_text"
         tools:text="Tertiary text"/>
 
@@ -46,8 +46,8 @@
         android:id="@+id/features"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
-        android:textStyle="bold"
+        android:fontFamily="sans-serif"
+        android:textColor="@color/text_color_primary"
         android:textSize="@dimen/ma_list_item_primary_text"
         tools:text="Tertiary text"/>
 

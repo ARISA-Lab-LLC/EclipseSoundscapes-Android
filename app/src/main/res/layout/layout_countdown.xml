@@ -14,10 +14,10 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="8dp"
-        android:fontFamily="sans-serif-condensed"
+        android:fontFamily="sans-serif-medium"
         android:text="@string/countdown_title"
         android:textColor="@android:color/white"
-        android:textSize="14sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/countdown_days"
@@ -44,7 +44,6 @@
         android:textSize="16sp"
         android:textColor="@android:color/white"
         android:text="0" />
-
 
     <TextView
         android:id="@+id/days_secondary"
