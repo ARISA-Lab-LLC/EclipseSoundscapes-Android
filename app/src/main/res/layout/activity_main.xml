@@ -6,11 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-<<<<<<< HEAD
     tools:context=".ui.main.MainActivity">
-=======
-    tools:context="org.eclipsesoundscapes.activity.MainActivity">
->>>>>>> 0636e4cbf2c7db9e2c3609db7c04306bcc1ece13
 
     <FrameLayout
         android:id="@+id/navigation_content"
