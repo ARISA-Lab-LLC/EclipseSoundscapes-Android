@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent"
+    android:gravity="center">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:gravity="center_horizontal"
+        android:text="@string/outside_path_of_eclipse"
+        android:layout_margin="16dp"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/eclipse_soundscapes_logo"
+        android:layout_gravity="center_horizontal"/>
+
+    <Button
+        android:id="@+id/button_simulate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button"
+        android:drawableStart="@drawable/ic_map_marker"
+        android:padding="16dp"
+        android:textColor="@android:color/white"
+        android:fontFamily="sans-serif-condensed"
+        android:textSize="14sp"
+        android:textAllCaps="false"
+        android:text="@string/get_closest_location"
+        android:contentDescription="@string/get_closest_location"
+        android:layout_margin="16dp" />
+
+
+</LinearLayout>

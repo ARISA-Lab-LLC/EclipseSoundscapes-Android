@@ -314,12 +314,12 @@
                     android:orientation="vertical"
                     android:layout_marginBottom="32dp">
 
-                   <include
-                       android:id="@+id/stub_contact_one"
-                       layout="@layout/layout_eclipse_event_row"
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:visibility="gone"/>
+                    <include
+                        android:id="@+id/stub_contact_one"
+                        layout="@layout/layout_eclipse_event_row"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"/>
 
                     <include
                         android:id="@+id/stub_contact_two"

@@ -13,6 +13,7 @@
         android:contentDescription="@string/rumble_map_inactive"
         android:layout_weight="1">
 
+
         <ImageView
             android:id="@+id/eclipse_img"
             android:layout_width="match_parent"
