@@ -71,7 +71,7 @@
 
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="f21a623561206f3afe3d5346b43183b640dddd71" />
+            android:value="0" />
 
         <activity android:name=".ui.about.AppCompatPreferenceActivity" />
 

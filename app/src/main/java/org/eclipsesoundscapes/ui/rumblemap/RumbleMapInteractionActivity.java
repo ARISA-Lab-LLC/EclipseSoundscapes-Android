@@ -30,7 +30,6 @@ import org.eclipsesoundscapes.util.AndroidAudioForJSyn;
 
 import com.jsyn.JSyn;
 import com.jsyn.Synthesizer;
-import com.jsyn.unitgen.EnvelopeAttackDecay;
 import com.jsyn.unitgen.LineOut;
 import com.jsyn.unitgen.LinearRamp;
 import com.jsyn.unitgen.SineOscillator;
@@ -54,7 +53,7 @@ import butterknife.OnClick;
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
-  * */
+ * */
 
 
 /**
@@ -86,7 +85,6 @@ public class RumbleMapInteractionActivity extends AppCompatActivity implements V
 
     private SineOscillator sineOsc1;
     private SineOscillator sineOsc2;
-    public EnvelopeAttackDecay ampEnv;
 
     private double modControl = 1.0;
     private double modAmpControl = 0.0;
@@ -189,31 +187,30 @@ public class RumbleMapInteractionActivity extends AppCompatActivity implements V
         AndroidAudioForJSyn mAudioManager = new AndroidAudioForJSyn();
         mSynth = JSyn.createSynthesizer(mAudioManager);
 
-        // Add an output mixer.
-        mSynth.add(mLineOut = new LineOut());
+//        // Add an output mixer.
         mSynth.add(sineOsc1 = new SineOscillator());
         mSynth.add(sineOsc2 = new SineOscillator());
+
+        mSynth.add(mLineOut = new LineOut());
 
         // Add a lag to smooth out amplitude changes and avoid pops.
         LinearRamp lag;
         mSynth.add(lag = new LinearRamp());
 
-//        ampEnv = new EnvelopeAttackDecay();
-//        ampEnv.attack.set(1.0);
-//        ampEnv.decay.set(0.1);
-//        mSynth.add(ampEnv);
-
-        sineOsc1.amplitude.setup(55.0, 220.0, 1200.0);
-        sineOsc1.frequency.set(55);
-        sineOsc2.amplitude.setup(0.1, 1.0, 1.0);
-
         sineOsc1.output.connect( sineOsc2.frequency);
         sineOsc2.output.connect( 0, mLineOut.input, 0 );
         sineOsc2.output.connect( 0, mLineOut.input, 1 );
 
+        sineOsc1.amplitude.setup(110.0, 220.0, 1200.0);
+        sineOsc1.frequency.set(55.0);
+
+        sineOsc2.amplitude.setup(0.1, 1.0, 1.0);
+
         lag.output.connect(sineOsc2.amplitude);
-        lag.input.setup(0.001, 0.5, 1.0);
-        lag.time.set(0.1);
+        lag.input.setup(0.01, 0.5, 1.0);
+        lag.time.set(0.5);
+
+
 
         mSynth.start();
     }
@@ -251,7 +248,7 @@ public class RumbleMapInteractionActivity extends AppCompatActivity implements V
         modAmpControl = grayScaleZero * modScale;
         modControl = grayScaleZero;
 
-        if (modControl <= 0.17) {
+        if (grayScaleZero <= 0.17) {
             stopSound();
             playMediaPlayer(true);
         } else {
@@ -264,10 +261,22 @@ public class RumbleMapInteractionActivity extends AppCompatActivity implements V
         if (modAmpControl < 1)
             modAmpControl += 1;
 
-        sineOsc1.amplitude.set(modAmpControl * 220.0);
-        sineOsc2.amplitude.set(modControl);
+        final double freq = modAmpControl * 55.0;
+        final double amp = modAmpControl * 220.0;
 
-        mLineOut.start();
+        if (freq > 220.0)
+            sineOsc1.frequency.set(220.0);
+        else
+            sineOsc1.frequency.set(freq);
+
+
+        if (amp > 440.0)
+            sineOsc1.amplitude.set(440.0);
+        else
+            sineOsc1.amplitude.set(amp);
+
+        if (mLineOut.isStartRequired())
+            mLineOut.start();
     }
 
     private void stopSound(){
