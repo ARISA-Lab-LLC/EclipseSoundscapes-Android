@@ -1,8 +1,9 @@
 package org.eclipsesoundscapes.ui.about;
 
+import android.content.Context;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -15,6 +16,7 @@ import org.eclipsesoundscapes.R;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -52,7 +54,7 @@ public class FutureEclipsesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(org.eclipsesoundscapes.R.layout.activity_future_eclipses);
         if (getSupportActionBar() != null)
-            getSupportActionBar().setTitle("Eclipses We Support");
+            getSupportActionBar().setTitle(getString(R.string.future_eclipse_label));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // get parse json data and create a FutureEclipse object for each entry
@@ -181,10 +183,22 @@ public class FutureEclipsesActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-            holder.date.setText("Date: ".concat(futureEclipses.get(position).getDate()));
-            holder.time.setText("Time: ".concat(futureEclipses.get(position).getTime()));
-            holder.type.setText("Type: ".concat(futureEclipses.get(position).getType()));
-            holder.features.setText("Features: ".concat(futureEclipses.get(position).getFeatures()));
+            final Context context = holder.itemView.getContext();
+            if (context == null) {
+                return;
+            }
+
+            holder.date.setText(context.getString(R.string.future_eclipse_label_format,
+                    context.getString(R.string.date), futureEclipses.get(position).getDate()));
+
+            holder.time.setText(context.getString(R.string.future_eclipse_label_format,
+                    context.getString(R.string.time), futureEclipses.get(position).getTime()));
+
+            holder.type.setText(context.getString(R.string.future_eclipse_label_format,
+                    context.getString(R.string.type), futureEclipses.get(position).getType()));
+
+            holder.features.setText(context.getString(R.string.future_eclipse_label_format,
+                    context.getString(R.string.features), futureEclipses.get(position).getFeatures()));
         }
 
         @Override

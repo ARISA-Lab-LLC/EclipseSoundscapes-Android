@@ -30,7 +30,7 @@
         android:textColor="@android:color/white"
         android:textSize="14sp"
         android:textAllCaps="true"
-        android:text="Days"/>
+        android:text="@string/days"/>
 
 
     <TextView
@@ -73,7 +73,7 @@
         android:textColor="@android:color/white"
         android:textSize="14sp"
         android:textAllCaps="true"
-        android:text="Hours"/>
+        android:text="@string/hours"/>
 
 
 
@@ -120,7 +120,7 @@
         android:textColor="@android:color/white"
         android:textSize="14sp"
         android:textAllCaps="true"
-        android:text="Min"/>
+        android:text="@string/min_abbreviated"/>
 
 
 
@@ -165,7 +165,7 @@
         android:textColor="@android:color/white"
         android:textSize="14sp"
         android:textAllCaps="true"
-        android:text="Sec"/>
+        android:text="@string/sec_abbreviated"/>
 
 
     <TextView

@@ -1,8 +1,8 @@
 package org.eclipsesoundscapes.ui.about;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.util.Linkify;
@@ -18,6 +18,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 
+import org.eclipsesoundscapes.BuildConfig;
 import org.eclipsesoundscapes.R;
 
 import butterknife.BindView;
@@ -59,18 +60,21 @@ public class LegalActivity extends AppCompatActivity {
 
         switch (legalMode) {
             case "license":
-                getSupportActionBar().setTitle("License");
-                setTitle("License");
+                getSupportActionBar().setTitle(getString(R.string.license));
+                setTitle(getString(R.string.license));
                 setContentView(R.layout.activity_legal_license);
                 break;
             case "libraries":
-                getSupportActionBar().setTitle("Eclipse Soundscapes v1.0");
-                setTitle("Eclipse Soundscapes v1.0");
+                String versionName = BuildConfig.VERSION_NAME;
+                final String title = getString(R.string.app_name_version, getString(R.string.app_name),
+                        versionName);
+                getSupportActionBar().setTitle(title);
+                setTitle(title);
                 setContentView(R.layout.activity_legal_libraries);
                 break;
             default:
-                getSupportActionBar().setTitle("Photo Credits");
-                setTitle("Photo Credits"); // accessibility title read
+                getSupportActionBar().setTitle(getString(R.string.photo_credits));
+                setTitle(getString(R.string.photo_credits)); // accessibility title read
                 setContentView(R.layout.legal_photo_credits);
 
                 Integer[] imgs = {R.drawable.eclipse_diamond_ring, R.drawable.helmet_streamers,

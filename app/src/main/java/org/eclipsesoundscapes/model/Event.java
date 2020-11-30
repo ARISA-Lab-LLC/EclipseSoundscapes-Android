@@ -2,11 +2,11 @@ package org.eclipsesoundscapes.model;
 
 public class Event {
 
-    public String name = "";
-    public String date = "";
-    public String time = "";
-    public String alt = "";
-    public String azi = "";
+    public String name;
+    public String date;
+    public String time;
+    public String alt;
+    public String azi;
 
     public Event(String name, String date, String time, String alt, String azi){
         this.name = name;

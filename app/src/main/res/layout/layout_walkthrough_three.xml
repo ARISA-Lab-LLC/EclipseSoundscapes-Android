@@ -8,7 +8,6 @@
     android:orientation="vertical"
     android:focusable="true">
 
-
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
         android:layout_width="match_parent"
@@ -24,7 +23,6 @@
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         android:importantForAccessibility="no"
-
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="@+id/guideline" />
 
@@ -36,14 +34,10 @@
         android:fontFamily="sans-serif-condensed"
         android:textColor="@color/text_color_primary"
         android:textSize="12sp"
-        android:text="Page 3 of 5"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-
         app:layout_constraintBottom_toBottomOf="@+id/walkthrough_img"
         app:layout_constraintRight_toRightOf="parent" />
-
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -70,7 +64,6 @@
                 android:textColor="@color/text_color_primary"
                 android:focusable="false"/>
 
-
             <TextView
                 android:id="@+id/bottom_view_more"
                 android:layout_width="wrap_content"
@@ -87,5 +80,4 @@
                 android:focusable="false"/>
         </LinearLayout>
     </ScrollView>
-
 </android.support.constraint.ConstraintLayout>

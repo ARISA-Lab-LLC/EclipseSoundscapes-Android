@@ -94,11 +94,9 @@ public class EclipseFeaturesFragment extends Fragment {
     protected void onTextChanged(CharSequence text) {
         String announce;
         if (mViewPager.getCurrentItem() == ITEM_DESCRIPTION){
-            announce = "Now viewing description for "
-                    .concat(text.toString());
+            announce = getString(R.string.viewing_desc_format, text.toString());
         } else {
-            announce = "Now viewing image for "
-                    .concat(text.toString());
+            announce = getString(R.string.viewing_image_format, text.toString());
         }
 
         toolbarTitle.announceForAccessibility(announce);
@@ -181,7 +179,6 @@ public class EclipseFeaturesFragment extends Fragment {
             ((MainActivity) getActivity()).setCurrentView(currentView);
     }
 
-
     /**
      * Set the title of current eclipse item in navigation
      * @param pos current navigated position mapped to a title
@@ -198,8 +195,8 @@ public class EclipseFeaturesFragment extends Fragment {
      */
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new DescriptionFragment(), "Description");
-        adapter.addFragment(new EclipseFragment(), "Rumble Map");
+        adapter.addFragment(new DescriptionFragment(), getString(R.string.description));
+        adapter.addFragment(new EclipseFragment(), getString(R.string.title_rumble_map));
         viewPager.setAdapter(adapter);
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

@@ -86,8 +86,8 @@ public class WalkthroughFragment extends Fragment implements View.OnClickListene
 
         // offset from 0
         position = position + 1;
-        currentPage.setText("Page ".concat(String.valueOf(position)).concat(" of ").concat(String.valueOf(total)));
-        currentPage.setContentDescription("Page ".concat(String.valueOf(position)).concat(" of ").concat(String.valueOf(total)));
+        currentPage.setText(getString(R.string.page_indicator, position, total));
+        currentPage.setContentDescription(getString(R.string.page_indicator, position, total));
 
         if (layoutId == R.layout.layout_walkthrough_five){
             // handle permissions before main content
