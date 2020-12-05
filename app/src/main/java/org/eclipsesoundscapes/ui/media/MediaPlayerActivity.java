@@ -73,12 +73,12 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
                 mp.pause();
                 // play button
                 playButton.setImageResource(R.drawable.ic_play);
-                playButton.setContentDescription(getString(R.string.playButton));
+                playButton.setContentDescription(getString(R.string.play));
             } else {
                 mp.start();
                 // pause button
                 playButton.setImageResource(R.drawable.ic_pause);
-                playButton.setContentDescription(getString(R.string.pauseButton));
+                playButton.setContentDescription(getString(R.string.pause));
             }
         }
     }
@@ -170,7 +170,7 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
 
             // Changing Button Image to pause image
             playButton.setImageResource(R.drawable.ic_pause);
-            playButton.setContentDescription(getString(R.string.pauseButton));
+            playButton.setContentDescription(getString(R.string.pause));
 
             // set Progress bar values
             audioProgressBar.setProgress(0);
@@ -230,15 +230,15 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
                 curr = getString(R.string.duration_desc_minutes, lapse[0], lapse[1]);
             }
 
-            timeLapsed.setContentDescription(getString(R.string.duration_of_total, curr, total));
+            timeLapsed.setContentDescription(getString(R.string.duration_current_progress, curr, total));
 
             // Updating progress bar
             int progress = utils.getProgressPercentage(currentDuration, totalDuration);
             audioProgressBar.setProgress(progress);
-            audioProgressBar.setContentDescription(getString(R.string.duration_of_total, curr, total));
+            audioProgressBar.setContentDescription(getString(R.string.duration_current_progress, curr, total));
 
             // only update live event during second contact
-            if (isLive() && !eclipseTitle.getText().toString().equals(getString(R.string.first_contact_title)))
+            if (isLive() && !eclipseTitle.getText().toString().equals(getString(R.string.first_contact)))
                 updateLiveContent();
 
             // Running this thread after 100 milliseconds
@@ -276,7 +276,7 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
             liveOver();
         }
         playButton.setImageResource(R.drawable.ic_play);
-        playButton.setContentDescription(getString(R.string.playButton));
+        playButton.setContentDescription(getString(R.string.play));
     }
 
     @Override
@@ -285,7 +285,7 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
             if (mp.isPlaying() && eclipseDescription.isAccessibilityFocused()) {
                 mp.pause();
                 playButton.setImageResource(R.drawable.ic_play);
-                playButton.setContentDescription(getString(R.string.playButton));
+                playButton.setContentDescription(getString(R.string.play));
             }
         }
     }
@@ -314,20 +314,20 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
      */
     public void updateLiveContent(){
         if (mp.getCurrentPosition() < 120000){ // baily'ss beads < 2:01
-            if (!eclipseTitle.getText().toString().equals(getString(R.string.bailys_beads_title)))
-                updateDescription(R.string.bailys_beads_title, R.string.bailys_beads_description, R.drawable.eclipse_bailys_beads);
+            if (!eclipseTitle.getText().toString().equals(getString(R.string.bailys_beads)))
+                updateDescription(R.string.bailys_beads, R.string.bailys_beads_description, R.drawable.eclipse_bailys_beads);
 
         } else if (mp.getCurrentPosition() >= 120000 && mp.getCurrentPosition() < 200000) { // totality >= 2:01 < 5:21
-            if (!eclipseTitle.getText().toString().equals(getString(R.string.totality_title)))
-                updateDescription(R.string.totality_title, R.string.totality_description, R.drawable.eclipse_totality);
+            if (!eclipseTitle.getText().toString().equals(getString(R.string.totality)))
+                updateDescription(R.string.totality, R.string.totality_description, R.drawable.eclipse_totality);
 
         } else if (mp.getCurrentPosition() >= 200500 && mp.getCurrentPosition() < 320000){ // diamond ring >= 3:21
-            if (!eclipseTitle.getText().toString().equals(getString(R.string.diamond_ring_title)))
-                updateDescription(R.string.diamond_ring_title, R.string.diamond_ring_description, R.drawable.eclipse_diamond_ring);
+            if (!eclipseTitle.getText().toString().equals(getString(R.string.diamond_ring)))
+                updateDescription(R.string.diamond_ring, R.string.diamond_ring_description, R.drawable.eclipse_diamond_ring);
 
         } else if (mp.getCurrentPosition() >= 320500){ // sun as a star 5:21
-            if (!eclipseTitle.getText().toString().equals(getString(R.string.sun_as_star_title)))
-                updateDescription(R.string.sun_as_star_title, R.string.sun_as_star_description, R.drawable.sun_as_a_star);
+            if (!eclipseTitle.getText().toString().equals(getString(R.string.sun_as_star)))
+                updateDescription(R.string.sun_as_star, R.string.sun_as_star_description, R.drawable.sun_as_a_star);
         }
     }
 

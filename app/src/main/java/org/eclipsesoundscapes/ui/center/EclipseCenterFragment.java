@@ -155,6 +155,7 @@ public class EclipseCenterFragment extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_eclipse_center, container, false);
         ButterKnife.bind(this, root);
+        setTitles(root);
         return  root;
     }
 
@@ -178,6 +179,26 @@ public class EclipseCenterFragment extends Fragment {
         super.onStop();
         if (gpsTracker != null)
             gpsTracker.stopUsingGPS();
+    }
+
+    private void setTitles(final View rootView) {
+        ((TextView) rootView.findViewById(R.id.eclipse_type_title)).setText(getString(R.string.eclipse_center_title_format,
+                getString(R.string.eclipse_type)));
+
+        ((TextView) rootView.findViewById(R.id.date_title)).setText(getString(R.string.eclipse_center_title_format,
+                getString(R.string.date)));
+
+        ((TextView) rootView.findViewById(R.id.latitude_title)).setText(getString(R.string.eclipse_center_title_format,
+                getString(R.string.location_latitude)));
+
+        ((TextView) rootView.findViewById(R.id.longitude_title)).setText(getString(R.string.eclipse_center_title_format,
+                getString(R.string.location_longitude)));
+
+        ((TextView) rootView.findViewById(R.id.percent_eclipse_title)).setText(getString(R.string.eclipse_center_title_format,
+                getString(R.string.percent_eclipse)));
+
+        ((TextView) rootView.findViewById(R.id.duration_totality_title)).setText(getString(R.string.eclipse_center_title_format,
+                getString(R.string.totality_duration)));
     }
 
     /**************************************************************************************************
@@ -403,7 +424,7 @@ public class EclipseCenterFragment extends Fragment {
 
         // contact point one
         String contactOneLocalTime = mHelper.convertLocalTime(contactOne.time);
-        ((TextView) contactOneStub.findViewById(R.id.eclipse_event)).setText(contactOne.name);
+        ((TextView) contactOneStub.findViewById(R.id.eclipse_event)).setText(getString(R.string.eclipse_center_title_format, contactOne.name));
         ((TextView) contactOneStub.findViewById(R.id.eclipse_time_local)).setText(contactOneLocalTime);
         ((TextView) contactOneStub.findViewById(
                 R.id.eclipse_time_ut)).setText(contactOne.time);
@@ -411,7 +432,7 @@ public class EclipseCenterFragment extends Fragment {
 
         // contact point mid
         String contactMidLocalTime = mHelper.convertLocalTime(contactMid.time);
-        ((TextView) contactMidStub.findViewById(R.id.eclipse_event)).setText(contactMid.name);
+        ((TextView) contactMidStub.findViewById(R.id.eclipse_event)).setText(getString(R.string.eclipse_center_title_format, contactMid.name));
         ((TextView) contactMidStub.findViewById(
                 R.id.eclipse_time_local)).setText(contactMidLocalTime);
         ((TextView) contactMidStub.findViewById(
@@ -421,7 +442,7 @@ public class EclipseCenterFragment extends Fragment {
         // contact point end
         String contactFinalLocalTime = mHelper.convertLocalTime(contactFour.time);
         ((TextView) contactFourStub.findViewById(
-                R.id.eclipse_event)).setText(contactFour.name);
+                R.id.eclipse_event)).setText(getString(R.string.eclipse_center_title_format, contactFour.name));
         ((TextView) contactFourStub.findViewById(
                 R.id.eclipse_time_local)).setText(contactFinalLocalTime);
         ((TextView) contactFourStub.findViewById(
@@ -436,9 +457,6 @@ public class EclipseCenterFragment extends Fragment {
     public void generateFullContact(){
         totalityDurationLayout.setVisibility(View.VISIBLE);
 
-        ((TextView)totalityDurationLayout.findViewById(R.id.duration_totality_title))
-                .setText(getString(R.string.totality_duration));
-
         ((TextView)totalityDurationLayout.findViewById(R.id.duration_totality))
                 .setText(eclipseTimeGenerator.getDuration());
 
@@ -451,7 +469,7 @@ public class EclipseCenterFragment extends Fragment {
         // contact point two
         String contactTwoLocalTime = mHelper.convertLocalTime(contactTwo.time);
         ((TextView) contactTwoStub.findViewById(
-                R.id.eclipse_event)).setText(contactTwo.name);
+                R.id.eclipse_event)).setText(getString(R.string.eclipse_center_title_format, contactTwo.name));
         ((TextView) contactTwoStub.findViewById(
                 R.id.eclipse_time_local)).setText(contactTwoLocalTime);
         ((TextView) contactTwoStub.findViewById(
@@ -461,7 +479,7 @@ public class EclipseCenterFragment extends Fragment {
         // contact point three
         String contactThreeLocalTime = mHelper.convertLocalTime(contactThree.time);
         ((TextView) contactThreeStub.findViewById(
-                R.id.eclipse_event)).setText(contactThree.name);
+                R.id.eclipse_event)).setText(getString(R.string.eclipse_center_title_format, contactThree.name));
         ((TextView) contactThreeStub.findViewById(
                 R.id.eclipse_time_local)).setText(contactThreeLocalTime);
         ((TextView) contactThreeStub.findViewById(
@@ -546,7 +564,7 @@ public class EclipseCenterFragment extends Fragment {
                     }
 
                     if (isAdded()) {
-                        final String countDownDescription = getString(R.string.accessibility_countdown_format,
+                        final String countDownDescription = getString(R.string.countdown_format,
                                 daysPrimary.getText().toString().concat(daysSecondary.getText().toString()),
                                 hoursPrimary.getText().toString().concat(hoursSecondary.getText().toString()),
                                 minPrimary.getText().toString().concat(minSecondary.getText().toString()),

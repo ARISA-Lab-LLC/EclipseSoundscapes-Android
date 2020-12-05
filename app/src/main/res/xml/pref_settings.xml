@@ -5,13 +5,13 @@
     <SwitchPreference
         android:defaultValue="true"
         android:key="notifications_enabled"
-        android:title="@string/pref_title_notifications" />
+        android:title="@string/enable_notifications" />
 
 
     <!-- NOTE: This preference will be enabled only when the checkbox above is checked. -->
     <SwitchPreference
         android:defaultValue="true"
         android:key="settings_location"
-        android:title="@string/pref_title_location" />
+        android:title="@string/access_location" />
 
 </PreferenceScreen>

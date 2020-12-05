@@ -45,7 +45,7 @@
                 android:fontFamily="sans-serif"
                 android:textSize="16sp"
                 android:textColor="@color/text_color_primary"
-                android:text="@string/about_us_text" />
+                android:text="@string/about_us_details" />
 
             <View
                 android:layout_width="match_parent"

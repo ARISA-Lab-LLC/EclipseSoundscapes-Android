@@ -104,7 +104,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="@string/eclipse_date"
+                        android:text="@string/date"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
                         android:layout_weight="1"/>
@@ -137,7 +137,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="@string/my_latitude"
+                        android:text="@string/location_latitude"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
                         android:layout_weight="1"/>
@@ -172,7 +172,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
                         android:fontFamily="sans-serif-condensed"
-                        android:text="@string/my_longitude"
+                        android:text="@string/location_longitude"
                         android:textColor="@android:color/white"
                         android:textSize="18sp"
                         android:layout_weight="1" />
@@ -268,7 +268,7 @@
                     android:background="@color/colorAccent"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:contentDescription="@string/event_layout_description"
+                    android:contentDescription="@string/event_section_desc"
                     android:weightSum="3">
 
                     <TextView
@@ -289,7 +289,7 @@
                         android:layout_weight="1"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_horizontal"
-                        android:text="@string/eclipse_local_time"
+                        android:text="@string/local_time"
                         android:textColor="@color/text_color_primary"
                         android:textSize="18sp"
                         android:textStyle="bold"
@@ -301,7 +301,7 @@
                         android:layout_weight="1"
                         android:fontFamily="sans-serif-condensed"
                         android:gravity="center_horizontal"
-                        android:text="@string/eclipse_time_ut"
+                        android:text="@string/time_ut"
                         android:textColor="@color/text_color_primary"
                         android:textSize="18sp"
                         android:textStyle="bold"

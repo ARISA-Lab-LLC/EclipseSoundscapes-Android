@@ -59,7 +59,7 @@
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:gravity="center"
-                android:text="@string/more_audio_coming"/>
+                android:text="@string/upcoming_audio"/>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

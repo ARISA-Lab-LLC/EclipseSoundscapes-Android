@@ -1,9 +1,12 @@
 <resources>
     <string name="app_name">Eclipse Soundscapes</string>
-    <string name="title_eclipse_features">Eclipse Features</string>
-    <string name="title_eclipse_center">Eclipse Center</string>
-    <string name="title_media">Media</string>
-    <string name="title_about">About</string>
+    <string name="app_name_version">%1$s v%2$s</string>
+    <string name="eclipse_features">Eclipse Features</string>
+    <string name="eclipse_center">Eclipse Center</string>
+
+    <!-- General -->
+    <string name="media">Media</string>
+    <string name="about">About</string>
 
     <string name="north">North</string>
     <string name="south">South</string>
@@ -17,10 +20,37 @@
 
     <string name="settings">Settings</string>
     <string name="open_settings">Open Settings</string>
-    <string name="cancel">Cancel</string>
     <string name="description">Description</string>
-    <string name="back">Back</string>
+    <string name="instructions">Instructions</string>
+    <string name="welcome">Welcome</string>
+
     <string name="continue_text">Continue</string>
+    <string name="skip">Skip</string>
+    <string name="close">Close</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="back">Back</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="hours">Hours</string>
+    <string name="days">Days</string>
+    <string name="minutes">Minutes</string>
+    <string name="seconds">Seconds</string>
+    <string name="min_abbr">Min</string>
+    <string name="sec_abbr">Sec</string>
+
+    <string name="show_next">Show next</string>
+    <string name="show_prev">show previous</string>
+
+    <!-- permissions -->
+    <string name="location_permission">Location permission</string>
+    <string name="error_finding_location">Unable to determine your current location</string>
+    <string name="permission_denied">Permission denied</string>
+    <string name="location_disabled">Location disabled</string>
+    <string name="location_disabled_message">To continue, enable location services from your device settings.</string>
+
+    <string name="device_settings_permission">To continue, please allow access to your location from your device settings.</string>
+    <string name="app_settings_permission">To continue, please allow access to your location from the application settings.</string>
 
     <!-- Notifications -->
     <string name="notification_channel_desc">Display notifications about an upcoming eclipse.</string>
@@ -32,75 +62,50 @@
 
     <!-- Settings -->
     <string name="license">License</string>
-    <string name="title_activity_settings">Settings</string>
-    <string name="pref_title_notifications">Enable Notifications</string>
-    <string name="pref_title_location">Access Location</string>
-    <string name="pref_title_libraries">Open Source Libraries</string>
+    <string name="enable_notifications">Enable Notifications</string>
+    <string name="access_location">Access Location</string>
+    <string name="open_src_libs">Open Source Libraries</string>
     <string name="photo_credits">Photo Credits</string>
-    <string name="settings_legal">Legal</string>
-    <string name="legal_libraries_use">Libraries We Use</string>
-    <string name="legal_library_audiokit">AUDIOKIT</string>
-    <string name="app_name_version">%1$s v%2$s</string>
+    <string name="legal">Legal</string>
+    <string name="libs_in_use">Libraries We Use</string>
+    <string name="audiokit">AUDIOKIT</string>
 
-    <string name="about_us_title">About Us</string>
-    <string name="about_us_text">From the Smithsonian Astrophysics Observatory and NASA\'s Heliophysics Education Consortium, The Eclipse Soundscapes Project uses sound to create a multisensory experience of astronomical events such as eclipses. With this app, and an additional citizen science project to record changing environmental sounds during eclipses, Eclipse Soundscapes aims to engage all learners with astrophysics, including people who are blind or visually impaired. For more information, visit eclipsesoundscapes.org.</string>
-    <string name="more_info_title">More Information</string>
+    <string name="about_us">About Us</string>
+    <string name="about_us_details">From the Smithsonian Astrophysics Observatory and NASA\'s Heliophysics Education Consortium, The Eclipse Soundscapes Project uses sound to create a multisensory experience of astronomical events such as eclipses. With this app, and an additional citizen science project to record changing environmental sounds during eclipses, Eclipse Soundscapes aims to engage all learners with astrophysics, including people who are blind or visually impaired. For more information, visit eclipsesoundscapes.org.</string>
 
     <!-- Eclipse Center -->
-    <string name="hours">Hours</string>
-    <string name="days">Days</string>
-    <string name="hrs">Hours</string>
-    <string name="min">Minutes</string>
-    <string name="sec">Seconds</string>
-    <string name="min_abbreviated">Min</string>
-    <string name="sec_abbreviated">Sec</string>
-
-    <string name="countdown_title">Countdown Until Eclipse</string>
-    <string name="accessibility_countdown_format">Countdown until eclipse from your location, %1$s days, %2$s hours, %3$s minutes and %4$s seconds</string>
-    <string name="event_prefix">Event from your location</string>
-    <string name="local_time_prefix">local time</string>
-    <string name="ut_time_prefix">universal time</string>
-    <string name="event_layout_description">Events at your location are below. Events include your local time and universal time.</string>
-    <string name="totality_duration">Duration of Totality: </string>
-
+    <string name="eclipse_countdown_title">Countdown Until Eclipse</string>
+    <string name="countdown_format">Countdown until eclipse from your location, %1$s days, %2$s hours, %3$s minutes and %4$s seconds</string>
+    <string name="event_section_desc">Events at your location are below. Events include your local time and universal time.</string>
+    <string name="event_desc_format">Event from your location, %1$s, local time, %2$s, universal time, %3$s</string>
     <string name="eclipse_center_permission">You don\'t want to miss this amazing astronomical event! We\'ll need your location to access this feature.\nPress anywhere on the screen to continue.</string>
-    <string name="walkthrough_location_permission">You don\'t want to miss this amazing astronomical event! We\'ll need access to your location to show you information about the eclipse.</string>
-
-    <string name="settings_permission_off">Location settings is turned off. Go to More > Settings > Enable Location or tap to go.</string>
-    <string name="noPermissionRationale">Access to location services has been denied. This features requires access to your current location to display information about the eclipse. </string>
-
-
-    <string name="device_settings_permission">To continue, please allow access to your location from your device settings.</string>
-    <string name="app_settings_permission">To continue, please allow access to your location from the application settings.</string>
-
 
     <string name="location_search">Finding your location…</string>
-    <string name="location_search_stop">Tap to stop</string>
 
-    <string name="outside_path_of_eclipse">Unfortunately the Eclipse is not visible from your location</string>
-    <string name="get_closest_location">Get closest location from me</string>
+    <string name="outside_eclipse_path">Unfortunately the Eclipse is not visible from your location</string>
+    <string name="get_closest_location">Get closest location to Eclipse</string>
 
-    <string name="my_latitude">Your latitude:</string>
-    <string name="my_longitude">Your longitude:</string>
-    <string name="percent_eclipse">% Eclipse:</string>
-    <string name="eclipse_date">Date:</string>
-    <string name="eclipse_type">Eclipse type:</string>
+    <string name="eclipse_center_title_format">%1$s:</string>
+    <string name="eclipse_type">Eclipse Type</string>
+    <string name="location_latitude">Location\'s Latitude</string>
+    <string name="location_longitude">Location\'s Longitude</string>
+    <string name="lat_lng_format">%1$.3f&#xb0; %2$s</string>
+    <string name="percent_eclipse">% Eclipse</string>
+    <string name="totality_duration">Duration of Totality</string>
     <string name="eclipse_event">Event</string>
-    <string name="eclipse_local_time">Local Time</string>
-    <string name="eclipse_time_ut">Time (UT)</string>
+    <string name="local_time">Local Time</string>
+    <string name="universal_time">Universal Time</string>
+    <string name="time_ut">Time (UT)</string>
 
     <string name="eclipse_type_full">Total Solar Eclipse</string>
     <string name="eclipse_type_partial">Partial Solar Eclipse</string>
     <string name="eclipse_type_none">No Solar Eclipse</string>
-    <string name="eclipse_none_description">The solar eclipse is not visible from your location</string>
 
     <string name="eclipse_start_partial">Start of partial eclipse</string>
     <string name="eclipse_start_full">Start of total eclipse</string>
     <string name="eclipse_end_partial">End of partial eclipse</string>
     <string name="eclipse_end_full">End of total eclipse</string>
     <string name="eclipse_max">Maximum eclipse</string>
-
-    <string name="lat_lng_format">%1$.3f&#xb0; %2$s</string>
 
     <!-- Eclipse Features -->
     <string name="first_contact_description">This is the first moment that the moon, slowly moving from left to right, appears to touch the sun. The intensity of the sun\'s light makes it unsafe to look at without special eye protection until the totality, the few minutes during which the moon completely eclipses the sun. The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk. For the next 90 minutes, the moon\'s black disk will creep across the sun, progressively blocking more of sun\'s light and heat until the totality.\n\nYou can use this time to explore rumble map images and audio descriptions of phenomena unique to a total eclipse. In the moments before, during and after totality, this app will provide a play-by-play of the action, providing images and descriptions of this rare and fascinating stellar event.\n\nAdditional scientific info:\nThe outer atmosphere of the Sun, called the corona, is usually not visible from the surface of the Earth. To study the corona, scientists send satellites into space to make observations of the corona in wavelengths of light that the human eye cannot see, such as this image of the Sun in X-rays taken by the X-ray Telescope on the Hinode spacecraft. This X-ray image shows the view of the Sun being eclipsed by the moon a seen from space. The total solar eclipse on August 21, 2017 provides the rare opportunity to see the corona from the ground in visible light.</string>
@@ -116,99 +121,72 @@
     <string name="viewing_image_format">Now viewing image for %1$s</string>
 
     <!-- Media player -->
-    <string name="more_audio_coming">More audio descriptions coming soon…</string>
+    <string name="audio_descriptions">Audio Descriptions</string>
+    <string name="upcoming_audio">More audio descriptions coming soon…</string>
     <string name="bailys_beads_short">For the next six minutes the Rumble map will be disabled so that you can hear about in real time the events surrounding totality.\n\nOn the right side of the moon, orbs of glowing sunlight shimmer off the edge of the moon’s black disk. Called Baily\'s Beads, these final areas of the sun\'s light appear as glimmering pearls on a wire, made intensely bright by the absence of light surrounding them.</string>
     <string name="first_contact_short">The eclipse has begun and this is the first moment that the moon appears to touch the Sun. The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk.\n\nFor the approximately 90 minutes you will have the opportunity to interact with the Rumble map and explore features of the Sun that are revealed during an eclipse. Then, during six minutes leading up to, during, and just after totality, the Rumble map will be disabled so that you can hear about the events surrounding totality in real time.</string>
     <string name="diamond_ring_short">On the left side of the black moon, a sliver of sunlight blasts into view with white-hot intensity. As the area of re-emerging sunlight grows, it resembles a diamond ring, beaming out its brilliant light.</string>
     <string name="totality_short">This is the full eclipse - for just approximately two minutes, the moon\'s black disk completely covers the sun, revealing the sun\'s massive outer corona. Grand flourishes of light extend from the moon in all directions like flower petals. Intensely bright at the moon\'s edge, these helmet streamers fade to wisps of ghostly white as they stretch across space.</string>
 
-    <string name="first_contact_title">First Contact</string>
-    <string name="bailys_beads_title">Baily\'s Beads</string>
-    <string name="bailys_beads_closeup_title">Baily\'s Beads Closeup</string>
-    <string name="corona_title">Corona</string>
-    <string name="diamond_ring_title">Diamond Ring</string>
-    <string name="helmet_streamers_title">Helmet Streamers</string>
-    <string name="helmet_streamers_closeup_title">Helmet Streamers Closeup</string>
-    <string name="prominence_title">Prominence</string>
-    <string name="prominence_closeup_title">Prominence Closeup</string>
-    <string name="totality_title">Totality</string>
-    <string name="sun_as_star_title">Sun as a Star</string>
-    <string name="eclipse_experience_title">Eclipse Experience</string>
+    <string name="first_contact">First Contact</string>
+    <string name="bailys_beads">Baily\'s Beads</string>
+    <string name="bailys_beads_closeup">Baily\'s Beads Zoomed</string>
+    <string name="corona">Corona</string>
+    <string name="diamond_ring">Diamond Ring</string>
+    <string name="helmet_streamers">Helmet Streamers</string>
+    <string name="helmet_streamers_closeup">Helmet Streamers Zoomed</string>
+    <string name="prominence">Prominence</string>
+    <string name="prominence_closeup">Prominence Zoomed</string>
+    <string name="totality">Totality</string>
+    <string name="sun_as_star">Sun as a Star</string>
+    <string name="eclipse_experience">Eclipse Experience</string>
     <string name="duration_desc_seconds">%1$s seconds</string>
     <string name="duration_desc_minute">One minute, %1$s seconds</string>
     <string name="duration_desc_minutes">%1$s minutes, %2$s seconds</string>
-    <string name="duration_of_total">%1$s of %2$s</string>
-
-    <string name="rumble_map_launch">Press to interact with Rumble Map</string>
-
-    <!-- content descriptions -->
-    <string name="nextImgButton">Show next</string>
-    <string name="prevImgButton">show previous</string>
+    <string name="duration_current_progress">%1$s of %2$s</string>
 
     <!-- rumble map interaction -->
+    <string name="rumble_map">Rumble Map</string>
+    <string name="rumble_map_launch">Press to interact with Rumble Map</string>
     <string name="rumble_map_how">How to Use The Rumble Map</string>
-    <string name="instructions_button">Instructions</string>
-    <string name="eclipse_image">Eclipse image</string>
     <string name="rumble_map_instructions_title">Rumble Map Instructions</string>
     <string name="rumble_map_instructions">To use the Rumble Map, touch your screen with only one finger. The map will produce audio tones and vibrations depending on how much light is underneath that particular spot. For best results, drag your finger across the touchscreen slowly. As you move your finger onto the bright sections of the Sun, your phone will vibrate more and produce a sharper, more pronounced audio tone. As you move your finger into the dark spaces blocked by the Moon’s disk, the vibration will diminish as the audio tone darkens and disappears. At times, you may hear a metronome-like ticking sound: that means you have entered an area of total darkness, either on the face of the Moon, or in the dark space outside the sphere of the Sun. By paying close attention to the audio tones and the strength of your phone’s vibration, you can learn how much sunlight is visible at each stage of the eclipse, and even explore some of the fascinating features of the Sun’s corona such as Baily’s Beads, Helmet Streamers, Prominences, and the Diamond Ring effect. If a specific section of an image interests you and you want to return to it later, hold down your finger in one place until you hear a “blip” noise. You’ve created a marker! Next time your finger passes over this point, you will hear the “blip” again so you can continue to explore that area.</string>
-    <string name="rumble_map_inactive">Rumble map inactive, double tap to turn on.</string>
-    <string name="rumble_map_running">Rumble map running, double tap to turn off</string>
-
+    <string name="rumble_map_inactive">Rumble Map Inactive, Double Tap to turn on</string>
+    <string name="rumble_map_running">Rumble Map Running, Double Tap to turn off</string>
 
     <!-- About -->
-    <string name="future_eclipse_label">Eclipses We Support</string>
+    <string name="supported_eclipse">Eclipses We Support</string>
     <string name="link_feedback_form"><![CDATA[ https://docs.google.com/forms/d/e/1FAIpQLSez-hoTy2NkUO5FDud0eOCvjDXCx9jNsdCMrqV_GgMG6tFOiw/viewform]]></string>
 
     <!-- Walkthrough -->
-    <string name="walkthrough_label">Eclipse Soundscapes Walkthrough</string>
-    <string name="walkthrough_welcome">Welcome</string>
-    <string name="title_rumble_map">Rumble Map</string>
-    <string name="title_audio_descriptions">Audio Descriptions</string>
-    <string name="walkthrough_skip_button">Skip</string>
-    <string name="walkthrough_title_access">Please allow location access</string>
+    <string name="walkthrough">Walkthrough</string>
+    <string name="walkthrough_title">Eclipse Soundscapes Walkthrough</string>
+    <string name="walkthrough_title_location">Please allow location access</string>
     <string name="walkthrough_location_page">Access to location</string>
-    <string name="walkthrough_ask_later">Not Now</string>
+    <string name="not_now">Not Now</string>
     <string name="walkthrough_welcome_text">Thank you for downloading the Eclipse Soundscapes app, a multi-sensory experience for people of all learning styles to engage with astronomical events, including total solar eclipses. Inside this app, you will find countdowns to major astronomical events in your area, and real time narrations of those events with illustrative audio descriptions provided by the National Center for Accessible Media. You can also explore the cosmos with high quality photos, educational information, and accessible learning tools.</string>
     <string name="walkthrough_rumble_map_text">Our Rumble Map tool is designed for you to hear and feel astronomical phenomena, such as eclipses, using the touchscreen and the speakers on your smartphone. For example: the Rumble Map will display photos of the Moon passing in front of the Sun during the most engaging and educational moments of an eclipse. When you touch the image on the screen, the app will read the grayscale value of a pixel underneath your finger, and play an audio tone which will vibrate your phone with a strength relative to the brightness of that section. As you move your finger onto the bright sections of the Sun, your phone will vibrate more. As you move your finger into the dark spaces blocked by the Moon’s disk, the vibration will diminish and disappear. By paying close attention to the audio tones and the strength of your phone\'s vibration, you can learn how much sunlight is visible at each stage of the eclipse, and explore some of the fascinating features of the Sun\'s corona.</string>
     <string name="walkthrough_eclipse_center">The Eclipse Center is your go-to destination for learning about eclipses in your area so you can discover them as they happen. When you open the Eclipse Center, it will ask to pinpoint your geographic location. Once you accept, you will find a countdown to the next eclipse, information on whether you will experience a total or a partial solar eclipse in your area, and the exact start time, peak time, and end time of the eclipse. </string>
     <string name="walkthrough_audio_description">When it is time for the next eclipse to start, you will receive a push notification to open Eclipse Soundscapes. The app will then guide you through the main event with illustrative audio descriptions of an eclipse\'s most important moments. These audio descriptions, provided by the National Center for Accessible Media, are explanations of photos developed with specialized language to help people who are blind and visually impaired engage with an eclipse. After each audio description ends, you will have the option to either hear more educational information or explore that feature of an eclipse using the Rumble Map.</string>
-    <string name="prev_page_button">previous page</string>
-    <string name="next_page_button">next page</string>
+    <string name="walkthrough_permission">You don\'t want to miss this amazing astronomical event! We\'ll need access to your location to show you information about the eclipse.</string>
+
+    <string name="prev_page">previous page</string>
+    <string name="next_page">next page</string>
     <string name="page_indicator">Page %1$d of %2$d</string>
 
     <!-- Future Eclipses -->
     <string name="future_eclipse_label_format">%1$s: %2$s</string>
 
     <!-- Dialog -->
-    <string name="closeDialogButton">Close Dialog</string>
-    <string name="closeButton">Close</string>
-    <string name="playButton">Play</string>
-    <string name="pauseButton">Pause</string>
-    <string name="cancelButton">CancelButton</string>
-    <string name="permission_dialog_header">Hello Soundscapers!</string>
-    <string name="permission_dialog_body">Don\'t miss the Eclipse. We need your permission to notify you about Eclipse Events.</string>
-    <string name="permission_dialog_rationale">Allow permission please. This helps to keep you informed with the Eclipse</string>
-    <string name="permission_dialog_button">Enable Notifications</string>
-    <string name="permission_dialog_footer">You can manage permissions in settings</string>
-
-    <!-- permissions -->
-    <string name="permission_rationale_location">Access to the location service is required to provide Eclipse information based on your location.</string>
-    <string name="location_permission_denied">Permission to access the device\'s location has been denied. Please grant access by enabling the location permission from the System Settings &gt; Apps &gt; \'Eclipse Soundscapes\'.</string>
-    <string name="location_permission">Location permission</string>
-    <string name="error_finding_location">Unable to determine your current location</string>
-    <string name="permission_denied">Permission denied</string>
-    <string name="location_disabled">Location disabled</string>
-    <string name="location_disabled_message">To continue, enable location services from your device settings.</string>
-
     <array name="eclipse_imgs_title">
-        <item name="diamond_ring">Diamond Ring</item>
-        <item name="helmet_streamers">Helmet Streamers</item>
-        <item name="prominence">Prominence</item>
-        <item name="sun_as_star">Sun as a Star</item>
-        <item name="first_contact">1st Contact</item>
-        <item name="totality">Totality</item>
-        <item name="bailys_beads">Baily\'s Beads</item>
-        <item name="corona">Corona</item>
+        <item name="diamond_ring">@string/diamond_ring</item>
+        <item name="helmet_streamers">@string/helmet_streamers</item>
+        <item name="prominence">@string/prominence</item>
+        <item name="sun_as_star">@string/sun_as_star</item>
+        <item name="first_contact">@string/first_contact</item>
+        <item name="totality">@string/totality</item>
+        <item name="bailys_beads">@string/bailys_beads</item>
+        <item name="corona">@string/corona</item>
     </array>
 
     <array name="eclipse_img_credits">
@@ -257,17 +235,18 @@
 
     <array name="listOptions">
         <item name="item_rumble_map">@string/rumble_map_how</item>
-        <item name="item_team">Our team</item>
-        <item name="item_partners">Our partners</item>
-        <item name="item_future_eclipses">Eclipses We Support</item>
-        <item name="item_instructions">Walkthrough</item>
-        <item name="item_feedback">Give Us Feedback</item>
-        <item name="item_settings">Settings</item>
-        <item name="item_legal">Legal</item>
+        <item name="item_team">@string/our_team</item>
+        <item name="item_partners">@string/our_partners</item>
+        <item name="item_future_eclipses">@string/supported_eclipse</item>
+        <item name="item_walkthrough">@string/walkthrough</item>
+        <item name="item_feedback">@string/feedback</item>
+        <item name="item_settings">@string/settings</item>
+        <item name="item_legal">@string/legal</item>
     </array>
 
     <string name="our_partners">Our Partners</string>
     <string name="our_team">Our Team</string>
+    <string name="feedback">Give Feedback</string>
 
     <array name="partners">
         <item name="partner_nasa">NASA</item>

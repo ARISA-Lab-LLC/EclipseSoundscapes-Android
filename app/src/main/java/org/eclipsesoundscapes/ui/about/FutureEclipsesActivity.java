@@ -54,7 +54,7 @@ public class FutureEclipsesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(org.eclipsesoundscapes.R.layout.activity_future_eclipses);
         if (getSupportActionBar() != null)
-            getSupportActionBar().setTitle(getString(R.string.future_eclipse_label));
+            getSupportActionBar().setTitle(getString(R.string.supported_eclipse));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // get parse json data and create a FutureEclipse object for each entry

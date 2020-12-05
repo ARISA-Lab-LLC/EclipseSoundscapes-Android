@@ -64,11 +64,11 @@ public class MediaFragment extends Fragment {
         eventAudioList = new ArrayList<>();
 
         // add default media content
-        addMedia(-1, getString(R.string.bailys_beads_title), R.string.bailys_beads_description, R.drawable.eclipse_bailys_beads, R.raw.bailys_beads_full);
-        addMedia(-1, getString(R.string.prominence_title), R.string.prominence_description, R.drawable.eclipse_prominence, R.raw.prominence_full);
-        addMedia(-1, getString(R.string.corona_title), R.string.corona_description, R.drawable.eclipse_corona, R.raw.corona_full);
-        addMedia(-1, getString(R.string.helmet_streamers_title), R.string.helmet_streamers_description, R.drawable.helmet_streamers, R.raw.helmet_streamers_full);
-        addMedia(-1, getString(R.string.diamond_ring_title), R.string.diamond_ring_description, R.drawable.eclipse_diamond_ring, R.raw.diamond_ring_full);
+        addMedia(-1, getString(R.string.bailys_beads), R.string.bailys_beads_description, R.drawable.eclipse_bailys_beads, R.raw.bailys_beads_full);
+        addMedia(-1, getString(R.string.prominence), R.string.prominence_description, R.drawable.eclipse_prominence, R.raw.prominence_full);
+        addMedia(-1, getString(R.string.corona), R.string.corona_description, R.drawable.eclipse_corona, R.raw.corona_full);
+        addMedia(-1, getString(R.string.helmet_streamers), R.string.helmet_streamers_description, R.drawable.helmet_streamers, R.raw.helmet_streamers_full);
+        addMedia(-1, getString(R.string.diamond_ring), R.string.diamond_ring_description, R.drawable.eclipse_diamond_ring, R.raw.diamond_ring_full);
     }
 
     @Override
@@ -78,7 +78,7 @@ public class MediaFragment extends Fragment {
         ButterKnife.bind(this, root);
 
         Toolbar toolbar = root.findViewById(R.id.toolbar);
-        toolbar.setTitle(getString(R.string.title_media));
+        toolbar.setTitle(getString(R.string.media));
 
         if (getActivity() != null)
             ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
@@ -101,18 +101,18 @@ public class MediaFragment extends Fragment {
             if (getActivity() instanceof MainActivity){
 
                 // add first contact & totality media content during/after its occurrence
-                if (!eventList.contains(getString(R.string.first_contact_title))
+                if (!eventList.contains(getString(R.string.first_contact))
                         && ((MainActivity) getActivity()).isAfterFirstContact()){
                     addFirstContact();
                 }
 
-                if (!eventList.contains(getString(R.string.totality_title))
+                if (!eventList.contains(getString(R.string.totality))
                         && ((MainActivity) getActivity()).isAfterTotality()){
                     addTotality();
                 }
             }
 
-            if (eventList.contains(getString(R.string.totality_title)))
+            if (eventList.contains(getString(R.string.totality)))
                 moreView.setVisibility(View.GONE);
         }
     }
@@ -140,17 +140,17 @@ public class MediaFragment extends Fragment {
     }
 
     private void addFirstContact(){
-        addMedia(0, getString(R.string.first_contact_title),
+        addMedia(0, getString(R.string.first_contact),
                 R.string.first_contact_description, R.drawable.eclipse_first_contact, R.raw.first_contact_short);
         mediaAdapter.notifyItemInserted(0);
     }
 
     private void addTotality(){
-        addMedia(eventList.size(), getString(R.string.totality_title),
+        addMedia(eventList.size(), getString(R.string.totality),
                 R.string.totality_description, R.drawable.eclipse_totality, R.raw.totality_short);
-        addMedia(eventList.size(), getString(R.string.sun_as_star_title),
+        addMedia(eventList.size(), getString(R.string.sun_as_star),
                 R.string.sun_as_star_description, R.drawable.sun_as_a_star, R.raw.sun_as_a_star);
-        addMedia(eventList.size(), getString(R.string.eclipse_experience_title),
+        addMedia(eventList.size(), getString(R.string.eclipse_experience),
                 R.string.bailys_beads_description, R.drawable.eclipse_bailys_beads, R.raw.realtime_eclipse_shorts_saas);
 
         mediaAdapter.notifyItemInserted(eventList.size() - 1);

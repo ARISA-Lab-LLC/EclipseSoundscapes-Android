@@ -62,7 +62,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="sans-serif-medium"
-                android:text="@string/title_rumble_map"
+                android:text="@string/rumble_map"
                 android:textSize="21sp"
                 android:textColor="@color/text_color_primary"
                 android:focusable="false"/>

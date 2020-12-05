@@ -58,7 +58,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_gravity="center_horizontal"
                 android:fontFamily="sans-serif-medium"
-                android:text="@string/title_audio_descriptions"
+                android:text="@string/audio_descriptions"
                 android:textSize="21sp"
                 android:textColor="@color/text_color_primary"
                 android:focusable="false"/>
