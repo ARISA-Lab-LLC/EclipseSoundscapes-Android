@@ -147,7 +147,7 @@ public class MediaFragment extends Fragment {
 
     private void addTotality(){
         addMedia(eventList.size(), getString(R.string.totality_title),
-                R.string.totality_description, R.drawable.eclipse_totality, R.raw.totality_short);
+                R.string.totality_description, R.drawable.eclipse_totality, R.raw.totality_full);
         addMedia(eventList.size(), getString(R.string.sun_as_star_title),
                 R.string.sun_as_star_description, R.drawable.sun_as_a_star, R.raw.sun_as_a_star);
         addMedia(eventList.size(), getString(R.string.eclipse_experience_title),
