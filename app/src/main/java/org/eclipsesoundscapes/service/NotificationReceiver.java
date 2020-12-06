@@ -61,7 +61,7 @@ public class NotificationReceiver extends BroadcastReceiver {
                 mediaIntent.putExtra(MediaPlayerActivity.EXTRA_TITLE, context.getString(R.string.first_contact_title));
                 mediaIntent.putExtra(MediaPlayerActivity.EXTRA_DESCRIPTION, R.string.first_contact_description);
                 mediaIntent.putExtra(MediaPlayerActivity.EXTRA_IMG, R.drawable.eclipse_first_contact);
-                mediaIntent.putExtra(MediaPlayerActivity.EXTRA_AUDIO, R.raw.first_contact_short);
+                mediaIntent.putExtra(MediaPlayerActivity.EXTRA_AUDIO, R.raw.first_contact_full);
                 mediaIntent.putExtra(MediaPlayerActivity.EXTRA_LIVE, true);
                 showNotification(context, MediaPlayerActivity.class, type, true,
                         context.getString(R.string.first_contact_begun), context.getString(R.string.tap_listen), mediaIntent);

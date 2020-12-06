@@ -141,7 +141,7 @@ public class MediaFragment extends Fragment {
 
     private void addFirstContact(){
         addMedia(0, getString(R.string.first_contact_title),
-                R.string.first_contact_description, R.drawable.eclipse_first_contact, R.raw.first_contact_short);
+                R.string.first_contact_description, R.drawable.eclipse_first_contact, R.raw.first_contact_full);
         mediaAdapter.notifyItemInserted(0);
     }
 
