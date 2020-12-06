@@ -102,10 +102,22 @@
 
     <!-- Media player -->
     <string name="more_audio_coming">More audio descriptions coming soon…</string>
-    <string name="bailys_beads_short">For the next six minutes the Rumble map will be disabled so that you can hear about in real time the events surrounding totality.\n\nOn the right side of the moon, orbs of glowing sunlight shimmer off the edge of the moon’s black disk. Called Baily\'s Beads, these final areas of the sun\'s light appear as glimmering pearls on a wire, made intensely bright by the absence of light surrounding them.</string>
-    <string name="first_contact_short">The eclipse has begun and this is the first moment that the moon appears to touch the Sun. The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk.\n\nFor the approximately 90 minutes you will have the opportunity to interact with the Rumble map and explore features of the Sun that are revealed during an eclipse. Then, during six minutes leading up to, during, and just after totality, the Rumble map will be disabled so that you can hear about the events surrounding totality in real time.</string>
-    <string name="diamond_ring_short">On the left side of the black moon, a sliver of sunlight blasts into view with white-hot intensity. As the area of re-emerging sunlight grows, it resembles a diamond ring, beaming out its brilliant light.</string>
-    <string name="totality_short">This is the full eclipse - for just approximately two minutes, the moon\'s black disk completely covers the sun, revealing the sun\'s massive outer corona. Grand flourishes of light extend from the moon in all directions like flower petals. Intensely bright at the moon\'s edge, these helmet streamers fade to wisps of ghostly white as they stretch across space.</string>
+
+    <string name="bailys_beads_short">For the next six minutes the rumble map will be disabled so that you can hear in real time the events surrounding totality.
+        On the right side of the moon orbs of glowing sunlight shimmer off the edge of the moon\’s black disc.
+        Called Bailey\’s beads, these final areas of the sun\’s light appear as glimmering pearls on a wire made intensely bright by the absence of light surrounding them.</string>
+
+    <string name="first_contact_short">The eclipse has begun and this is the first moment that the moon appears to touch the sun.
+        These two celestial bodies look as if they are the same size. The sun\’s light is so bright that it obliterates all of the moon\’s features causing the moon to appear as a smooth obsidian disc.
+        For the next approximately 90 minutes you will have the opportunity to interact with the rumble map and explore features of the sun that are revealed during an eclipse.
+        Then, during the six minutes leading up to, during, and just after totality, the rumble map will be disabled so that you can hear about events surrounding totality in real time.</string>
+
+    <string name="diamond_ring_short">On the left side of the black moon a sliver of sunlight blasts into view with white hot intensity.
+        As the area of reemerging sunlight grows, it resembles a diamond ring beaming out its brilliant light.</string>
+
+    <string name="totality_short">This is the full eclipse. For approximately two minutes the moon\’s black disc completely covers the sun revealing the sun\’s massive outer corona.
+        Grand flourishes of light extend from the moon in all directions like flower petals.
+        Intensely bright at the moon\’s edge, these helmet streamers fade to wisps of ghostly white as they stretch across space.</string>
 
     <string name="first_contact_title">First Contact</string>
     <string name="bailys_beads_title">Baily\'s Beads</string>
