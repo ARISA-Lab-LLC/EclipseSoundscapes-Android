@@ -241,5 +241,68 @@
             Como Rexburg queda en la trayectoria del eclipse total, BYU organiza una serie de eventos educativos y de visualización con el municipio de Rexburg.</item>
     </array>
 
+    <array name="team_title">
+        <item name="member_henry_winter">Codirector</item>
+        <item name="member_marykay">Codirectora</item>
+        <item name="member_arlindo">Desarrollador de aplicaciones</item>
+        <item name="member_joel">Desarrollador de aplicaciones</item>
+        <item name="member_miles">Especialista en producción audiovisual</item>
+        <item name="member_christina">Image Analysis Intern</item>
+        <item name="member_kristin">Diseñadora gráfica</item>
+        <item name="member_kelsey">Coordinadora de redes sociales y escritora de contenidos</item>
+        <item name="member_wanda">Consultant</item>
+    </array>
+
+    <array name="team_bio">
+        <item name="member_henry_winter">El Dr. Henry "Trae" Winter III es el director científico y cofundador de ARISA Lab.
+            Ha trabajado en ocho misiones de la NASA observando el sol. Su principal objetivo de investigación es mejorar las simulaciones por computadora para comprobar si se libera energía en la atmósfera del sol, la corona y otras estrellas.
+            Ha diseñado exposiciones de pared en video para el Museo Nacional de Diseño Cooper-Hewitt, el Museo Nacional del Aire y del Espacio, la Biblioteca Hunt de la Universidad Estatal de Carolina del Norte y Lightbox Gallery del Museo de Arte de Harvard.
+            Además de Eclipse Soundscapes, su proyecto actual denominado “The Tactile Sun” (el sol táctil) apunta a que la comunidad de personas no videntes y con discapacidad visual participe de exhibiciones solares de diseño universal.</item>
+
+        <item name="member_marykay">MaryKay Severino es la directora educativa y cofundadora de ARISA Lab.
+            Luego de obtener un título en negocios en Villanova University, trabajó en Carolina del Sur y California como administradora de programas y consultora de marketing.
+            Al darse cuenta de que estaba lista para un cambio, continuó y obtuvo su título de licenciada en educación y trabajó en sistemas escolares públicos y universidades de Taiwán y Corea del Sur.
+            Viviendo en el extranjero, inmersa en otras culturas y transcurriendo la vida cotidiana con barreras de idioma y cultura, logró llegar a tener una gran comprensión de los desafíos que enfrenta cualquier persona que se comunica de otra manera.
+            Por tal motivo, el proyecto Eclipse Soundscapes fue algo que le resultó natural. Le entusiasma usar sus habilidades para promover, planificar y ejecutar un proyecto que puede poner el asombro y la maravilla de un eclipse al alcance de una población más inclusiva.</item>
+
+        <item name="member_arlindo">Arlindo Goncalves es un desarrollador de iOS de Brockton, Massachusetts.
+            Aspira a desarrollar aplicaciones que ayuden a las escuelas y demás instituciones a atraer a los jóvenes, haciendo de la educación el centro de sus vidas.
+            En su tiempo libre, le gusta jugar al fútbol y cocinar con familiares y amigos.</item>
+
+        <item name="member_joel">Joel Goncalves is an Android developer from Brockton, Massachusetts
+            and a Computer Science graduate from the University of Massachusetts, Boston.
+            As a developer and budding entrepreneur, he is passionate about creating and contributing
+            to meaningful applications. As a hobby, he likes to travel, read philosophy and produce music.
+        </item>
+
+        <item name="member_miles">Miles Gordon es un ingeniero en audio y artista multimedia de New England.
+            Entre mezclar y hacer copias maestras de temas musicales para sus amigos y su trabajo en el proyecto Eclipse Soundscapes, también le gusta arreglar máquinas y editar artículos para una empresa de traducción china.
+            Cuando sea mayor quiere ser un personaje secundario en una novela de William Gibson.
+            Miles se sumó al proyecto Eclipse Soundscapes después de que un amigo en común le presentara al Dr. Winter.
+            Su entusiasmo compartido por la innovación en el área de la ingeniería de audio los llevó a colaborar en Eclipse Soundscapes.</item>
+
+        <item name="member_christina">Originally from a small town in New Jersey, Christina is an
+            undergraduate student studying physics and math at Northeastern University. She works on
+            image and video analysis for the Eclipse Soundscapes project and numerically modeling
+            solar flares at the Harvard-Smithsonian Center for Astrophysics. She became involved
+            with Eclipse Soundscapes because she enjoys scientific outreach and is interested in
+            conveying numerical information in new ways. Christina hopes to continue studying in the
+            field of plasma physics as a graduate student.</item>
+
+        <item name="member_kristin">Kristin DiVona es la especialista en información visual del Observatorio de rayos X Chandra de la NASA.
+            Diseñadora e ilustradora galardonada, es la responsable de la creación de materiales impresos, exhibiciones y herramientas educativas interactivas que interpretan visualmente conceptos relacionados con la astrofísica y la astronomía de rayos X, conectando la vida cotidiana con la exploración y la tecnología científicas.
+            (Sí, así de sensacional como suena). Está graduada de Rhode Island School of Design. Espera con bastante impaciencia este asombroso evento astronómico y está entusiasmada por trabajar con el equipo de Eclipse Soundscapes en este proyecto de diseño inclusivo.</item>
+
+        <item name="member_kelsey">Kelsey Perrett es una escritora, editora, productora web y especialista en redes sociales que trabaja independientemente en Massachusetts.
+            Le gusta escribir sobre viajes, salud y bienestar, y el medioambiente. Cuando no se dedica a escribir, se la puede encontrar afuera explorando senderos, en el gimnasio o estudio de yoga, o intentando conquistar una lista de lectura cada vez más larga.
+            Kelsey se involucró en el proyecto Eclipse Soundscapes debido a su interés en los informes medioambientales, y le emociona trabajar con un talentoso grupo para poner las maravillas del espacio al alcance de todos.</item>
+
+        <item name="member_wanda">Development in South Africa. When Dr. Winter invited Wanda to join
+            the Eclipse Soundscapes team as a blind person and an astrophysicist, she accepted,
+            saying she hoped the project could bring an innovative experience to the blind and
+            visually impaired, to people who are not visually oriented, and to people who have never
+            experienced an eclipse.
+        </item>
+    </array>
 
 </resources>
