@@ -130,13 +130,13 @@
 
     <string name="first_contact">First Contact</string>
     <string name="bailys_beads">Baily\'s Beads</string>
-    <string name="bailys_beads_closeup">Baily\'s Beads Zoomed</string>
+    <string name="bailys_beads_closeup">Baily\'s Beads Closeup</string>
     <string name="corona">Corona</string>
     <string name="diamond_ring">Diamond Ring</string>
     <string name="helmet_streamers">Helmet Streamers</string>
-    <string name="helmet_streamers_closeup">Helmet Streamers Zoomed</string>
+    <string name="helmet_streamers_closeup">Helmet Streamers Closeup</string>
     <string name="prominence">Prominence</string>
-    <string name="prominence_closeup">Prominence Zoomed</string>
+    <string name="prominence_closeup">Prominence Closeup</string>
     <string name="totality">Totality</string>
     <string name="sun_as_star">Sun as a Star</string>
     <string name="eclipse_experience">Eclipse Experience</string>
@@ -176,6 +176,7 @@
 
     <!-- Future Eclipses -->
     <string name="future_eclipse_label_format">%1$s: %2$s</string>
+    <string name="future_eclipse_features">Tracking, Rumble Maps, Narrations</string>
 
     <!-- Dialog -->
     <array name="eclipse_imgs_title">
@@ -249,10 +250,10 @@
     <string name="feedback">Give Feedback</string>
 
     <array name="partners">
-        <item name="partner_nasa">NASA’s Space Science Education Consortium (NSSEC)</item>
+        <item name="partner_nasa">NASA</item>
         <item name="partner_national_park">National Park Service</item>
         <item name="partner_smithsonian">Smithsonian Institution</item>
-        <item name="partner_wgbh">National Center for Accessible Media, GBH</item>
+        <item name="partner_wgbh">National Center for Accessible Media, WGBH</item>
         <item name="partner_eclipse_mob">Eclipse Mob</item>
         <item name="partner_science_friday">Science Friday</item>
         <item name="partner_national_girls_collab">National Girls Collaborative</item>
@@ -261,11 +262,12 @@
     </array>
 
     <array name="partner_description">
-        <item name="nasa_description">NASA (National Aeronautics and Space Administration) is an independent agency of the United States federal government which conducts the civilian space program, aeronautics, and aerospace research.
-            NASA is leading an educational outreach effort surrounding eclipses, which includes information and live coverage of these events.
-            For more information on NASA, visit nasa.gov. The NASA Space Science Education Consortium (NSSEC) capitalizes on NASA’s rich history of sharing research and technology through compelling and innovative education projects.
-            The NSSEC (formerly the Heliophysics Education Consortium (HEC)) continues the Science Mission Directorate’s (SMD) work at the forefront of NASA’s educational endeavors by linking exciting science and missions directly to the American public.
-            NSSEC is partnering with Eclipse Soundscapes to provide the script calculating the timing of the eclipse, as well as the funding that makes Eclipse Soundscapes possible.
+        <item name="nasa_description">NASA is an independent agency of the United States federal
+            government which conducts the civilian space program, aeronautics, and aerospace
+            research. NASA is leading an educational outreach effort surrounding the August 2017
+            Eclipse which includes information and live coverage of the event. NASA is partnering
+            with Eclipse Soundscapes to provide the script calculating the timing of the eclipse, as
+            well as the funding that makes Eclipse Soundscapes possible.
         </item>
         <item name="national_park_description">The National Parks Service (an agency of the United
             States Department of the Interior) manages national parks, monuments, conservation, and
@@ -282,9 +284,12 @@
             Smithsonian is partnering with Eclipse Soundscapes to provide a headquarters and funding
             for the Eclipse Soundscapes project.
         </item>
-        <item name="wgbh_description">The Carl and Ruth Shapiro Family National Center for Accessible Media (NCAM) is a non-profit branch of GBH in Boston which is dedicated to achieving media access equality for people with disabilities.
-            NCAM is partnering with Eclipse Soundscapes to provide media coverage of the eclipse, including illustrative audio descriptions of the eclipse which will allow visually impaired individuals to experience the eclipse through real-time audio narrations.
-            NCAM is also conducting a review of the Eclipse Soundscapes app to enhance its accessibility.
+        <item name="wgbh_description">The Carl and Ruth Shapiro Family National Center for
+            Accessible Media (NCAM) is a non-profit branch of WGBH radio in Boston which is
+            dedicated to achieving media access equality for people with disabilities. NCAM is
+            partnering with Eclipse Soundscapes to provide media coverage of the eclipse, including
+            illustrated audio descriptions of the eclipse which will allow visually impaired
+            individuals to experience the eclipse through real-time audio narrations.
         </item>
         <item name="eclipse_mob_description">Eclipse Mob is a crowdsourced effort to conduct the
             largest-ever low-frequency radio wave propagation experiment during the 2017 solar
@@ -324,7 +329,7 @@
     </array>
 
     <array name="partner_links">
-        <item name="nasa_link">science.nasa.gov/science-activation-team/nasa-space-science-education-consortium</item>
+        <item name="nasa_link">https://www.nasa.gov/</item>
         <item name="nationa_park_link">https://www.nps.gov/</item>
         <item name="smithsonian_link">https://www.si.edu/</item>
         <item name="smithsonian_link">http://ncam.wgbh.org/</item>

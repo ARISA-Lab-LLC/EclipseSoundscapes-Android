@@ -198,7 +198,7 @@ public class FutureEclipsesActivity extends AppCompatActivity {
                     context.getString(R.string.type), futureEclipses.get(position).getType()));
 
             holder.features.setText(context.getString(R.string.future_eclipse_label_format,
-                    context.getString(R.string.features), futureEclipses.get(position).getFeatures()));
+                    context.getString(R.string.features), context.getString(R.string.future_eclipse_features)));
         }
 
         @Override
