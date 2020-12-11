@@ -247,10 +247,8 @@
         <item name="member_arlindo">Desarrollador de aplicaciones</item>
         <item name="member_joel">Desarrollador de aplicaciones</item>
         <item name="member_miles">Especialista en producción audiovisual</item>
-        <item name="member_christina">Image Analysis Intern</item>
         <item name="member_kristin">Diseñadora gráfica</item>
         <item name="member_kelsey">Coordinadora de redes sociales y escritora de contenidos</item>
-        <item name="member_wanda">Consultant</item>
     </array>
 
     <array name="team_bio">
@@ -281,14 +279,6 @@
             Miles se sumó al proyecto Eclipse Soundscapes después de que un amigo en común le presentara al Dr. Winter.
             Su entusiasmo compartido por la innovación en el área de la ingeniería de audio los llevó a colaborar en Eclipse Soundscapes.</item>
 
-        <item name="member_christina">Originally from a small town in New Jersey, Christina is an
-            undergraduate student studying physics and math at Northeastern University. She works on
-            image and video analysis for the Eclipse Soundscapes project and numerically modeling
-            solar flares at the Harvard-Smithsonian Center for Astrophysics. She became involved
-            with Eclipse Soundscapes because she enjoys scientific outreach and is interested in
-            conveying numerical information in new ways. Christina hopes to continue studying in the
-            field of plasma physics as a graduate student.</item>
-
         <item name="member_kristin">Kristin DiVona es la especialista en información visual del Observatorio de rayos X Chandra de la NASA.
             Diseñadora e ilustradora galardonada, es la responsable de la creación de materiales impresos, exhibiciones y herramientas educativas interactivas que interpretan visualmente conceptos relacionados con la astrofísica y la astronomía de rayos X, conectando la vida cotidiana con la exploración y la tecnología científicas.
             (Sí, así de sensacional como suena). Está graduada de Rhode Island School of Design. Espera con bastante impaciencia este asombroso evento astronómico y está entusiasmada por trabajar con el equipo de Eclipse Soundscapes en este proyecto de diseño inclusivo.</item>
@@ -296,13 +286,6 @@
         <item name="member_kelsey">Kelsey Perrett es una escritora, editora, productora web y especialista en redes sociales que trabaja independientemente en Massachusetts.
             Le gusta escribir sobre viajes, salud y bienestar, y el medioambiente. Cuando no se dedica a escribir, se la puede encontrar afuera explorando senderos, en el gimnasio o estudio de yoga, o intentando conquistar una lista de lectura cada vez más larga.
             Kelsey se involucró en el proyecto Eclipse Soundscapes debido a su interés en los informes medioambientales, y le emociona trabajar con un talentoso grupo para poner las maravillas del espacio al alcance de todos.</item>
-
-        <item name="member_wanda">Development in South Africa. When Dr. Winter invited Wanda to join
-            the Eclipse Soundscapes team as a blind person and an astrophysicist, she accepted,
-            saying she hoped the project could bring an innovative experience to the blind and
-            visually impaired, to people who are not visually oriented, and to people who have never
-            experienced an eclipse.
-        </item>
     </array>
 
 </resources>

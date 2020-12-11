@@ -347,10 +347,8 @@
         <item name="member_arlindo">Arlindo Goncalves</item>
         <item name="member_joel">Joel Goncalves</item>
         <item name="member_miles">Miles Gordon</item>
-        <item name="member_christina">Christina Migliore</item>
         <item name="member_kristin">Kristin DiVona</item>
         <item name="member_kelsey">Kelsey Perrett</item>
-        <item name="member_wanda">Dr. Wanda Diaz Merced</item>
     </array>
 
     <array name="team_title">
@@ -359,92 +357,46 @@
         <item name="member_arlindo">iOS Developer</item>
         <item name="member_joel">Android Developer</item>
         <item name="member_miles">Audio Engineer</item>
-        <item name="member_christina">Image Analysis Intern</item>
         <item name="member_kristin">Graphic Designer</item>
         <item name="member_kelsey">Social Media Coordinator/Content Writer</item>
-        <item name="member_wanda">Consultant</item>
     </array>
 
     <array name="team_bio">
-        <item name="member_henry_winter">Dr. Henry \'Trae\' Winter III, an astrophysicist at the
-            Harvard-Smithsonian Center for Astrophysics (CfA), has worked on eight NASA missions
-            observing the Sun. His primary research focus is improving computer simulations to
-            explore energy is released in the Sun\'s atmosphere, the corona, and in other stars. Dr.
-            Winter has designed video wall exhibits for the Cooper-Hewitt National Design Museum,
-            the National Air and Space Museum, North Carolina State University’s Hunt Library, and
-            the Harvard Art Museums’ Lightbox Gallery. In addition to Eclipse Soundscapes, his
-            current project “The Tactile Sun” aims to engage the blind and visually disabled
-            community with universally designed solar exhibits. Dr. Winter has spearheaded many
-            efforts to engage the public in scientific discovery, including work with the Montana
-            Space Grant Consortium\'s Space Public Outreach Team, the Yohkoh Public Outreach
-            Project, and science education programs at the Salish-Kootenai Flathead Lake
-            Reservation. Currently Dr. Winter is the Chairperson of the Astrolabe Advisory Board,
-            Chairperson of the AAS Eclipse Task Force Education Committee, active member of the
-            Education and Public Outreach Committee for the Solar Physics Division (SPD) of the AAS,
-            Press Officer for the SPD, and Co-Director of the CfA\'s Solar REU Summer Intern Program
-            sponsored by the National Science Foundation.
+        <item name="member_henry_winter">Dr. Henry "Trae" Winter III, is the Chief Scientist and Co-Founder of the ARISA Lab.
+            Dr. Winter has worked on eight NASA missions observing the Sun. His primary research focus is improving computer simulations to explore energy is released in the Sun's atmosphere, the corona, and in other stars.
+            Dr. Winter has designed video wall exhibits for the Cooper-Hewitt National Design Museum, the National Air and Space Museum, North Carolina State University’s Hunt Library, and the Harvard Art Museums’ Lightbox Gallery.
+            In addition to Eclipse Soundscapes, his current project “The Tactile Sun” aims to engage the blind and visually disabled community with universally designed solar exhibits.
         </item>
-        <item name="member_marykay">MaryKay Severino is originally from Somerville, Massachusetts,
-            but only recently returned to the Boston area. After earning a business degree from
-            Villanova University, she worked in South Carolina and California as a Program Manager
-            and Marketing Consultant. Realizing she was ready for a change, she went on to earn her
-            Master\'s degree in Education and worked in public school systems and universities in
-            Italy, Taiwan, and South Korea. Living abroad, immersed in other cultures and navigating
-            daily life with language and literacy barriers, gave MaryKay a strong understanding of
-            the challenges faced by anyone who communicates differently. For this reason, the
-            Eclipse Soundscapes project was a natural fit. She is excited to use her program
-            management skills to promote, plan and execute a project which will bring the amazement
-            and wonder of an eclipse to a more inclusive demographic.
+
+        <item name="member_marykay">MaryKay Severino is the Educational Director and Co-Founder of the ARISA Lab.
+            After earning a business degree from Villanova University, she worked in South Carolina and California as a Program Manager and Marketing Consultant.
+            Realizing she was ready for a change, she went on to earn her Master's degree in Education and worked in public school systems and universities in Italy, Taiwan, and South Korea.
+            Living abroad, immersed in other cultures and navigating daily life with language and literacy barriers, gave MaryKay a strong understanding of the challenges faced by anyone who communicates differently.
+            For this reason, the Eclipse Soundscapes project was a natural fit. She is excited to use her skills to promote, plan, and execute a project which will bring the amazement and wonder of an eclipse to a more inclusive demographic.
         </item>
-        <item name="member_arlindo">Arlindo Goncalves is an iOS developer from Brockton,
-            Massachusetts, and a computer science student at the University of Massachusetts,
-            Boston. He aspires to develop applications that help schools and other institution
-            engage youth, making education a focus point in their lives. In his free time, Arlindo
-            enjoys playing soccer and cooking for his family and friends.
+
+        <item name="member_arlindo">
+            Arlindo Goncalves is an iOS developer from Brockton, Massachusetts.
+            He aspires to develop applications that help schools and other institutions engage youth, making education a focal point in their lives.
+            In his free time, Arlindo enjoys playing soccer and cooking for his family and friends.
         </item>
         <item name="member_joel">Joel Goncalves is an Android developer from Brockton, Massachusetts
             and a Computer Science graduate from the University of Massachusetts, Boston.
             As a developer and budding entrepreneur, he is passionate about creating and contributing
             to meaningful applications. As a hobby, he likes to travel, read philosophy and produce music.
         </item>
-        <item name="member_miles">Miles Gordon is an audio engineer and multi-media artist from New
-            England. Between mixing and mastering tracks for his friends and his work on the Eclipse
-            Soundscapes project, he also enjoys tinkering with machines and editing papers for a
-            Chinese translation company. When he grows up, he wants to be a supporting character in
-            a William Gibson novel. Miles got involved in the Eclipse Soundscapes Project after a
-            mutual friend introduced him to Dr. Winter. Their shared enthusiasm for innovation in
-            audio engineering led to a collaboration on Eclipse Soundscapes
+        <item name="member_miles">Miles Gordon is an audio engineer and multimedia artist from New England.
+            Between mixing and mastering tracks for his friends and his work on the Eclipse Soundscapes project, he also enjoys tinkering with machines and editing papers for a Chinese translation company.
+            When he grows up, he wants to be a supporting character in a William Gibson novel. Miles got involved in the Eclipse Soundscapes Project after a mutual friend introduced him to Dr. Winter.
+            Their shared enthusiasm for innovation in audio engineering led to a collaboration on Eclipse Soundscapes.
         </item>
-        <item name="member_christina">Originally from a small town in New Jersey, Christina is an
-            undergraduate student studying physics and math at Northeastern University. She works on
-            image and video analysis for the Eclipse Soundscapes project and numerically modeling
-            solar flares at the Harvard-Smithsonian Center for Astrophysics. She became involved
-            with Eclipse Soundscapes because she enjoys scientific outreach and is interested in
-            conveying numerical information in new ways. Christina hopes to continue studying in the
-            field of plasma physics as a graduate student.
+        <item name="member_kristin">Kristin DiVona is the Visual Information Specialist for NASA's Chandra X-Ray Observatory.
+            An award-winning designer and illustrator, she is responsible for the creation of printed materials, exhibits, and interactive educational tools that visually interpret concepts related to astrophysics and x-ray astronomy— connecting everyday life to science exploration and technology.
+            (Yes, it's as cool as it sounds.) She is a graduate of Rhode Island School of Design. Kristin is waiting not-so-patiently for this amazing astronomical event, and is excited to work with the Eclipse Soundscapes team on this inclusive design project.
         </item>
-        <item name="member_kristin">Kristin DiVona is the Visual Information Specialist for NASA\'s
-            Chandra X-Ray Observatory. An award-winning designer and illustrator, she is responsible
-            for the creation of printed materials, exhibits, and interactive educational tools that
-            visually interpret concepts related to astrophysics and x-ray astronomy— connecting
-            everyday life to science exploration and technology. (Yes, it\'s as cool as it sounds.)
-            She is a graduate of Rhode Island School of Design. Kristin is waiting not-so-patiently
-            for this amazing astronomical event, and is excited to work with the Eclipse Soundscapes
-            team on this inclusive design project
-        </item>
-        <item name="member_kelsey">Kelsey Perrett is a Massachusetts-based freelance writer, editor,
-            web producer, and social media specialist. She enjoys writing about travel, health and
-            fitness, and the environment. When she isn’t writing, she can be found outside exploring
-            trails, at the gym/yoga studio, or attempting to conquer an ever-expanding reading list.
-            Kelsey got involved in the Eclipse Soundscapes Project due to her interest in
-            environmental reporting, and is thrilled to work with a talented group to make the
-            wonders of space accessible to everyone.
-        </item>
-        <item name="member_wanda">Development in South Africa. When Dr. Winter invited Wanda to join
-            the Eclipse Soundscapes team as a blind person and an astrophysicist, she accepted,
-            saying she hoped the project could bring an innovative experience to the blind and
-            visually impaired, to people who are not visually oriented, and to people who have never
-            experienced an eclipse.
+        <item name="member_kelsey">Kelsey Perrett is a Massachusetts-based freelance writer, editor, web producer, and social media specialist.
+            She enjoys writing about travel, health and fitness, and the environment. When she isn’t writing, she can be found outside exploring trails, at the gym/yoga studio, or attempting to conquer an ever-expanding reading list.
+            Kelsey got involved in the Eclipse Soundscapes Project due to her interest in environmental reporting, and is thrilled to work with a talented group to make the wonders of space accessible to everyone.
         </item>
     </array>
 
