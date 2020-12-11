@@ -71,7 +71,9 @@
     <string name="audiokit">AUDIOKIT</string>
 
     <string name="about_us">About Us</string>
-    <string name="about_us_details">From the Smithsonian Astrophysics Observatory and NASA\'s Heliophysics Education Consortium, The Eclipse Soundscapes Project uses sound to create a multisensory experience of astronomical events such as eclipses. With this app, and an additional citizen science project to record changing environmental sounds during eclipses, Eclipse Soundscapes aims to engage all learners with astrophysics, including people who are blind or visually impaired. For more information, visit eclipsesoundscapes.org.</string>
+    <string name="about_us_details">The Eclipse Soundscapes mobile application is a product of the Eclipse Soundscapes Project, which is an enterprise ARISA Lab, LLC.
+        The Eclipse Soundscapes Project aims to engage ALL learners with astrophysics, with an intentional focus on inclusion and accessibility. For more information, visit EclipseSoundscapes.org.
+        The development of the Eclipse Soundscapes mobile application is funded by NASA Space Science Education Consortium.</string>
 
     <!-- Eclipse Center -->
     <string name="eclipse_countdown_title">Countdown Until Eclipse</string>
