@@ -2,7 +2,6 @@ package org.eclipsesoundscapes.ui.about;
 
 import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.text.util.Linkify;
 import android.view.LayoutInflater;
@@ -12,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 
 import org.eclipsesoundscapes.R;
@@ -48,16 +46,14 @@ import butterknife.ButterKnife;
 
 public class PartnerTeamAdapter extends RecyclerView.Adapter<PartnerTeamAdapter.PartnerTeamViewHolder> {
 
-    private AppCompatActivity mContext;
     private String[] partnersTeams;
     private String[] descriptions;
     private String[] extra; // partner link or team member title
     private TypedArray images;
     private boolean isTeam;
 
-    PartnerTeamAdapter(AppCompatActivity context, String[] partnersTeams, String extra[], String[] descriptions,
+    PartnerTeamAdapter(String[] partnersTeams, String extra[], String[] descriptions,
                        TypedArray images, boolean isTeam) {
-        this.mContext = context;
         this.partnersTeams = partnersTeams;
         this.extra = extra;
         this.descriptions = descriptions;
@@ -79,21 +75,19 @@ public class PartnerTeamAdapter extends RecyclerView.Adapter<PartnerTeamAdapter.
         holder.extra_detail.setText(extra[position]);
         holder.partner_description.setText(descriptions[position]);
 
-        if (mContext != null && !mContext.isDestroyed() && !mContext.isFinishing()) {
-            RequestOptions options = new RequestOptions()
+        if (isTeam) {
+            final RequestOptions options = new RequestOptions()
                     .centerInside()
-                    .transform(new CircleTransform(mContext))
-                    .diskCacheStrategy(DiskCacheStrategy.ALL);
+                    .transform(new CircleTransform(holder.itemView.getContext()));
 
-            Glide.with(mContext)
+            Glide.with(holder.itemView.getContext())
                     .load(images.getDrawable(position))
                     .apply(options)
                     .into(holder.partnerLogo);
-        }
-
-        // hyperlink
-        if (!isTeam)
+        } else {
+            holder.partnerLogo.setImageDrawable(images.getDrawable(position));
             Linkify.addLinks(holder.extra_detail, Linkify.ALL);
+        }
     }
 
 

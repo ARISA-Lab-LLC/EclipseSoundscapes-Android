@@ -56,7 +56,7 @@ public class OurPartnersActivity extends AppCompatActivity {
         partnerLogos = res.obtainTypedArray(R.array.partner_logos);
 
         final RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        final PartnerTeamAdapter adapter = new PartnerTeamAdapter(this, partnerList, partnerLink,
+        final PartnerTeamAdapter adapter = new PartnerTeamAdapter(partnerList, partnerLink,
                 partnerDescription, partnerLogos, false);
         partnersRecyclerView.setLayoutManager(layoutManager);
         partnersRecyclerView.setNestedScrollingEnabled(false);
