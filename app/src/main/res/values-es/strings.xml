@@ -192,11 +192,12 @@
 
     <array name="partners">
         <item name="partner_nasa">NASA’s Space Science Education Consortium (NSSEC)</item>
-        <item name="partner_national_park">National Park Service</item>
-        <item name="partner_smithsonian">El Instituto Smithsoniano</item>
         <item name="partner_wgbh">National Center for Accessible Media, GBH</item>
-        <item name="partner_eclipse_mob">Eclipse Mob</item>
+        <item name="partner_nfb">National Federation of the Blind</item>
         <item name="partner_science_friday">Science Friday</item>
+        <item name="partner_national_park">National Park Service</item>
+        <item name="partner_eclipse_mob">Eclipse Mob</item>
+        <item name="partner_smithsonian">El Instituto Smithsoniano</item>
         <item name="partner_national_girls_collab">National Girls Collaborative</item>
         <item name="partner_citizen_cate">Citizen CATE</item>
         <item name="partner_bridham_uni">Brigham Young University, Idaho</item>
@@ -209,25 +210,28 @@
             El NSSEC (anteriormente denominado Heliophysics Education Consortium [HEC]) continúa el trabajo de la organización Science Mission Directorate (SMD) al frente de las iniciativas educativas de la NASA al vincular ciencia y misiones emocionantes directamente con el público estadounidense.
             El NSSEC colabora con Eclipse Soundscapes a fin de ofrecer el guion calculando el momento del eclipse, así como los fondos que posibilitan el proyecto Eclipse Soundscapes.</item>
 
-        <item name="national_park_description">National Park Service (NPS), una agencia del Departamento del Interior de los Estados Unidos, administra parques nacionales, monumentos, áreas de conservación y sitios históricos de todo el país.
-            NPS colabora con Eclipse Soundscapes durante el eclipse de agosto de 2017 para obtener grabaciones de campo monoaurales y biaurales en los parques de todo el país, especialmente en los que se encuentran dentro de la trayectoria en que se verá el eclipse total.
-            Recopilarán datos el día anterior al eclipse, el día del eclipse y el día posterior al eclipse a fin de poder estudiar de qué manera varían los sonidos de la naturaleza con los cambios de luz y temperatura que provoca el eclipse.</item>
-
-        <item name="smithsonian_description">El Instituto Smithsoniano es un grupo de museos y centros de investigación creados y administrados por el gobierno de los Estados Unidos.
-            Entre sus numerosas instalaciones se encuentran el Museo Nacional del Aire y del Espacio y el Centro de Astrofísica Harvard-Smithsoniano, donde tiene su sede Eclipse Soundscapes.
-            El Instituto Smithsoniano colabora con Eclipse Soundscapes para dar sede y financiación para el proyecto Eclipse Soundscapes.</item>
-
         <item name="wgbh_description">El National Center for Accessible Media (NCAM) de la fundación Carl and Ruth Shapiro Family es una rama sin fines de lucro de GBH en Boston que se dedica a lograr igualdad en el acceso a los medios para personas con discapacidades.
             El NCAM colabora con Eclipse Soundscapes a fin de ofrecer cobertura del eclipse en los medios, que incluye descripciones ilustrativas del eclipse por audio que permitirán que las personas con discapacidad visual puedan experimentar el eclipse a través de narraciones por audio en tiempo real.
             Además, también lleva a cabo una revisión de la aplicación de Eclipse Soundscapes para mejorar su accesibilidad.</item>
+
+        <item name="nfb_description">National Federation of the Blind es la organización nacional más antigua e importante de estadounidenses no videntes.
+            Fundada en 1940 y con sede actual en Baltimore, la NFB está compuesta por filiales, subdivisiones y divisiones en los cincuenta estados, Washington, DC y Puerto Rico.</item>
+
+        <item name="science_friday_description">Science Friday Initiative es una organización sin fines de lucro dedicada a mejorar el acceso del público a la ciencia y la información científica.
+            Tiene un programa de radio a través de Public Radio International (PRI) y produce videos digitales, originales artículos de Internet y recursos educativos para pedagogos, todos relacionados con la ciencia y la tecnología.
+            Science Friday colabora con Eclipse Soundscapes para brindar grabaciones de audio y apoyo en redes sociales para el proyecto.</item>
+
+        <item name="national_park_description">National Park Service (NPS), una agencia del Departamento del Interior de los Estados Unidos, administra parques nacionales, monumentos, áreas de conservación y sitios históricos de todo el país.
+            NPS colabora con Eclipse Soundscapes durante el eclipse de agosto de 2017 para obtener grabaciones de campo monoaurales y biaurales en los parques de todo el país, especialmente en los que se encuentran dentro de la trayectoria en que se verá el eclipse total.
+            Recopilarán datos el día anterior al eclipse, el día del eclipse y el día posterior al eclipse a fin de poder estudiar de qué manera varían los sonidos de la naturaleza con los cambios de luz y temperatura que provoca el eclipse.</item>
 
         <item name="eclipse_mob_description">Eclipse Mob es una iniciativa que recibe contribuciones de todo el mundo para llevar a cabo el experimento de propagación de ondas de radio de baja frecuencia más grande de la historia durante el eclipse solar de 2017.
             Utilizan señales de radio para estudiar el efecto de la luz solar en la ionósfera. Mediante contribuciones de todo el mundo, Eclipse Mob puede captar señales de ondas de radio en distintos lugares de Estados Unidos y así poder estudiar de qué manera las señales se ven afectadas cuando hacen distintos recorridos.
             Eclipse Mob colabora con Eclipse Soundscapes para brindar datos de ondas de radio (un tipo de datos de audio) para la base de datos de Eclipse Soundscapes.</item>
 
-        <item name="science_friday_description">Science Friday Initiative es una organización sin fines de lucro dedicada a mejorar el acceso del público a la ciencia y la información científica.
-            Tiene un programa de radio a través de Public Radio International (PRI) y produce videos digitales, originales artículos de Internet y recursos educativos para pedagogos, todos relacionados con la ciencia y la tecnología.
-            Science Friday colabora con Eclipse Soundscapes para brindar grabaciones de audio y apoyo en redes sociales para el proyecto.</item>
+        <item name="smithsonian_description">El Instituto Smithsoniano es un grupo de museos y centros de investigación creados y administrados por el gobierno de los Estados Unidos.
+            Entre sus numerosas instalaciones se encuentran el Museo Nacional del Aire y del Espacio y el Centro de Astrofísica Harvard-Smithsoniano, donde tiene su sede Eclipse Soundscapes.
+            El Instituto Smithsoniano colabora con Eclipse Soundscapes para dar sede y financiación para el proyecto Eclipse Soundscapes.</item>
 
         <item name="nation_girls_collab_description">El proyecto National Girls Collaborative (NGC) reúne organizaciones estadounidenses dedicadas a informar y alentar a las chicas a seguir carreras profesionales en las áreas de ciencia, tecnología, ingeniería y matemática.
             NGC colabora con Eclipse Soundscapes para organizar fiestas para escuchar donde las jóvenes pueden experimentar el eclipse solar total completo con información de audio.</item>
@@ -252,10 +256,10 @@
     </array>
 
     <array name="team_bio">
-        <item name="member_henry_winter">El Dr. Henry "Trae" Winter III es el director científico y cofundador de ARISA Lab.
+        <item name="member_henry_winter">El Dr. Henry \"Trae\" Winter III es el director científico y cofundador de ARISA Lab.
             Ha trabajado en ocho misiones de la NASA observando el sol. Su principal objetivo de investigación es mejorar las simulaciones por computadora para comprobar si se libera energía en la atmósfera del sol, la corona y otras estrellas.
             Ha diseñado exposiciones de pared en video para el Museo Nacional de Diseño Cooper-Hewitt, el Museo Nacional del Aire y del Espacio, la Biblioteca Hunt de la Universidad Estatal de Carolina del Norte y Lightbox Gallery del Museo de Arte de Harvard.
-            Además de Eclipse Soundscapes, su proyecto actual denominado “The Tactile Sun” (el sol táctil) apunta a que la comunidad de personas no videntes y con discapacidad visual participe de exhibiciones solares de diseño universal.</item>
+            Además de Eclipse Soundscapes, su proyecto actual denominado \“The Tactile Sun\” (el sol táctil) apunta a que la comunidad de personas no videntes y con discapacidad visual participe de exhibiciones solares de diseño universal.</item>
 
         <item name="member_marykay">MaryKay Severino es la directora educativa y cofundadora de ARISA Lab.
             Luego de obtener un título en negocios en Villanova University, trabajó en Carolina del Sur y California como administradora de programas y consultora de marketing.

@@ -1,5 +1,7 @@
 package org.eclipsesoundscapes.ui.about;
 
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -33,9 +35,7 @@ import org.eclipsesoundscapes.R;
 
 public class OurTeamActivity extends AppCompatActivity {
 
-    private Integer[] teamImgs = {R.drawable.henry_winter, R.drawable.marykay_severino, R.drawable.arlindo,
-            R.drawable.joel_goncalves, R.drawable.miles_gordon, R.drawable.christina_migliore, R.drawable.kristin_divona, R.drawable.kelsey_perrett,
-            R.drawable.ic_default};
+    private TypedArray teamPhotos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +51,12 @@ public class OurTeamActivity extends AppCompatActivity {
         String[] teamDescription = getResources().getStringArray(R.array.team_bio);
         String[] teamTitle = getResources().getStringArray(R.array.team_title);
 
+        final Resources res = getResources();
+        teamPhotos = res.obtainTypedArray(R.array.team_photos);
+
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        PartnerTeamAdapter adapter = new PartnerTeamAdapter(this, teamList, teamTitle, teamDescription, teamImgs, true);
+        PartnerTeamAdapter adapter = new PartnerTeamAdapter(this, teamList, teamTitle,
+                teamDescription, teamPhotos, true);
         partnersRecyclerView.setLayoutManager(layoutManager);
         partnersRecyclerView.setAdapter(adapter);
         partnersRecyclerView.setNestedScrollingEnabled(false);
@@ -74,5 +78,13 @@ public class OurTeamActivity extends AppCompatActivity {
         super.onBackPressed();
         finish();
         overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (teamPhotos != null) {
+            teamPhotos.recycle();
+        }
     }
 }

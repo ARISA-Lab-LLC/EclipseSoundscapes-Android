@@ -1,5 +1,6 @@
 package org.eclipsesoundscapes.ui.about;
 
+import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -51,10 +52,11 @@ public class PartnerTeamAdapter extends RecyclerView.Adapter<PartnerTeamAdapter.
     private String[] partnersTeams;
     private String[] descriptions;
     private String[] extra; // partner link or team member title
-    private Integer[] images;
+    private TypedArray images;
     private boolean isTeam;
 
-    PartnerTeamAdapter(AppCompatActivity context, String[] partnersTeams, String extra[], String[] descriptions, Integer[] images, boolean isTeam) {
+    PartnerTeamAdapter(AppCompatActivity context, String[] partnersTeams, String extra[], String[] descriptions,
+                       TypedArray images, boolean isTeam) {
         this.mContext = context;
         this.partnersTeams = partnersTeams;
         this.extra = extra;
@@ -84,7 +86,7 @@ public class PartnerTeamAdapter extends RecyclerView.Adapter<PartnerTeamAdapter.
                     .diskCacheStrategy(DiskCacheStrategy.ALL);
 
             Glide.with(mContext)
-                    .load(images[position])
+                    .load(images.getDrawable(position))
                     .apply(options)
                     .into(holder.partnerLogo);
         }

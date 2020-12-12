@@ -1,7 +1,9 @@
 package org.eclipsesoundscapes.ui.about;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
@@ -32,26 +34,30 @@ import org.eclipsesoundscapes.R;
 
 public class OurPartnersActivity extends AppCompatActivity {
 
-    private Integer[] partner_logo = {R.drawable.nasa, R.drawable.national_parkers_logo, R.drawable.smithsonian_logo,
-                                        R.drawable.ncam_logo, R.drawable.eclipsemob_textlogo_large_reverse,
-                                        R.drawable.logo_scifri, R.drawable.ngcp_theme_logo, R.drawable.nso_logo_200_a, R.drawable.byu};
+    private TypedArray partnerLogos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_our_partners);
 
-        if (getSupportActionBar() != null)
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(getString(R.string.our_partners));
+        }
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        RecyclerView partnersRecyclerView = findViewById(R.id.partners_recyclerview);
-        String[] partnerList = getResources().getStringArray(R.array.partners);
-        String[] partnerDescription = getResources().getStringArray(R.array.partner_description);
-        String[] partnerLink = getResources().getStringArray(R.array.partner_links);
+        final RecyclerView partnersRecyclerView = findViewById(R.id.partners_recyclerview);
+        final String[] partnerList = getResources().getStringArray(R.array.partners);
+        final String[] partnerDescription = getResources().getStringArray(R.array.partner_description);
+        final String[] partnerLink = getResources().getStringArray(R.array.partner_links);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        PartnerTeamAdapter adapter = new PartnerTeamAdapter(this, partnerList, partnerLink, partnerDescription, partner_logo, false);
+        final Resources res = getResources();
+        partnerLogos = res.obtainTypedArray(R.array.partner_logos);
+
+        final RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
+        final PartnerTeamAdapter adapter = new PartnerTeamAdapter(this, partnerList, partnerLink,
+                partnerDescription, partnerLogos, false);
         partnersRecyclerView.setLayoutManager(layoutManager);
         partnersRecyclerView.setNestedScrollingEnabled(false);
         partnersRecyclerView.setAdapter(adapter);
@@ -73,5 +79,13 @@ public class OurPartnersActivity extends AppCompatActivity {
         super.onBackPressed();
         finish();
         overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (partnerLogos != null) {
+            partnerLogos.recycle();
+        }
     }
 }
