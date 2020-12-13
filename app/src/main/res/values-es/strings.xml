@@ -78,6 +78,8 @@
         Para obtener más información, visite EclipseSoundscapes.org. El desarrollo de la aplicación móvil Eclipse Soundscapes está financiado por NASA Space Science Education Consortium.</string>
 
     <string name="our_partners">Nuestros colaboradores</string>
+    <string name="current_partners">Colaboradores actuales</string>
+    <string name="past_partners">Colaboradores anteriores</string>
     <string name="our_team">Nuestro equipo</string>
     <string name="feedback">Dar opinión</string>
 
@@ -190,11 +192,7 @@
     <!-- Future Eclipses -->
     <string name="future_eclipse_features">Seguimiento, Rumble Maps, Narraciones</string>
 
-    <array name="partners">
-        <item name="partner_nasa">NASA’s Space Science Education Consortium (NSSEC)</item>
-        <item name="partner_wgbh">National Center for Accessible Media, GBH</item>
-        <item name="partner_nfb">National Federation of the Blind</item>
-        <item name="partner_science_friday">Science Friday</item>
+    <array name="past_partners_title">
         <item name="partner_national_park">National Park Service</item>
         <item name="partner_eclipse_mob">Eclipse Mob</item>
         <item name="partner_smithsonian">El Instituto Smithsoniano</item>
@@ -203,7 +201,7 @@
         <item name="partner_bridham_uni">Brigham Young University, Idaho</item>
     </array>
 
-    <array name="partner_description">
+    <array name="current_partners_desc">
         <item name="nasa_description">La NASA (National Aeronautics and Space Administration, Administración Nacional de la Aeronáutica y del Espacio) es una agencia independiente del gobierno federal de Estados Unidos que dirige el programa espacial civil, así como la investigación aeronáutica y aeroespacial.
             La NASA dirige una iniciativa de extensión educativa en torno a los eclipses, que incluye información y cobertura de estos sucesos en vivo.
             Para obtener más información sobre la NASA, visite nasa.gov. El NASA Space Science Education Consortium (NSSEC) capitaliza la amplia trayectoria de la NASA de compartir investigación y tecnología mediante proyectos educativos atractivos e innovadores.
@@ -220,29 +218,37 @@
         <item name="science_friday_description">Science Friday Initiative es una organización sin fines de lucro dedicada a mejorar el acceso del público a la ciencia y la información científica.
             Tiene un programa de radio a través de Public Radio International (PRI) y produce videos digitales, originales artículos de Internet y recursos educativos para pedagogos, todos relacionados con la ciencia y la tecnología.
             Science Friday colabora con Eclipse Soundscapes para brindar grabaciones de audio y apoyo en redes sociales para el proyecto.</item>
+    </array>
 
-        <item name="national_park_description">National Park Service (NPS), una agencia del Departamento del Interior de los Estados Unidos, administra parques nacionales, monumentos, áreas de conservación y sitios históricos de todo el país.
-            NPS colabora con Eclipse Soundscapes durante el eclipse de agosto de 2017 para obtener grabaciones de campo monoaurales y biaurales en los parques de todo el país, especialmente en los que se encuentran dentro de la trayectoria en que se verá el eclipse total.
-            Recopilarán datos el día anterior al eclipse, el día del eclipse y el día posterior al eclipse a fin de poder estudiar de qué manera varían los sonidos de la naturaleza con los cambios de luz y temperatura que provoca el eclipse.</item>
+    <array name="past_partners_desc">
+        <item name="national_park_description">The National Park Service (NPS), an agency of the United States Department of the Interior, manages national parks, monuments, conservation, and historical sites throughout the United States.
+            NPS is partnering with Eclipse Soundscapes during the August 2017 Eclipse to collect mono and binaural field recordings in parks across the country, especially those in the path of totality.
+            They will collect data the day before, the day of, and the day after the eclipse in order to study how wildlife sounds fluctuate with the changes in light and temperature caused by the eclipse.
+        </item>
 
-        <item name="eclipse_mob_description">Eclipse Mob es una iniciativa que recibe contribuciones de todo el mundo para llevar a cabo el experimento de propagación de ondas de radio de baja frecuencia más grande de la historia durante el eclipse solar de 2017.
-            Utilizan señales de radio para estudiar el efecto de la luz solar en la ionósfera. Mediante contribuciones de todo el mundo, Eclipse Mob puede captar señales de ondas de radio en distintos lugares de Estados Unidos y así poder estudiar de qué manera las señales se ven afectadas cuando hacen distintos recorridos.
-            Eclipse Mob colabora con Eclipse Soundscapes para brindar datos de ondas de radio (un tipo de datos de audio) para la base de datos de Eclipse Soundscapes.</item>
+        <item name="eclipse_mob_description">Eclipse Mob is a crowdsourced effort to conduct the largest-ever low-frequency radio wave propagation experiment during the 2017 solar eclipse.
+            They are using radio signals to study the effect of sunlight on the ionosphere. By crowdsourcing, Eclipse Mob can collect radio wave signals at locations across the United States, allowing them to study how the signals are affected as they travel along various paths.
+            Eclipse Mob is partnering with Eclipse Soundscapes to provide radio wave data (a form of audio data) the Eclipse Soundscapes database.
+        </item>
 
-        <item name="smithsonian_description">El Instituto Smithsoniano es un grupo de museos y centros de investigación creados y administrados por el gobierno de los Estados Unidos.
-            Entre sus numerosas instalaciones se encuentran el Museo Nacional del Aire y del Espacio y el Centro de Astrofísica Harvard-Smithsoniano, donde tiene su sede Eclipse Soundscapes.
-            El Instituto Smithsoniano colabora con Eclipse Soundscapes para dar sede y financiación para el proyecto Eclipse Soundscapes.</item>
+        <item name="smithsonian_description">The Smithsonian Institution is a group of museums and research centers established and administered by the United States government.
+            Among the Smithsonian\’s many facilities are the National Air and Space Museum and the Harvard-Smithsonian Center for Astrophysics, where Eclipse Soundscapes is based.
+            The Smithsonian is partnering with Eclipse Soundscapes to provide a headquarters and funding for the Eclipse Soundscapes project.
+        </item>
 
-        <item name="nation_girls_collab_description">El proyecto National Girls Collaborative (NGC) reúne organizaciones estadounidenses dedicadas a informar y alentar a las chicas a seguir carreras profesionales en las áreas de ciencia, tecnología, ingeniería y matemática.
-            NGC colabora con Eclipse Soundscapes para organizar fiestas para escuchar donde las jóvenes pueden experimentar el eclipse solar total completo con información de audio.</item>
+        <item name="nation_girls_collab_description">The National Girls Collaborative Project (NGC) brings together United States organizations that are committed to informing and encouraging girls to pursue careers in science, technology, engineering, and mathematics.
+            NGC is partnering with Eclipse Soundscapes to organize listening parties where young women can experience the total solar eclipse complete with audio information.
+        </item>
 
-        <item name="citizen_cate">El experimento Citizen CATE (Continental-America Telescopic Eclipse) es una iniciativa para documentar el eclipse de 2017 tomando imágenes de la corona solar interior mediante una red de más de sesenta telescopios.
-            CATE trabaja con escuelas secundarias, universidades, grupos educativos, clubes de astronomía, laboratorios nacionales de investigación científica y patrocinadores corporativos para producir noventa minutos de imágenes continuas, de alta resolución y rápida cadencia que detallen la corona interior del sol.
-            Citizen CATE colabora con Eclipse Soundscapes para ofrecer imágenes de alta calidad para la aplicación de Eclipse Soundscapes.</item>
+        <item name="citizen_cate">The Citizen CATE (Continental-America Telescopic Eclipse) Experiment is an effort to document the 2017 Eclipse by capturing images of the inner solar corona using a network of more than 60 telescopes.
+            CATE is working with high schools, universities, education groups, astronomy clubs, national science research labs, and corporate sponsors to produce 90 minutes of continuous, high-resolution, and rapid-cadence images detailing the Sun\’s inner corona.
+            Citizen CATE is partnering with Eclipse Soundscapes to provide high quality images for the Eclipse Soundscapes app.
+        </item>
 
-        <item name="brigham_young_uni_description">Brigham Young University (BYU) es una universidad de investigación privada con tres sedes, que incluyen Rexburg, Idaho.
-            Colabora con Eclipse Soundscapes para ofrecer una serie de grabaciones de campo del eclipse de 2017, incluido el audio de una colmena activa.
-            Como Rexburg queda en la trayectoria del eclipse total, BYU organiza una serie de eventos educativos y de visualización con el municipio de Rexburg.</item>
+        <item name="brigham_young_uni_description">Brigham Young University (BYU) is a private research university with three locations, including Rexburg, Idaho.
+            They are partnering with Eclipse Soundscapes to provide a series of field recordings of the 2017 Eclipse, including audio of an active beehive.
+            Because Rexburg lies in the path of totality, BYU is hosting a number of viewing and educational events with the City of Rexburg.
+        </item>
     </array>
 
     <array name="team_title">

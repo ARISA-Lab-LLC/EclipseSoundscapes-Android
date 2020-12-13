@@ -9,6 +9,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 
 import org.eclipsesoundscapes.R;
+import org.eclipsesoundscapes.model.Partner;
+
+import java.util.ArrayList;
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -34,8 +37,6 @@ import org.eclipsesoundscapes.R;
 
 public class OurPartnersActivity extends AppCompatActivity {
 
-    private TypedArray partnerLogos;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,16 +49,12 @@ public class OurPartnersActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final RecyclerView partnersRecyclerView = findViewById(R.id.partners_recyclerview);
-        final String[] partnerList = getResources().getStringArray(R.array.partners);
-        final String[] partnerDescription = getResources().getStringArray(R.array.partner_description);
-        final String[] partnerLink = getResources().getStringArray(R.array.partner_links);
-
-        final Resources res = getResources();
-        partnerLogos = res.obtainTypedArray(R.array.partner_logos);
-
         final RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        final PartnerTeamAdapter adapter = new PartnerTeamAdapter(partnerList, partnerLink,
-                partnerDescription, partnerLogos, false);
+
+        final ArrayList<Partner> currentPartners = getPartners(true);
+        final ArrayList<Partner> pastPartners = getPartners(false);
+        final PartnersAdapter adapter = new PartnersAdapter(this, currentPartners, pastPartners);
+
         partnersRecyclerView.setLayoutManager(layoutManager);
         partnersRecyclerView.setNestedScrollingEnabled(false);
         partnersRecyclerView.setAdapter(adapter);
@@ -81,11 +78,35 @@ public class OurPartnersActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        if (partnerLogos != null) {
-            partnerLogos.recycle();
+    /**
+     * Retrieves a list of partners
+     * @param isCurrent true if partners are current supporters, otherwise past
+     * @return a {@link java.util.List} of {@link Partner partners}
+     */
+    private ArrayList<Partner> getPartners(final boolean isCurrent) {
+        final ArrayList<Partner> partners = new ArrayList<>();
+
+        final Resources res = getResources();
+        final TypedArray logos = res.obtainTypedArray(isCurrent ? R.array.current_partners_logo
+                : R.array.past_partners_logo);
+
+        final String[] titles = getResources().getStringArray(isCurrent ? R.array.current_partners_title
+                : R.array.past_partners_title);
+
+        final String[] descriptions = getResources().getStringArray(isCurrent ? R.array.current_partners_desc
+                : R.array.past_partners_desc);
+
+        final String[] links = getResources().getStringArray(isCurrent ? R.array.current_partners_link
+                : R.array.past_partners_link);
+
+
+        // assumes all partner data is in order and of equal length
+        for (int i = 0; i < titles.length; i++) {
+            final Partner partner = new Partner(titles[i], descriptions[i], links[i], logos.getDrawable(i));
+            partners.add(partner);
         }
+
+        logos.recycle();
+        return partners;
     }
 }

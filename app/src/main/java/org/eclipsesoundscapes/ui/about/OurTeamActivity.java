@@ -55,8 +55,7 @@ public class OurTeamActivity extends AppCompatActivity {
         teamPhotos = res.obtainTypedArray(R.array.team_photos);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        PartnerTeamAdapter adapter = new PartnerTeamAdapter(teamList, teamTitle,
-                teamDescription, teamPhotos, true);
+        TeamAdapter adapter = new TeamAdapter(teamList, teamTitle, teamDescription, teamPhotos);
         partnersRecyclerView.setLayoutManager(layoutManager);
         partnersRecyclerView.setAdapter(adapter);
         partnersRecyclerView.setNestedScrollingEnabled(false);

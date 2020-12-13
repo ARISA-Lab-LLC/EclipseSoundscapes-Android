@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array
-        name="partner_logos">
+
+    <array name="current_partners_logo">
         <item>@drawable/nasa</item>
         <item>@drawable/ncam_logo</item>
         <item>@drawable/ncam_logo</item>
         <item>@drawable/logo_scifri</item>
+    </array>
+
+    <array
+        name="past_partners_logo">
         <item>@drawable/national_parkers_logo</item>
         <item>@drawable/eclipsemob_textlogo_large_reverse</item>
         <item>@drawable/smithsonian_logo</item>
