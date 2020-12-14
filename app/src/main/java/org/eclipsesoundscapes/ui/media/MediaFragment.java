@@ -64,11 +64,11 @@ public class MediaFragment extends Fragment {
         eventAudioList = new ArrayList<>();
 
         // add default media content
-        addMedia(-1, getString(R.string.bailys_beads_title), R.string.bailys_beads_description, R.drawable.eclipse_bailys_beads, R.raw.bailys_beads_full);
-        addMedia(-1, getString(R.string.prominence_title), R.string.prominence_description, R.drawable.eclipse_prominence, R.raw.prominence_full);
-        addMedia(-1, getString(R.string.corona_title), R.string.corona_description, R.drawable.eclipse_corona, R.raw.corona_full);
-        addMedia(-1, getString(R.string.helmet_streamers_title), R.string.helmet_streamers_description, R.drawable.helmet_streamers, R.raw.helmet_streamers_full);
-        addMedia(-1, getString(R.string.diamond_ring_title), R.string.diamond_ring_description, R.drawable.eclipse_diamond_ring, R.raw.diamond_ring_full);
+        addMedia(-1, getString(R.string.bailys_beads_title), R.string.audio_bailys_beads_full, R.drawable.eclipse_bailys_beads, R.raw.bailys_beads_full);
+        addMedia(-1, getString(R.string.prominence_title), R.string.audio_prominence_full, R.drawable.eclipse_prominence, R.raw.prominence_full);
+        addMedia(-1, getString(R.string.corona_title), R.string.audio_corona_full, R.drawable.eclipse_corona, R.raw.corona_full);
+        addMedia(-1, getString(R.string.helmet_streamers_title), R.string.audio_helmet_streamers_full, R.drawable.helmet_streamers, R.raw.helmet_streamers_full);
+        addMedia(-1, getString(R.string.diamond_ring_title), R.string.audio_diamond_ring_full, R.drawable.eclipse_diamond_ring, R.raw.diamond_ring_full);
     }
 
     @Override
@@ -141,17 +141,17 @@ public class MediaFragment extends Fragment {
 
     private void addFirstContact(){
         addMedia(0, getString(R.string.first_contact_title),
-                R.string.first_contact_description, R.drawable.eclipse_first_contact, R.raw.first_contact_full);
+                R.string.audio_first_contact_full, R.drawable.eclipse_first_contact, R.raw.first_contact_full);
         mediaAdapter.notifyItemInserted(0);
     }
 
     private void addTotality(){
         addMedia(eventList.size(), getString(R.string.totality_title),
-                R.string.totality_description, R.drawable.eclipse_totality, R.raw.totality_full);
+                R.string.audio_totality_full, R.drawable.eclipse_totality, R.raw.totality_full);
         addMedia(eventList.size(), getString(R.string.sun_as_star_title),
-                R.string.sun_as_star_description, R.drawable.sun_as_a_star, R.raw.sun_as_a_star);
+                R.string.audio_sun_as_star_full, R.drawable.sun_as_a_star, R.raw.sun_as_a_star);
         addMedia(eventList.size(), getString(R.string.eclipse_experience_title),
-                R.string.bailys_beads_description, R.drawable.eclipse_bailys_beads, R.raw.realtime_eclipse_shorts_saas);
+                R.string.bailys_beads_short, R.drawable.eclipse_bailys_beads, R.raw.realtime_eclipse_shorts_saas);
 
         mediaAdapter.notifyItemInserted(eventList.size() - 1);
         mediaAdapter.notifyItemInserted(eventList.size() - 1);

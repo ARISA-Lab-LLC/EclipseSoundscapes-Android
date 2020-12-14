@@ -36,7 +36,7 @@
         A medida en que la luna apenas se mueve de la superficie solar, su potente luz se asoma por el costado de la luna.
         La luz solar es tan intensa que hasta esta pequeña parte domina el cielo."</string>
 
-    <string name="audio_first_contact">Este es el primer momento en que la luna, moviéndose lentamente de izquierda a derecha, parece tocar el sol.
+    <string name="audio_first_contact_full">Este es el primer momento en que la luna, moviéndose lentamente de izquierda a derecha, parece tocar el sol.
         La intensidad de la luz solar hace que no sea seguro mirar al sol sin gafas protectoras especiales hasta que el eclipse sea total, los pocos minutos durante los que la luna eclipsa al sol por completo.
         Ambos cuerpos celestes parecen ser del mismo tamaño.La luz solar es tan brillante que borra todas las características de la luna, por eso la luna se ve como un disco liso de obsidiana.
         Durante los siguientes noventa minutos, el disco oscuro de la luna avanzará por encima del sol bloqueando progresivamente la mayor parte de su luz y calor, hasta que se produzca el eclipse total.
@@ -65,7 +65,7 @@
         A partir de estos indicios y demás observaciones, los científicos intentan descubrir si existe vida en esos planetas que pueda estar viviendo sus propios eclipses.</string>
 
     <string name="bailys_beads_short">Durante los próximos seis minutos, el Rumble Map se desactiva para que pueda escuchar en tiempo real los eventos que rodean el eclipse total.
-        En el lado derecho de la luna, resplandecen orbes de luz solar fulgurante desde el contorno del oscuro disco lunar.
+        \n\nEn el lado derecho de la luna, resplandecen orbes de luz solar fulgurante desde el contorno del oscuro disco lunar.
         Estas áreas finales de la luz solar, llamadas Perlas de Baily, parecen perlas brillantes sobre un hilo, que se ven intensamente luminosas por la falta de luz a su alrededor.</string>
 
     <string name="first_contact_short">El eclipse ha empezado y este es el primer momento en que la luna parece tocar el sol.

@@ -180,7 +180,7 @@
         \n\nEven this small section of the sun\’s light cannot be viewed without special eye protection. Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes. 
         As the moon barely moves away from the solar surface, the powerful light of the Sun peers around the side of the moon. The sun\’s light is so intense that even this small fraction of it dominates the sky.</string>
     
-    <string name="audio_first_contact">This is the first moment that the moon, slowly moving from left to right, appears to touch the sun.
+    <string name="audio_first_contact_full">This is the first moment that the moon, slowly moving from left to right, appears to touch the sun.
         The intensity of the sun\'s light makes it unsafe to look at without special eye protection until the totality, the few minutes during which the moon completely eclipses the sun.
         The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk.
         For the next several minutes, the moon\'s black disk will creep across the sun, progressively blocking more of sun\'s light and heat until the totality.
@@ -207,7 +207,7 @@
         From these clues and other observations, scientists are attempting to discover if there is life on those other planets that may be experiencing their own eclipses.</string>
 
     <string name="bailys_beads_short">For the next six minutes the Rumble Map will be disabled so that you can hear in real time the events surrounding totality.
-        On the right side of the moon orbs of glowing sunlight shimmer off the edge of the moon\’s black disc.
+        \n\nOn the right side of the moon orbs of glowing sunlight shimmer off the edge of the moon\’s black disc.
         Called Bailey\’s beads, these final areas of the sun\’s light appear as glimmering pearls on a wire made intensely bright by the absence of light surrounding them.</string>
 
     <string name="first_contact_short">The eclipse has begun and this is the first moment that the moon appears to touch the sun.
