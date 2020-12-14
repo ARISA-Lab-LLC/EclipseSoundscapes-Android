@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.eclipsesoundscapes.activity.WalkthroughActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.walkthrough.WalkthroughActivity"
     android:focusable="true"
-    android:orientation="vertical"
-    android:weightSum="2">
+    android:orientation="vertical">
 
-    <RelativeLayout
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_height="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5"/>
 
-        <ImageView
-            android:id="@+id/walkthrough_img"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/soundscapes_audiorecordings"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"
-            android:importantForAccessibility="no"/>
+    <ImageView
+        android:id="@+id/walkthrough_img"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:src="@drawable/soundscapes_audiorecordings"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        android:importantForAccessibility="no"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline" />
 
-
-        <TextView
-            android:id="@+id/current_page"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed"
-            android:textColor="@android:color/black"
-            android:textSize="12sp"
-            android:text="Page 4 of 5"
-            android:layout_alignEnd="@+id/walkthrough_img"
-            android:layout_alignBottom="@+id/walkthrough_img"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"/>
-
-    </RelativeLayout>
-
+    <TextView
+        android:id="@+id/current_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="12sp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/walkthrough_img"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <LinearLayout
             android:id="@+id/bottom_view"
@@ -55,12 +55,12 @@
                 android:id="@+id/bottom_view_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="16dp"
                 android:layout_gravity="center_horizontal"
-                android:fontFamily="sans-serif-condensed"
-                android:text="@string/title_audio_descriptions"
-                android:textStyle="bold"
-                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                android:text="@string/audio_descriptions"
+                android:textSize="21sp"
+                android:textColor="@color/text_color_primary"
                 android:focusable="false"/>
 
             <TextView
@@ -69,15 +69,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
                 android:gravity="center"
-                android:fontFamily="sans-serif-condensed"
+                android:fontFamily="sans-serif"
                 android:text="@string/walkthrough_audio_description"
-                android:textSize="15sp"
+                android:textSize="16sp"
+                android:textColor="@color/text_color_primary"
                 android:focusable="false"/>
 
         </LinearLayout>
     </ScrollView>
-
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

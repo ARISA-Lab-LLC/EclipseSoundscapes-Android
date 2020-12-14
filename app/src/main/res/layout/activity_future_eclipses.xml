@@ -6,6 +6,6 @@
     android:layout_height="match_parent"
     android:id="@+id/future_recycler"
     android:background="#F5F5F5"
-    tools:context="org.eclipsesoundscapes.activity.FutureEclipsesActivity">
+    tools:context=".ui.about.FutureEclipsesActivity">
 
 </android.support.v7.widget.RecyclerView>

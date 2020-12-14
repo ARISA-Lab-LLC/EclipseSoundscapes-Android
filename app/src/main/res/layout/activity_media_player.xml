@@ -1,64 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white">
 
-    <RelativeLayout
-        android:id="@+id/media_layout"
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:background="@android:color/black">
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35"/>
 
-        <ImageView
-            android:id="@+id/eclipse_img"
-            android:layout_width="300dp"
-            android:layout_height="169dp"
-            android:scaleType="fitCenter"
-            android:adjustViewBounds="true"
-            android:src="@drawable/helmet_streamers"
-            android:layout_centerInParent="true"/>
+    <ImageView
+        android:id="@+id/eclipse_img"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        tools:src="@drawable/helmet_streamers"
 
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
-        <ImageButton
-            android:id="@+id/play_button"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+    <ImageButton
+        android:id="@+id/play_button"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
 
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/ic_play"
-            android:background="@android:color/transparent"
-            android:layout_centerInParent="true"
-            android:contentDescription="@string/playButton"/>
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/ic_play"
+        android:background="@android:color/transparent"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/play"
 
-    </RelativeLayout>
+        app:layout_constraintTop_toTopOf="@+id/eclipse_img"
+        app:layout_constraintBottom_toBottomOf="@+id/eclipse_img"
+        app:layout_constraintLeft_toLeftOf="@+id/eclipse_img"
+        app:layout_constraintRight_toRightOf="@+id/eclipse_img" />
+
+    <android.support.v4.widget.Space
+        android:id="@+id/space"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eclipse_img" />
 
     <SeekBar
         android:id="@+id/audio_progress"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/media_layout"
         android:background="@null"
         android:progressDrawable="@drawable/seekbar_progress"
         android:thumb="@drawable/seekbar_thumb"
-        android:layout_marginTop="-10dp"
 
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/space"/>
 
     <ImageButton
         android:id="@+id/back_button"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/ic_chevron_left_white"
+        app:srcCompat="@drawable/ic_chevron_left"
+        android:focusable="false"
         android:background="@android:color/transparent"
-        android:contentDescription="@string/closeButton"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"/>
+        android:contentDescription="@string/close"
+        android:fitsSystemWindows="true"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="16dp"/>
 
     <TextView
         android:id="@+id/time_lapsed"
@@ -66,11 +86,12 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
         android:textColor="@android:color/white"
-        android:layout_alignParentStart="true"
-        android:layout_alignBottom="@+id/media_layout"
+        android:textStyle="bold"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
-        />
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/eclipse_img" />
 
     <TextView
         android:id="@+id/time_total"
@@ -78,58 +99,64 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
         android:textColor="@android:color/white"
-        android:layout_alignParentEnd="true"
-        android:layout_alignBottom="@+id/media_layout"
+        android:textStyle="bold"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/eclipse_img" />
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/media_layout"
-        android:layout_marginTop="16dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:importantForAccessibility="no">
+        android:importantForAccessibility="no"
+
+        app:layout_constraintTop_toBottomOf="@+id/guideline"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <LinearLayout
             android:id="@+id/description_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/eclipse_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
-                android:textColor="@android:color/black"
-                android:textSize="21sp"
-                android:textStyle="bold"/>
+                android:fontFamily="sans-serif-medium"
+                android:textColor="@color/text_color_primary"
+                android:textSize="21sp" />
 
             <View
                 android:id="@+id/divider"
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:background="@color/gray"/>
-
+                android:layout_margin="16dp"
+                android:background="@color/divider_color" />
 
             <TextView
                 android:id="@+id/eclipse_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:fontFamily="sans-serif-condensed"
-                android:layout_margin="16dp"
-                android:textColor="@android:color/black"
-                android:focusableInTouchMode="true"
-                android:textSize="18sp"/>
+                android:focusable="true"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/text_color_primary"
+                android:textSize="18sp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                tools:text="@string/totality_description"/>
 
 
         </LinearLayout>
 
     </ScrollView>
 
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

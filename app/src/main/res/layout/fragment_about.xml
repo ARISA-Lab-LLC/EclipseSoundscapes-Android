@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#303030"
     android:orientation="vertical"
-    tools:context="org.eclipsesoundscapes.fragments.AboutFragment">
+    tools:context=".ui.about.AboutFragment">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -13,21 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:titleTextColor="@android:color/white"
-        android:background="?attr/colorPrimary" >
-
-        <TextView
-            android:id="@+id/toolbar_title"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:textSize="18sp"
-            android:fontFamily="sans-serif-condensed"
-            android:textStyle="bold"
-            android:textColor="@android:color/white"
-            android:text="@string/about_us_title"
-            android:layout_gravity="center"
-            android:gravity="center"/>
-
-    </android.support.v7.widget.Toolbar>
+        android:background="?attr/colorPrimary"/>
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/ScrollView01"
@@ -57,9 +43,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:fontFamily="sans-serif"
-                android:textSize="15sp"
-                android:textColor="@color/colorPrimary"
-                android:text="@string/about_us_text" />
+                android:textSize="16sp"
+                android:textColor="@color/text_color_primary"
+                android:text="@string/about_us_details" />
 
             <View
                 android:layout_width="match_parent"

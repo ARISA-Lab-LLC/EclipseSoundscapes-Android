@@ -1,63 +1,107 @@
 <resources>
     <string name="app_name">Eclipse Soundscapes</string>
-    <string name="title_eclipse_features">Eclipse Features</string>
-    <string name="title_eclipse_center">Eclipse Center</string>
-    <string name="title_media">Media</string>
-    <string name="title_about">About</string>
+    <string name="app_name_version">%1$s v%2$s</string>
+    <string name="eclipse_features">Eclipse Features</string>
+    <string name="eclipse_center">Eclipse Center</string>
 
-    <!-- Settings -->
-    <string name="title_activity_settings">Settings</string>
-    <string name="pref_title_notifications">Notifications</string>
-    <string name="pref_title_location">Location</string>
-    <string name="pref_title_license">License</string>
-    <string name="pref_title_libraries">Open Source Libraries</string>
-    <string name="pref_title_credit">Photo Credits</string>
-    <string name="settings_legal">Legal</string>
-    <string name="legal_soundscape_title">Eclipse Soundscape</string>
-    <string name="legal_libraries_use">Libraries We Use</string>
-    <string name="legal_library_audiokit">AUDIOKIT</string>
+    <!-- General -->
+    <string name="media">Media</string>
+    <string name="about">About</string>
 
-    <string name="about_us_title">About Us</string>
-    <string name="about_us_text">From the Smithsonian Astrophysics Observatory and NASA\'s Heliophysics Education Consortium, The Eclipse Soundscapes Project uses sound to create a multisensory experience of astronomical events such as eclipses. With this app, and an additional citizen science project to record changing environmental sounds during eclipses, Eclipse Soundscapes aims to engage all learners with astrophysics, including people who are blind or visually impaired. For more information, visit eclipsesoundscapes.org.</string>
-    <string name="more_info_title">More Information</string>
+    <string name="north">North</string>
+    <string name="south">South</string>
+    <string name="east">East</string>
+    <string name="west">West</string>
 
-    <!-- Eclipse Center -->
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="type">Type</string>
+    <string name="features">Features</string>
+
+    <string name="settings">Settings</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="description">Description</string>
+    <string name="instructions">Instructions</string>
+    <string name="welcome">Welcome</string>
+
+    <string name="continue_text">Continue</string>
+    <string name="skip">Skip</string>
+    <string name="close">Close</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="back">Back</string>
+    <string name="cancel">Cancel</string>
+
     <string name="hours">Hours</string>
     <string name="days">Days</string>
-    <string name="hrs">Hours</string>
-    <string name="min">Minutes</string>
-    <string name="sec">Seconds</string>
-    <string name="countdown_title">Countdown Until Eclipse</string>
-    <string name="countdown_prefix">Countdown until eclipse from your location</string>
-    <string name="event_prefix">Event from your location</string>
-    <string name="local_time_prefix">local time</string>
-    <string name="ut_time_prefix">universal time</string>
-    <string name="event_layout_description">Events at your location are below. Events include your local time and universal time.</string>
-    <string name="totality_duration">Duration of Totality: </string>
+    <string name="minutes">Minutes</string>
+    <string name="seconds">Seconds</string>
+    <string name="min_abbr">Min</string>
+    <string name="sec_abbr">Sec</string>
 
-    <string name="eclipse_center_permission">You don\'t want to miss this amazing astronomical event! We\'ll need your location to continue. Press to continue.</string>
-    <string name="settings_permission_off">Location settings is turned off. Go to More > Settings > Enable Location or tap to go.</string>
-    <string name="noPermissionRationale">Location services has been denied. This features requires your location permission to display information about the eclipse. Click this to enable, or go to Settings, Apps, Eclipse Soundscapes, Permissions </string>
-    <string name="app_settings_permission">Please turn on location permission in the app settings by either clicking here or go to About, Settings and enable location.</string>
+    <string name="show_next">Show next</string>
+    <string name="show_prev">show previous</string>
+
+    <!-- permissions -->
+    <string name="location_permission">Location permission</string>
+    <string name="error_finding_location">Unable to determine your current location</string>
+    <string name="permission_denied">Permission denied</string>
+    <string name="location_disabled">Location disabled</string>
+    <string name="location_disabled_message">To continue, enable location services from your device settings.</string>
+
+    <string name="device_settings_permission">To continue, please allow access to your location from your device settings.</string>
+    <string name="app_settings_permission">To continue, please allow access to your location from the application settings.</string>
+
+    <!-- Notifications -->
+    <string name="notification_channel_desc">Display notifications about an upcoming eclipse.</string>
+    <string name="first_contact_reminder">The Solar Eclipse is going to begin soon.</string>
+    <string name="first_contact_begun">The Solar Eclipse has begun!</string>
+    <string name="totality_reminder">The Total Solar Eclipse is going to begin soon.</string>
+    <string name="totality_begun">The Total Solar Eclipse has begun!</string>
+    <string name="tap_listen">Tap to listen now.</string>
+
+    <!-- Settings -->
+    <string name="license">License</string>
+    <string name="enable_notifications">Enable Notifications</string>
+    <string name="access_location">Access Location</string>
+    <string name="open_src_libs">Open Source Libraries</string>
+    <string name="photo_credits">Photo Credits</string>
+    <string name="legal">Legal</string>
+    <string name="libs_in_use">Libraries We Use</string>
+    <string name="audiokit">AUDIOKIT</string>
+
+    <string name="about_us">About Us</string>
+    <string name="about_us_details">The Eclipse Soundscapes mobile application is a product of the Eclipse Soundscapes Project, which is an enterprise ARISA Lab, LLC.
+        The Eclipse Soundscapes Project aims to engage ALL learners with astrophysics, with an intentional focus on inclusion and accessibility. For more information, visit EclipseSoundscapes.org.
+        The development of the Eclipse Soundscapes mobile application is funded by NASA Space Science Education Consortium.</string>
+
+    <!-- Eclipse Center -->
+    <string name="eclipse_countdown_title">Countdown Until Eclipse</string>
+    <string name="countdown_format">Countdown until eclipse from your location, %1$s days, %2$s hours, %3$s minutes and %4$s seconds</string>
+    <string name="event_section_desc">Events at your location are below. Events include your local time and universal time.</string>
+    <string name="event_desc_format">Event from your location, %1$s, local time, %2$s, universal time, %3$s</string>
+    <string name="eclipse_center_permission">You don\'t want to miss this amazing astronomical event! We\'ll need your location to access this feature.\nPress anywhere on the screen to continue.</string>
+
     <string name="location_search">Finding your location…</string>
-    <string name="location_search_stop">Tap to stop</string>
 
-    <string name="outside_path_of_eclipse">Unfortunately the Eclipse is not visible from your location</string>
-    <string name="get_closest_location">Get closest location from me</string>
+    <string name="outside_eclipse_path">Unfortunately the Eclipse is not visible from your location</string>
+    <string name="get_closest_location">Get closest location to Eclipse</string>
 
-    <string name="my_latitude">Your latitude:</string>
-    <string name="my_longitude">Your longitude:</string>
-    <string name="percent_eclipse">% Eclipse:</string>
-    <string name="eclipse_date">Date:</string>
-    <string name="eclipse_type">Eclipse type:</string>
+    <string name="eclipse_center_title_format">%1$s:</string>
+    <string name="eclipse_type">Eclipse Type</string>
+    <string name="location_latitude">Location\'s Latitude</string>
+    <string name="location_longitude">Location\'s Longitude</string>
+    <string name="lat_lng_format">%1$.3f&#xb0; %2$s</string>
+    <string name="percent_eclipse">% Eclipse</string>
+    <string name="totality_duration">Duration of Totality</string>
     <string name="eclipse_event">Event</string>
-    <string name="eclipse_local_time">Local Time</string>
-    <string name="eclipse_time_ut">Time (UT)</string>
+    <string name="local_time">Local Time</string>
+    <string name="universal_time">Universal Time</string>
+    <string name="time_ut">Time (UT)</string>
 
     <string name="eclipse_type_full">Total Solar Eclipse</string>
     <string name="eclipse_type_partial">Partial Solar Eclipse</string>
     <string name="eclipse_type_none">No Solar Eclipse</string>
-    <string name="eclipse_none_description">The solar eclipse is not visible from your location</string>
 
     <string name="eclipse_start_partial">Start of partial eclipse</string>
     <string name="eclipse_start_full">Start of total eclipse</string>
@@ -75,86 +119,77 @@
     <string name="totality_description">This is the full eclipse, when the moon\'s black disk completely covers the sun. Now, in the absence of the sun\'s full light, its massive outer corona is revealed. Uniquely visible during a full eclipse, grand flourishes of light called helmet streamers extend in all directions behind the moon’s black disk. At the edge of the moon, the helmet streamers are intensely bright, fading to wisps of ghostly white as they stretch across space, far from the moon, like flower petals.\n\nExplanation of what you might feel as you interact:\nOn the rumble map, explore the difference between the moon and the sun\'s corona.\n\nAdditional scientific info:\nYou may notice changes in temperature and natural sounds, such a birds and wind during the total eclipse.\nDuring the total solar eclipse, and only during totality, you can view the corona of the Sun without eye protection. The Sun\'s outer atmosphere, the corona, is in full display and viewable from the ground. The highly structured nature of the corona is clearly evident. This structure is caused by the Sun\'s intense and complicated magnetic fields interacting with the material that makes up the corona. This material is called a plasma, which is like a gas, but is susceptible to magnetic fields. The magnetic fields can then shape the plasma in the corona into the complicated patterns that are viewable during the eclipse.</string>
     <string name="sun_as_star_description">Framed by a larger view of space, the solar wind draws the helmet streamers far out into space as other stars come into view. Many of these stars also have planets orbiting them. Those planets can eclipse their parent star just as the moon eclipsed our Sun. Scientists can detect planets eclipsing their stars and determine both, how far the planet is from its star and the planet’s mass. From these clues and other observations, scientists are attempting to discover if there is life on these other planets that may be experiencing their own eclipse.</string>
 
+    <string name="viewing_desc_format">Now viewing description for %1$s</string>
+    <string name="viewing_image_format">Now viewing image for %1$s</string>
+
     <!-- Media player -->
-    <string name="more_audio_coming">More audio descriptions coming soon…</string>
+    <string name="audio_descriptions">Audio Descriptions</string>
+    <string name="upcoming_audio">More audio descriptions coming soon…</string>
     <string name="bailys_beads_short">For the next six minutes the Rumble map will be disabled so that you can hear about in real time the events surrounding totality.\n\nOn the right side of the moon, orbs of glowing sunlight shimmer off the edge of the moon’s black disk. Called Baily\'s Beads, these final areas of the sun\'s light appear as glimmering pearls on a wire, made intensely bright by the absence of light surrounding them.</string>
     <string name="first_contact_short">The eclipse has begun and this is the first moment that the moon appears to touch the Sun. The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk.\n\nFor the approximately 90 minutes you will have the opportunity to interact with the Rumble map and explore features of the Sun that are revealed during an eclipse. Then, during six minutes leading up to, during, and just after totality, the Rumble map will be disabled so that you can hear about the events surrounding totality in real time.</string>
     <string name="diamond_ring_short">On the left side of the black moon, a sliver of sunlight blasts into view with white-hot intensity. As the area of re-emerging sunlight grows, it resembles a diamond ring, beaming out its brilliant light.</string>
     <string name="totality_short">This is the full eclipse - for just approximately two minutes, the moon\'s black disk completely covers the sun, revealing the sun\'s massive outer corona. Grand flourishes of light extend from the moon in all directions like flower petals. Intensely bright at the moon\'s edge, these helmet streamers fade to wisps of ghostly white as they stretch across space.</string>
 
-    <string name="first_contact_title">First Contact</string>
-    <string name="bailys_beads_title">Baily\'s Beads</string>
-    <string name="bailys_beads_closeup_title">Baily\'s Beads Closeup</string>
-    <string name="corona_title">Corona</string>
-    <string name="diamond_ring_title">Diamond Ring</string>
-    <string name="helmet_streamers_title">Helmet Streamers</string>
-    <string name="helmet_streamers_closeup_title">Helmet Streamers Closeup</string>
-    <string name="prominence_title">Prominence</string>
-    <string name="prominence_closeup_title">Prominence Closeup</string>
-    <string name="totality_title">Totality</string>
-    <string name="sun_as_star_title">Sun as a Star</string>
-
-
-    <string name="rumble_map_launch">Press to interact with Rumble Map</string>
-
-    <!-- content descriptions -->
-    <string name="nextImgButton">Show next image</string>
-    <string name="prevImgButton">show previous image</string>
+    <string name="first_contact">First Contact</string>
+    <string name="bailys_beads">Baily\'s Beads</string>
+    <string name="bailys_beads_closeup">Baily\'s Beads Closeup</string>
+    <string name="corona">Corona</string>
+    <string name="diamond_ring">Diamond Ring</string>
+    <string name="helmet_streamers">Helmet Streamers</string>
+    <string name="helmet_streamers_closeup">Helmet Streamers Closeup</string>
+    <string name="prominence">Prominence</string>
+    <string name="prominence_closeup">Prominence Closeup</string>
+    <string name="totality">Totality</string>
+    <string name="sun_as_star">Sun as a Star</string>
+    <string name="eclipse_experience">Eclipse Experience</string>
+    <string name="duration_desc_seconds">%1$s seconds</string>
+    <string name="duration_desc_minute">One minute, %1$s seconds</string>
+    <string name="duration_desc_minutes">%1$s minutes, %2$s seconds</string>
+    <string name="duration_current_progress">%1$s of %2$s</string>
 
     <!-- rumble map interaction -->
-    <string name="instructions_button">Instructions</string>
-    <string name="eclipse_image">Eclipse image</string>
-    <string name="rumble_map_instructions">To use the Rumble Map, touch your screen with only one finger. The map will produce audio tones and vibrations depending on how much light is underneath that particular spot. For best results, drag your finger across the touchscreen slowly. As you move your finger onto the bright sections of the Sun, your phone will vibrate more and produce a sharper, more pronounced audio tone. As you move your finger into the dark spaces blocked by the Moon’s disk, the vibration will diminish as the audio tone darkens and disappears. At times, you may hear a metronome-like ticking sound: that means you have entered an area of total darkness, either on the face of the Moon, or in the dark space outside the sphere of the Sun. By paying close attention to the audio tones and the strength of your phone’s vibration, you can learn how much sunlight is visible at each stage of the eclipse, and even explore some of the fascinating features of the Sun’s corona such as Baily’s Beads, Helmet Streamers, Prominences, and the Diamond Ring effect. If a specific section of an image interests you and you want to return to it later, hold down your finger in one place until you hear a “blip” noise. You’ve created a marker! Next time your finger passes over this point, you will hear the “blip” again so you can continue to explore that area.
-</string>
-    <string name="rumble_map_inactive">Rumble map inactive</string>
-    <string name="rumble_map_running">Rumble map running, double tap to turn off</string>
-
+    <string name="rumble_map">Rumble Map</string>
+    <string name="rumble_map_launch">Press to interact with Rumble Map</string>
+    <string name="rumble_map_how">How to Use The Rumble Map</string>
+    <string name="rumble_map_instructions_title">Rumble Map Instructions</string>
+    <string name="rumble_map_instructions">To use the Rumble Map, touch your screen with only one finger. The map will produce audio tones and vibrations depending on how much light is underneath that particular spot. For best results, drag your finger across the touchscreen slowly. As you move your finger onto the bright sections of the Sun, your phone will vibrate more and produce a sharper, more pronounced audio tone. As you move your finger into the dark spaces blocked by the Moon’s disk, the vibration will diminish as the audio tone darkens and disappears. At times, you may hear a metronome-like ticking sound: that means you have entered an area of total darkness, either on the face of the Moon, or in the dark space outside the sphere of the Sun. By paying close attention to the audio tones and the strength of your phone’s vibration, you can learn how much sunlight is visible at each stage of the eclipse, and even explore some of the fascinating features of the Sun’s corona such as Baily’s Beads, Helmet Streamers, Prominences, and the Diamond Ring effect. If a specific section of an image interests you and you want to return to it later, hold down your finger in one place until you hear a “blip” noise. You’ve created a marker! Next time your finger passes over this point, you will hear the “blip” again so you can continue to explore that area.</string>
+    <string name="rumble_map_inactive">Rumble Map Inactive, Double Tap to turn on</string>
+    <string name="rumble_map_running">Rumble Map Running, Double Tap to turn off</string>
 
     <!-- About -->
-    <string name="future_eclipse_label">Eclipses we support</string>
+    <string name="supported_eclipse">Eclipses We Support</string>
+    <string name="link_feedback_form"><![CDATA[ https://docs.google.com/forms/d/e/1FAIpQLSez-hoTy2NkUO5FDud0eOCvjDXCx9jNsdCMrqV_GgMG6tFOiw/viewform]]></string>
 
     <!-- Walkthrough -->
-    <string name="walkthrough_label">Eclipse Soundscapes Walkthrough</string>
-    <string name="walkthrough_welcome">Welcome</string>
-    <string name="title_rumble_map">Rumble Map</string>
-    <string name="title_audio_descriptions">Audio Descriptions</string>
-    <string name="walkthrough_skip_button">Skip</string>
-    <string name="walkthrough_title_access">Please allow location access</string>
+    <string name="walkthrough">Walkthrough</string>
+    <string name="walkthrough_title">Eclipse Soundscapes Walkthrough</string>
+    <string name="walkthrough_title_location">Please allow location access</string>
     <string name="walkthrough_location_page">Access to location</string>
-    <string name="walkthrough_ask_later">Ask Later</string>
+    <string name="not_now">Not Now</string>
     <string name="walkthrough_welcome_text">Thank you for downloading the Eclipse Soundscapes app, a multi-sensory experience for people of all learning styles to engage with astronomical events, including total solar eclipses. Inside this app, you will find countdowns to major astronomical events in your area, and real time narrations of those events with illustrative audio descriptions provided by the National Center for Accessible Media. You can also explore the cosmos with high quality photos, educational information, and accessible learning tools.</string>
     <string name="walkthrough_rumble_map_text">Our Rumble Map tool is designed for you to hear and feel astronomical phenomena, such as eclipses, using the touchscreen and the speakers on your smartphone. For example: the Rumble Map will display photos of the Moon passing in front of the Sun during the most engaging and educational moments of an eclipse. When you touch the image on the screen, the app will read the grayscale value of a pixel underneath your finger, and play an audio tone which will vibrate your phone with a strength relative to the brightness of that section. As you move your finger onto the bright sections of the Sun, your phone will vibrate more. As you move your finger into the dark spaces blocked by the Moon’s disk, the vibration will diminish and disappear. By paying close attention to the audio tones and the strength of your phone\'s vibration, you can learn how much sunlight is visible at each stage of the eclipse, and explore some of the fascinating features of the Sun\'s corona.</string>
     <string name="walkthrough_eclipse_center">The Eclipse Center is your go-to destination for learning about eclipses in your area so you can discover them as they happen. When you open the Eclipse Center, it will ask to pinpoint your geographic location. Once you accept, you will find a countdown to the next eclipse, information on whether you will experience a total or a partial solar eclipse in your area, and the exact start time, peak time, and end time of the eclipse. </string>
     <string name="walkthrough_audio_description">When it is time for the next eclipse to start, you will receive a push notification to open Eclipse Soundscapes. The app will then guide you through the main event with illustrative audio descriptions of an eclipse\'s most important moments. These audio descriptions, provided by the National Center for Accessible Media, are explanations of photos developed with specialized language to help people who are blind and visually impaired engage with an eclipse. After each audio description ends, you will have the option to either hear more educational information or explore that feature of an eclipse using the Rumble Map.</string>
-    <string name="prev_page_button">previous page</string>
-    <string name="next_page_button">next page</string>
+    <string name="walkthrough_permission">You don\'t want to miss this amazing astronomical event! We\'ll need access to your location to show you information about the eclipse.</string>
+
+    <string name="prev_page">previous page</string>
+    <string name="next_page">next page</string>
+    <string name="page_indicator">Page %1$d of %2$d</string>
+
+    <!-- Future Eclipses -->
+    <string name="future_eclipse_label_format">%1$s: %2$s</string>
+    <string name="future_eclipse_features">Tracking, Rumble Maps, Narrations</string>
 
     <!-- Dialog -->
-    <string name="closeDialogButton">Close Dialog</string>
-    <string name="closeButton">Close</string>
-    <string name="playButton">Play</string>
-    <string name="pauseButton">Pause</string>
-    <string name="cancelButton">CancelButton</string>
-    <string name="permission_dialog_header">Hello Soundscapers!</string>
-    <string name="permission_dialog_body">Don\'t miss the Eclipse. We need your permission to notify you about Eclipse Events.</string>
-    <string name="permission_dialog_rationale">Allow permission please. This helps to keep you informed with the Eclipse</string>
-    <string name="permission_dialog_button">Enable Notifications</string>
-    <string name="permission_dialog_footer">You can manage permissions in settings</string>
-
-    <!-- permissions -->
-    <string name="permission_rationale_location">Access to the location service is required to provide Eclipse information based on your location.</string>
-    <string name="location_permission_denied">Permission to access the device\'s location has been denied. Please grant access by enabling the location permission from the System Settings &gt; Apps &gt; \'Eclipse Soundscapes\'.</string>
-    <string name="location_permission">Location permission</string>
-
     <array name="eclipse_imgs_title">
-        <item name="diamond_ring">Diamond Ring</item>
-        <item name="helmet_streamers">Helmet Streamers</item>
-        <item name="prominence">Prominence</item>
-        <item name="sun_as_star">Sun as a Star</item>
-        <item name="first_contact">1st Contact</item>
-        <item name="totality">Totality</item>
-        <item name="bailys_beads">Baily\'s Beads</item>
-        <item name="corona">Corona</item>
+        <item name="diamond_ring">@string/diamond_ring</item>
+        <item name="helmet_streamers">@string/helmet_streamers</item>
+        <item name="prominence">@string/prominence</item>
+        <item name="sun_as_star">@string/sun_as_star</item>
+        <item name="first_contact">@string/first_contact</item>
+        <item name="totality">@string/totality</item>
+        <item name="bailys_beads">@string/bailys_beads</item>
+        <item name="corona">@string/corona</item>
     </array>
 
     <array name="eclipse_img_credits">
@@ -202,211 +237,174 @@
     </array>
 
     <array name="listOptions">
-        <item name="item_rumble_map">How to use the Rumble Map</item>
-        <item name="item_team">Our team</item>
-        <item name="item_partners">Our partners</item>
-        <item name="item_future_eclipses">Eclipses We Support</item>
-        <item name="item_instructions">Walkthrough</item>
-        <item name="item_settings">Settings</item>
-        <item name="item_legal">Legal</item>
+        <item name="item_rumble_map">@string/rumble_map_how</item>
+        <item name="item_team">@string/our_team</item>
+        <item name="item_partners">@string/our_partners</item>
+        <item name="item_future_eclipses">@string/supported_eclipse</item>
+        <item name="item_walkthrough">@string/walkthrough</item>
+        <item name="item_feedback">@string/feedback</item>
+        <item name="item_settings">@string/settings</item>
+        <item name="item_legal">@string/legal</item>
     </array>
 
     <string name="our_partners">Our Partners</string>
+    <string name="current_partners">Current Partners</string>
+    <string name="past_partners">Past Partners</string>
     <string name="our_team">Our Team</string>
+    <string name="feedback">Give Feedback</string>
 
-    <array name="partners">
-        <item name="partner_nasa">NASA</item>
-        <item name="partner_national_park">National Park Service</item>
-        <item name="partner_smithsonian">Smithsonian Institution</item>
+    <array name="current_partners_title">
+        <item name="partner_nasa">NASA’s Space Science Education Consortium (NSSEC)</item>
         <item name="partner_wgbh">National Center for Accessible Media, WGBH</item>
-        <item name="partner_eclipse_mob">Eclipse Mob</item>
+        <item name="partner_nfb">National Federation of the Blind</item>
         <item name="partner_science_friday">Science Friday</item>
+    </array>
+
+    <array name="past_partners_title">
+        <item name="partner_national_park">National Park Service</item>
+        <item name="partner_eclipse_mob">Eclipse Mob</item>
+        <item name="partner_smithsonian">Smithsonian Institution</item>
         <item name="partner_national_girls_collab">National Girls Collaborative</item>
         <item name="partner_citizen_cate">Citizen CATE</item>
         <item name="partner_bridham_uni">Brigham Young University, Idaho</item>
     </array>
 
-    <array name="partner_description">
-        <item name="nasa_description">NASA is an independent agency of the United States federal
-            government which conducts the civilian space program, aeronautics, and aerospace
-            research. NASA is leading an educational outreach effort surrounding the August 2017
-            Eclipse which includes information and live coverage of the event. NASA is partnering
-            with Eclipse Soundscapes to provide the script calculating the timing of the eclipse, as
-            well as the funding that makes Eclipse Soundscapes possible.
+    <array name="current_partners_desc">
+        <item name="nasa_description">NASA (National Aeronautics and Space Administration) is an independent agency of the United States federal government which conducts the civilian space program, aeronautics, and aerospace research.
+            NASA is leading an educational outreach effort surrounding eclipses, which includes information and live coverage of these events.
+            For more information on NASA, visit nasa.gov. The NASA Space Science Education Consortium (NSSEC) capitalizes on NASA\’s rich history of sharing research and technology through compelling and innovative education projects.
+            The NSSEC (formerly the Heliophysics Education Consortium (HEC)) continues the Science Mission Directorate\’s (SMD) work at the forefront of NASA\’s educational endeavors by linking exciting science and missions directly to the American public.
+            NSSEC is partnering with Eclipse Soundscapes to provide the script calculating the timing of the eclipse, as well as the funding that makes Eclipse Soundscapes possible.
         </item>
-        <item name="national_park_description">The National Parks Service (an agency of the United
-            States Department of the Interior) manages national parks, monuments, conservation, and
-            historical sites throughout the United States. The NPS is partnering with Eclipse
-            Soundscapes during the August 2017 Eclipse to collect mono and binaural field recordings
-            in parks across the country, especially those in the path of totality. They will collect
-            data the day before, the day of, and the day after the eclipse in order to study how
-            wildlife sounds fluctuate with the changes in light caused by the eclipse.
+
+        <item name="wgbh_description">The Carl and Ruth Shapiro Family National Center for Accessible Media (NCAM) is a non-profit branch of GBH in Boston which is dedicated to achieving media access equality for people with disabilities.
+            NCAM is partnering with Eclipse Soundscapes to provide media coverage of the eclipse, including illustrative audio descriptions of the eclipse which will allow visually impaired individuals to experience the eclipse through real-time audio narrations.
+            NCAM is also conducting a review of the Eclipse Soundscapes app to enhance its accessibility.
         </item>
-        <item name="smithsonian_description">The Smithsonian Institution is a group of museums and
-            research centers established and administered by the United States government. Among the
-            Smithsonian’s many facilities are the National Air and Space Museum and the
-            Harvard-Smithsonian Center for Astrophysics, where Eclipse Soundscapes is based. The
-            Smithsonian is partnering with Eclipse Soundscapes to provide a headquarters and funding
-            for the Eclipse Soundscapes project.
+
+        <item name="nfb_description">The National Federation of the Blind is the oldest and largest nationwide organization of blind Americans.
+            Founded in 1940 and currently headquartered in Baltimore, the NFB consists of affiliates, chapters, and divisions in all fifty states, Washington, DC, and Puerto Rico.
         </item>
-        <item name="wgbh_description">The Carl and Ruth Shapiro Family National Center for
-            Accessible Media (NCAM) is a non-profit branch of WGBH radio in Boston which is
-            dedicated to achieving media access equality for people with disabilities. NCAM is
-            partnering with Eclipse Soundscapes to provide media coverage of the eclipse, including
-            illustrated audio descriptions of the eclipse which will allow visually impaired
-            individuals to experience the eclipse through real-time audio narrations.
-        </item>
-        <item name="eclipse_mob_description">Eclipse Mob is a crowdsourced effort to conduct the
-            largest-ever low-frequency radio wave propagation experiment during the 2017 solar
-            eclipse. They are using radio signals to study the effect of sunlight on the ionosphere.
-            Through crowdsourcing, Eclipse Mob will collect radio wave signals at locations across
-            the United States, allowing them to study how the signals are affected as they travel
-            along various paths. Eclipse Mob is partnering with Eclipse Soundscapes to provide radio
-            wave data (a form of audio data) for the Eclipse Soundscapes database.
-        </item>
-        <item name="science_friday_description">The Science Friday Initiative is a non-profit
-            organization dedicated to increasing the public’s access to science and scientific
-            information. They host a radio show distributed by Public Radio International (PRI) and
-            produce science and technology related digital videos, original web articles, and
-            educational resources for educators. Science Friday is partnering with Eclipse
-            Soundscapes to provide audio recordings and social media support.
-        </item>
-        <item name="nation_girls_collab_description">The National Girls Collaborative Project (NGC)
-            brings together United States organizations that are committed to informing and
-            encouraging girls to pursue careers in science, technology, engineering, and
-            mathematics. NGC is partnering with Eclipse Soundscapes to organize listening parties
-            where young women can experience the total solar eclipse complete with audio
-            information.
-        </item>
-        <item name="citizen_cate">The Citizen CATE (Continental-America Telescopic Eclipse)
-            Experiment is an effort to document the 2017 Eclipse by capturing images of the inner
-            solar corona using a network of more than 60 telescopes. CATE is working with high
-            schools, universities, education groups, astronomy clubs, national science research
-            labs, and corporate sponsors to produce 90 minutes of continuous, high-resolution, and
-            rapid-cadence images detailing the Sun’s inner corona...More TBD
-        </item>
-        <item name="brigham_young_uni_description">Brigham Young University (BYU) is a private
-            research university with three locations, including Rexburg, Idaho. They are partnering
-            with Eclipse Soundscapes to provide a series of field recordings of the 2017 Eclipse,
-            including audio of an active beehive. Because Rexburg lies in the path of totality, BYU
-            is hosting a number of viewing and educational events with the City of Rexburg."
+
+        <item name="science_friday_description">The Science Friday Initiative is a non-profit organization dedicated to increasing the public\’s access to science and scientific information.
+            They host a radio show distributed by Public Radio International (PRI) and produce science and technology related digital videos, original web articles, and educational resources for educators.
+            Science Friday is partnering with Eclipse Soundscapes to provide audio recordings and social media support for the project.
         </item>
     </array>
 
-    <array name="partner_links">
-        <item name="nasa_link">https://www.nasa.gov/</item>
-        <item name="nationa_park_link">https://www.nps.gov/</item>
-        <item name="smithsonian_link">https://www.si.edu/</item>
-        <item name="smithsonian_link">http://ncam.wgbh.org/</item>
-        <item name="eclipse_mob_link">http://eclipsemob.org</item>
-        <item name="science_friday_link">https://www.sciencefriday.com/</item>
-        <item name="nationa_girls_collab_link">https://ngcproject.org/</item>
-        <item name="citizen_cate">http://eclipse2017.nso.edu/citizen-cate/</item>
-        <item name="brigham_uni_link">http://www.byui.edu/eclipse-2017</item>
+    <array name="past_partners_desc">
+        <item name="national_park_description">The National Park Service (NPS), an agency of the United States Department of the Interior, manages national parks, monuments, conservation, and historical sites throughout the United States.
+            NPS is partnering with Eclipse Soundscapes during the August 2017 Eclipse to collect mono and binaural field recordings in parks across the country, especially those in the path of totality.
+            They will collect data the day before, the day of, and the day after the eclipse in order to study how wildlife sounds fluctuate with the changes in light and temperature caused by the eclipse.
+        </item>
 
+        <item name="eclipse_mob_description">Eclipse Mob is a crowdsourced effort to conduct the largest-ever low-frequency radio wave propagation experiment during the 2017 solar eclipse.
+            They are using radio signals to study the effect of sunlight on the ionosphere. By crowdsourcing, Eclipse Mob can collect radio wave signals at locations across the United States, allowing them to study how the signals are affected as they travel along various paths.
+            Eclipse Mob is partnering with Eclipse Soundscapes to provide radio wave data (a form of audio data) the Eclipse Soundscapes database.
+        </item>
+
+        <item name="smithsonian_description">The Smithsonian Institution is a group of museums and research centers established and administered by the United States government.
+            Among the Smithsonian\’s many facilities are the National Air and Space Museum and the Harvard-Smithsonian Center for Astrophysics, where Eclipse Soundscapes is based.
+            The Smithsonian is partnering with Eclipse Soundscapes to provide a headquarters and funding for the Eclipse Soundscapes project.
+        </item>
+
+        <item name="nation_girls_collab_description">The National Girls Collaborative Project (NGC) brings together United States organizations that are committed to informing and encouraging girls to pursue careers in science, technology, engineering, and mathematics.
+            NGC is partnering with Eclipse Soundscapes to organize listening parties where young women can experience the total solar eclipse complete with audio information.
+        </item>
+
+        <item name="citizen_cate">The Citizen CATE (Continental-America Telescopic Eclipse) Experiment is an effort to document the 2017 Eclipse by capturing images of the inner solar corona using a network of more than 60 telescopes.
+            CATE is working with high schools, universities, education groups, astronomy clubs, national science research labs, and corporate sponsors to produce 90 minutes of continuous, high-resolution, and rapid-cadence images detailing the Sun\’s inner corona.
+            Citizen CATE is partnering with Eclipse Soundscapes to provide high quality images for the Eclipse Soundscapes app.
+        </item>
+
+        <item name="brigham_young_uni_description">Brigham Young University (BYU) is a private research university with three locations, including Rexburg, Idaho.
+            They are partnering with Eclipse Soundscapes to provide a series of field recordings of the 2017 Eclipse, including audio of an active beehive.
+            Because Rexburg lies in the path of totality, BYU is hosting a number of viewing and educational events with the City of Rexburg.
+        </item>
+    </array>
+
+    <array name="current_partners_link">
+        <item name="nasa_link">science.nasa.gov/science-activation-team/nasa-space-science-education-consortium</item>
+        <item name="gbh_link">ncam.wgbh.org</item>
+        <item name="nfb_link">www.nfb.org</item>
+        <item name="science_friday_link">sciencefriday.com</item>
+    </array>
+
+    <array name="past_partners_link">
+        <item name="national_park_link">nps.gov/</item>
+        <item name="eclipse_mob_link">eclipsemob.org</item>
+        <item name="smithsonian_link">si.edu</item>
+        <item name="national_girls_collab_link">ngcproject.org/</item>
+        <item name="citizen_cate">eclipse2017.nso.edu/citizen-cate/</item>
+        <item name="brigham_uni_link">byui.edu/eclipse-2017</item>
     </array>
 
     <array name="team">
         <item name="member_henry_winter">Dr. Henry Winter</item>
         <item name="member_marykay">MaryKay Severino</item>
         <item name="member_arlindo">Arlindo Goncalves</item>
+        <item name="member_joel">Joel Goncalves</item>
         <item name="member_miles">Miles Gordon</item>
-        <item name="member_christina">Christina Migliore</item>
         <item name="member_kristin">Kristin DiVona</item>
         <item name="member_kelsey">Kelsey Perrett</item>
-        <item name="member_wanda">Dr. Wanda Diaz Merced</item>
     </array>
 
     <array name="team_title">
         <item name="member_henry_winter">Principal Investigator</item>
         <item name="member_marykay">Project Manager</item>
-        <item name="member_arlindo">iOS Developer</item>
+        <item name="member_arlindo">Application Developer</item>
+        <item name="member_joel">Application Developer</item>
         <item name="member_miles">Audio Engineer</item>
-        <item name="member_christina">Image Analysis Intern</item>
         <item name="member_kristin">Graphic Designer</item>
         <item name="member_kelsey">Social Media Coordinator/Content Writer</item>
-        <item name="member_wanda">Consultant</item>
     </array>
 
     <array name="team_bio">
-        <item name="member_henry_winter">Dr. Henry \'Trae\' Winter III, an astrophysicist at the
-            Harvard-Smithsonian Center for Astrophysics (CfA), has worked on eight NASA missions
-            observing the Sun. His primary research focus is improving computer simulations to
-            explore energy is released in the Sun\'s atmosphere, the corona, and in other stars. Dr.
-            Winter has designed video wall exhibits for the Cooper-Hewitt National Design Museum,
-            the National Air and Space Museum, North Carolina State University’s Hunt Library, and
-            the Harvard Art Museums’ Lightbox Gallery. In addition to Eclipse Soundscapes, his
-            current project “The Tactile Sun” aims to engage the blind and visually disabled
-            community with universally designed solar exhibits. Dr. Winter has spearheaded many
-            efforts to engage the public in scientific discovery, including work with the Montana
-            Space Grant Consortium\'s Space Public Outreach Team, the Yohkoh Public Outreach
-            Project, and science education programs at the Salish-Kootenai Flathead Lake
-            Reservation. Currently Dr. Winter is the Chairperson of the Astrolabe Advisory Board,
-            Chairperson of the AAS Eclipse Task Force Education Committee, active member of the
-            Education and Public Outreach Committee for the Solar Physics Division (SPD) of the AAS,
-            Press Officer for the SPD, and Co-Director of the CfA\'s Solar REU Summer Intern Program
-            sponsored by the National Science Foundation.
+        <item name="member_henry_winter">Dr. Henry \"Trae\" Winter III, is the Chief Scientist and Co-Founder of the ARISA Lab.
+            Dr. Winter has worked on eight NASA missions observing the Sun. His primary research focus is improving computer simulations to explore energy is released in the Sun\'s atmosphere, the corona, and in other stars.
+            Dr. Winter has designed video wall exhibits for the Cooper-Hewitt National Design Museum, the National Air and Space Museum, North Carolina State University\’s Hunt Library, and the Harvard Art Museums\’ Lightbox Gallery.
+            In addition to Eclipse Soundscapes, his current project \“The Tactile Sun\” aims to engage the blind and visually disabled community with universally designed solar exhibits.
         </item>
-        <item name="member_marykay">MaryKay Severino is originally from Somerville, Massachusetts,
-            but only recently returned to the Boston area. After earning a business degree from
-            Villanova University, she worked in South Carolina and California as a Program Manager
-            and Marketing Consultant. Realizing she was ready for a change, she went on to earn her
-            Master\'s degree in Education and worked in public school systems and universities in
-            Italy, Taiwan, and South Korea. Living abroad, immersed in other cultures and navigating
-            daily life with language and literacy barriers, gave MaryKay a strong understanding of
-            the challenges faced by anyone who communicates differently. For this reason, the
-            Eclipse Soundscapes project was a natural fit. She is excited to use her program
-            management skills to promote, plan and execute a project which will bring the amazement
-            and wonder of an eclipse to a more inclusive demographic.
+
+        <item name="member_marykay">MaryKay Severino is the Educational Director and Co-Founder of the ARISA Lab.
+            After earning a business degree from Villanova University, she worked in South Carolina and California as a Program Manager and Marketing Consultant.
+            Realizing she was ready for a change, she went on to earn her Master\'s degree in Education and worked in public school systems and universities in Italy, Taiwan, and South Korea.
+            Living abroad, immersed in other cultures and navigating daily life with language and literacy barriers, gave MaryKay a strong understanding of the challenges faced by anyone who communicates differently.
+            For this reason, the Eclipse Soundscapes project was a natural fit. She is excited to use her skills to promote, plan, and execute a project which will bring the amazement and wonder of an eclipse to a more inclusive demographic.
         </item>
-        <item name="member_arlindo">Arlindo Goncalves is an iOS developer from Brockton,
-            Massachusetts, and a computer science student at the University of Massachusetts,
-            Boston. He aspires to develop applications that help schools and other institution
-            engage youth, making education a focus point in their lives. In his free time, Arlindo
-            enjoys playing soccer and cooking for his family and friends.
+
+        <item name="member_arlindo">
+            Arlindo Goncalves is an iOS developer from Brockton, Massachusetts.
+            He aspires to develop applications that help schools and other institutions engage youth, making education a focal point in their lives.
+            In his free time, Arlindo enjoys playing soccer and cooking for his family and friends.
         </item>
-        <item name="member_miles">Miles Gordon is an audio engineer and multi-media artist from New
-            England. Between mixing and mastering tracks for his friends and his work on the Eclipse
-            Soundscapes project, he also enjoys tinkering with machines and editing papers for a
-            Chinese translation company. When he grows up, he wants to be a supporting character in
-            a William Gibson novel. Miles got involved in the Eclipse Soundscapes Project after a
-            mutual friend introduced him to Dr. Winter. Their shared enthusiasm for innovation in
-            audio engineering led to a collaboration on Eclipse Soundscapes
+
+        <item name="member_joel">Joel Goncalves is an Android developer from Brockton, Massachusetts
+            and a Computer Science graduate from the University of Massachusetts, Boston.
+            As a developer and budding entrepreneur, he is passionate about creating and contributing
+            to meaningful applications. As a hobby, he likes to travel, read philosophy and produce music.
         </item>
-        <item name="member_christina">Originally from a small town in New Jersey, Christina is an
-            undergraduate student studying physics and math at Northeastern University. She works on
-            image and video analysis for the Eclipse Soundscapes project and numerically modeling
-            solar flares at the Harvard-Smithsonian Center for Astrophysics. She became involved
-            with Eclipse Soundscapes because she enjoys scientific outreach and is interested in
-            conveying numerical information in new ways. Christina hopes to continue studying in the
-            field of plasma physics as a graduate student.
+
+        <item name="member_miles">Miles Gordon is an audio engineer and multimedia artist from New England.
+            Between mixing and mastering tracks for his friends and his work on the Eclipse Soundscapes project, he also enjoys tinkering with machines and editing papers for a Chinese translation company.
+            When he grows up, he wants to be a supporting character in a William Gibson novel. Miles got involved in the Eclipse Soundscapes Project after a mutual friend introduced him to Dr. Winter.
+            Their shared enthusiasm for innovation in audio engineering led to a collaboration on Eclipse Soundscapes.
         </item>
-        <item name="member_kristin">Kristin DiVona is the Visual Information Specialist for NASA\'s
-            Chandra X-Ray Observatory. An award-winning designer and illustrator, she is responsible
-            for the creation of printed materials, exhibits, and interactive educational tools that
-            visually interpret concepts related to astrophysics and x-ray astronomy— connecting
-            everyday life to science exploration and technology. (Yes, it\'s as cool as it sounds.)
-            She is a graduate of Rhode Island School of Design. Kristin is waiting not-so-patiently
-            for this amazing astronomical event, and is excited to work with the Eclipse Soundscapes
-            team on this inclusive design project
+
+        <item name="member_kristin">Kristin DiVona is the Visual Information Specialist for NASA\'s Chandra X-Ray Observatory.
+            An award-winning designer and illustrator, she is responsible for the creation of printed materials, exhibits, and interactive educational tools that visually interpret concepts related to astrophysics and x-ray astronomy— connecting everyday life to science exploration and technology.
+            (Yes, it\'s as cool as it sounds.) She is a graduate of Rhode Island School of Design. Kristin is waiting not-so-patiently for this amazing astronomical event, and is excited to work with the Eclipse Soundscapes team on this inclusive design project.
         </item>
-        <item name="member_kelsey">Kelsey Perrett is a Massachusetts-based freelance writer, editor,
-            web producer, and social media specialist. She enjoys writing about travel, health and
-            fitness, and the environment. When she isn’t writing, she can be found outside exploring
-            trails, at the gym/yoga studio, or attempting to conquer an ever-expanding reading list.
-            Kelsey got involved in the Eclipse Soundscapes Project due to her interest in
-            environmental reporting, and is thrilled to work with a talented group to make the
-            wonders of space accessible to everyone.
-        </item>
-        <item name="member_wanda">Development in South Africa. When Dr. Winter invited Wanda to join
-            the Eclipse Soundscapes team as a blind person and an astrophysicist, she accepted,
-            saying she hoped the project could bring an innovative experience to the blind and
-            visually impaired, to people who are not visually oriented, and to people who have never
-            experienced an eclipse.
+
+        <item name="member_kelsey">Kelsey Perrett is a Massachusetts-based freelance writer, editor, web producer, and social media specialist.
+            She enjoys writing about travel, health and fitness, and the environment. When she isn\’t writing, she can be found outside exploring trails, at the gym/yoga studio, or attempting to conquer an ever-expanding reading list.
+            Kelsey got involved in the Eclipse Soundscapes Project due to her interest in environmental reporting, and is thrilled to work with a talented group to make the wonders of space accessible to everyone.
         </item>
     </array>
 
-    <string name="libraries_use_detail">The following sets forth attribution notices for third party software that may be contained in portions of the Eclipse Soundscapes product. We thank the open sources community for all of their contributions.\n</string>
+    <string name="libraries_use_detail">The following sets forth attribution notices for third party software that may be contained in portions of the Eclipse Soundscapes product.
+        We thank the open sources community for all of their contributions.\n</string>
+
     <string name="audiokit_license">The MIT License (MIT)\n
 
 \nCopyright © 2016 Aurelius Prochazka\n

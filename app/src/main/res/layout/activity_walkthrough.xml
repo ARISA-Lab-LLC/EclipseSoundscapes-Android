@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.eclipsesoundscapes.activity.WalkthroughActivity">
+    tools:context=".ui.walkthrough.WalkthroughActivity">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
@@ -23,10 +23,11 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="16dp"
         android:layout_marginStart="8dp"
-        android:contentDescription="@string/prev_page_button"
+        android:contentDescription="@string/prev_page"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/ic_chevron_left_white"
-        android:background="@android:color/transparent" />
+        android:tint="@color/colorAccent"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/ic_chevron_left" />
 
     <ImageButton
         android:id="@+id/next_button"
@@ -36,9 +37,10 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:scaleType="fitCenter"
-        android:contentDescription="@string/next_page_button"
-        app:srcCompat="@drawable/ic_chevron_right_white"
-        android:background="@android:color/transparent" />
+        android:contentDescription="@string/next_page"
+        android:background="@android:color/transparent"
+        android:tint="@color/colorAccent"
+        app:srcCompat="@drawable/ic_chevron_right" />
 
     <Button
         android:id="@+id/skip_close_button"
@@ -50,8 +52,8 @@
         android:fontFamily="sans-serif-condensed"
         android:textColor="@color/colorAccent"
         android:gravity="top|center_horizontal"
-        android:contentDescription="@string/walkthrough_skip_button"
-        android:text="@string/walkthrough_skip_button"
+        android:contentDescription="@string/skip"
+        android:text="@string/skip"
         android:textAllCaps="false"
         android:layout_alignStart="@+id/next_button" />
 

@@ -27,14 +27,13 @@
     <color name="material_drawer_dark_header_selection_text">#FFF</color>
 
 
+    <color name="section_bg">#E0E0E0</color>
     <color name="md_divider_light_12">#1fffffff</color>
-    <color name="divider_color">#757575</color>
+    <color name="divider_color">#E0E0E0</color>
 
     <!-- text colors -->
     <color name="ma_text_dark_primary_87">#df000000</color>
     <color name="ma_text_dark_secondary_54">#8a000000</color>
-    <color name="ma_text_dark_disabled_hint_38">#62000000</color>
-
-    <color name="ma_text_light_primary_100">#ffffffff</color>
-
+    <color name="text_color_primary">@color/ma_text_dark_primary_87</color>
+    <color name="text_color_secondary">@color/ma_text_dark_secondary_54</color>
 </resources>

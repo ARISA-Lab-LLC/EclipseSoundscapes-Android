@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="org.eclipsesoundscapes.activity.MainActivity">
+    tools:context=".ui.main.MainActivity">
 
     <FrameLayout
         android:id="@+id/navigation_content"
@@ -25,6 +25,5 @@
         app:menu="@menu/navigation"
         app:itemIconTint="@drawable/navigation_selector"
         app:itemTextColor="@drawable/navigation_selector"
-        />
-
+        app:labelVisibilityMode="selected"/>
 </LinearLayout>
