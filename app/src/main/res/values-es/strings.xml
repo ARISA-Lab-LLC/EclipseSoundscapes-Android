@@ -3,7 +3,7 @@
     <string name="eclipse_center">El centro de eclipses</string>
 
     <!-- general -->
-    <string name="media">medios de comunicación</string>
+    <string name="media">Medios de comunicación</string>
     <string name="about">Acerca de</string>
     <string name="type">Tipo</string>
     <string name="features">Características</string>
@@ -25,7 +25,7 @@
     <string name="universal_time">Hora Universal</string>
     <string name="time_ut">Hora (UT)</string>
 
-    <string name="settings">configuraciones</string>
+    <string name="settings">Configuraciones</string>
     <string name="open_settings">Abre las configuraciónes</string>
     <string name="description">descripción</string>
     <string name="instructions">Instrucciones</string>
@@ -70,7 +70,7 @@
     <string name="photo_credits">Crédito por la fotografía</string>
     <string name="legal">Legal</string>
     <string name="libs_in_use">Bibliotecas que utilizamos</string>
-    <string name="supported_eclipse">eclipses que apoyamos</string>
+    <string name="supported_eclipse">Eclipses que apoyamos</string>
 
     <string name="about_us">Sobre Nosotros</string>
     <string name="about_us_details">La aplicación móvil Eclipse Soundscapes es un producto del Eclipse Soundscapes Project, que es una empresa de ARISA Lab, LLC.
