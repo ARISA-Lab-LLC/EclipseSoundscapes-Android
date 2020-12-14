@@ -1,9 +1,9 @@
 package org.eclipsesoundscapes.ui.media;
 
 import android.media.MediaPlayer;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
@@ -237,8 +237,9 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
             audioProgressBar.setContentDescription(curr.concat(" of ".concat(total)));
 
             // only update live event during second contact
-            if (isLive() && !eclipseTitle.getText().toString().equals("First Contact"))
-                updateLiveContent();
+            if (audioId == R.raw.realtime_eclipse_shorts_saas) {
+                updateFullExperience();
+            }
 
             // Running this thread after 100 milliseconds
             mHandler.postDelayed(this, 100);
@@ -311,18 +312,18 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
      * Updates UI based on current audio description of eclipseImageView event
      * Currently setup for the eclipseImageView August 21st
      */
-    public void updateLiveContent(){
+    public void updateFullExperience(){
         if (mp.getCurrentPosition() < 120000){ // baily'ss beads < 2:01
             if (!eclipseTitle.getText().toString().equals("Baily's Beads"))
-                updateDescription(R.string.bailys_beads_title, R.string.bailys_beads_description, R.drawable.eclipse_bailys_beads);
+                updateDescription(R.string.bailys_beads_title, R.string.bailys_beads_short, R.drawable.eclipse_bailys_beads);
 
         } else if (mp.getCurrentPosition() >= 120000 && mp.getCurrentPosition() < 200000) { // totality >= 2:01 < 5:21
             if (!eclipseTitle.getText().toString().equals("Totality"))
-                updateDescription(R.string.totality_title, R.string.totality_description, R.drawable.eclipse_totality);
+                updateDescription(R.string.totality_title, R.string.totality_short, R.drawable.eclipse_totality);
 
         } else if (mp.getCurrentPosition() >= 200500 && mp.getCurrentPosition() < 320000){ // diamond ring >= 3:21
             if (!eclipseTitle.getText().toString().equals("Diamond Ring"))
-                updateDescription(R.string.diamond_ring_title, R.string.diamond_ring_description, R.drawable.eclipse_diamond_ring);
+                updateDescription(R.string.diamond_ring_title, R.string.diamond_ring_short, R.drawable.eclipse_diamond_ring);
 
         } else if (mp.getCurrentPosition() >= 320500){ // sun as a star 5:21
             if (!eclipseTitle.getText().toString().equals("Sun as a Star"))

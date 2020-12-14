@@ -59,7 +59,7 @@ public class NotificationReceiver extends BroadcastReceiver {
 
             if (isFirstContact){
                 mediaIntent.putExtra(MediaPlayerActivity.EXTRA_TITLE, context.getString(R.string.first_contact_title));
-                mediaIntent.putExtra(MediaPlayerActivity.EXTRA_DESCRIPTION, R.string.first_contact_description);
+                mediaIntent.putExtra(MediaPlayerActivity.EXTRA_DESCRIPTION, R.string.audio_first_contact_full);
                 mediaIntent.putExtra(MediaPlayerActivity.EXTRA_IMG, R.drawable.eclipse_first_contact);
                 mediaIntent.putExtra(MediaPlayerActivity.EXTRA_AUDIO, R.raw.first_contact_full);
                 mediaIntent.putExtra(MediaPlayerActivity.EXTRA_LIVE, true);
@@ -67,7 +67,7 @@ public class NotificationReceiver extends BroadcastReceiver {
                         context.getString(R.string.first_contact_begun), context.getString(R.string.tap_listen), mediaIntent);
             } else {
                 mediaIntent.putExtra(MediaPlayerActivity.EXTRA_TITLE, context.getString(R.string.bailys_beads_title));
-                mediaIntent.putExtra(MediaPlayerActivity.EXTRA_DESCRIPTION, org.eclipsesoundscapes.R.string.bailys_beads_description);
+                mediaIntent.putExtra(MediaPlayerActivity.EXTRA_DESCRIPTION, R.string.bailys_beads_short);
                 mediaIntent.putExtra(MediaPlayerActivity.EXTRA_IMG, R.drawable.eclipse_bailys_beads);
                 mediaIntent.putExtra(MediaPlayerActivity.EXTRA_AUDIO, R.raw.realtime_eclipse_shorts_saas);
                 mediaIntent.putExtra(MediaPlayerActivity.EXTRA_LIVE, true);
