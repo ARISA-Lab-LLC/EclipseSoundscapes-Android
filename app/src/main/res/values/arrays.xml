@@ -4,7 +4,7 @@
     <array name="current_partners_logo">
         <item>@drawable/nasa</item>
         <item>@drawable/ncam_logo</item>
-        <item>@drawable/ncam_logo</item>
+        <item>@drawable/logo_nfb_slogan</item>
         <item>@drawable/logo_scifri</item>
     </array>
 
