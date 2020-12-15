@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Eclipse Soundscapes</string>
     <string name="app_name_version">%1$s v%2$s</string>
-    <string name="eclipse_features">Eclipse Features</string>
-    <string name="eclipse_center">Eclipse Center</string>
+    <string name="eclipse_features">Features</string>
+    <string name="eclipse_center">Center</string>
 
     <!-- General -->
     <string name="media">Media</string>
