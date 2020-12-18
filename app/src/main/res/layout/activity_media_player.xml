@@ -36,7 +36,7 @@
         app:srcCompat="@drawable/ic_play"
         android:background="@android:color/transparent"
         android:layout_centerInParent="true"
-        android:contentDescription="@string/playButton"
+        android:contentDescription="@string/play"
 
         app:layout_constraintTop_toTopOf="@+id/eclipse_img"
         app:layout_constraintBottom_toBottomOf="@+id/eclipse_img"
@@ -73,7 +73,7 @@
         app:srcCompat="@drawable/ic_chevron_left"
         android:focusable="false"
         android:background="@android:color/transparent"
-        android:contentDescription="@string/closeButton"
+        android:contentDescription="@string/close"
         android:fitsSystemWindows="true"
 
         app:layout_constraintTop_toTopOf="parent"

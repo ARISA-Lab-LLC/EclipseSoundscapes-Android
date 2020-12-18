@@ -27,7 +27,7 @@
                 android:scaleType="fitCenter"
                 app:srcCompat="@drawable/ic_chevron_left"
                 android:clickable="true"
-                android:contentDescription="@string/prevImgButton"/>
+                android:contentDescription="@string/show_prev"/>
 
 
             <ImageButton
@@ -40,7 +40,7 @@
                 android:background="@android:color/transparent"
                 android:tint="@android:color/white"
                 android:clickable="true"
-                android:contentDescription="@string/nextImgButton"
+                android:contentDescription="@string/show_next"
                 app:srcCompat="@drawable/ic_chevron_right" />
 
             <TextView

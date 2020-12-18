@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="current_partners_logo">
+        <item>@drawable/nasa</item>
+        <item>@drawable/ncam_logo</item>
+        <item>@drawable/logo_nfb_slogan</item>
+        <item>@drawable/logo_scifri</item>
+    </array>
+
+    <array
+        name="past_partners_logo">
+        <item>@drawable/national_parkers_logo</item>
+        <item>@drawable/eclipsemob_textlogo_large_reverse</item>
+        <item>@drawable/smithsonian_logo</item>
+        <item>@drawable/ngcp_theme_logo</item>
+        <item>@drawable/nso_logo_200_a</item>
+        <item>@drawable/byu</item>
+    </array>
+
+    <array
+        name="team_photos">
+        <item>@drawable/henry_winter</item>
+        <item>@drawable/marykay_severino</item>
+        <item>@drawable/arlindo</item>
+        <item>@drawable/joel_goncalves</item>
+        <item>@drawable/miles_gordon</item>
+        <item>@drawable/kristin_divona</item>
+        <item>@drawable/kelsey_perrett</item>
+    </array>
+
+</resources>

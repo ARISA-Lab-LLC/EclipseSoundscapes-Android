@@ -1,5 +1,8 @@
 package org.eclipsesoundscapes.data;
 
+import android.content.Context;
+
+import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.model.Event;
 
 import java.util.Locale;
@@ -33,11 +36,9 @@ public class EclipseTimeGenerator {
 
     public EclipseType type = EclipseType.FULL;
 
+    private Context context;
     private Double longitude;
     private Double latitude;
-
-    private boolean isEclipse = true;
-    private boolean isPartial = false;
 
     private double R2D = 180.0 / Math.PI;
     private double D2R = Math.PI / 180;
@@ -77,7 +78,8 @@ public class EclipseTimeGenerator {
     private Double[] c3 = new Double[40];
     private Double[] c4 = new Double[40];
 
-    public EclipseTimeGenerator(Double latitude, Double longitude) {
+    public EclipseTimeGenerator(Context context, Double latitude, Double longitude) {
+        this.context = context;
         this.longitude = longitude;
         this.latitude = latitude;
         loc_circ(latitude, longitude);
@@ -92,15 +94,6 @@ public class EclipseTimeGenerator {
         return longitude;
     }
 
-    public String latString() {
-        return String.format(Locale.getDefault(), "%.3f\u00B0%s", Math.abs(latitude), latitude > 0 ? "North" : "South");
-    }
-
-    public String lonString() {
-        return String.format(Locale.getDefault(), "%.3f\u00B0%s", Math.abs(longitude), longitude > 0 ? "East" : "West");
-    }
-
-
     public String getMagnitude() {
         if (type == EclipseType.NONE)
             return null;
@@ -113,28 +106,24 @@ public class EclipseTimeGenerator {
         return null;
     }
 
-    public String coverage() {
-        return getCoverage();
-    }
-
     public Event contact1() {
-        return new Event("Start of partial eclipse", getDate(c1), getTime(c1), getAlt(c1), getAzi(c1));
+        return new Event(context.getString(R.string.eclipse_start_partial), getDate(c1), getTime(c1), getAlt(c1), getAzi(c1));
     }
 
     public Event contact2() {
-        return new Event("Start of total eclipse", getDate(c2), getTime(c2), getAlt(c2), getAzi(c2));
+        return new Event(context.getString(R.string.eclipse_start_full), getDate(c2), getTime(c2), getAlt(c2), getAzi(c2));
     }
 
     public Event contactMid() {
-        return new Event("Maximum eclipse", getDate(mid), getTime(mid), getAlt(mid), getAzi(mid));
+        return new Event(context.getString(R.string.eclipse_max), getDate(mid), getTime(mid), getAlt(mid), getAzi(mid));
     }
 
     public Event contact3() {
-        return new Event("End of total eclipse", getDate(c3), getTime(c3), getAlt(c3), getAzi(c3));
+        return new Event(context.getString(R.string.eclipse_end_full), getDate(c3), getTime(c3), getAlt(c3), getAzi(c3));
     }
 
     public Event contact4() {
-        return new Event("End of partial eclipse", getDate(c4), getTime(c4), getAlt(c4), getAzi(c4));
+        return new Event(context.getString(R.string.eclipse_end_partial), getDate(c4), getTime(c4), getAlt(c4), getAzi(c4));
     }
 
 
@@ -670,8 +659,8 @@ public class EclipseTimeGenerator {
 
 
     private void printTimes() {
-        isPartial = false;
-        isEclipse = true;
+        boolean isPartial = false;
+        boolean isEclipse = true;
 
         if (mid[36] > 0) {
             // There is an eclipse

@@ -11,6 +11,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
+import org.eclipsesoundscapes.R;
+
 
 /*
  * Creates a notification channel that all notifications will be assigned to
@@ -37,7 +39,7 @@ public class NotificationUtils {
                 .build();
 
         // Configure the notification channel.
-        notificationChannel.setDescription("Display notifications about an upcoming eclipse.");
+        notificationChannel.setDescription(context.getString(R.string.notification_channel_desc));
         notificationChannel.enableLights(true);
         notificationChannel.enableVibration(true);
         notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);

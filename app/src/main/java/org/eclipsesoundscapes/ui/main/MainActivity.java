@@ -4,12 +4,10 @@ import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.MenuItem;
 
 import org.eclipsesoundscapes.EclipseSoundscapesApp;
@@ -228,8 +226,6 @@ public class MainActivity extends AppCompatActivity {
         final String date = dataManager.getFirstContact();
         if (date.isEmpty()) return false;
 
-        Log.d("debugDate", date);
-
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss.S", Locale.getDefault());
         dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
 
@@ -247,9 +243,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean isAfterTotality(){
         final String date = dataManager.getTotality();
         if (date.isEmpty()) return false;
-
-        Log.d("debugDate", date);
-
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss.S", Locale.getDefault());
         dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));

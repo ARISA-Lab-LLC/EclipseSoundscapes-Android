@@ -44,19 +44,19 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.about.SettingsActivity"
-            android:label="@string/title_activity_settings"
+            android:label="@string/settings"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.about.LegalActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.walkthrough.WalkthroughActivity"
-            android:label="@string/walkthrough_label"
+            android:label="@string/walkthrough_title"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.about.FutureEclipsesActivity"
-            android:label="@string/future_eclipse_label"
+            android:label="@string/supported_eclipse"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.media.MediaPlayerActivity"

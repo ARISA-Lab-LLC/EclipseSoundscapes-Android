@@ -3,14 +3,14 @@
     <Preference
         android:key="license_display"
         android:maxLines="1"
-        android:title="@string/pref_title_license" />
+        android:title="@string/license" />
 
     <Preference
         android:key="libraries_display"
-        android:title="@string/pref_title_libraries" />
+        android:title="@string/open_src_libs" />
 
     <Preference
         android:key="credits_display"
-        android:title="@string/pref_title_credit" />
+        android:title="@string/photo_credits" />
 
 </PreferenceScreen>

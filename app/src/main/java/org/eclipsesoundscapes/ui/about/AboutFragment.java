@@ -61,7 +61,7 @@ public class AboutFragment extends Fragment {
 
         // views
         Toolbar toolbar = root.findViewById(R.id.toolbar);
-        toolbar.setTitle(getString(R.string.about_us_title));
+        toolbar.setTitle(getString(R.string.about_us));
         if (getActivity() != null)
             ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
 
