@@ -238,8 +238,9 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
             audioProgressBar.setContentDescription(getString(R.string.duration_current_progress, curr, total));
 
             // only update live event during second contact
-            if (isLive() && !eclipseTitle.getText().toString().equals(getString(R.string.first_contact)))
-                updateLiveContent();
+            if (audioId == R.raw.realtime_eclipse_shorts_saas) {
+                updateFullExperience();
+            }
 
             // Running this thread after 100 milliseconds
             mHandler.postDelayed(this, 100);
@@ -312,22 +313,19 @@ public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.On
      * Updates UI based on current audio description of eclipseImageView event
      * Currently setup for the eclipseImageView August 21st
      */
-    public void updateLiveContent(){
-        if (mp.getCurrentPosition() < 120000){ // baily'ss beads < 2:01
-            if (!eclipseTitle.getText().toString().equals(getString(R.string.bailys_beads)))
-                updateDescription(R.string.bailys_beads, R.string.bailys_beads_description, R.drawable.eclipse_bailys_beads);
-
-        } else if (mp.getCurrentPosition() >= 120000 && mp.getCurrentPosition() < 200000) { // totality >= 2:01 < 5:21
-            if (!eclipseTitle.getText().toString().equals(getString(R.string.totality)))
-                updateDescription(R.string.totality, R.string.totality_description, R.drawable.eclipse_totality);
-
-        } else if (mp.getCurrentPosition() >= 200500 && mp.getCurrentPosition() < 320000){ // diamond ring >= 3:21
-            if (!eclipseTitle.getText().toString().equals(getString(R.string.diamond_ring)))
-                updateDescription(R.string.diamond_ring, R.string.diamond_ring_description, R.drawable.eclipse_diamond_ring);
-
-        } else if (mp.getCurrentPosition() >= 320500){ // sun as a star 5:21
-            if (!eclipseTitle.getText().toString().equals(getString(R.string.sun_as_star)))
-                updateDescription(R.string.sun_as_star, R.string.sun_as_star_description, R.drawable.sun_as_a_star);
+    public void updateFullExperience(){
+        if (mp.getCurrentPosition() < 120000 && !eclipseTitle.getText().toString().equals(getString(R.string.bailys_beads))) {
+            // baily'ss beads < 2:01
+            updateDescription(R.string.bailys_beads, R.string.bailys_beads_short, R.drawable.eclipse_bailys_beads);
+        } else if (mp.getCurrentPosition() >= 120000 && mp.getCurrentPosition() < 200000 && !eclipseTitle.getText().toString().equals(getString(R.string.totality))) {
+            // totality >= 2:01 < 5:21
+            updateDescription(R.string.totality, R.string.totality_short, R.drawable.eclipse_totality);
+        } else if (mp.getCurrentPosition() >= 200500 && mp.getCurrentPosition() < 320000 && !eclipseTitle.getText().toString().equals(getString(R.string.diamond_ring))){
+            // diamond ring >= 3:21
+            updateDescription(R.string.diamond_ring, R.string.diamond_ring_short, R.drawable.eclipse_diamond_ring);
+        } else if (mp.getCurrentPosition() >= 320500 && !eclipseTitle.getText().toString().equals(getString(R.string.sun_as_star))){
+            // sun as a star 5:21
+            updateDescription(R.string.sun_as_star, R.string.sun_as_star_description, R.drawable.sun_as_a_star);
         }
     }
 

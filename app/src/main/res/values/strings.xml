@@ -110,14 +110,69 @@
     <string name="eclipse_max">Maximum eclipse</string>
 
     <!-- Eclipse Features -->
-    <string name="first_contact_description">This is the first moment that the moon, slowly moving from left to right, appears to touch the sun. The intensity of the sun\'s light makes it unsafe to look at without special eye protection until the totality, the few minutes during which the moon completely eclipses the sun. The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk. For the next 90 minutes, the moon\'s black disk will creep across the sun, progressively blocking more of sun\'s light and heat until the totality.\n\nYou can use this time to explore rumble map images and audio descriptions of phenomena unique to a total eclipse. In the moments before, during and after totality, this app will provide a play-by-play of the action, providing images and descriptions of this rare and fascinating stellar event.\n\nAdditional scientific info:\nThe outer atmosphere of the Sun, called the corona, is usually not visible from the surface of the Earth. To study the corona, scientists send satellites into space to make observations of the corona in wavelengths of light that the human eye cannot see, such as this image of the Sun in X-rays taken by the X-ray Telescope on the Hinode spacecraft. This X-ray image shows the view of the Sun being eclipsed by the moon a seen from space. The total solar eclipse on August 21, 2017 provides the rare opportunity to see the corona from the ground in visible light.</string>
-    <string name="bailys_beads_description">On the right side of the moon, orbs of glowing sunlight shimmer off the edge of the moon\'s black disk. Called Baily\'s Beads, these final areas of the sun\'s light appear as glimmering pearls on a wire, made intensely bright by the absence of light surrounding them.\n\nExplanation of what you might feel as you interact: \nOn the rumble map, explore the difference between the moon, the sun\'s corona and Baily\'s beads which are intense and irregular.\n\nAdditional scientific info: \nEven this small section of the Sun\'s light cannot be viewed without special eye protection. Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes.\nBaily\'s beads are caused because the moon\'s surface is not a smooth, perfect sphere. Rays of light peer through the ravines and valleys between mountains on the moon causing this spectacular feature.</string>
-    <string name="corona_description">During the totality, the moon completely covers the sun\'s glowing orb, and the sun\'s outer atmosphere is revealed. As if the moon were the center of a celestial sunflower, the corona appears as soft white petals, massive flumes of faint light that taper out across the sky. Closer to the surface of the moon\'s flat ebony circle, the corona is a swirling chaos of loops and flares. Intense fiery lines of light appear to ignite the moon’s black edge.\n\nHow to interact with the rumble map:\nOn the rumble map, explore the difference between the moon and the sun’s corona. You will hear/feel variations as your fingers pass over different features of the corona. \n\nAdditional scientific info:\nThe corona is the thin outer atmosphere of the Sun.  With temperatures at over 1 million degrees Fahrenheit, it radiates light in wavelengths that are too short for the human eye to see (like X-rays) and that are absorbed by the Earth\'s atmosphere.  However, the corona reflects some of the white light from the Sun\'s photosphere below it.  This faint reflection is only seen when the much brighter photosphere is blocked, like during a total eclipse.</string>
-    <string name="diamond_ring_description">On the left side of the black moon, a sliver of sunlight blasts into view with white-hot intensity. As the area of re-emerging sunlight grows, it resembles a diamond, beaming out its brilliant light from its setting on the circular ring of the moon\'s edge.\n\nAdditional scientific info:\nEven this small section of the Sun\'s light cannot be viewed without special eye protection. Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes.\nAs the moon barely moves away from the solar surface, the powerful light of the Sun peers around the side of the moon.  This light is so intense that even this small fraction of it dominates the sky.</string>
-    <string name="helmet_streamers_description">Projections of light from the sun\'s outer atmosphere called helmet streamers extend in all directions from behind the moon. In contrast to the black, featureless moon, the pale, wispy streamers appear as delicate as lace. The largest streamers have a tapered shape that resemble flower petals. They extend from opposite sides of the sun, with smaller rays of light between them.\n\nExplanation of what you might feel as you interact:\nAs you trace your finger along a helmet streamer, you can feel the smooth arches come to long sharp points as they extend from the base of the Sun outward.\n\nAdditional scientific info:\nHelmet streamers get their shape from two different processes. The arch shape of streamers come from magnetic fields from concentrations of magnetic field on the surface of the Sun extending out into the corona and then arching back down to the surface to connect to other regions of magnetic field of opposite polarity.  The long, pointed tops of helmet streamers come from streams of gas flowing out from the corona into interplanetary space forming the solar wind.</string>
-    <string name="prominence_description">Fiery loops of hot pink light appear to leap off the moon\'s black surface.  With the sheer white corona as their backdrop, these pink prominences seem to dance above the moon like lines of liquid neon.\n\nExplanation of what you might feel as you interact:\nYou will notice a sharp contrast when you interact with a prominence due to its intense brightness relative to the background.\n\nAdditional scientific info:\nProminences are magnetic fields that are filled with very dense material making them much brighter than the surrounding background. The magnetic fields of prominences can be very complicated giving them complex and dynamic shapes.</string>
-    <string name="totality_description">This is the full eclipse, when the moon\'s black disk completely covers the sun. Now, in the absence of the sun\'s full light, its massive outer corona is revealed. Uniquely visible during a full eclipse, grand flourishes of light called helmet streamers extend in all directions behind the moon’s black disk. At the edge of the moon, the helmet streamers are intensely bright, fading to wisps of ghostly white as they stretch across space, far from the moon, like flower petals.\n\nExplanation of what you might feel as you interact:\nOn the rumble map, explore the difference between the moon and the sun\'s corona.\n\nAdditional scientific info:\nYou may notice changes in temperature and natural sounds, such a birds and wind during the total eclipse.\nDuring the total solar eclipse, and only during totality, you can view the corona of the Sun without eye protection. The Sun\'s outer atmosphere, the corona, is in full display and viewable from the ground. The highly structured nature of the corona is clearly evident. This structure is caused by the Sun\'s intense and complicated magnetic fields interacting with the material that makes up the corona. This material is called a plasma, which is like a gas, but is susceptible to magnetic fields. The magnetic fields can then shape the plasma in the corona into the complicated patterns that are viewable during the eclipse.</string>
-    <string name="sun_as_star_description">Framed by a larger view of space, the solar wind draws the helmet streamers far out into space as other stars come into view. Many of these stars also have planets orbiting them. Those planets can eclipse their parent star just as the moon eclipsed our Sun. Scientists can detect planets eclipsing their stars and determine both, how far the planet is from its star and the planet’s mass. From these clues and other observations, scientists are attempting to discover if there is life on these other planets that may be experiencing their own eclipse.</string>
+    <string name="first_contact_description">This is the first moment that the moon, slowly moving from left to right, appears to touch the sun.
+        The intensity of the sun\'s light makes it unsafe to look at without special eye protection until the totality, the few minutes during which the moon completely eclipses the sun.
+        The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk.
+        For the next several minutes, the moon\'s black disk will creep across the sun, progressively blocking more of sun\'s light and heat until the totality.
+        \n\nYou can use this time to explore Rumble Map images and audio descriptions of phenomena unique to a total eclipse.
+        In the moments before, during and after totality, this app will provide a play-by-play of the action, providing images and descriptions of this rare and fascinating stellar event.
+        \n\nAdditional scientific info:\nThe outer atmosphere of the Sun, called the corona, is usually not visible from the surface of the Earth.
+        To study the corona, scientists send satellites into space to make observations of the corona in wavelengths of light that the human eye cannot see, such as this image of the Sun in X-rays taken by the X-ray Telescope on the Hinode spacecraft.
+        This X-ray image shows the view of the Sun being eclipsed by the moon a seen from space. A total solar eclipse provides a rare opportunity to see the corona from Earth in visible light.</string>
+
+    <string name="bailys_beads_description">On the right side of the moon, orbs of glowing sunlight shimmer off the edge of the moon\'s black disk.
+        Called Baily\'s Beads, these final areas of the sun\'s light appear as glimmering pearls on a wire, made intensely bright by the absence of light surrounding them.
+        \n\nExplanation of what you might feel as you interact: \nOn the Rumble Map, explore the features between the moon, the sun\'s corona and Baily\'s beads which are intense and irregular.
+        \n\nAdditional scientific info: \nEven this small section of the Sun\'s light cannot be viewed without special eye protection.
+        Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes.
+        \nBaily\'s beads are caused because the moon's surface is not a smooth, perfect sphere.
+        Rays of light peer through the ravines and valleys between mountains on the moon causing this spectacular feature.</string>
+
+    <string name="corona_description">During the totality, the moon completely covers the sun\'s glowing orb, and the sun\'s outer atmosphere is revealed.
+        As if the moon were the center of a celestial sunflower, the corona appears as soft white petals, massive flumes of faint light that taper out across the sky.
+        Closer to the surface of the moon\'s flat ebony circle, the corona is a swirling chaos of loops and flares. Intense fiery lines of light appear to ignite the moon\’s black edge.
+        \n\nHow to interact with the Rumble Map:\nOn the Rumble Map, explore the features between the moon and the sun\’s corona.
+        You will hear/feel variations as your fingers pass over different features of the corona.
+        \n\nAdditional scientific info:\nThe corona is the thin outer atmosphere of the Sun.
+        With temperatures at over 1 million degrees Fahrenheit, it radiates light in wavelengths that are too short for the human eye to see (like X-rays) and that are absorbed by the Earth's atmosphere.
+        However, the corona reflects some of the white light from the Sun's photosphere below it. This faint reflection is only seen when the much brighter photosphere is blocked, like during a total eclipse.</string>
+
+    <string name="diamond_ring_description">On the left side of the black moon, a sliver of sunlight blasts into view with white-hot intensity.
+        As the area of re-emerging sunlight grows, it resembles a diamond, beaming out its brilliant light from its setting on the circular ring of the moon\'s edge.
+        \n\nAdditional scientific info:\nEven this small section of the Sun\'s light cannot be viewed without special eye protection.
+        Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes.
+        \nAs the moon barely moves away from the solar surface, the powerful light of the Sun peers around the side of the moon.
+        The Sun's light is so intense that even this small fraction of it dominates the sky.</string>
+
+    <string name="helmet_streamers_description">Projections of light from the sun\'s outer atmosphere called helmet streamers extend in all directions from behind the moon.
+        In contrast to the black, featureless moon, the pale, wispy streamers appear as delicate as lace. The largest streamers have a tapered shape that resemble flower petals.
+        They extend from opposite sides of the sun, with smaller rays of light between them.
+        \n\nExplanation of what you might feel as you interact:\nAs you trace your finger along a helmet streamer, you can feel the smooth arches come to long sharp points as they extend from the base of the Sun outward.
+        \n\nAdditional scientific info:\nHelmet streamers get their shape from two different processes.
+        A streamer's arch shape is the result of magnetic fields from the Sun reaching out into the corona and then arching back down to the surface of the sun to connect to regions of opposite magnetic polarity.
+        The long, pointed tops of helmet streamers come from streams of gas flowing out from the corona into interplanetary space forming the solar wind.</string>
+
+    <string name="prominence_description">Fiery loops of hot pink light appear to leap off the moon\'s black surface.
+        With the sheer white corona as their backdrop, these pink prominences seem to dance above the moon like lines of liquid neon.
+        \n\nExplanation of what you might feel as you interact:\nYou will notice a sharp contrast when you interact with a prominence due to its intense brightness relative to both the moon and the sun’s corona.
+        \n\nAdditional scientific info:\nProminences are magnetic fields that are filled with very dense material making them much brighter than the surrounding background.
+        The magnetic fields of prominences can be very complicated giving them complex and dynamic shapes.</string>
+
+    <string name="totality_description">This is the full eclipse, when the moon\'s black disk completely covers the sun.
+        Now, in the absence of the sun\'s full light, its massive outer corona is revealed. Uniquely visible during a full eclipse, grand flourishes of light called helmet streamers extend in all directions behind the moon\’s black disk.
+        At the edge of the moon, the helmet streamers are intensely bright, fading to wisps of ghostly white as they stretch across space, far from the moon, like flower petals.
+        \n\nExplanation of what you might feel as you interact:\nOn the Rumble Map, explore the difference between the moon and the sun\'s corona.
+        \n\nAdditional scientific info:\nYou may notice changes in temperature and natural sounds, such a birds and wind during the total eclipse.
+        \nDuring the total solar eclipse, and only during totality, you can view the corona of the Sun without eye protection.
+        The Sun's outer atmosphere, the corona, is in full display and viewable from the ground. The highly structured nature of the corona is clearly evident.
+        This structure is caused by the Sun's intense and complicated magnetic fields interacting with the material that makes up the corona.
+        This material is called a plasma, which is like a gas, but is susceptible to magnetic fields.
+        The magnetic fields can then shape the plasma in the corona into the complicated patterns that are viewable during the eclipse.</string>
+
+    <string name="sun_as_star_description">Framed by a larger view of space, the solar wind draws the helmet streamers far out into space as other stars come into view.
+        Many of these stars also have planets orbiting them. Those planets can eclipse their parent star just as the moon eclipsed our Sun.
+        Scientists can detect planets eclipsing their stars and determine both how far the planet is from its star and the planet’s mass.
+        From these clues and other observations, scientists are attempting to discover if there is life on these other planets that may be experiencing their own eclipse.</string>
 
     <string name="viewing_desc_format">Now viewing description for %1$s</string>
     <string name="viewing_image_format">Now viewing image for %1$s</string>
@@ -125,10 +180,80 @@
     <!-- Media player -->
     <string name="audio_descriptions">Audio Descriptions</string>
     <string name="upcoming_audio">More audio descriptions coming soon…</string>
-    <string name="bailys_beads_short">For the next six minutes the Rumble map will be disabled so that you can hear about in real time the events surrounding totality.\n\nOn the right side of the moon, orbs of glowing sunlight shimmer off the edge of the moon’s black disk. Called Baily\'s Beads, these final areas of the sun\'s light appear as glimmering pearls on a wire, made intensely bright by the absence of light surrounding them.</string>
-    <string name="first_contact_short">The eclipse has begun and this is the first moment that the moon appears to touch the Sun. The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk.\n\nFor the approximately 90 minutes you will have the opportunity to interact with the Rumble map and explore features of the Sun that are revealed during an eclipse. Then, during six minutes leading up to, during, and just after totality, the Rumble map will be disabled so that you can hear about the events surrounding totality in real time.</string>
-    <string name="diamond_ring_short">On the left side of the black moon, a sliver of sunlight blasts into view with white-hot intensity. As the area of re-emerging sunlight grows, it resembles a diamond ring, beaming out its brilliant light.</string>
-    <string name="totality_short">This is the full eclipse - for just approximately two minutes, the moon\'s black disk completely covers the sun, revealing the sun\'s massive outer corona. Grand flourishes of light extend from the moon in all directions like flower petals. Intensely bright at the moon\'s edge, these helmet streamers fade to wisps of ghostly white as they stretch across space.</string>
+
+    <string name="audio_corona_full">During the totality, the moon completely covers the sun\'s glowing orb, and the sun\’s outer atmosphere is revealed.
+        As if the moon were the center of a celestial sunflower, the corona appears as soft white petals, massive flumes of faint light that taper out across the sky.
+        Closer to the surface of the moon\’s flat ebony circle, the corona is a swirling chaos of loops and flares. Intense fiery lines of light appear to ignite the moon\’s black edge.
+        \n\nOn the Rumble Map, explore the features between the moon and the sun\’s corona.You will hear and feel variations as your fingers pass over different features of the corona.
+        \n\nThe corona is the thin outer atmosphere of the Sun. With temperatures at over 1 million degrees Fahrenheit, it radiates light in wavelengths that are too short for the human eye to see (like X-rays) and that are absorbed by the Earth\’s atmosphere.
+        However, the corona reflects some of the white light from the Sun\’s photosphere below it. This faint reflection is only seen when the much brighter photosphere is blocked, like during a total eclipse.</string>
+
+    <string name="audio_helmet_streamers_full">Projections of light from the sun\'s outer atmosphere called helmet streamers extend in all directions from behind the moon.
+        In contrast to the black, featureless moon, the pale, wispy streamers appear as delicate as lace. The largest streamers have a tapered shape that resemble flower petals. 
+        They extend from opposite sides of the sun, with smaller rays of light between them.
+        \n\nAs you trace your finger along a helmet streamer, you can feel the smooth arches come to long sharp points as they extend from the base of the Sun outward.
+        \n\nHelmet streamers get their shape from two different processes. A streamer\'s arch shape is the result of magnetic fields from the Sun reaching out into the corona and then arching back down to the surface of the sun to connect to regions of opposite magnetic polarity.  
+        The long, pointed tops of helmet streamers come from streams of gas flowing out from the corona into interplanetary space forming the solar wind.</string>
+    
+    <string name="audio_prominence_full">Fiery loops of hot pink light appear to leap off the moon\’s black surface. With the sheer white corona as their backdrop, these pink prominences seem to dance above the moon like lines of liquid neon.
+        \n\nYou will notice a sharp contrast when you interact with a prominence due to its intense brightness relative to both the moon and the sun\’s corona.
+        \n\nProminences are magnetic fields that are filled with very dense material making them much brighter than the surrounding background.
+        The magnetic fields of prominences can be very complicated giving them complex and dynamic shapes.</string>
+
+    <string name="audio_bailys_beads_full">On the right side of the moon, orbs of glowing sunlight shimmer off the edge of the moon\’s black disk.
+        Called Baily\’s Beads, these final areas of the sun\’s light appear as glimmering pearls on a wire, made intensely bright by the absence of light surrounding them.
+        \n\nOn the Rumble Map, explore the features between the moon, the sun\’s corona and Baily\’s beads which are intense and irregular.
+        \n\nEven this small section of the Sun’s light cannot be viewed without special eye protection.
+        Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes.
+        Baily\’s beads appear because the moon\’s surface is not a smooth, perfect sphere.
+        This spectacular feature is caused by rays of sunlight beaming through the ravines and valleys between the mountains on the moon.</string>
+
+    <string name="audio_diamond_ring_full">On the left side of the black moon, a sliver of sunlight blasts into view with white-hot intensity. 
+        As the area of re-emerging sunlight grows, it resembles a diamond, beaming out its brilliant light from its setting on the circular ring of the moon\’s edge.
+        \n\nEven this small section of the sun\’s light cannot be viewed without special eye protection. Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes. 
+        As the moon barely moves away from the solar surface, the powerful light of the Sun peers around the side of the moon. The sun\’s light is so intense that even this small fraction of it dominates the sky.</string>
+    
+    <string name="audio_first_contact_full">This is the first moment that the moon, slowly moving from left to right, appears to touch the sun.
+        The intensity of the sun\'s light makes it unsafe to look at without special eye protection until the totality, the few minutes during which the moon completely eclipses the sun.
+        The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk.
+        For the next several minutes, the moon\'s black disk will creep across the sun, progressively blocking more of sun\'s light and heat until the totality.
+        \n\nYou can use this time to explore Rumble Map images and audio descriptions of phenomena unique to a total eclipse.
+        In the moments before, during and after totality, this app will provide a play-by-play of the action, providing images and descriptions of this rare and fascinating stellar event.
+        \n\nThe outer atmosphere of the Sun, called the corona, is usually not visible from the surface of the Earth.
+        To study the corona, scientists send satellites into space to make observations of the corona in wavelengths of light that the human eye cannot see, such as this image of the Sun in X-rays taken by the X-ray Telescope on the Hinode spacecraft.
+        This X-ray image shows the view of the Sun being eclipsed by the moon a seen from space. A total solar eclipse provides a rare opportunity to see the corona from Earth in visible light.</string>
+
+    <string name="audio_totality_full">This is the full eclipse, when the moon’s black disk completely covers the sun. Now, in the absence of the sun\’s full light, its massive outer corona is revealed.
+        Uniquely visible during a full eclipse, grand flourishes of light called helmet streamers extend in all directions behind the moon\’s black disk.
+        At the edge of the moon, the helmet streamers are intensely bright, fading to wisps of ghostly white as they stretch across space, far from the moon, like flower petals.
+        \n\nOn the Rumble Map, explore the difference between the moon and the sun\’s corona.
+        \n\nYou may notice changes in temperature and natural sounds, such birds and wind during the total eclipse.
+        \n\nDuring the total eclipse, and only during totality, you can view the corona of the Sun without eye protection.
+        The Sun\’s outer atmosphere, the corona, is in full display and viewable from the ground. The highly structured nature of the corona is clearly evident.
+        This structure is caused by the Sun\’s intense and complicated magnetic field interacting with the material that makes up the corona.
+        This material is called plasma, which is like a gas, but is susceptible to magnetic fields.
+        The magnetic field shapes the plasma in the corona into the complicated patterns that are viewable during the eclipse.</string>
+
+    <string name="audio_sun_as_star_full">Framed by a larger view of space, the solar wind draws helmet streamers far out into space as other stars come into view.
+        Many of these stars also have planets orbiting them. Those planets can eclipse their parent star just as the moon eclipsed our sun.
+        Scientists can detect planets eclipsing their stars and determine both how far the planet is from its star and the planet\’s mass.
+        From these clues and other observations, scientists are attempting to discover if there is life on those other planets that may be experiencing their own eclipses.</string>
+
+    <string name="bailys_beads_short">For the next six minutes the Rumble Map will be disabled so that you can hear in real time the events surrounding totality.
+        \n\nOn the right side of the moon orbs of glowing sunlight shimmer off the edge of the moon\’s black disc.
+        Called Bailey\’s beads, these final areas of the sun\’s light appear as glimmering pearls on a wire made intensely bright by the absence of light surrounding them.</string>
+
+    <string name="first_contact_short">The eclipse has begun and this is the first moment that the moon appears to touch the sun.
+        These two celestial bodies look as if they are the same size. The sun\’s light is so bright that it obliterates all of the moon\’s features causing the moon to appear as a smooth obsidian disc.
+        For the next approximately 90 minutes you will have the opportunity to interact with the Rumble Map and explore features of the sun that are revealed during an eclipse.
+        Then, during the six minutes leading up to, during, and just after totality, the Rumble Map will be disabled so that you can hear about events surrounding totality in real time.</string>
+
+    <string name="diamond_ring_short">On the left side of the black moon a sliver of sunlight blasts into view with white hot intensity.
+        As the area of reemerging sunlight grows, it resembles a diamond ring beaming out its brilliant light.</string>
+
+    <string name="totality_short">THIS is the full eclipse. For approximately two minutes the moon\’s black disc completely covers the sun revealing the sun\’s massive outer corona.
+        Grand flourishes of light extend from the moon in all directions like flower petals.
+        Intensely bright at the moon\’s edge, these helmet streamers fade to wisps of ghostly white as they stretch across space.</string>
 
     <string name="first_contact">First Contact</string>
     <string name="bailys_beads">Baily\'s Beads</string>
