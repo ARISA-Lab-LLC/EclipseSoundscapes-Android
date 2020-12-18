@@ -1,12 +1,17 @@
 package org.eclipsesoundscapes.ui.about;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 
 import org.eclipsesoundscapes.R;
+import org.eclipsesoundscapes.model.Partner;
+
+import java.util.ArrayList;
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -32,26 +37,24 @@ import org.eclipsesoundscapes.R;
 
 public class OurPartnersActivity extends AppCompatActivity {
 
-    private Integer[] partner_logo = {R.drawable.nasa, R.drawable.national_parkers_logo, R.drawable.smithsonian_logo,
-                                        R.drawable.ncam_logo, R.drawable.eclipsemob_textlogo_large_reverse,
-                                        R.drawable.logo_scifri, R.drawable.ngcp_theme_logo, R.drawable.nso_logo_200_a, R.drawable.byu};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_our_partners);
 
-        if (getSupportActionBar() != null)
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(getString(R.string.our_partners));
+        }
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        RecyclerView partnersRecyclerView = findViewById(R.id.partners_recyclerview);
-        String[] partnerList = getResources().getStringArray(R.array.partners);
-        String[] partnerDescription = getResources().getStringArray(R.array.partner_description);
-        String[] partnerLink = getResources().getStringArray(R.array.partner_links);
+        final RecyclerView partnersRecyclerView = findViewById(R.id.partners_recyclerview);
+        final RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        PartnerTeamAdapter adapter = new PartnerTeamAdapter(this, partnerList, partnerLink, partnerDescription, partner_logo, false);
+        final ArrayList<Partner> currentPartners = getPartners(true);
+        final ArrayList<Partner> pastPartners = getPartners(false);
+        final PartnersAdapter adapter = new PartnersAdapter(this, currentPartners, pastPartners);
+
         partnersRecyclerView.setLayoutManager(layoutManager);
         partnersRecyclerView.setNestedScrollingEnabled(false);
         partnersRecyclerView.setAdapter(adapter);
@@ -73,5 +76,37 @@ public class OurPartnersActivity extends AppCompatActivity {
         super.onBackPressed();
         finish();
         overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
+    }
+
+    /**
+     * Retrieves a list of partners
+     * @param isCurrent true if partners are current supporters, otherwise past
+     * @return a {@link java.util.List} of {@link Partner partners}
+     */
+    private ArrayList<Partner> getPartners(final boolean isCurrent) {
+        final ArrayList<Partner> partners = new ArrayList<>();
+
+        final Resources res = getResources();
+        final TypedArray logos = res.obtainTypedArray(isCurrent ? R.array.current_partners_logo
+                : R.array.past_partners_logo);
+
+        final String[] titles = getResources().getStringArray(isCurrent ? R.array.current_partners_title
+                : R.array.past_partners_title);
+
+        final String[] descriptions = getResources().getStringArray(isCurrent ? R.array.current_partners_desc
+                : R.array.past_partners_desc);
+
+        final String[] links = getResources().getStringArray(isCurrent ? R.array.current_partners_link
+                : R.array.past_partners_link);
+
+
+        // assumes all partner data is in order and of equal length
+        for (int i = 0; i < titles.length; i++) {
+            final Partner partner = new Partner(titles[i], descriptions[i], links[i], logos.getDrawable(i));
+            partners.add(partner);
+        }
+
+        logos.recycle();
+        return partners;
     }
 }

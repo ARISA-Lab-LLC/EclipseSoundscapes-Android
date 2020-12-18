@@ -23,7 +23,7 @@
         android:textColor="@android:color/white"
         android:textSize="18sp"
         android:gravity="center_horizontal"
-        android:text="@string/outside_path_of_eclipse"
+        android:text="@string/outside_eclipse_path"
         android:layout_margin="16dp" />
 
     <Button

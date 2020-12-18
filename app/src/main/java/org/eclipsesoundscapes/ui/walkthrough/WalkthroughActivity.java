@@ -81,8 +81,8 @@ public class WalkthroughActivity extends AppCompatActivity implements View.OnCli
         mode = getIntent().getStringExtra(EXTRA_MODE);
 
         if (isMenuMode()) {
-            skipCloseButton.setText(getString(R.string.closeButton));
-            skipCloseButton.setContentDescription(getString(R.string.closeButton));
+            skipCloseButton.setText(getString(R.string.close));
+            skipCloseButton.setContentDescription(getString(R.string.close));
         }
 
         // listeners

@@ -5,9 +5,9 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.PreferenceFragment;
 import android.preference.SwitchPreference;
 import android.support.v7.app.ActionBar;
-import android.preference.PreferenceFragment;
 import android.view.MenuItem;
 
 import org.eclipsesoundscapes.EclipseSoundscapesApp;
@@ -69,14 +69,14 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         if (settingsMode != null && !settingsMode.isEmpty()) {
             if (settingsMode.equals(MODE_SETTINGS)) {
                 // show notification and location view
-                setTitle(getString(org.eclipsesoundscapes.R.string.title_activity_settings));
+                setTitle(getString(R.string.settings));
                 getFragmentManager().beginTransaction().replace(android.R.id.content,
                         new SettingsPreferenceFragment())
                         .commit();
             }
             else {
                 // show legal preference fragment
-                setTitle(getString(org.eclipsesoundscapes.R.string.settings_legal));
+                setTitle(getString(org.eclipsesoundscapes.R.string.legal));
                 getFragmentManager().beginTransaction().replace(android.R.id.content,
                         new LegalPreferenceFragment())
                         .commit();

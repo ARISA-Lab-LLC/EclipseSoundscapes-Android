@@ -2,6 +2,7 @@ package org.eclipsesoundscapes.ui.center;
 
 import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -154,6 +155,7 @@ public class EclipseCenterFragment extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_eclipse_center, container, false);
         ButterKnife.bind(this, root);
+        setTitles(root);
         return  root;
     }
 
@@ -179,6 +181,26 @@ public class EclipseCenterFragment extends Fragment {
             gpsTracker.stopUsingGPS();
     }
 
+    private void setTitles(final View rootView) {
+        ((TextView) rootView.findViewById(R.id.eclipse_type_title)).setText(getString(R.string.eclipse_center_title_format,
+                getString(R.string.eclipse_type)));
+
+        ((TextView) rootView.findViewById(R.id.date_title)).setText(getString(R.string.eclipse_center_title_format,
+                getString(R.string.date)));
+
+        ((TextView) rootView.findViewById(R.id.latitude_title)).setText(getString(R.string.eclipse_center_title_format,
+                getString(R.string.location_latitude)));
+
+        ((TextView) rootView.findViewById(R.id.longitude_title)).setText(getString(R.string.eclipse_center_title_format,
+                getString(R.string.location_longitude)));
+
+        ((TextView) rootView.findViewById(R.id.percent_eclipse_title)).setText(getString(R.string.eclipse_center_title_format,
+                getString(R.string.percent_eclipse)));
+
+        ((TextView) rootView.findViewById(R.id.duration_totality_title)).setText(getString(R.string.eclipse_center_title_format,
+                getString(R.string.totality_duration)));
+    }
+
     /**************************************************************************************************
      * Location Access
      *************************************************************************************************/
@@ -193,7 +215,6 @@ public class EclipseCenterFragment extends Fragment {
         }
     }
 
-
     private void requestLocationPermission(){
         if (getActivity() != null) {
             ActivityCompat.requestPermissions(getActivity(),
@@ -206,9 +227,10 @@ public class EclipseCenterFragment extends Fragment {
     private void showSettingsDialog(String message, final Intent intent){
         if (getActivity() == null || getActivity().isDestroyed() || getActivity().isFinishing()) return;
 
-        new AlertDialog.Builder(getActivity()).setTitle("Permission denied")
+        final Context context = getActivity();
+        new AlertDialog.Builder(context).setTitle(context.getString(R.string.permission_denied))
                 .setMessage(message)
-                .setPositiveButton("Open Settings", new DialogInterface.OnClickListener() {
+                .setPositiveButton(context.getString(R.string.open_settings), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                         startActivityForResult(intent, SETTINGS_RESULT_CODE);
@@ -227,10 +249,11 @@ public class EclipseCenterFragment extends Fragment {
     public void showLocationSettingsDialog(){
         if (getActivity() == null || getActivity().isDestroyed() || getActivity().isFinishing()) return;
 
-        new AlertDialog.Builder(getActivity())
-                .setTitle("Location disabled")
-                .setMessage("To continue, enable location services from your device settings.")
-                .setPositiveButton("Settings", new DialogInterface.OnClickListener() {
+        final Context context = getActivity();
+        new AlertDialog.Builder(context)
+                .setTitle(context.getString(R.string.location_disabled))
+                .setMessage(context.getString(R.string.location_disabled_message))
+                .setPositiveButton(context.getString(R.string.settings), new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -238,7 +261,7 @@ public class EclipseCenterFragment extends Fragment {
                         getActivity().startActivity(intent);
                     }
                 })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         gpsView.setVisibility(View.VISIBLE);
@@ -275,8 +298,13 @@ public class EclipseCenterFragment extends Fragment {
     public void startLocationUpdates(){
         showPermissionView(false);
 
-        if (gpsTracker == null)
-            gpsTracker = new GPSTracker(getActivity());
+        if (getContext() == null) {
+            return;
+        }
+
+        if (gpsTracker == null) {
+            gpsTracker = new GPSTracker(getContext());
+        }
 
         // get location
         if (gpsTracker.canGetLocation()) {
@@ -290,10 +318,10 @@ public class EclipseCenterFragment extends Fragment {
             Location mLocation = new Location("");
             mLocation.setLatitude(latitude);
             mLocation.setLongitude(longitude);
-            eclipseTimeGenerator = new EclipseTimeGenerator(latitude, longitude);
+            eclipseTimeGenerator = new EclipseTimeGenerator(getContext(), latitude, longitude);
 
             if (simulatedLocation == null){
-                EclipseSimulator simulator = new EclipseSimulator(getActivity());
+                EclipseSimulator simulator = new EclipseSimulator(getContext());
                 simulatedLocation = simulator.closestPointOnPath(mLocation);
             }
 
@@ -351,7 +379,7 @@ public class EclipseCenterFragment extends Fragment {
      */
     public void simulateEclipse(){
         if (simulatedLocation != null) {
-            eclipseTimeGenerator = new EclipseTimeGenerator(simulatedLocation.getLatitude(),
+            eclipseTimeGenerator = new EclipseTimeGenerator(getContext(), simulatedLocation.getLatitude(),
                     simulatedLocation.getLongitude());
 
             updateView();
@@ -364,18 +392,13 @@ public class EclipseCenterFragment extends Fragment {
         final Double lat = eclipseTimeGenerator.getLatitude();
         final Double lng = eclipseTimeGenerator.getLongitude();
 
-        String latitudeFormat = String.format(Locale.getDefault(), "%.3f", Math.abs(lat));
-        String longitudeFormat = String.format(Locale.getDefault(), "%.3f", Math.abs(lng));
+        final String latStr = getString(R.string.lat_lng_format, lat,
+                getString(lat > 0 ? R.string.north : R.string.south));
+        final String lngStr = getString(R.string.lat_lng_format, lng,
+                getString(lng > 0 ? R.string.east : R.string.west));
 
-        if (lat > 0 )
-            latitudeView.setText(latitudeFormat.concat(" " .concat((char) 0x00B0 + " North")));
-        else
-            latitudeView.setText(latitudeFormat.concat(" ".concat((char) 0x00B0 + " South")));
-
-        if (lng > 0)
-            longitudeView.setText(longitudeFormat.concat(" ".concat((char) 0x00B0 + " East")));
-        else
-            longitudeView.setText(longitudeFormat.concat(" ".concat((char) 0x00B0 + " West")));
+        latitudeView.setText(latStr);
+        longitudeView.setText(lngStr);
 
         percentEclipseView.setText(eclipseTimeGenerator.getCoverage());
 
@@ -401,7 +424,7 @@ public class EclipseCenterFragment extends Fragment {
 
         // contact point one
         String contactOneLocalTime = mHelper.convertLocalTime(contactOne.time);
-        ((TextView) contactOneStub.findViewById(R.id.eclipse_event)).setText(contactOne.name);
+        ((TextView) contactOneStub.findViewById(R.id.eclipse_event)).setText(getString(R.string.eclipse_center_title_format, contactOne.name));
         ((TextView) contactOneStub.findViewById(R.id.eclipse_time_local)).setText(contactOneLocalTime);
         ((TextView) contactOneStub.findViewById(
                 R.id.eclipse_time_ut)).setText(contactOne.time);
@@ -409,7 +432,7 @@ public class EclipseCenterFragment extends Fragment {
 
         // contact point mid
         String contactMidLocalTime = mHelper.convertLocalTime(contactMid.time);
-        ((TextView) contactMidStub.findViewById(R.id.eclipse_event)).setText(contactMid.name);
+        ((TextView) contactMidStub.findViewById(R.id.eclipse_event)).setText(getString(R.string.eclipse_center_title_format, contactMid.name));
         ((TextView) contactMidStub.findViewById(
                 R.id.eclipse_time_local)).setText(contactMidLocalTime);
         ((TextView) contactMidStub.findViewById(
@@ -419,7 +442,7 @@ public class EclipseCenterFragment extends Fragment {
         // contact point end
         String contactFinalLocalTime = mHelper.convertLocalTime(contactFour.time);
         ((TextView) contactFourStub.findViewById(
-                R.id.eclipse_event)).setText(contactFour.name);
+                R.id.eclipse_event)).setText(getString(R.string.eclipse_center_title_format, contactFour.name));
         ((TextView) contactFourStub.findViewById(
                 R.id.eclipse_time_local)).setText(contactFinalLocalTime);
         ((TextView) contactFourStub.findViewById(
@@ -434,9 +457,6 @@ public class EclipseCenterFragment extends Fragment {
     public void generateFullContact(){
         totalityDurationLayout.setVisibility(View.VISIBLE);
 
-        ((TextView)totalityDurationLayout.findViewById(R.id.duration_totality_title))
-                .setText(getString(R.string.totality_duration));
-
         ((TextView)totalityDurationLayout.findViewById(R.id.duration_totality))
                 .setText(eclipseTimeGenerator.getDuration());
 
@@ -449,7 +469,7 @@ public class EclipseCenterFragment extends Fragment {
         // contact point two
         String contactTwoLocalTime = mHelper.convertLocalTime(contactTwo.time);
         ((TextView) contactTwoStub.findViewById(
-                R.id.eclipse_event)).setText(contactTwo.name);
+                R.id.eclipse_event)).setText(getString(R.string.eclipse_center_title_format, contactTwo.name));
         ((TextView) contactTwoStub.findViewById(
                 R.id.eclipse_time_local)).setText(contactTwoLocalTime);
         ((TextView) contactTwoStub.findViewById(
@@ -459,7 +479,7 @@ public class EclipseCenterFragment extends Fragment {
         // contact point three
         String contactThreeLocalTime = mHelper.convertLocalTime(contactThree.time);
         ((TextView) contactThreeStub.findViewById(
-                R.id.eclipse_event)).setText(contactThree.name);
+                R.id.eclipse_event)).setText(getString(R.string.eclipse_center_title_format, contactThree.name));
         ((TextView) contactThreeStub.findViewById(
                 R.id.eclipse_time_local)).setText(contactThreeLocalTime);
         ((TextView) contactThreeStub.findViewById(
@@ -544,13 +564,13 @@ public class EclipseCenterFragment extends Fragment {
                     }
 
                     if (isAdded()) {
-                        String countdown_prefix = getString(R.string.countdown_prefix);
-                        String time = countdown_prefix.concat(", ").concat(daysPrimary.getText().toString().concat(daysSecondary.getText().toString())
-                                .concat(" days, ").concat(hoursPrimary.getText().toString().concat(hoursSecondary.getText().toString()))
-                                .concat(" hours, ").concat(minPrimary.getText().toString().concat(minSecondary.getText().toString()))
-                                .concat(" minutes and ").concat(secPrimary.getText().toString().concat(secSecondary.getText().toString()))
-                                .concat(" seconds "));
-                        countdownView.setContentDescription(time);
+                        final String countDownDescription = getString(R.string.countdown_format,
+                                daysPrimary.getText().toString().concat(daysSecondary.getText().toString()),
+                                hoursPrimary.getText().toString().concat(hoursSecondary.getText().toString()),
+                                minPrimary.getText().toString().concat(minSecondary.getText().toString()),
+                                secPrimary.getText().toString().concat(secSecondary.getText().toString()));
+
+                        countdownView.setContentDescription(countDownDescription);
                     }
                 }
 
@@ -575,6 +595,10 @@ public class EclipseCenterFragment extends Fragment {
         if (!dataManager.getNotifications())
             return;
 
+        if (getContext() == null) {
+            return;
+        }
+
         Event contactOne;
         Event totality;
 
@@ -584,17 +608,13 @@ public class EclipseCenterFragment extends Fragment {
         } else {
             // simulate contact point 2
             final EclipseTimeGenerator sGenerator =
-                    new EclipseTimeGenerator(simulatedLocation.getLatitude(), simulatedLocation.getLongitude());
+                    new EclipseTimeGenerator(getContext(), simulatedLocation.getLatitude(), simulatedLocation.getLongitude());
             contactOne = eclipseTimeGenerator.contact1();
             totality = sGenerator.contact2();
         }
 
         final String contactTime = contactOne.date + " " + contactOne.time;
         final String totalityTime = totality.date + " " + totality.time;
-
-        // testing purpose
-//        contactTime = "8-9-2018 04:25:05.8";
-//        totalityTime = "8-9-2018 04:40:05.8";
 
         dataManager.setFirstContact(contactTime);
         dataManager.setTotality(totalityTime);

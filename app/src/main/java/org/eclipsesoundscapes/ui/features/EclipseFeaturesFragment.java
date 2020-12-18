@@ -94,11 +94,9 @@ public class EclipseFeaturesFragment extends Fragment {
     protected void onTextChanged(CharSequence text) {
         String announce;
         if (mViewPager.getCurrentItem() == ITEM_DESCRIPTION){
-            announce = "Now viewing description for "
-                    .concat(text.toString());
+            announce = getString(R.string.viewing_desc_format, text.toString());
         } else {
-            announce = "Now viewing image for "
-                    .concat(text.toString());
+            announce = getString(R.string.viewing_image_format, text.toString());
         }
 
         toolbarTitle.announceForAccessibility(announce);
@@ -138,29 +136,29 @@ public class EclipseFeaturesFragment extends Fragment {
         if (getActivity() != null && getActivity() instanceof MainActivity) {
 
             if (!((MainActivity) getActivity()).isAfterFirstContact()) {
-                titles.put(1, getString(org.eclipsesoundscapes.R.string.bailys_beads_title));
-                titles.put(2, getString(org.eclipsesoundscapes.R.string.bailys_beads_closeup_title));
-                titles.put(3, getString(org.eclipsesoundscapes.R.string.corona_title));
-                titles.put(4, getString(org.eclipsesoundscapes.R.string.diamond_ring_title));
-                titles.put(5, getString(org.eclipsesoundscapes.R.string.helmet_streamers_title));
-                titles.put(6, getString(org.eclipsesoundscapes.R.string.helmet_streamers_closeup_title));
-                titles.put(7, getString(org.eclipsesoundscapes.R.string.prominence_title));
-                titles.put(8, getString(org.eclipsesoundscapes.R.string.prominence_closeup_title));
+                titles.put(1, getString(org.eclipsesoundscapes.R.string.bailys_beads));
+                titles.put(2, getString(org.eclipsesoundscapes.R.string.bailys_beads_closeup));
+                titles.put(3, getString(org.eclipsesoundscapes.R.string.corona));
+                titles.put(4, getString(org.eclipsesoundscapes.R.string.diamond_ring));
+                titles.put(5, getString(org.eclipsesoundscapes.R.string.helmet_streamers));
+                titles.put(6, getString(org.eclipsesoundscapes.R.string.helmet_streamers_closeup));
+                titles.put(7, getString(org.eclipsesoundscapes.R.string.prominence));
+                titles.put(8, getString(org.eclipsesoundscapes.R.string.prominence_closeup));
                 return;
             }
 
-                titles.put(1, getString(org.eclipsesoundscapes.R.string.first_contact_title));
-                titles.put(2, getString(org.eclipsesoundscapes.R.string.bailys_beads_title));
-                titles.put(3, getString(org.eclipsesoundscapes.R.string.bailys_beads_closeup_title));
-                titles.put(4, getString(org.eclipsesoundscapes.R.string.corona_title));
-                titles.put(5, getString(org.eclipsesoundscapes.R.string.diamond_ring_title));
-                titles.put(6, getString(org.eclipsesoundscapes.R.string.helmet_streamers_title));
-                titles.put(7, getString(org.eclipsesoundscapes.R.string.helmet_streamers_closeup_title));
-                titles.put(8, getString(org.eclipsesoundscapes.R.string.prominence_title));
-                titles.put(9, getString(org.eclipsesoundscapes.R.string.prominence_closeup_title));
+                titles.put(1, getString(org.eclipsesoundscapes.R.string.first_contact));
+                titles.put(2, getString(org.eclipsesoundscapes.R.string.bailys_beads));
+                titles.put(3, getString(org.eclipsesoundscapes.R.string.bailys_beads_closeup));
+                titles.put(4, getString(org.eclipsesoundscapes.R.string.corona));
+                titles.put(5, getString(org.eclipsesoundscapes.R.string.diamond_ring));
+                titles.put(6, getString(org.eclipsesoundscapes.R.string.helmet_streamers));
+                titles.put(7, getString(org.eclipsesoundscapes.R.string.helmet_streamers_closeup));
+                titles.put(8, getString(org.eclipsesoundscapes.R.string.prominence));
+                titles.put(9, getString(org.eclipsesoundscapes.R.string.prominence_closeup));
 
                 if (((MainActivity) getActivity()).isAfterTotality())
-                    titles.put(10, getString(org.eclipsesoundscapes.R.string.totality_title));
+                    titles.put(10, getString(org.eclipsesoundscapes.R.string.totality));
         }
     }
 
@@ -181,7 +179,6 @@ public class EclipseFeaturesFragment extends Fragment {
             ((MainActivity) getActivity()).setCurrentView(currentView);
     }
 
-
     /**
      * Set the title of current eclipse item in navigation
      * @param pos current navigated position mapped to a title
@@ -198,8 +195,8 @@ public class EclipseFeaturesFragment extends Fragment {
      */
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getChildFragmentManager());
-        adapter.addFragment(new DescriptionFragment(), "Description");
-        adapter.addFragment(new EclipseFragment(), "Rumble Map");
+        adapter.addFragment(new DescriptionFragment(), getString(R.string.description));
+        adapter.addFragment(new EclipseFragment(), getString(R.string.rumble_map));
         viewPager.setAdapter(adapter);
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {

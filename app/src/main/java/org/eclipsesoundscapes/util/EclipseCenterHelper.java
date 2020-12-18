@@ -24,9 +24,7 @@ public class EclipseCenterHelper {
      * @param uniTime universal time of first contact
      */
     public String generateContentDescription(String event, String localTime, String uniTime){
-        return mContext.getString(R.string.event_prefix).concat(",").concat(event)
-                .concat(",").concat(mContext.getString(R.string.local_time_prefix)).concat(",").concat(localTime)
-                .concat(",").concat(mContext.getString(R.string.ut_time_prefix)).concat(",").concat(uniTime);
+        return mContext.getString(R.string.event_desc_format, event, localTime, uniTime);
     }
 
     /**

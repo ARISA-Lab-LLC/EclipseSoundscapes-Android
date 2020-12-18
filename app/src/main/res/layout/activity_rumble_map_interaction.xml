@@ -43,8 +43,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/ripple"
             android:textColor="@android:color/white"
-            android:text="@string/closeButton"
-            android:contentDescription="@string/closeButton"
+            android:text="@string/close"
+            android:contentDescription="@string/close"
             android:layout_weight="1" />
 
         <View
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/ripple"
             android:textColor="@android:color/white"
-            android:text="@string/instructions_button"
+            android:text="@string/instructions"
             android:contentDescription="@string/rumble_map_instructions_title"
             android:layout_weight="1" />
     </LinearLayout>

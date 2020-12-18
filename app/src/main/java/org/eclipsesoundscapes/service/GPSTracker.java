@@ -13,6 +13,8 @@ import android.os.IBinder;
 import android.support.v4.content.ContextCompat;
 import android.widget.Toast;
 
+import org.eclipsesoundscapes.R;
+
 /*
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -74,7 +76,8 @@ public class GPSTracker extends Service implements LocationListener {
 
             if (!isGPSEnabled && !isNetworkEnabled) {
                 // no network provider is enabled
-                Toast.makeText(getApplicationContext(), "Unable to determine your current location", Toast.LENGTH_LONG).show();
+                final String message = context.getString(R.string.error_finding_location);
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
             } else {
                 this.canGetLocation = true;
 
@@ -157,22 +160,21 @@ public class GPSTracker extends Service implements LocationListener {
 
     @Override
     public void onProviderDisabled(String arg0) {
-        // TODO Auto-generated method stub
+        // no-op
     }
 
     @Override
     public void onProviderEnabled(String arg0) {
-        // TODO Auto-generated method stub
+        // no-op
     }
 
     @Override
     public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
-        // TODO Auto-generated method stub
+        // no-op
     }
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO Auto-generated method stub
         return null;
     }
 }
