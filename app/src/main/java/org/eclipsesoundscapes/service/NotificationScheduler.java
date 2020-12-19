@@ -46,7 +46,12 @@ public class NotificationScheduler {
     private static final String ECLIPSE_TOTALITY = "totality";
 
 
-    public static void scheduleNotifications(Context context, String contactOne, String totality){
+    public static void scheduleNotifications(Context context, String contactOne, String totality) {
+
+        final boolean isLiveEnabled = context.getResources().getBoolean(R.bool.live_experience_enabled);
+        if (!isLiveEnabled) {
+            return;
+        }
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss.S", Locale.getDefault());
         dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
