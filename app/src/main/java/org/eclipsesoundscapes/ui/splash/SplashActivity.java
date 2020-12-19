@@ -2,12 +2,12 @@ package org.eclipsesoundscapes.ui.splash;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 import com.crashlytics.android.Crashlytics;
 
 import org.eclipsesoundscapes.EclipseSoundscapesApp;
 import org.eclipsesoundscapes.data.DataManager;
+import org.eclipsesoundscapes.ui.base.BaseActivity;
 import org.eclipsesoundscapes.ui.main.MainActivity;
 import org.eclipsesoundscapes.ui.walkthrough.WalkthroughActivity;
 
@@ -35,7 +35,7 @@ import io.fabric.sdk.android.Fabric;
  * Splash screen, directs to {@link MainActivity} or {@link WalkthroughActivity}
  */
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

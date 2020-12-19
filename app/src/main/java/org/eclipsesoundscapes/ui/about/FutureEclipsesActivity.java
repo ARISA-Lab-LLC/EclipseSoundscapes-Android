@@ -3,7 +3,6 @@ package org.eclipsesoundscapes.ui.about;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -13,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.eclipsesoundscapes.R;
+import org.eclipsesoundscapes.ui.base.BaseActivity;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -47,7 +47,7 @@ import butterknife.ButterKnife;
  * eclipses supported by this application
  */
 
-public class FutureEclipsesActivity extends AppCompatActivity {
+public class FutureEclipsesActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
