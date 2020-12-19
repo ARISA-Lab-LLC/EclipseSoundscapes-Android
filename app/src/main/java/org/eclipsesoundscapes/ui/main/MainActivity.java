@@ -3,17 +3,18 @@ package org.eclipsesoundscapes.ui.main;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import org.eclipsesoundscapes.EclipseSoundscapesApp;
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.data.DataManager;
 import org.eclipsesoundscapes.ui.about.AboutFragment;
+import org.eclipsesoundscapes.ui.base.BaseActivity;
 import org.eclipsesoundscapes.ui.center.EclipseCenterFragment;
 import org.eclipsesoundscapes.ui.features.EclipseFeaturesFragment;
 import org.eclipsesoundscapes.ui.media.MediaFragment;
@@ -50,8 +51,8 @@ import static org.eclipsesoundscapes.util.Constants.LOCATION_PERMISSION_REQUEST_
  * runtime permission
  */
 
-public class MainActivity extends AppCompatActivity {
-    public static final String TAG = MainActivity.class.getSimpleName();
+public class MainActivity extends BaseActivity {
+    public static final String EXTRA_FRAGMENT_TAG = "extra_fragment_tag";
 
     private FragmentManager fragmentManager;
     private BottomNavigationView navigation;
@@ -109,33 +110,65 @@ public class MainActivity extends AppCompatActivity {
 
         // bottom navigation
         navigation = findViewById(R.id.navigation);
-//        BottomNavigationViewHelper.disableShiftMode(navigation);
-
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        // display eclipseImageView center by default
-        loadEclipseCenter();
-    }
-
-
-    public void loadEclipseCenter(){
         fragmentManager = getSupportFragmentManager();
         fragmentManager.addOnBackStackChangedListener(new FragmentManager.OnBackStackChangedListener() {
             public void onBackStackChanged() {
                 updateUI();
-                }
+            }
         });
 
-        try {
-            Fragment eclipseCenterFragment = EclipseCenterFragment.class.newInstance();
-            FragmentTransaction ft = fragmentManager.beginTransaction();
-            ft.replace(org.eclipsesoundscapes.R.id.navigation_content, eclipseCenterFragment, eclipseCenterFragment.getClass().getName());
-            ft.addToBackStack( eclipseCenterFragment.getClass().getName());
-            ft.commit();
-            navigation.setSelectedItemId(R.id.navigation_eclipse_center);
-        } catch (InstantiationException | IllegalAccessException e) {
-            e.printStackTrace();
+        if (getIntent() != null && getIntent().hasExtra(EXTRA_FRAGMENT_TAG)) {
+            final String fragmentTag = getIntent().getStringExtra(EXTRA_FRAGMENT_TAG);
+            showFragment(fragmentTag);
+        } else {
+            showFragment(EclipseCenterFragment.TAG);
         }
+    }
+
+    private void showFragment(final String tag) {
+        final Fragment fragment = getFragment(tag);
+        final Integer navigationItemId = getNavigationItemId(tag);
+
+        if (fragment != null && navigationItemId != null) {
+            final FragmentTransaction ft = fragmentManager.beginTransaction();
+            ft.replace(R.id.navigation_content, fragment, tag);
+            ft.addToBackStack(tag);
+            ft.commit();
+            navigation.setSelectedItemId(navigationItemId);
+        }
+    }
+
+    @Nullable
+    private Fragment getFragment(final String tag) {
+        switch (tag) {
+            case EclipseCenterFragment.TAG:
+                return EclipseCenterFragment.newInstance();
+            case EclipseFeaturesFragment.TAG:
+                return EclipseFeaturesFragment.newInstance();
+            case MediaFragment.TAG:
+                return MediaFragment.newInstance();
+            case AboutFragment.TAG:
+                return AboutFragment.newInstance();
+        }
+
+        return null;
+    }
+
+    public Integer getNavigationItemId(final String tag) {
+        switch (tag) {
+            case EclipseCenterFragment.TAG:
+                return R.id.navigation_eclipse_center;
+            case EclipseFeaturesFragment.TAG:
+                return R.id.navigation_eclipse_features;
+            case MediaFragment.TAG:
+                return R.id.navigation_media;
+            case AboutFragment.TAG:
+                return R.id.navigation_about;
+        }
+
+        return null;
     }
 
     /**************************************************************************
@@ -149,20 +182,20 @@ public class MainActivity extends AppCompatActivity {
         if (fragTag == null) return;
 
         String[] fullPath = fragTag.split("\\.");
-        String currentFrag = fullPath[fullPath.length - 1]; //get fragment name full path
+        String currentFrag = fullPath[fullPath.length - 1];
 
         int id;
         switch (currentFrag) {
-            case "EclipseFeaturesFragment":
+            case EclipseFeaturesFragment.TAG:
                 id = R.id.navigation_eclipse_features;
                 break;
-            case "EclipseCenterFragment":
+            case EclipseCenterFragment.TAG:
                 id = R.id.navigation_eclipse_center;
                 break;
-            case "MediaFragment":
+            case MediaFragment.TAG:
                 id = R.id.navigation_media;
                 break;
-            case "AboutFragment":
+            case AboutFragment.TAG:
                 id = R.id.navigation_about;
                 break;
             default:
