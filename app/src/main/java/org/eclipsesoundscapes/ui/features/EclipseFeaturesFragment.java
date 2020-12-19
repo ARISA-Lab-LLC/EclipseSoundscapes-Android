@@ -53,6 +53,7 @@ import butterknife.OnTextChanged;
  */
 
 public class EclipseFeaturesFragment extends Fragment {
+    public static final String TAG = "EclipseFeaturesFragment";
 
     private static final int ITEM_DESCRIPTION = 0;
     private static final int ITEM_ECLIPSE = 1;
@@ -100,6 +101,10 @@ public class EclipseFeaturesFragment extends Fragment {
         }
 
         toolbarTitle.announceForAccessibility(announce);
+    }
+
+    public static EclipseFeaturesFragment newInstance() {
+        return new EclipseFeaturesFragment();
     }
 
     @Override

@@ -45,6 +45,7 @@ import butterknife.ButterKnife;
  */
 
 public class MediaFragment extends Fragment {
+    public static final String TAG = "MediaFragment";
 
     private ArrayList<String> eventList;
     private ArrayList<Integer> descriptionList;
@@ -54,6 +55,10 @@ public class MediaFragment extends Fragment {
 
     @BindView(R.id.media_recycler) RecyclerView mRecycler;
     @BindView(R.id.more_content) TextView moreView;
+
+    public static MediaFragment newInstance() {
+        return new MediaFragment();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
