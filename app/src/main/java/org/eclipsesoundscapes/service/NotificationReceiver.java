@@ -24,6 +24,11 @@ public class NotificationReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (context == null) return;
 
+        final boolean isLiveEnabled = context.getResources().getBoolean(R.bool.live_experience_enabled);
+        if (!isLiveEnabled) {
+            return;
+        }
+
         if (intent.getAction() != null && intent.getAction().equalsIgnoreCase(Intent.ACTION_BOOT_COMPLETED)) {
 
             SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(context);

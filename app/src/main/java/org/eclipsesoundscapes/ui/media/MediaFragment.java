@@ -150,11 +150,13 @@ public class MediaFragment extends Fragment {
                 R.string.audio_totality_full, R.drawable.eclipse_totality, R.raw.totality_full);
         addMedia(eventList.size(), getString(R.string.sun_as_star),
                 R.string.audio_sun_as_star_full, R.drawable.sun_as_a_star, R.raw.sun_as_a_star);
-        addMedia(eventList.size(), getString(R.string.eclipse_experience),
-                R.string.bailys_beads_short, R.drawable.eclipse_bailys_beads, R.raw.realtime_eclipse_shorts_saas);
 
-        mediaAdapter.notifyItemInserted(eventList.size() - 1);
-        mediaAdapter.notifyItemInserted(eventList.size() - 1);
-        mediaAdapter.notifyItemInserted(eventList.size() - 1);
+        final boolean isLiveEnabled = getResources().getBoolean(R.bool.live_experience_enabled);
+        if (isLiveEnabled) {
+            addMedia(eventList.size(), getString(R.string.eclipse_experience),
+                    R.string.bailys_beads_short, R.drawable.eclipse_bailys_beads, R.raw.realtime_eclipse_shorts_saas);
+        }
+
+        mediaAdapter.notifyDataSetChanged();
     }
 }
