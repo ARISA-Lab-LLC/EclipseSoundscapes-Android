@@ -29,4 +29,10 @@
         <item>@drawable/kelsey_perrett</item>
     </array>
 
+    <!-- locale order must match that of the supported languages array -->
+    <array name="supported_languages_locale">
+        <item>en</item>
+        <item>es</item>
+    </array>
+
 </resources>

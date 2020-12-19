@@ -7,12 +7,19 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.SwitchPreference;
+import android.support.annotation.Nullable;
 import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 
 import org.eclipsesoundscapes.EclipseSoundscapesApp;
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.data.DataManager;
+import org.eclipsesoundscapes.ui.base.BasePreferenceActivity;
+import org.eclipsesoundscapes.ui.main.MainActivity;
+
+import java.util.Locale;
+
+import static org.eclipsesoundscapes.ui.main.MainActivity.EXTRA_FRAGMENT_TAG;
 
 
 /*
@@ -40,7 +47,7 @@ import org.eclipsesoundscapes.data.DataManager;
  * See {@link LegalActivity}
  */
 
-public class SettingsActivity extends AppCompatPreferenceActivity {
+public class SettingsActivity extends BasePreferenceActivity {
 
     public static final String EXTRA_SETTINGS_MODE = "SETTINGS_MODE";
     public static final String MODE_SETTINGS = "settings";
@@ -57,7 +64,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,8 +79,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 getFragmentManager().beginTransaction().replace(android.R.id.content,
                         new SettingsPreferenceFragment())
                         .commit();
-            }
-            else {
+            } else {
                 // show legal preference fragment
                 setTitle(getString(org.eclipsesoundscapes.R.string.legal));
                 getFragmentManager().beginTransaction().replace(android.R.id.content,
@@ -105,7 +110,15 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        finish();
+        if (!isTaskRoot()) {
+            super.onBackPressed();
+            finish();
+        } else {
+            final Intent intent = new Intent(this, MainActivity.class);
+            intent.putExtra(EXTRA_FRAGMENT_TAG, AboutFragment.class.getSimpleName());
+            startActivity(intent);
+        }
+
         overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
     }
 
@@ -128,7 +141,23 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_settings);
             setHasOptionsMenu(true);
+        }
 
+        @Override
+        public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+            super.onActivityCreated(savedInstanceState);
+            if (getActivity() instanceof SettingsActivity){
+                dataManager = ((SettingsActivity) getActivity()).getDataManager();
+            }
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+            setupMenuOptions();
+        }
+
+        private void setupMenuOptions() {
             locationPref = (SwitchPreference) findPreference("settings_location");
             notificationPref = (SwitchPreference) findPreference("notifications_enabled");
 
@@ -149,16 +178,25 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                     return true;
                 }
             });
-        }
 
-        @Override
-        public void onStart() {
-            super.onStart();
-            if (getActivity() != null){
-                if (getActivity() instanceof SettingsActivity){
-                    dataManager = ((SettingsActivity) getActivity()).getDataManager();
-                }
+            final Preference languagePref = findPreference("language");
+            final String language = dataManager.getLanguage();
+            if (!language.isEmpty()) {
+                final Locale locale = new Locale(language);
+                languagePref.setSummary(locale.getDisplayName());
             }
+
+            languagePref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    if (getActivity() != null) {
+                        startActivity(new Intent(getActivity(), LanguageSelectionActivity.class));
+                        getActivity().overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
+                    }
+
+                    return false;
+                }
+            });
         }
     }
 

@@ -31,6 +31,7 @@
     <string name="instructions">Instrucciones</string>
     <string name="welcome">Bienvenido</string>
     <string name="not_now">Ahora no</string>
+    <string name="language">Idioma</string>
 
     <!-- actions -->
     <string name="continue_text">Continuar</string>
