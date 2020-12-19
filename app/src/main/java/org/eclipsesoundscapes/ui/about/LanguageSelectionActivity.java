@@ -114,7 +114,7 @@ public class LanguageSelectionActivity extends BaseActivity {
             viewHolder.language.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    if (!selectedLanguage.getLanguage().equals(language.getLanguage())) {
+                    if (selectedLanguage == null || !selectedLanguage.getLanguage().equals(language.getLanguage())) {
                         selectedLanguage = language;
                         setLanguage(selectedLanguage);
                     }
