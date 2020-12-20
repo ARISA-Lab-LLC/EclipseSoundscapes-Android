@@ -14,4 +14,8 @@
         android:key="settings_location"
         android:title="@string/access_location" />
 
+    <Preference
+        android:key="language"
+        android:title="Language"/>
+
 </PreferenceScreen>

@@ -1,17 +1,17 @@
 package org.eclipsesoundscapes.ui.rumblemap;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.eclipsesoundscapes.R;
+import org.eclipsesoundscapes.ui.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class RumbleMapInstructionsActivity extends AppCompatActivity {
+public class RumbleMapInstructionsActivity extends BaseActivity {
 
     @BindView(R.id.bottom_view_title) TextView title;
     @BindView(R.id.bottom_view_more) TextView instructions;

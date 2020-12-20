@@ -2,7 +2,6 @@ package org.eclipsesoundscapes.ui.about;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.util.Linkify;
@@ -20,6 +19,7 @@ import com.bumptech.glide.request.RequestOptions;
 
 import org.eclipsesoundscapes.BuildConfig;
 import org.eclipsesoundscapes.R;
+import org.eclipsesoundscapes.ui.base.BaseActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,7 +48,7 @@ import butterknife.ButterKnife;
  * See {@link SettingsActivity}
  */
 
-public class LegalActivity extends AppCompatActivity {
+public class LegalActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

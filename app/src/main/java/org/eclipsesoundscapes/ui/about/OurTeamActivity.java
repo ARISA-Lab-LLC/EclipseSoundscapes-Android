@@ -2,13 +2,13 @@ package org.eclipsesoundscapes.ui.about;
 
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 
 import org.eclipsesoundscapes.R;
+import org.eclipsesoundscapes.ui.base.BaseActivity;
 
 
 /*
@@ -33,7 +33,7 @@ import org.eclipsesoundscapes.R;
  * Create a list view of the Eclipse Soundscapes team
  */
 
-public class OurTeamActivity extends AppCompatActivity {
+public class OurTeamActivity extends BaseActivity {
 
     private TypedArray teamPhotos;
 

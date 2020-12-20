@@ -3,13 +3,13 @@ package org.eclipsesoundscapes.ui.about;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
 
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.model.Partner;
+import org.eclipsesoundscapes.ui.base.BaseActivity;
 
 import java.util.ArrayList;
 
@@ -35,7 +35,7 @@ import java.util.ArrayList;
  * Create a list view of Eclipse Soundscapes partners
  */
 
-public class OurPartnersActivity extends AppCompatActivity {
+public class OurPartnersActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

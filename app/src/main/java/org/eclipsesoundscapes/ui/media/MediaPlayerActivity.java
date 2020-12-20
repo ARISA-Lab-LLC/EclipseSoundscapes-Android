@@ -3,7 +3,6 @@ package org.eclipsesoundscapes.ui.media;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
@@ -12,6 +11,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import org.eclipsesoundscapes.R;
+import org.eclipsesoundscapes.ui.base.BaseActivity;
 import org.eclipsesoundscapes.util.MediaHelper;
 
 import butterknife.BindView;
@@ -42,7 +42,7 @@ import butterknife.OnClick;
  * See {@link MediaFragment}
  */
 
-public class MediaPlayerActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, MediaPlayer.OnCompletionListener {
+public class MediaPlayerActivity extends BaseActivity implements SeekBar.OnSeekBarChangeListener, MediaPlayer.OnCompletionListener {
 
     public static final String EXTRA_TITLE = "title";
     public static final String EXTRA_DESCRIPTION = "description";

@@ -1,14 +1,13 @@
 package org.eclipsesoundscapes.ui.walkthrough;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -16,8 +15,9 @@ import android.widget.ImageButton;
 import org.eclipsesoundscapes.EclipseSoundscapesApp;
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.data.DataManager;
-import org.eclipsesoundscapes.ui.main.MainActivity;
 import org.eclipsesoundscapes.ui.about.AboutFragment;
+import org.eclipsesoundscapes.ui.base.BaseActivity;
+import org.eclipsesoundscapes.ui.main.MainActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,7 +46,7 @@ import butterknife.ButterKnife;
  * @see WalkthroughFragment
  */
 
-public class WalkthroughActivity extends AppCompatActivity implements View.OnClickListener {
+public class WalkthroughActivity extends BaseActivity implements View.OnClickListener {
 
     public static final String EXTRA_MODE = "MODE";
     public static final String MODE_MENU = "MODE_MENU";

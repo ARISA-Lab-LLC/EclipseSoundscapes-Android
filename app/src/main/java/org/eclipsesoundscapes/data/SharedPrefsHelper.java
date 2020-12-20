@@ -17,6 +17,7 @@ public class SharedPrefsHelper {
     private final static String PREF_KEY_NOTIFICATION = "PREF_KEY_NOTIFICATION";
 
     private final static String PREF_KEY_WALKTHROUGH = "PREF_KEY_WALKTHROUGH";
+    private final static String PREF_KEY_LANGUAGE = "PREF_KEY_LANGUAGE";
 
 
     private SharedPreferences mSharedPreferences;
@@ -59,6 +60,14 @@ public class SharedPrefsHelper {
 
     public void saveWalkthroughComplete(boolean completed){
         mSharedPreferences.edit().putBoolean(PREF_KEY_WALKTHROUGH, completed).apply();
+    }
+
+    public void setPreferredLanguage(final String language) {
+        mSharedPreferences.edit().putString(PREF_KEY_LANGUAGE, language).apply();
+    }
+
+    public String getPreferredLanguage(){
+        return mSharedPreferences.getString(PREF_KEY_LANGUAGE, "");
     }
 
     public String getFirstContact(){

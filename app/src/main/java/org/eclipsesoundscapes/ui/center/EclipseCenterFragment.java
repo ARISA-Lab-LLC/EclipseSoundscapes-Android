@@ -75,6 +75,7 @@ import static org.eclipsesoundscapes.util.Constants.SETTINGS_RESULT_CODE;
  */
 
 public class EclipseCenterFragment extends Fragment {
+    public static final String TAG = "EclipseCenterFragment";
 
     private EclipseTimeGenerator eclipseTimeGenerator;
     private GPSTracker gpsTracker;
@@ -148,6 +149,10 @@ public class EclipseCenterFragment extends Fragment {
         dataManager.setSimulated(true);
         simulateView.setVisibility(View.GONE);
         simulateEclipse();
+    }
+
+    public static EclipseCenterFragment newInstance() {
+        return new EclipseCenterFragment();
     }
 
     @Override

@@ -43,10 +43,16 @@ import org.eclipsesoundscapes.ui.walkthrough.WalkthroughActivity;
  */
 
 public class AboutFragment extends Fragment {
+    public static final String TAG = "AboutFragment";
+
     private String[] listOptions;
     private Integer[] listIcons = {R.drawable.ic_nav_elcipse_features, R.drawable.ic_team, R.drawable.ic_partners,
                                 R.drawable.ic_nav_eclipse_center, R.drawable.ic_instructions,
                                 R.drawable.ic_feedback, R.drawable.ic_settings, R.drawable.ic_legal};
+
+    public static AboutFragment newInstance() {
+        return new AboutFragment();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

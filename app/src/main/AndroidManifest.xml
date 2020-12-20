@@ -25,7 +25,6 @@
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -89,9 +88,12 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".ui.rumblemap.RumbleMapInstructionsActivity"
+        <activity
+            android:name=".ui.rumblemap.RumbleMapInstructionsActivity"
             android:label="@string/rumble_map_instructions_title"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.about.LanguageSelectionActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

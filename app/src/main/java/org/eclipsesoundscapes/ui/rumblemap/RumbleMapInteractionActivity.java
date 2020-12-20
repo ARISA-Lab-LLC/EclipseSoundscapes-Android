@@ -11,10 +11,9 @@ import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,17 +21,18 @@ import android.view.accessibility.AccessibilityManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import org.eclipsesoundscapes.EclipseSoundscapesApp;
-import org.eclipsesoundscapes.R;
-import org.eclipsesoundscapes.data.DataManager;
-import org.eclipsesoundscapes.ui.features.EclipseFragment;
-import org.eclipsesoundscapes.util.AndroidAudioForJSyn;
-
 import com.jsyn.JSyn;
 import com.jsyn.Synthesizer;
 import com.jsyn.unitgen.LineOut;
 import com.jsyn.unitgen.LinearRamp;
 import com.jsyn.unitgen.SineOscillator;
+
+import org.eclipsesoundscapes.EclipseSoundscapesApp;
+import org.eclipsesoundscapes.R;
+import org.eclipsesoundscapes.data.DataManager;
+import org.eclipsesoundscapes.ui.base.BaseActivity;
+import org.eclipsesoundscapes.ui.features.EclipseFragment;
+import org.eclipsesoundscapes.util.AndroidAudioForJSyn;
 
 import java.io.IOException;
 
@@ -68,7 +68,7 @@ import butterknife.OnClick;
  * Also, {@link RumbleMapInstructionsActivity}
  */
 
-public class RumbleMapInteractionActivity extends AppCompatActivity implements View.OnTouchListener {
+public class RumbleMapInteractionActivity extends BaseActivity implements View.OnTouchListener {
 
     public static final String EXTRA_IMG = "img";
     private DataManager dataManager;

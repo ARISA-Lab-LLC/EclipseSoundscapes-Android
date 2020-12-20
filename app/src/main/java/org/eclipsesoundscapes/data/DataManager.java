@@ -2,74 +2,81 @@ package org.eclipsesoundscapes.data;
 
 public class DataManager {
 
-    private SharedPrefsHelper mSharedPrefsHelper;
+    private SharedPrefsHelper sharedPrefsHelper;
 
     public DataManager(SharedPrefsHelper sharedPrefsHelper) {
-        mSharedPrefsHelper = sharedPrefsHelper;
+        this.sharedPrefsHelper = sharedPrefsHelper;
     }
 
     public void setFirstContact(String date){
-        mSharedPrefsHelper.saveFirstContact(date);
+        sharedPrefsHelper.saveFirstContact(date);
     }
 
     public void setTotality(String date){
-        mSharedPrefsHelper.saveTotality(date);
+        sharedPrefsHelper.saveTotality(date);
     }
 
     public void setSimulated(boolean simulated){
-        mSharedPrefsHelper.saveSimulated(simulated);
+        sharedPrefsHelper.saveSimulated(simulated);
     }
 
     public void setLocationAccess(boolean access){
-        mSharedPrefsHelper.saveLocationAccess(access);
+        sharedPrefsHelper.saveLocationAccess(access);
     }
 
     public void setRequestedLocation(boolean requested){
-        mSharedPrefsHelper.saveRequestedLocation(requested);
+        sharedPrefsHelper.saveRequestedLocation(requested);
     }
 
     public void setNotification(boolean canSendNotifications){
-        mSharedPrefsHelper.saveNotification(canSendNotifications);
+        sharedPrefsHelper.saveNotification(canSendNotifications);
     }
 
     public void setWalkthroughComplete(boolean completed){
-        mSharedPrefsHelper.saveWalkthroughComplete(completed);
+        sharedPrefsHelper.saveWalkthroughComplete(completed);
     }
 
+    public void setLanguage(final String language) {
+        sharedPrefsHelper.setPreferredLanguage(language);
+    }
+
+    public String getLanguage() {
+        return sharedPrefsHelper.getPreferredLanguage();
+    }
 
     public void setRumblingCheckpoint(String eclipseId, String coordinates){
-        mSharedPrefsHelper.setCheckpoint(eclipseId, coordinates);
+        sharedPrefsHelper.setCheckpoint(eclipseId, coordinates);
     }
 
     public String getFirstContact(){
-        return mSharedPrefsHelper.getFirstContact();
+        return sharedPrefsHelper.getFirstContact();
     }
 
     public String getTotality(){
-        return mSharedPrefsHelper.getTotality();
+        return sharedPrefsHelper.getTotality();
     }
 
     public String getRumblingCheckpoint(String eclipseId){
-        return mSharedPrefsHelper.getCheckpoint(eclipseId);
+        return sharedPrefsHelper.getCheckpoint(eclipseId);
     }
 
     public boolean getSimulated(){
-        return mSharedPrefsHelper.getSimulated();
+        return sharedPrefsHelper.getSimulated();
     }
 
     public boolean getWalkthroughComplete(){
-        return mSharedPrefsHelper.getWalkthroughComplete();
+        return sharedPrefsHelper.getWalkthroughComplete();
     }
 
     public boolean getLocationAccess(){
-        return mSharedPrefsHelper.getLocationAccess();
+        return sharedPrefsHelper.getLocationAccess();
     }
 
     public boolean getRequestedLocation(){
-        return mSharedPrefsHelper.getRequestedLocation();
+        return sharedPrefsHelper.getRequestedLocation();
     }
 
     public boolean getNotifications(){
-        return mSharedPrefsHelper.getNotifications();
+        return sharedPrefsHelper.getNotifications();
     }
 }
