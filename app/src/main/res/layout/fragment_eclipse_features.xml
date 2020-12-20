@@ -1,16 +1,16 @@
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.features.EclipseFeaturesFragment">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:minHeight="?attr/actionBarSize"
             android:layout_width="match_parent"
@@ -54,9 +54,9 @@
                 style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
                 tools:text="First Contact"/>
 
-        </android.support.v7.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
-        <android.support.design.widget.TabLayout
+        <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -66,7 +66,7 @@
             app:tabMode="fixed"
             app:tabGravity="fill"/>
 
-    </android.support.design.widget.AppBarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <org.eclipsesoundscapes.ui.custom.CustomViewPager
         android:id="@+id/viewpager"
@@ -75,6 +75,6 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:importantForAccessibility="no"
         android:background="@android:color/white"/>
-</android.support.design.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 

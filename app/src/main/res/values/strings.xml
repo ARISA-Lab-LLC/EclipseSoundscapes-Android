@@ -126,7 +126,7 @@
         \n\nExplanation of what you might feel as you interact: \nOn the Rumble Map, explore the features between the moon, the sun\'s corona and Baily\'s beads which are intense and irregular.
         \n\nAdditional scientific info: \nEven this small section of the Sun\'s light cannot be viewed without special eye protection.
         Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes.
-        \nBaily\'s beads are caused because the moon's surface is not a smooth, perfect sphere.
+        \nBaily\'s beads are caused because the moon\'s surface is not a smooth, perfect sphere.
         Rays of light peer through the ravines and valleys between mountains on the moon causing this spectacular feature.</string>
 
     <string name="corona_description">During the totality, the moon completely covers the sun\'s glowing orb, and the sun\'s outer atmosphere is revealed.
@@ -135,22 +135,22 @@
         \n\nHow to interact with the Rumble Map:\nOn the Rumble Map, explore the features between the moon and the sun\’s corona.
         You will hear/feel variations as your fingers pass over different features of the corona.
         \n\nAdditional scientific info:\nThe corona is the thin outer atmosphere of the Sun.
-        With temperatures at over 1 million degrees Fahrenheit, it radiates light in wavelengths that are too short for the human eye to see (like X-rays) and that are absorbed by the Earth's atmosphere.
-        However, the corona reflects some of the white light from the Sun's photosphere below it. This faint reflection is only seen when the much brighter photosphere is blocked, like during a total eclipse.</string>
+        With temperatures at over 1 million degrees Fahrenheit, it radiates light in wavelengths that are too short for the human eye to see (like X-rays) and that are absorbed by the Earth\'s atmosphere.
+        However, the corona reflects some of the white light from the Sun\'s photosphere below it. This faint reflection is only seen when the much brighter photosphere is blocked, like during a total eclipse.</string>
 
     <string name="diamond_ring_description">On the left side of the black moon, a sliver of sunlight blasts into view with white-hot intensity.
         As the area of re-emerging sunlight grows, it resembles a diamond, beaming out its brilliant light from its setting on the circular ring of the moon\'s edge.
         \n\nAdditional scientific info:\nEven this small section of the Sun\'s light cannot be viewed without special eye protection.
         Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes.
         \nAs the moon barely moves away from the solar surface, the powerful light of the Sun peers around the side of the moon.
-        The Sun's light is so intense that even this small fraction of it dominates the sky.</string>
+        The Sun\'s light is so intense that even this small fraction of it dominates the sky.</string>
 
     <string name="helmet_streamers_description">Projections of light from the sun\'s outer atmosphere called helmet streamers extend in all directions from behind the moon.
         In contrast to the black, featureless moon, the pale, wispy streamers appear as delicate as lace. The largest streamers have a tapered shape that resemble flower petals.
         They extend from opposite sides of the sun, with smaller rays of light between them.
         \n\nExplanation of what you might feel as you interact:\nAs you trace your finger along a helmet streamer, you can feel the smooth arches come to long sharp points as they extend from the base of the Sun outward.
         \n\nAdditional scientific info:\nHelmet streamers get their shape from two different processes.
-        A streamer's arch shape is the result of magnetic fields from the Sun reaching out into the corona and then arching back down to the surface of the sun to connect to regions of opposite magnetic polarity.
+        A streamer\'s arch shape is the result of magnetic fields from the Sun reaching out into the corona and then arching back down to the surface of the sun to connect to regions of opposite magnetic polarity.
         The long, pointed tops of helmet streamers come from streams of gas flowing out from the corona into interplanetary space forming the solar wind.</string>
 
     <string name="prominence_description">Fiery loops of hot pink light appear to leap off the moon\'s black surface.
@@ -165,8 +165,8 @@
         \n\nExplanation of what you might feel as you interact:\nOn the Rumble Map, explore the difference between the moon and the sun\'s corona.
         \n\nAdditional scientific info:\nYou may notice changes in temperature and natural sounds, such a birds and wind during the total eclipse.
         \nDuring the total solar eclipse, and only during totality, you can view the corona of the Sun without eye protection.
-        The Sun's outer atmosphere, the corona, is in full display and viewable from the ground. The highly structured nature of the corona is clearly evident.
-        This structure is caused by the Sun's intense and complicated magnetic fields interacting with the material that makes up the corona.
+        The Sun\'s outer atmosphere, the corona, is in full display and viewable from the ground. The highly structured nature of the corona is clearly evident.
+        This structure is caused by the Sun\'s intense and complicated magnetic fields interacting with the material that makes up the corona.
         This material is called a plasma, which is like a gas, but is susceptible to magnetic fields.
         The magnetic fields can then shape the plasma in the corona into the complicated patterns that are viewable during the eclipse.</string>
 

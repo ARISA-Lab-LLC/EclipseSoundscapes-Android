@@ -23,12 +23,6 @@ public class EclipseSoundscapesApp extends Application {
         LocaleUtils.updateLocale(this);
     }
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-//        Fabric.with(this, new Crashlytics());
-    }
-
     public DataManager getDataManager() {
         if (dataManager == null) {
             final SharedPrefsHelper sharedPrefsHelper = new SharedPrefsHelper(getApplicationContext());

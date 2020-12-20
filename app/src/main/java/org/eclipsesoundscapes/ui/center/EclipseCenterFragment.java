@@ -11,10 +11,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +18,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.data.DataManager;
@@ -29,10 +29,10 @@ import org.eclipsesoundscapes.data.EclipseSimulator;
 import org.eclipsesoundscapes.data.EclipseTimeGenerator;
 import org.eclipsesoundscapes.model.Event;
 import org.eclipsesoundscapes.service.GPSTracker;
+import org.eclipsesoundscapes.service.NotificationScheduler;
 import org.eclipsesoundscapes.ui.about.SettingsActivity;
 import org.eclipsesoundscapes.ui.main.MainActivity;
 import org.eclipsesoundscapes.util.EclipseCenterHelper;
-import org.eclipsesoundscapes.service.NotificationScheduler;
 
 import java.text.DateFormat;
 import java.text.ParseException;

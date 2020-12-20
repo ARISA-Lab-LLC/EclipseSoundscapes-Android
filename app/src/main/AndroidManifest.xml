@@ -68,10 +68,6 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="0" />
-
         <activity android:name=".ui.about.AppCompatPreferenceActivity" />
 
         <service

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -79,4 +79,4 @@
             tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum condimentum nibh convallis, volutpat lorem non, mattis lacus. Pellentesque nec lorem risus. Phasellus vitae est mattis neque ornare malesuada a ut magna. Sed nec laoreet est. Maecenas sagittis, nisi nec maximus gravida, lectus magna tempus ex, ac pharetra neque leo id velit."/>
 
     </LinearLayout>
-</android.support.v7.widget.CardView>
+</androidx.cardview.widget.CardView>
