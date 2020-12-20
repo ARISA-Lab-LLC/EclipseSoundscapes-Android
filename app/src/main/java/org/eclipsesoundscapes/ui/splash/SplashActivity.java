@@ -3,15 +3,11 @@ package org.eclipsesoundscapes.ui.splash;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.crashlytics.android.Crashlytics;
-
 import org.eclipsesoundscapes.EclipseSoundscapesApp;
 import org.eclipsesoundscapes.data.DataManager;
 import org.eclipsesoundscapes.ui.base.BaseActivity;
 import org.eclipsesoundscapes.ui.main.MainActivity;
 import org.eclipsesoundscapes.ui.walkthrough.WalkthroughActivity;
-
-import io.fabric.sdk.android.Fabric;
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -39,7 +35,6 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics());
 
         DataManager dataManager = ((EclipseSoundscapesApp)getApplication()).getDataManager();
         if (dataManager.getWalkthroughComplete()) {
