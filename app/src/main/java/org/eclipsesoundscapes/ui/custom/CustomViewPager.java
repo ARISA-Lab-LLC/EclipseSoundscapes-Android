@@ -4,6 +4,8 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
+import androidx.viewpager.widget.ViewPager;
+
 /*
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -26,7 +28,7 @@ import android.view.MotionEvent;
  * View pager without the swipe functionality
  */
 
-public class CustomViewPager extends android.support.v4.view.ViewPager{
+public class CustomViewPager extends ViewPager {
     private boolean enabled;
 
     public CustomViewPager(Context context, AttributeSet attrs) {
