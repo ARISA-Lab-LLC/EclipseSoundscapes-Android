@@ -79,8 +79,8 @@
     <!-- Eclipse Center -->
     <string name="eclipse_countdown_title">Countdown Until Eclipse</string>
     <string name="countdown_format">Countdown until eclipse from your location, %1$s days, %2$s hours, %3$s minutes and %4$s seconds</string>
-    <string name="event_section_desc">Events at your location are below. Events include your local time and universal time.</string>
-    <string name="event_desc_format">Event from your location, %1$s, local time, %2$s, universal time, %3$s</string>
+    <string name="event_section_desc">Events at closest location are below. Events include your local time and universal time.</string>
+    <string name="event_desc_format">Event from closest location, %1$s, local time, %2$s, universal time, %3$s</string>
     <string name="eclipse_center_permission">You don\'t want to miss this amazing astronomical event! We\'ll need your location to access this feature.\nPress anywhere on the screen to continue.</string>
 
     <string name="location_search">Finding your location…</string>
@@ -272,6 +272,7 @@
     <string name="duration_desc_minute">One minute, %1$s seconds</string>
     <string name="duration_desc_minutes">%1$s minutes, %2$s seconds</string>
     <string name="duration_current_progress">%1$s of %2$s</string>
+    <string name="duration_min_sec">%1$s minutes and %2$s seconds</string>
 
     <!-- rumble map interaction -->
     <string name="rumble_map">Rumble Map</string>

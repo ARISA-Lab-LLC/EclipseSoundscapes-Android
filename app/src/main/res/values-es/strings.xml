@@ -90,8 +90,8 @@
     <!-- Eclipse Center -->
     <string name="eclipse_countdown_title">Cuenta regresiva hasta el eclipse</string>
     <string name="countdown_format">Cuenta regresiva hasta el eclipse desde su ubicación, %1$s días, %2$s minutos y %4$s segundos</string>
-    <string name="event_section_desc">A continuación se indican los eventos en su ubicación. Los eventos incluyen la hora local y universal.</string>
-    <string name="event_desc_format">Evento desde su ubicación, %1$s hora local, %2$s, hora universal, %3$s</string>
+    <string name="event_section_desc">A continuación se indican los eventos en la ubicación más cercana. Los eventos incluyen la hora local y universal.</string>
+    <string name="event_desc_format">Evento desde la ubicación más cercana: %1$s, hora local, %2$s, hora universal, %3$s</string>
     <string name="eclipse_center_permission">¡No se pierda este fascinante evento astronómico! Necesitamos su ubicación para acceder a esta función. Presione en cualquier lugar de la pantalla para continuar.</string>
 
     <string name="location_search">Búsqueda de su ubicación…</string>
@@ -128,6 +128,7 @@
     <string name="duration_desc_minute">un minuto, %1$s segundos</string>
     <string name="duration_desc_minutes">%1$s minutos, %2$s segundos</string>
     <string name="duration_current_progress">%1$s de %2$s</string>
+    <string name="duration_min_sec">%1$s minutos y %2$s segundos</string>
 
     <string name="audio_corona_full">Cuando el eclipse es total, la luna cubre por completo el orbe brillante del sol y se revela su atmósfera exterior.
         Como si la luna fuera el centro de un girasol celeste, la corona se presenta en forma de suaves pétalos blancos, grandes canales de luz tenue que se van haciendo más estrechos en el cielo.
