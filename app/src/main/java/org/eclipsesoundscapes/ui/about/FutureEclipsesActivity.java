@@ -2,14 +2,15 @@ package org.eclipsesoundscapes.ui.about;
 
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.ui.base.BaseActivity;
@@ -19,7 +20,10 @@ import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -49,6 +53,8 @@ import butterknife.ButterKnife;
 
 public class FutureEclipsesActivity extends BaseActivity {
 
+    final SimpleDateFormat format = new SimpleDateFormat("yyyy, MMM dd");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,8 +70,11 @@ public class FutureEclipsesActivity extends BaseActivity {
             jsonArray = new JSONArray(loadJSONFromAsset());
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject eclipse = jsonArray.getJSONObject(i);
-                futureEclipses.add(new FutureEclipse(eclipse.getString("Date"), eclipse.getString("Time"),
-                        eclipse.getString("Type"), eclipse.getString("Features")));
+                final FutureEclipse fe = new FutureEclipse(eclipse.getString("Date"), eclipse.getString("Time"),
+                        eclipse.getString("Type"), eclipse.getString("Features"));
+                if (isUpcoming(fe)) {
+                    futureEclipses.add(fe);
+                }
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -76,6 +85,18 @@ public class FutureEclipsesActivity extends BaseActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new FutureEclipseAdapter(futureEclipses));
+    }
+
+    private boolean isUpcoming(final FutureEclipse futureEclipse) {
+        final String dateString = futureEclipse.getDate();
+        try {
+            final Date date = format.parse(dateString);
+            return date != null && !date.before(new Date());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
 
@@ -130,8 +151,7 @@ public class FutureEclipsesActivity extends BaseActivity {
      * Class represents a future eclipse object, includes date, time, type and
      * what interactive features will be available through Eclipse Soundscapes application
      */
-    private class FutureEclipse {
-
+    private static class FutureEclipse {
         String date;
         String time;
         String type;
@@ -159,7 +179,6 @@ public class FutureEclipsesActivity extends BaseActivity {
          String getFeatures() {
             return features;
         }
-
     }
 
     /**
