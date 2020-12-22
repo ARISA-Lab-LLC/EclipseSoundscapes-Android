@@ -12,6 +12,9 @@
 
     <uses-feature android:name="android.hardware.location.gps" />
 
+    <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
+        android:value="true" />
+
     <application
         android:name=".EclipseSoundscapesApp"
         android:allowBackup="true"
@@ -67,8 +70,6 @@
             android:label="Rumble Map Interaction"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity android:name=".ui.about.AppCompatPreferenceActivity" />
 
         <service
             android:name=".service.GPSTracker"

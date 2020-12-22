@@ -1,24 +1,29 @@
 package org.eclipsesoundscapes.ui.about;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
-import android.preference.SwitchPreference;
+import android.view.MenuItem;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
-import android.view.MenuItem;
+import androidx.fragment.app.Fragment;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragmentCompat;
+import androidx.preference.SwitchPreferenceCompat;
 
 import org.eclipsesoundscapes.EclipseSoundscapesApp;
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.data.DataManager;
-import org.eclipsesoundscapes.ui.base.BasePreferenceActivity;
+import org.eclipsesoundscapes.ui.base.BaseActivity;
 import org.eclipsesoundscapes.ui.main.MainActivity;
 
 import java.util.Locale;
 
+import static org.eclipsesoundscapes.ui.about.LegalActivity.EXTRA_LEGAL;
+import static org.eclipsesoundscapes.ui.about.LegalActivity.EXTRA_LIBS;
+import static org.eclipsesoundscapes.ui.about.LegalActivity.EXTRA_LICENSE;
+import static org.eclipsesoundscapes.ui.about.LegalActivity.EXTRA_PHOTO_CREDS;
+import static org.eclipsesoundscapes.ui.about.LegalActivity.EXTRA_PRIVACY_POLICY;
 import static org.eclipsesoundscapes.ui.main.MainActivity.EXTRA_FRAGMENT_TAG;
 
 
@@ -47,45 +52,29 @@ import static org.eclipsesoundscapes.ui.main.MainActivity.EXTRA_FRAGMENT_TAG;
  * See {@link LegalActivity}
  */
 
-public class SettingsActivity extends BasePreferenceActivity {
+public class SettingsActivity extends BaseActivity {
 
     public static final String EXTRA_SETTINGS_MODE = "SETTINGS_MODE";
     public static final String MODE_SETTINGS = "settings";
     public static final String MODE_LEGAL = "legal";
 
-    private DataManager dataManager;
-
-    /**
-     * Helper method to determine if the device has an extra-large screen. For
-     * example, 10" tablets are extra-large.
-     */
-    private static boolean isXLargeTablet(Context context) {
-        return (context.getResources().getConfiguration().screenLayout
-                & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_settings);
         setupActionBar();
 
-        dataManager = ((EclipseSoundscapesApp)getApplication()).getDataManager();
-        String settingsMode = getIntent().getStringExtra(EXTRA_SETTINGS_MODE);
-
+        final String settingsMode = getIntent().getStringExtra(EXTRA_SETTINGS_MODE);
         if (settingsMode != null && !settingsMode.isEmpty()) {
-            if (settingsMode.equals(MODE_SETTINGS)) {
-                // show notification and location view
-                setTitle(getString(R.string.settings));
-                getFragmentManager().beginTransaction().replace(android.R.id.content,
-                        new SettingsPreferenceFragment())
-                        .commit();
-            } else {
-                // show legal preference fragment
-                setTitle(getString(org.eclipsesoundscapes.R.string.legal));
-                getFragmentManager().beginTransaction().replace(android.R.id.content,
-                        new LegalPreferenceFragment())
-                        .commit();
-            }
+            final boolean isSettings = settingsMode.equals(MODE_SETTINGS);
+            final String title =  getString(isSettings ? R.string.settings : R.string.legal);
+            final Fragment fragment = isSettings ? new SettingsPreferenceFragment() : new LegalPreferenceFragment();
+
+            setTitle(title);
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.settings_container, fragment)
+                    .commit();
         }
     }
 
@@ -96,14 +85,12 @@ public class SettingsActivity extends BasePreferenceActivity {
         }
     }
 
-    public DataManager getDataManager() {
-        return dataManager;
-    }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home)
+        if (item.getItemId() == android.R.id.home) {
             onBackPressed();
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -122,32 +109,25 @@ public class SettingsActivity extends BasePreferenceActivity {
         overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
     }
 
-    @Override
-    public boolean onIsMultiPane() {
-        return isXLargeTablet(this);
-    }
-
     /**
      * This fragment shows notification preferences only. It is used when the
      * activity is showing a two-pane settings UI.
      */
-    public static class SettingsPreferenceFragment extends PreferenceFragment {
-        SwitchPreference locationPref;
-        SwitchPreference notificationPref;
+    public static class SettingsPreferenceFragment extends PreferenceFragmentCompat {
+        SwitchPreferenceCompat locationPref;
+        SwitchPreferenceCompat notificationPref;
         DataManager dataManager;
 
         @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_settings);
-            setHasOptionsMenu(true);
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.pref_settings, rootKey);
         }
 
         @Override
         public void onActivityCreated(@Nullable Bundle savedInstanceState) {
             super.onActivityCreated(savedInstanceState);
-            if (getActivity() instanceof SettingsActivity){
-                dataManager = ((SettingsActivity) getActivity()).getDataManager();
+            if (getActivity() != null && getActivity().getApplication() != null) {
+                dataManager = ((EclipseSoundscapesApp) getActivity().getApplication()).getDataManager();
             }
         }
 
@@ -158,98 +138,103 @@ public class SettingsActivity extends BasePreferenceActivity {
         }
 
         private void setupMenuOptions() {
-            locationPref = (SwitchPreference) findPreference("settings_location");
-            notificationPref = (SwitchPreference) findPreference("notifications_enabled");
+            locationPref = findPreference("settings_location");
+            notificationPref = findPreference("notifications_enabled");
 
-            notificationPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object o) {
-                    boolean isEnabled = (boolean) o;
-                    dataManager.setNotification(isEnabled);
+            if (notificationPref != null) {
+                notificationPref.setOnPreferenceChangeListener((preference, newValue) -> {
+                    boolean isEnabled = (boolean) newValue;
+                    if (dataManager != null) {
+                        dataManager.setNotification(isEnabled);
+                    }
+
                     return true;
-                }
-            });
-
-            locationPref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object o) {
-                    boolean isAccessible = (boolean) o;
-                    dataManager.setLocationAccess(isAccessible);
-                    return true;
-                }
-            });
-
-            final Preference languagePref = findPreference("language");
-            final String language = dataManager.getLanguage();
-            if (!language.isEmpty()) {
-                final Locale locale = new Locale(language);
-                languagePref.setSummary(locale.getDisplayName());
+                });
             }
 
-            languagePref.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
+            if (locationPref != null) {
+                locationPref.setOnPreferenceChangeListener((preference, newValue) -> {
+                    boolean isAccessible = (boolean) newValue;
+                    if (dataManager != null) {
+                        dataManager.setLocationAccess(isAccessible);
+                    }
+
+                    return true;
+                });
+            }
+
+            final Preference languagePref = findPreference("language");
+            if (languagePref != null) {
+                final String language = dataManager.getLanguage();
+                if (!language.isEmpty()) {
+                    final Locale locale = new Locale(language);
+                    languagePref.setSummary(locale.getDisplayName());
+                }
+
+                languagePref.setOnPreferenceClickListener(preference -> {
                     if (getActivity() != null) {
                         startActivity(new Intent(getActivity(), LanguageSelectionActivity.class));
                         getActivity().overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
                     }
 
                     return false;
-                }
-            });
+                });
+            }
         }
     }
 
     /******************************************************************************
      * Preference fragment to display legal documents
      *****************************************************************************/
-    public static class LegalPreferenceFragment extends PreferenceFragment {
+    public static class LegalPreferenceFragment extends PreferenceFragmentCompat {
 
         @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_legal);
-            setHasOptionsMenu(true);
+        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+            setPreferencesFromResource(R.xml.pref_legal, rootKey);
+            setupPreferences();
+        }
 
+        private void setupPreferences() {
             Preference license = findPreference("license_display");
             Preference libraries = findPreference("libraries_display");
             Preference credits = findPreference("credits_display");
+            Preference privacyPolicy = findPreference("privacy_policy");
 
-            license.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    Intent legalIntent = new Intent(getActivity(), LegalActivity.class);
-                    legalIntent.putExtra("legal", "license");
-                    showLegality(legalIntent);
+            if (license != null) {
+                license.setOnPreferenceClickListener(preference -> {
+                    showLegality(EXTRA_LICENSE);
                     return true;
-                }
-            });
+                });
+            }
 
-            libraries.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    Intent legalIntent = new Intent(getActivity(), LegalActivity.class);
-                    legalIntent.putExtra("legal", "libraries");
-                    showLegality(legalIntent);
+            if (libraries != null) {
+                libraries.setOnPreferenceClickListener(preference -> {
+                    showLegality(EXTRA_LIBS);
                     return true;
-                }
-            });
+                });
+            }
 
-            credits.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    Intent legalIntent = new Intent(getActivity(), LegalActivity.class);
-                    legalIntent.putExtra("legal", "credits");
-                    showLegality(legalIntent);
+            if (credits != null) {
+                credits.setOnPreferenceClickListener(preference -> {
+                    showLegality(EXTRA_PHOTO_CREDS);
                     return true;
-                }
-            });
+                });
+            }
 
+            if (privacyPolicy != null) {
+                privacyPolicy.setOnPreferenceClickListener(preference -> {
+                    showLegality(EXTRA_PRIVACY_POLICY);
+                    return true;
+                });
+            }
         }
 
-        private void showLegality(Intent intent){
+        private void showLegality(final String extra){
+            final Intent legalIntent = new Intent(getActivity(), LegalActivity.class);
+            legalIntent.putExtra(EXTRA_LEGAL, extra);
+
             if (getActivity() != null) {
-                startActivity(intent);
+                startActivity(legalIntent);
                 getActivity().overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left);
             }
         }
