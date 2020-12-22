@@ -19,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -33,6 +34,7 @@ import org.eclipsesoundscapes.service.NotificationScheduler;
 import org.eclipsesoundscapes.ui.about.SettingsActivity;
 import org.eclipsesoundscapes.ui.main.MainActivity;
 import org.eclipsesoundscapes.util.EclipseCenterHelper;
+import org.joda.time.DateTime;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -90,7 +92,7 @@ public class EclipseCenterFragment extends Fragment {
     @BindView(R.id.permission_view) LinearLayout permissionView;
     @BindView(R.id.gps_view) LinearLayout gpsView;
     @BindView(R.id.progressView) LinearLayout progressView;
-    @BindView(R.id.simulation_view) LinearLayout simulateView;
+    @BindView(R.id.simulation_view) View simulateView;
     @BindView(R.id.duration_totality_layout) LinearLayout totalityDurationLayout;
 
     @BindView(R.id.eclipse_type) TextView eclipseTypeView;
@@ -99,11 +101,11 @@ public class EclipseCenterFragment extends Fragment {
     @BindView(R.id.longitude) TextView longitudeView;
     @BindView(R.id.percent_eclipse) TextView percentEclipseView;
 
-    @BindView(R.id.stub_contact_one) LinearLayout contactOneStub;
-    @BindView(R.id.stub_contact_two) LinearLayout contactTwoStub;
-    @BindView(R.id.stub_contact_mid) LinearLayout contactMidStub;
-    @BindView(R.id.stub_contact_three) LinearLayout contactThreeStub;
-    @BindView(R.id.stub_contact_four) LinearLayout contactFourStub;
+    @BindView(R.id.stub_contact_one) ConstraintLayout contactOneStub;
+    @BindView(R.id.stub_contact_two) ConstraintLayout contactTwoStub;
+    @BindView(R.id.stub_contact_mid) ConstraintLayout contactMidStub;
+    @BindView(R.id.stub_contact_three) ConstraintLayout contactThreeStub;
+    @BindView(R.id.stub_contact_four) ConstraintLayout contactFourStub;
 
     // count down view
     @BindView(R.id.days_primary) TextView daysPrimary;
@@ -462,8 +464,9 @@ public class EclipseCenterFragment extends Fragment {
     public void generateFullContact(){
         totalityDurationLayout.setVisibility(View.VISIBLE);
 
-        ((TextView)totalityDurationLayout.findViewById(R.id.duration_totality))
-                .setText(eclipseTimeGenerator.getDuration());
+        final TextView totalityDuration = totalityDurationLayout.findViewById(R.id.duration_totality);
+        totalityDuration.setText(eclipseTimeGenerator.getFormattedDuration());
+        totalityDuration.setContentDescription(getTotalityDurationDesc());
 
         // prevent redundancy, generatePartialContact will generateContact data for c1, mid, c4
         generatePartialContact();
@@ -495,6 +498,11 @@ public class EclipseCenterFragment extends Fragment {
         contactThreeStub.setVisibility(View.VISIBLE);
     }
 
+    private String getTotalityDurationDesc() {
+        final DateTime dateTime = eclipseTimeGenerator.getDuration();
+        final String seconds = String.format(Locale.getDefault(), "%d.%d", dateTime.getSecondOfMinute(), dateTime.getMillisOfSecond());
+        return getString(R.string.duration_min_sec, String.valueOf(dateTime.getMinuteOfHour()), seconds);
+    }
 
     /**
      * Start a count down from provided date and time

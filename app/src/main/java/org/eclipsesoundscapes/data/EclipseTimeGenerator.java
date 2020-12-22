@@ -4,6 +4,7 @@ import android.content.Context;
 
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.model.Event;
+import org.joda.time.DateTime;
 
 import java.util.Locale;
 
@@ -100,10 +101,15 @@ public class EclipseTimeGenerator {
         return String.valueOf(Math.round(mid[34] * 1000) / 1000);
     }
 
-    public String duration() {
-        if (type == EclipseType.FULL)
-            return getDuration();
-        return null;
+    public String getFormattedDuration() {
+        if (type == EclipseType.FULL) {
+            final DateTime dateTime = getDuration();
+            return String.format(Locale.getDefault(), "%dm %d.%ds",
+                    dateTime.getMinuteOfHour(),
+                    dateTime.getSecondOfMinute(),
+                    dateTime.getMillisOfSecond());
+        }
+        return "";
     }
 
     public Event contact1() {
@@ -602,8 +608,7 @@ public class EclipseTimeGenerator {
         return  String.format(Locale.getDefault(),  "%.1f\u00B0", t);
     }
 
-    // Get the duration in 00m00.0s format
-    public String getDuration(){
+    public DateTime getDuration(){
 
         Double tmp = c3[1] - c2[1];
         if (tmp < 0.0) {
@@ -613,17 +618,16 @@ public class EclipseTimeGenerator {
         }
 
         tmp = (tmp * 60.0) - 60.0 * Math.floor(tmp) + 0.05 / 60.0;
-        String minutes = String.format(Locale.getDefault(), "%.0fm", Math.floor(tmp));
+        final int minutes = (int) Math.floor(tmp);
 
-        String singleDigit = "";
         tmp = (tmp * 60.0) - 60.0 * Math.floor(tmp);
-        if (tmp < 10.0) {
-            singleDigit = "0";
-        }
+        final int seconds = (int) Math.floor(tmp);
+        final int milliseconds = (int) Math.floor((tmp - Math.floor(tmp)) * 10.0);
 
-        String seconds = String.format(Locale.getDefault(), "%.0f.%.0fs", Math.floor(tmp), Math.floor((tmp - Math.floor(tmp)) * 10.0));
-
-        return String.format(Locale.getDefault(), "%s %s%s", minutes, singleDigit, seconds );
+        return new DateTime()
+                .withMinuteOfHour(minutes)
+                .withSecondOfMinute(seconds)
+                .withMillisOfSecond(milliseconds);
     }
 
     // Get the obscuration

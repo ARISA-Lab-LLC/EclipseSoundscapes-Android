@@ -1,16 +1,22 @@
 package org.eclipsesoundscapes.ui.about;
 
+import android.content.res.AssetManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
@@ -20,6 +26,9 @@ import com.bumptech.glide.request.RequestOptions;
 import org.eclipsesoundscapes.BuildConfig;
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.ui.base.BaseActivity;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -50,31 +59,47 @@ import butterknife.ButterKnife;
 
 public class LegalActivity extends BaseActivity {
 
+    public static final String EXTRA_LEGAL = "legal";
+    public static final String EXTRA_LICENSE = "license";
+    public static final String EXTRA_LIBS = "libraries";
+    public static final String EXTRA_PHOTO_CREDS = "photo_credits";
+    public static final String EXTRA_PRIVACY_POLICY = "privacy_policy";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        String legalMode = getIntent().getStringExtra("legal");
+        String legalMode = getIntent().getStringExtra(EXTRA_LEGAL);
         if (getSupportActionBar() != null)
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         switch (legalMode) {
-            case "license":
-                getSupportActionBar().setTitle(getString(R.string.license));
-                setTitle(getString(R.string.license));
-                setContentView(R.layout.activity_legal_license);
-                break;
-            case "libraries":
+            case EXTRA_LICENSE:
                 String versionName = BuildConfig.VERSION_NAME;
-                final String title = getString(R.string.app_name_version, getString(R.string.app_name),
+                String title = getString(R.string.app_name_version, getString(R.string.app_name),
                         versionName);
+                getSupportActionBar().setTitle(title);
+                setTitle(title);
+                setContentView(R.layout.activity_legal_license);
+                showLicense();
+                break;
+            case EXTRA_LIBS:
+                title = getString(R.string.open_src_libs);
                 getSupportActionBar().setTitle(title);
                 setTitle(title);
                 setContentView(R.layout.activity_legal_libraries);
                 break;
-            default:
-                getSupportActionBar().setTitle(getString(R.string.photo_credits));
-                setTitle(getString(R.string.photo_credits)); // accessibility title read
+            case EXTRA_PRIVACY_POLICY:
+                title = getString(R.string.privacy_policy);
+                getSupportActionBar().setTitle(title);
+                setTitle(title);
+                setContentView(R.layout.activity_legal_webview);
+                showPrivacyPolicy();
+                break;
+            case EXTRA_PHOTO_CREDS:
+                title = getString(R.string.photo_credits);
+                getSupportActionBar().setTitle(title);
+                setTitle(title); 
                 setContentView(R.layout.legal_photo_credits);
 
                 Integer[] imgs = {R.drawable.eclipse_diamond_ring, R.drawable.helmet_streamers,
@@ -108,7 +133,48 @@ public class LegalActivity extends BaseActivity {
         overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
     }
 
-    class CreditsAdapter extends RecyclerView.Adapter<CreditsAdapter.ViewHolder> {
+    private void showLicense() {
+        final WebView webView = findViewById(R.id.license_details);
+        AssetManager assetManager = getAssets();
+        try {
+            final InputStream input = assetManager.open("gpl_3.0.html");
+            int size = input.available();
+            byte[] buffer = new byte[size];
+            input.read(buffer);
+            input.close();
+
+            final String license = new String(buffer);
+            final String mimeType = "text/html";
+            final String encoding = "UTF-8";
+
+            webView.loadData(license, mimeType, encoding);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void showPrivacyPolicy() {
+        final WebView webView = findViewById(R.id.webview);
+        final ProgressBar progressBar = findViewById(R.id.webview_progress);
+
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                super.onPageStarted(view, url, favicon);
+                progressBar.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                super.onPageFinished(view, url);
+                progressBar.setVisibility(View.GONE);
+            }
+        });
+
+        webView.loadUrl("https://arisalab.org/privacy-policy/");
+    }
+
+    static class CreditsAdapter extends RecyclerView.Adapter<CreditsAdapter.ViewHolder> {
 
         private final Integer[] photos;
         private final String[] titles;
