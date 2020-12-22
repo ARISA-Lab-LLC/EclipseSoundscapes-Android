@@ -3,9 +3,10 @@ package org.eclipsesoundscapes.ui.about;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.MenuItem;
 
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.model.Partner;
@@ -52,8 +53,7 @@ public class OurPartnersActivity extends BaseActivity {
         final RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
 
         final ArrayList<Partner> currentPartners = getPartners(true);
-        final ArrayList<Partner> pastPartners = getPartners(false);
-        final PartnersAdapter adapter = new PartnersAdapter(this, currentPartners, pastPartners);
+        final PartnersAdapter adapter = new PartnersAdapter(this, currentPartners, new ArrayList<>());
 
         partnersRecyclerView.setLayoutManager(layoutManager);
         partnersRecyclerView.setNestedScrollingEnabled(false);
