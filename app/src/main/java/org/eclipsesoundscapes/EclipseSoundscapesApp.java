@@ -13,6 +13,12 @@ public class EclipseSoundscapesApp extends Application {
     private DataManager dataManager;
 
     @Override
+    public void onCreate() {
+        super.onCreate();
+        setup();
+    }
+
+    @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(LocaleUtils.updateLocale(base));
     }
@@ -21,6 +27,11 @@ public class EclipseSoundscapesApp extends Application {
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         LocaleUtils.updateLocale(this);
+    }
+
+    private void setup() {
+        // allow user to simulate location on every launch
+        getDataManager().setSimulated(false);
     }
 
     public DataManager getDataManager() {
