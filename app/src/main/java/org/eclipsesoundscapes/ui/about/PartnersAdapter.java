@@ -1,11 +1,12 @@
 package org.eclipsesoundscapes.ui.about;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.model.Partner;
@@ -30,11 +31,15 @@ public class PartnersAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     PartnersAdapter(final Context context,
                     @NonNull final ArrayList<Partner> currentPartners,
                     @NonNull final ArrayList<Partner> previousPartners) {
-        this.data.add(new Section(context.getString(R.string.current_partners)));
-        this.data.addAll(currentPartners);
 
-        this.data.add(new Section(context.getString(R.string.past_partners)));
-        this.data.addAll(previousPartners);
+        if (previousPartners.isEmpty()) {
+            this.data.addAll(currentPartners);
+        } else {
+            this.data.add(new Section(context.getString(R.string.current_partners)));
+            this.data.addAll(currentPartners);
+            this.data.add(new Section(context.getString(R.string.past_partners)));
+            this.data.addAll(previousPartners);
+        }
     }
 
     @Override

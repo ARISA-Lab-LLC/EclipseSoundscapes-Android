@@ -84,7 +84,6 @@ public class EclipseCenterFragment extends Fragment {
     private DataManager dataManager;
     private EclipseCenterHelper mHelper;
     private CountDownTimer countDownTimer;
-
     private Location simulatedLocation;
 
     @BindView(R.id.eclipse_countdown) RelativeLayout countdownView;
@@ -217,8 +216,9 @@ public class EclipseCenterFragment extends Fragment {
             if (ContextCompat.checkSelfPermission(getActivity(),
                     Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_DENIED) {
                 showPermissionView(true);
-            } else
+            } else {
                 startLocationUpdates();
+            }
         }
     }
 
@@ -260,20 +260,13 @@ public class EclipseCenterFragment extends Fragment {
         new AlertDialog.Builder(context)
                 .setTitle(context.getString(R.string.location_disabled))
                 .setMessage(context.getString(R.string.location_disabled_message))
-                .setPositiveButton(context.getString(R.string.settings), new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                        getActivity().startActivity(intent);
-                    }
+                .setPositiveButton(context.getString(R.string.settings), (dialog, which) -> {
+                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                    getActivity().startActivity(intent);
                 })
-                .setNegativeButton(getString(R.string.cancel), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        gpsView.setVisibility(View.VISIBLE);
-                        dialog.cancel();
-                    }
+                .setNegativeButton(getString(R.string.cancel), (dialog, which) -> {
+                    gpsView.setVisibility(View.VISIBLE);
+                    dialog.cancel();
                 })
                 .create()
                 .show();
@@ -346,7 +339,6 @@ public class EclipseCenterFragment extends Fragment {
         }
     }
 
-
     private void setNotificationAndCountDown(){
         // only generateContact countdown and set notifications if eclipse type is at least partial
         if (eclipseTimeGenerator.type != EclipseTimeGenerator.EclipseType.NONE) {
@@ -366,10 +358,11 @@ public class EclipseCenterFragment extends Fragment {
         switch (eclipseTimeGenerator.type){
             case NONE:
                 boolean simulate = dataManager.getSimulated();
-                if (!simulate)
+                if (!simulate) {
                     simulateView.setVisibility(View.VISIBLE);
-                else
+                } else {
                     simulateEclipse();
+                }
                 break;
             case PARTIAL:
                 generatePartialContact();
@@ -509,6 +502,12 @@ public class EclipseCenterFragment extends Fragment {
      * @param contactDate date generated until first contact from users location
      */
     public void startCountDown(String contactDate){
+        if (getActivity() != null && getActivity() instanceof MainActivity) {
+            if (((MainActivity) getActivity()).isAfterTotality()) {
+                return;
+            }
+        }
+
         Date date;
         DateFormat formatter = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss.S", Locale.getDefault());
         formatter.setTimeZone(TimeZone.getTimeZone("UTC"));
@@ -582,7 +581,6 @@ public class EclipseCenterFragment extends Fragment {
                                 hoursPrimary.getText().toString().concat(hoursSecondary.getText().toString()),
                                 minPrimary.getText().toString().concat(minSecondary.getText().toString()),
                                 secPrimary.getText().toString().concat(secSecondary.getText().toString()));
-
                         countdownView.setContentDescription(countDownDescription);
                     }
                 }
