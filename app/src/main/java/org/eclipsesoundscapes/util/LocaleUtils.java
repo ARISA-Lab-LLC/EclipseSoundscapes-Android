@@ -22,7 +22,7 @@ public class LocaleUtils {
         Locale.setDefault(locale);
 
         final Resources res = context.getResources();
-        final Configuration config = res.getConfiguration();
+        final Configuration config = new Configuration(res.getConfiguration());
         config.setLocale(locale);
         return context.createConfigurationContext(config);
     }
