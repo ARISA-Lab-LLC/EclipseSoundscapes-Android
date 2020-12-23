@@ -3,6 +3,7 @@ package org.eclipsesoundscapes.ui.media;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageButton;
@@ -51,10 +52,10 @@ public class MediaPlayerActivity extends BaseActivity implements SeekBar.OnSeekB
     public static final String EXTRA_LIVE = "is_live";
 
     private int audioId;
-    private boolean liveExperience; // live audio feed during eclipseImageView
+    private boolean liveExperience;
 
     private MediaPlayer mp;
-    private Handler mHandler = new Handler();
+    private Handler handler;
     private MediaHelper utils;
 
     // views
@@ -94,6 +95,8 @@ public class MediaPlayerActivity extends BaseActivity implements SeekBar.OnSeekB
             return;
         }
 
+        handler = new Handler(Looper.getMainLooper());
+
         // extras
         String title = getIntent().getStringExtra(EXTRA_TITLE);
         int description = getIntent().getIntExtra(EXTRA_DESCRIPTION, 0);
@@ -113,7 +116,7 @@ public class MediaPlayerActivity extends BaseActivity implements SeekBar.OnSeekB
         // Media player
         mp = new MediaPlayer();
         utils = new MediaHelper();
-        mHandler.postDelayed(new Runnable() {
+        handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 // allow time for accessibility to read label before playing audio
@@ -187,7 +190,7 @@ public class MediaPlayerActivity extends BaseActivity implements SeekBar.OnSeekB
      * Update timer on seekbar
      */
     public void updateProgressBar() {
-        mHandler.postDelayed(mUpdateTimeTask, 100);
+        handler.postDelayed(mUpdateTimeTask, 100);
     }
 
     /**
@@ -243,7 +246,7 @@ public class MediaPlayerActivity extends BaseActivity implements SeekBar.OnSeekB
             }
 
             // Running this thread after 100 milliseconds
-            mHandler.postDelayed(this, 100);
+            handler.postDelayed(this, 100);
         }
     };
 
@@ -253,7 +256,7 @@ public class MediaPlayerActivity extends BaseActivity implements SeekBar.OnSeekB
     @Override
     public void onStartTrackingTouch(SeekBar seekBar) {
         // remove message Handler from updating progress bar
-        mHandler.removeCallbacks(mUpdateTimeTask);
+        handler.removeCallbacks(mUpdateTimeTask);
     }
 
     /**
@@ -261,7 +264,7 @@ public class MediaPlayerActivity extends BaseActivity implements SeekBar.OnSeekB
      */
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-        mHandler.removeCallbacks(mUpdateTimeTask);
+        handler.removeCallbacks(mUpdateTimeTask);
         int totalDuration = mp.getDuration();
         int currentPosition = utils.progressToTimer(seekBar.getProgress(), totalDuration);
 
