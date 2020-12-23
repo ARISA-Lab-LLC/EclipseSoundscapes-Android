@@ -81,13 +81,14 @@ public class LegalActivity extends BaseActivity {
                 getSupportActionBar().setTitle(title);
                 setTitle(title);
                 setContentView(R.layout.activity_legal_license);
-                showLicense();
+                showWebView(R.id.license_details, "gpl_3.0.html");
                 break;
             case EXTRA_LIBS:
                 title = getString(R.string.open_src_libs);
                 getSupportActionBar().setTitle(title);
                 setTitle(title);
                 setContentView(R.layout.activity_legal_libraries);
+                showWebView(R.id.jsyn_license, "apache_license_2.0.html");
                 break;
             case EXTRA_PRIVACY_POLICY:
                 title = getString(R.string.privacy_policy);
@@ -133,26 +134,6 @@ public class LegalActivity extends BaseActivity {
         overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
     }
 
-    private void showLicense() {
-        final WebView webView = findViewById(R.id.license_details);
-        AssetManager assetManager = getAssets();
-        try {
-            final InputStream input = assetManager.open("gpl_3.0.html");
-            int size = input.available();
-            byte[] buffer = new byte[size];
-            input.read(buffer);
-            input.close();
-
-            final String license = new String(buffer);
-            final String mimeType = "text/html";
-            final String encoding = "UTF-8";
-
-            webView.loadData(license, mimeType, encoding);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     private void showPrivacyPolicy() {
         final WebView webView = findViewById(R.id.webview);
         final ProgressBar progressBar = findViewById(R.id.webview_progress);
@@ -172,6 +153,33 @@ public class LegalActivity extends BaseActivity {
         });
 
         webView.loadUrl("https://arisalab.org/privacy-policy/");
+    }
+
+    private void showWebView(final int webViewId, final String fileName) {
+        final WebView webView = findViewById(webViewId);
+        final String data = readAsset(fileName);
+        if (data != null && !data.isEmpty()) {
+            final String mimeType = "text/html";
+            final String encoding = "UTF-8";
+            webView.loadData(data, mimeType, encoding);
+        }
+    }
+
+    private String readAsset(final String fileName) {
+        AssetManager assetManager = getAssets();
+        try {
+            final InputStream input = assetManager.open(fileName);
+            int size = input.available();
+            byte[] buffer = new byte[size];
+            input.read(buffer);
+            input.close();
+
+            return new String(buffer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return "";
     }
 
     static class CreditsAdapter extends RecyclerView.Adapter<CreditsAdapter.ViewHolder> {
