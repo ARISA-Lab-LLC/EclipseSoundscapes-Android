@@ -288,7 +288,7 @@
 
     <!-- About -->
     <string name="supported_eclipse">Eclipses We Support</string>
-    <string name="link_feedback_form"><![CDATA[ https://docs.google.com/forms/d/e/1FAIpQLSez-hoTy2NkUO5FDud0eOCvjDXCx9jNsdCMrqV_GgMG6tFOiw/viewform]]></string>
+    <string name="link_feedback_form" translatable="false"><![CDATA[http://eclipsesoundscapes.org/ES_MobileApp_Feedback]]></string>
 
     <!-- Walkthrough -->
     <string name="walkthrough">Walkthrough</string>
