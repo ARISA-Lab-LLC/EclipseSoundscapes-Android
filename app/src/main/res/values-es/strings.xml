@@ -119,6 +119,7 @@
     <string name="eclipse_max">Eclipse Total</string>
 
     <!-- media/audio -->
+    <string name="media_player">reproductor multimedia</string>
     <string name="viewing_desc_format">Ahora viendo la descripción de %1$s</string>
     <string name="viewing_image_format">Ahora viendo la imagen de %1$s</string>
 
@@ -290,6 +291,7 @@
     <string name="eclipse_experience">Experiencia de Eclipse Solar Total</string>
 
     <!-- rumble map -->
+    <string name="rumble_map_interaction">Interacción de Rumble Map</string>
     <string name="rumble_map_launch">Presiona para interactuar con Rumble Map</string>
     <string name="rumble_map_how">Cómo Usar el Rumble Map</string>
     <string name="rumble_map_instructions_title">Instrucciones de Rumble Map</string>

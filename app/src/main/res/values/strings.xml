@@ -180,6 +180,7 @@
     <string name="viewing_image_format">Now viewing image for %1$s</string>
 
     <!-- Media player -->
+    <string name="media_player">Media Player</string>
     <string name="audio_descriptions">Audio Descriptions</string>
     <string name="upcoming_audio">More audio descriptions coming soon…</string>
 
@@ -277,6 +278,7 @@
 
     <!-- rumble map interaction -->
     <string name="rumble_map">Rumble Map</string>
+    <string name="rumble_map_interaction">Rumble Map Interaction</string>
     <string name="rumble_map_launch">Press to interact with Rumble Map</string>
     <string name="rumble_map_how">How to Use The Rumble Map</string>
     <string name="rumble_map_instructions_title">Rumble Map Instructions</string>
