@@ -15,16 +15,26 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5"/>
 
-    <ImageView
-        android:id="@+id/walkthrough_img"
+    <LinearLayout
+        android:id="@+id/image_header"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:src="@drawable/soundscapes_rumble_map"
-        android:scaleType="centerCrop"
-        android:adjustViewBounds="true"
         android:importantForAccessibility="no"
+        android:gravity="center|bottom"
+        android:background="@drawable/walkthrough_gradient"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/guideline" />
+        app:layout_constraintBottom_toBottomOf="@+id/guideline" >
+
+        <ImageView
+            android:id="@+id/walkthrough_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?android:attr/actionBarSize"
+            android:src="@drawable/rumble_map_framed"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true" />
+
+    </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"

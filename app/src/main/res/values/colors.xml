@@ -36,4 +36,7 @@
     <color name="ma_text_dark_secondary_54">#8a000000</color>
     <color name="text_color_primary">@color/ma_text_dark_primary_87</color>
     <color name="text_color_secondary">@color/ma_text_dark_secondary_54</color>
+
+    <color name="walkthrough_gradient_top">@android:color/white</color>
+    <color name="walkthrough_gradient_bottom">#dae0e5</color>
 </resources>
