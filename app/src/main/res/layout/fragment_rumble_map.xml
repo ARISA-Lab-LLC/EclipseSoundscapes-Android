@@ -28,7 +28,7 @@
         android:layout_centerInParent="true"
         android:gravity="center"
         android:fontFamily="sans-serif-medium"
-        android:textSize="21sp"
+        android:textSize="@dimen/title_text_size"
         android:alpha="0.7"
         android:importantForAccessibility="no"
         android:focusable="false"

@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
             android:textColor="@android:color/white"
-            android:textSize="18sp"
+            android:textSize="@dimen/default_text_size"
             android:gravity="center_horizontal"
             android:text="@string/outside_eclipse_path"
             android:layout_margin="16dp" />

@@ -53,7 +53,7 @@
                 <include
                     android:id="@+id/eclipse_countdown"
                     layout="@layout/layout_countdown"
-                    android:visibility="gone"/>
+                    android:visibility="visible"/>
 
                 <LinearLayout
                     android:focusable="true"
@@ -71,7 +71,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/eclipse_type"
                         android:textColor="@android:color/white"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/default_text_size"
                         android:maxLines="2"
                         android:layout_weight="1"/>
 
@@ -84,7 +84,7 @@
                         android:layout_marginTop="8dp"
                         android:fontFamily="sans-serif-condensed"
                         android:textColor="@android:color/white"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/default_text_size"
                         android:gravity="end"
                         android:maxLines="2"
                         android:layout_weight="1"/>
@@ -106,7 +106,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/date"
                         android:textColor="@android:color/white"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/default_text_size"
                         android:maxLines="2"
                         android:layout_weight="1"/>
 
@@ -119,7 +119,7 @@
                         android:layout_marginTop="8dp"
                         android:fontFamily="sans-serif-condensed"
                         android:textColor="@android:color/white"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/default_text_size"
                         android:gravity="end"
                         android:maxLines="2"
                         android:layout_weight="1"/>
@@ -141,7 +141,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/location_latitude"
                         android:textColor="@android:color/white"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/default_text_size"
                         android:maxLines="2"
                         android:layout_weight="1"/>
 
@@ -154,7 +154,7 @@
                         android:layout_marginTop="8dp"
                         android:fontFamily="sans-serif-condensed"
                         android:textColor="@android:color/white"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/default_text_size"
                         android:gravity="end"
                         android:maxLines="2"
                         android:layout_weight="1"/>
@@ -176,7 +176,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/location_longitude"
                         android:textColor="@android:color/white"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/default_text_size"
                         android:maxLines="2"
                         android:layout_weight="1" />
 
@@ -189,7 +189,7 @@
                         android:layout_marginTop="8dp"
                         android:fontFamily="sans-serif-condensed"
                         android:textColor="@android:color/white"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/default_text_size"
                         android:gravity="end"
                         android:maxLines="2"
                         android:layout_weight="1" />
@@ -211,7 +211,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/percent_eclipse"
                         android:textColor="@android:color/white"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/default_text_size"
                         android:maxLines="2"
                         android:layout_weight="1"/>
 
@@ -224,7 +224,7 @@
                         android:layout_marginTop="8dp"
                         android:fontFamily="sans-serif-condensed"
                         android:textColor="@android:color/white"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/default_text_size"
                         android:layout_weight="1"
                         android:maxLines="2"
                         android:gravity="end"/>
@@ -248,7 +248,7 @@
                         android:fontFamily="sans-serif-condensed"
                         android:text="@string/percent_eclipse"
                         android:textColor="@android:color/white"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/default_text_size"
                         android:maxLines="2"
                         android:layout_weight="1"/>
 
@@ -261,7 +261,7 @@
                         android:layout_marginTop="8dp"
                         android:fontFamily="sans-serif-condensed"
                         android:textColor="@android:color/white"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/default_text_size"
                         android:layout_weight="1"
                         android:gravity="end"
                         android:maxLines="2" />
@@ -289,7 +289,7 @@
                         android:gravity="center_horizontal"
                         android:text="@string/eclipse_event"
                         android:textColor="@color/text_color_primary"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/default_text_size"
                         android:textStyle="bold"
                         android:importantForAccessibility="no" />
 
@@ -301,7 +301,7 @@
                         android:gravity="center_horizontal"
                         android:text="@string/local_time"
                         android:textColor="@color/text_color_primary"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/default_text_size"
                         android:textStyle="bold"
                         android:importantForAccessibility="no" />
 
@@ -313,7 +313,7 @@
                         android:gravity="center_horizontal"
                         android:text="@string/time_ut"
                         android:textColor="@color/text_color_primary"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/default_text_size"
                         android:textStyle="bold"
                         android:importantForAccessibility="no" />
                 </LinearLayout>
