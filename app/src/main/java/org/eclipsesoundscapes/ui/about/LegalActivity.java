@@ -152,7 +152,8 @@ public class LegalActivity extends BaseActivity {
             }
         });
 
-        webView.loadUrl("https://arisalab.org/privacy-policy/");
+        final String url = getString(R.string.privacy_policy_url);
+        webView.loadUrl(url);
     }
 
     private void showWebView(final int webViewId, final String fileName) {

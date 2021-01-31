@@ -84,6 +84,7 @@
     <string name="past_partners">Colaboradores anteriores</string>
     <string name="our_team">Nuestro equipo</string>
     <string name="feedback">Dar opinión</string>
+    <string name="privacy_policy_url" translatable="false"><![CDATA[https://arisalab.org/politica_de_privacidad_de_la_aplicacion_movil/]]></string>
 
     <string name="libraries_use_detail">A continuación se establecen los avisos de derechos de autor para el software de terceros que puede ser parte de la aplicación móvil Eclipse Soundscapes.
         Agradecemos a la comunidad de código abierto por todas sus contribuciones.</string>

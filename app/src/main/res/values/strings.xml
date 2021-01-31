@@ -289,6 +289,7 @@
     <!-- About -->
     <string name="supported_eclipse">Eclipses We Support</string>
     <string name="link_feedback_form" translatable="false"><![CDATA[http://eclipsesoundscapes.org/ES_MobileApp_Feedback]]></string>
+    <string name="privacy_policy_url" translatable="false"><![CDATA[https://arisalab.org/privacy-policy/]]></string>
 
     <!-- Walkthrough -->
     <string name="walkthrough">Walkthrough</string>
