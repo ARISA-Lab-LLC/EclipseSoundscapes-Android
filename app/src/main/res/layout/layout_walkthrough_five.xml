@@ -33,7 +33,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginTop="48dp"
-            android:src="@drawable/eclipse_soundscapes_logo"
+            android:src="@drawable/ic_logo"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             android:importantForAccessibility="no"

@@ -20,7 +20,7 @@
             android:layout_height="150dp"
             android:layout_margin="16dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/eclipse_soundscapes_logo"
+            android:src="@drawable/ic_logo"
             android:layout_gravity="center_horizontal"
             android:importantForAccessibility="no"/>
 
