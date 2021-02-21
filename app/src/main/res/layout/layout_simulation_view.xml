@@ -43,7 +43,7 @@
             android:padding="16dp"
             android:textColor="@android:color/white"
             android:fontFamily="sans-serif-condensed"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textAllCaps="false"
             android:text="@string/get_closest_location"
             android:maxLines="1"
