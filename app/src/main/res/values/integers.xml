@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <bool name="live_experience_enabled">false</bool>
+    <bool name="lockout_eclipse_center">true</bool>
 </resources>

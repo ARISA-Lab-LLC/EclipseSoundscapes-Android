@@ -93,6 +93,7 @@ public class EclipseCenterFragment extends Fragment {
     @BindView(R.id.progressView) LinearLayout progressView;
     @BindView(R.id.simulation_view) View simulateView;
     @BindView(R.id.duration_totality_layout) LinearLayout totalityDurationLayout;
+    @BindView(R.id.lockout_view) View lockoutView;
 
     @BindView(R.id.eclipse_type) TextView eclipseTypeView;
     @BindView(R.id.date) TextView dateView;
@@ -177,6 +178,11 @@ public class EclipseCenterFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
+        if (getResources().getBoolean(R.bool.lockout_eclipse_center)) {
+            lockoutView.setVisibility(View.VISIBLE);
+            return;
+        }
+
         verifyLocationAccess();
     }
 

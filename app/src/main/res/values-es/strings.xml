@@ -90,6 +90,7 @@
         Agradecemos a la comunidad de código abierto por todas sus contribuciones.</string>
 
     <!-- Eclipse Center -->
+    <string name="eclipse_center_lockout_details">Próximamente se actualizarán los datos del Eclipse.</string>
     <string name="eclipse_countdown_title">Cuenta regresiva hasta el eclipse</string>
     <string name="countdown_format">Cuenta regresiva hasta el eclipse desde su ubicación, %1$s días, %2$s minutos y %4$s segundos</string>
     <string name="event_section_desc">A continuación se indican los eventos en la ubicación más cercana. Los eventos incluyen la hora local y universal.</string>
