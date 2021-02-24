@@ -2,13 +2,15 @@ package org.eclipsesoundscapes.ui.main;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import android.view.MenuItem;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import org.eclipsesoundscapes.EclipseSoundscapesApp;
 import org.eclipsesoundscapes.R;
@@ -59,7 +61,7 @@ public class MainActivity extends BaseActivity {
     private DataManager dataManager;
 
     // track current eclipseImageView view in EclipseFeatures fragment
-    int currentView = 1;
+    int currentView = 0;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {

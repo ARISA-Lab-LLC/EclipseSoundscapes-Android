@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <bool name="live_experience_enabled">false</bool>
+
+    <!-- overlays a screen in the eclipse center notifying upcoming eclipse data -->
     <bool name="lockout_eclipse_center">true</bool>
+
+    <!-- allows user to see all audio and eclipse features content when eclipse data isn't available -->
+    <bool name="show_all_content">true</bool>
 </resources>

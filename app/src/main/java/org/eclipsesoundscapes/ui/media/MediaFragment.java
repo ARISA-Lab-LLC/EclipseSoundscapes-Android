@@ -1,16 +1,17 @@
 package org.eclipsesoundscapes.ui.media;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.appcompat.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.ui.main.MainActivity;
@@ -99,26 +100,31 @@ public class MediaFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
-        if (mediaAdapter != null)
+        if (mediaAdapter != null) {
             mediaAdapter.notifyDataSetChanged();
+        }
 
-        if (getActivity() != null){
-            if (getActivity() instanceof MainActivity){
+        final boolean showAllAudioContent = getResources().getBoolean(R.bool.show_all_content);
+        if (showAllAudioContent) {
+            addFirstContact();
+            addTotality();
+            moreView.setVisibility(View.GONE);
+        } else {
+            if (getActivity() != null && getActivity() instanceof MainActivity) {
 
                 // add first contact & totality media content during/after its occurrence
-                if (!eventList.contains(getString(R.string.first_contact))
-                        && ((MainActivity) getActivity()).isAfterFirstContact()){
+                if (!eventList.contains(getString(R.string.first_contact)) && ((MainActivity) getActivity()).isAfterFirstContact()) {
                     addFirstContact();
                 }
 
-                if (!eventList.contains(getString(R.string.totality))
-                        && ((MainActivity) getActivity()).isAfterTotality()){
+                if (!eventList.contains(getString(R.string.totality)) && ((MainActivity) getActivity()).isAfterTotality()) {
                     addTotality();
                 }
-            }
 
-            if (eventList.contains(getString(R.string.totality)))
-                moreView.setVisibility(View.GONE);
+                if (eventList.contains(getString(R.string.totality))) {
+                    moreView.setVisibility(View.GONE);
+                }
+            }
         }
     }
 
@@ -145,19 +151,28 @@ public class MediaFragment extends Fragment {
     }
 
     private void addFirstContact(){
+        if (eventList.contains(getString(R.string.first_contact))) {
+            return;
+        }
+
         addMedia(0, getString(R.string.first_contact),
                 R.string.audio_first_contact_full, R.drawable.eclipse_first_contact, R.raw.first_contact_full);
         mediaAdapter.notifyItemInserted(0);
     }
 
     private void addTotality(){
-        addMedia(eventList.size(), getString(R.string.totality),
-                R.string.audio_totality_full, R.drawable.eclipse_totality, R.raw.totality_full);
-        addMedia(eventList.size(), getString(R.string.sun_as_star),
-                R.string.audio_sun_as_star_full, R.drawable.sun_as_a_star, R.raw.sun_as_a_star);
+        if (!eventList.contains(getString(R.string.totality))) {
+            addMedia(eventList.size(), getString(R.string.totality),
+                    R.string.audio_totality_full, R.drawable.eclipse_totality, R.raw.totality_full);
+        }
+
+        if (!eventList.contains(getString(R.string.sun_as_star))) {
+            addMedia(eventList.size(), getString(R.string.sun_as_star),
+                    R.string.audio_sun_as_star_full, R.drawable.sun_as_a_star, R.raw.sun_as_a_star);
+        }
 
         final boolean isLiveEnabled = getResources().getBoolean(R.bool.live_experience_enabled);
-        if (isLiveEnabled) {
+        if (isLiveEnabled && !eventList.contains(getString(R.string.eclipse_experience))) {
             addMedia(eventList.size(), getString(R.string.eclipse_experience),
                     R.string.bailys_beads_short, R.drawable.eclipse_bailys_beads, R.raw.realtime_eclipse_shorts_saas);
         }

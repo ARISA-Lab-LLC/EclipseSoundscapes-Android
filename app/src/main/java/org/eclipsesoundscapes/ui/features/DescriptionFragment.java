@@ -1,16 +1,19 @@
 package org.eclipsesoundscapes.ui.features;
 
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.ui.main.MainActivity;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 
 /*
@@ -40,7 +43,7 @@ import org.eclipsesoundscapes.ui.main.MainActivity;
 public class DescriptionFragment extends Fragment {
 
     private TextView eclipseDescription;
-    private SparseArray<String> descriptions;
+    private ArrayList<String> descriptions = new ArrayList<>();
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
@@ -53,33 +56,21 @@ public class DescriptionFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        descriptions = new SparseArray<>();
+
+        final boolean showAllFeatures = getResources().getBoolean(R.bool.show_all_content);
+        if (showAllFeatures) {
+            descriptions = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.totality_features_description)));
+            return;
+        }
+
+        descriptions = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.default_features_description)));
 
         if (getActivity() != null && getActivity() instanceof MainActivity) {
-            if (!((MainActivity) getActivity()).isAfterFirstContact()) {
-                descriptions.put(1, getString(R.string.bailys_beads_description));
-                descriptions.put(2, getString(R.string.bailys_beads_description));
-                descriptions.put(3, getString(R.string.corona_description));
-                descriptions.put(4, getString(R.string.diamond_ring_description));
-                descriptions.put(5, getString(R.string.helmet_streamers_description));
-                descriptions.put(6, getString(R.string.helmet_streamers_description));
-                descriptions.put(7, getString(R.string.prominence_description));
-                descriptions.put(8, getString(R.string.prominence_description));
-                return;
+            if (((MainActivity) getActivity()).isAfterTotality()) {
+                descriptions = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.totality_features_description)));
+            } else {
+                descriptions = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.first_contact_features_description)));
             }
-
-            descriptions.put(1, getString(R.string.first_contact_description));
-            descriptions.put(2, getString(R.string.bailys_beads_description));
-            descriptions.put(3, getString(R.string.bailys_beads_description));
-            descriptions.put(4, getString(R.string.corona_description));
-            descriptions.put(5, getString(R.string.diamond_ring_description));
-            descriptions.put(6, getString(R.string.helmet_streamers_description));
-            descriptions.put(7, getString(R.string.helmet_streamers_description));
-            descriptions.put(8, getString(R.string.prominence_description));
-            descriptions.put(9, getString(R.string.prominence_description));
-
-            if (((MainActivity) getActivity()).isAfterTotality())
-                descriptions.put(10, getString(R.string.totality_description));
         }
     }
 
