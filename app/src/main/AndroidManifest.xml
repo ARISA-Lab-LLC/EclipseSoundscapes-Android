@@ -12,7 +12,11 @@
 
     <uses-feature android:name="android.hardware.location.gps" />
 
+    <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
+        android:value="true" />
+
     <application
+        android:name=".EclipseSoundscapesApp"
         android:allowBackup="true"
         android:icon="@mipmap/soundscape_logo"
         android:label="@string/app_name"
@@ -20,68 +24,73 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="org.eclipsesoundscapes.activity.SplashActivity"
+            android:name=".ui.splash.SplashActivity"
             android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="org.eclipsesoundscapes.activity.MainActivity"
+            android:name=".ui.main.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="org.eclipsesoundscapes.activity.OurPartnersActivity"
-            android:label="Our Partners"
+            android:name=".ui.about.OurPartnersActivity"
+            android:label="@string/our_partners"
             android:screenOrientation="portrait" />
         <activity
-            android:name="org.eclipsesoundscapes.activity.OurTeamActivity"
-            android:label="Our Team"
+            android:name=".ui.about.OurTeamActivity"
+            android:label="@string/our_team"
             android:screenOrientation="portrait" />
         <activity
-            android:name="org.eclipsesoundscapes.activity.SettingsActivity"
-            android:label="@string/title_activity_settings"
+            android:name=".ui.about.SettingsActivity"
+            android:label="@string/settings"
             android:screenOrientation="portrait" />
         <activity
-            android:name="org.eclipsesoundscapes.activity.LegalActivity"
+            android:name=".ui.about.LegalActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="org.eclipsesoundscapes.activity.WalkthroughActivity"
-            android:label="@string/walkthrough_label"
+            android:name=".ui.walkthrough.WalkthroughActivity"
+            android:label="@string/walkthrough_title"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="org.eclipsesoundscapes.activity.FutureEclipsesActivity"
-            android:label="@string/future_eclipse_label"
+            android:name=".ui.about.FutureEclipsesActivity"
+            android:label="@string/supported_eclipse"
             android:screenOrientation="portrait" />
         <activity
-            android:name="org.eclipsesoundscapes.activity.MediaPlayerActivity"
-            android:label="Media Player"
+            android:name=".ui.media.MediaPlayerActivity"
+            android:label="@string/media_player"
+            android:screenOrientation="portrait"
+            android:theme="@style/TranslucentTheme" />
+        <activity
+            android:name=".ui.rumblemap.RumbleMapInteractionActivity"
+            android:label="@string/rumble_map_interaction"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.rumblemap.RumbleMapInstructionsActivity"
+            android:label="@string/rumble_map_instructions_title"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.about.LanguageSelectionActivity"
+            android:screenOrientation="portrait"/>
 
-        <receiver android:name="org.eclipsesoundscapes.service.WakefulReceiver" />
+        <service
+            android:name=".service.GPSTracker"
+            android:enabled="true"
+            android:exported="true" />
+
         <receiver
-            android:name="org.eclipsesoundscapes.service.BootReceiver"
-            android:enabled="false"
-            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            android:name=".service.NotificationReceiver"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
-        <activity android:name="org.eclipsesoundscapes.activity.RumbleMapInteractionActivity"
-            android:label="Rumble Map Interaction"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
-
-        <!--
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="" /> -->
     </application>
 
 </manifest>

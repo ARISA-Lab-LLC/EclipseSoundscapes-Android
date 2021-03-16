@@ -1,16 +1,25 @@
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <Preference
         android:key="license_display"
         android:maxLines="1"
-        android:title="@string/pref_title_license" />
+        android:title="@string/license"
+        app:iconSpaceReserved="false"/>
 
     <Preference
         android:key="libraries_display"
-        android:title="@string/pref_title_libraries" />
+        android:title="@string/open_src_libs"
+        app:iconSpaceReserved="false"/>
 
     <Preference
         android:key="credits_display"
-        android:title="@string/pref_title_credit" />
+        android:title="@string/photo_credits"
+        app:iconSpaceReserved="false"/>
+
+    <Preference
+        android:key="privacy_policy"
+        android:title="@string/privacy_policy"
+        app:iconSpaceReserved="false"/>
 
 </PreferenceScreen>

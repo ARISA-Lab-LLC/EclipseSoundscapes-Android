@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="50dp"
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:orientation="horizontal"
-    android:weightSum="3"
-    android:paddingTop="8dp"
     android:focusable="true"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -13,29 +11,51 @@
         android:id="@+id/eclipse_event"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_marginStart="16dp"
         android:gravity="center_horizontal"
         android:fontFamily="sans-serif-condensed"
-        android:textSize="18sp"
-        android:textColor="@android:color/white" />
+        android:textSize="@dimen/default_text_size"
+        android:textColor="@android:color/white"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/eclipse_time_local"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <TextView
         android:id="@+id/eclipse_time_local"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:gravity="center_horizontal"
         android:fontFamily="sans-serif-condensed"
-        android:textSize="18sp"
-        android:textColor="@android:color/white"/>
+        android:textSize="@dimen/default_text_size"
+        android:textColor="@android:color/white"
+        android:maxLines="1"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeStepGranularity="2sp"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/eclipse_event"
+        app:layout_constraintEnd_toStartOf="@+id/eclipse_time_ut"/>
 
     <TextView
         android:id="@+id/eclipse_time_ut"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_marginEnd="16dp"
         android:gravity="center_horizontal"
         android:fontFamily="sans-serif-condensed"
-        android:textSize="18sp"
-        android:textColor="@android:color/white" />
-</LinearLayout>
+        android:textSize="@dimen/default_text_size"
+        android:textColor="@android:color/white"
+        android:maxLines="1"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMinTextSize="12sp"
+        app:autoSizeStepGranularity="2sp"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/eclipse_time_local"
+        app:layout_constraintEnd_toEndOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

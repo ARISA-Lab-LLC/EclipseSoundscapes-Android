@@ -5,22 +5,25 @@
     <item
         android:id="@+id/navigation_eclipse_center"
         android:icon="@drawable/ic_nav_eclipse_center"
-        android:title="@string/title_eclipse_center" />
-
+        android:title="@string/eclipse_center"
+        android:contentDescription="@string/eclipse_center" />
 
     <item
         android:id="@+id/navigation_eclipse_features"
         android:icon="@drawable/ic_nav_elcipse_features"
-        android:title="@string/title_eclipse_features" />
+        android:title="@string/eclipse_features"
+        android:contentDescription="@string/eclipse_features" />
 
     <item
         android:id="@+id/navigation_media"
         android:icon="@drawable/ic_media_center"
-        android:title="@string/title_media" />
+        android:title="@string/media"
+        android:contentDescription="@string/media"/>
 
     <item
         android:id="@+id/navigation_about"
         android:icon="@drawable/ic_more"
-        android:title="@string/title_about" />
+        android:title="@string/about"
+        android:contentDescription="@string/about"/>
 
 </menu>

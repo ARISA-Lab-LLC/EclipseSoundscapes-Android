@@ -5,31 +5,15 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-    <android.support.v7.widget.Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:minHeight="?attr/actionBarSize"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:titleTextColor="@android:color/white"
-        android:background="?attr/colorAccent">
-        <TextView
-            android:id="@+id/toolbar_title"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:textSize="18sp"
-            android:fontFamily="sans-serif-condensed"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="@string/title_media"
-            android:contentDescription="@string/title_media"/>
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="@android:color/white"/>
 
-    </android.support.v7.widget.Toolbar>
-
-
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/ScrollView01"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -42,7 +26,7 @@
             android:layout_height="match_parent"
             android:background="@android:color/white">
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/media_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -56,9 +40,9 @@
                 android:fontFamily="sans-serif-condensed"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
-                android:textSize="18sp"
+                android:textSize="@dimen/default_text_size"
                 android:gravity="center"
-                android:text="@string/more_audio_coming"/>
+                android:text="@string/upcoming_audio"/>
         </LinearLayout>
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 </LinearLayout>

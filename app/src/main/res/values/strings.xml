@@ -1,63 +1,110 @@
 <resources>
     <string name="app_name">Eclipse Soundscapes</string>
-    <string name="title_eclipse_features">Eclipse Features</string>
-    <string name="title_eclipse_center">Eclipse Center</string>
-    <string name="title_media">Media</string>
-    <string name="title_about">About</string>
+    <string name="app_name_version">%1$s v%2$s</string>
+    <string name="eclipse_features">Features</string>
+    <string name="eclipse_center">Center</string>
 
-    <!-- Settings -->
-    <string name="title_activity_settings">Settings</string>
-    <string name="pref_title_notifications">Notifications</string>
-    <string name="pref_title_location">Location</string>
-    <string name="pref_title_license">License</string>
-    <string name="pref_title_libraries">Open Source Libraries</string>
-    <string name="pref_title_credit">Photo Credits</string>
-    <string name="settings_legal">Legal</string>
-    <string name="legal_soundscape_title">Eclipse Soundscape</string>
-    <string name="legal_libraries_use">Libraries We Use</string>
-    <string name="legal_library_audiokit">AUDIOKIT</string>
+    <!-- General -->
+    <string name="media">Media</string>
+    <string name="about">About</string>
 
-    <string name="about_us_title">About Us</string>
-    <string name="about_us_text">From the Smithsonian Astrophysics Observatory and NASA\'s Heliophysics Education Consortium, The Eclipse Soundscapes Project uses sound to create a multisensory experience of astronomical events such as eclipses. With this app, and an additional citizen science project to record changing environmental sounds during eclipses, Eclipse Soundscapes aims to engage all learners with astrophysics, including people who are blind or visually impaired. For more information, visit eclipsesoundscapes.org.</string>
-    <string name="more_info_title">More Information</string>
+    <string name="north">North</string>
+    <string name="south">South</string>
+    <string name="east">East</string>
+    <string name="west">West</string>
 
-    <!-- Eclipse Center -->
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="type">Type</string>
+    <string name="features">Features</string>
+
+    <string name="settings">Settings</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="description">Description</string>
+    <string name="instructions">Instructions</string>
+    <string name="welcome">Welcome</string>
+    <string name="language">Language</string>
+
+    <string name="continue_text">Continue</string>
+    <string name="skip">Skip</string>
+    <string name="close">Close</string>
+    <string name="play">Play</string>
+    <string name="pause">Pause</string>
+    <string name="back">Back</string>
+    <string name="cancel">Cancel</string>
+
     <string name="hours">Hours</string>
     <string name="days">Days</string>
-    <string name="hrs">Hours</string>
-    <string name="min">Minutes</string>
-    <string name="sec">Seconds</string>
-    <string name="countdown_title">Countdown Until Eclipse</string>
-    <string name="countdown_prefix">Countdown until eclipse from your location</string>
-    <string name="event_prefix">Event from your location</string>
-    <string name="local_time_prefix">local time</string>
-    <string name="ut_time_prefix">universal time</string>
-    <string name="event_layout_description">Events at your location are below. Events include your local time and universal time.</string>
-    <string name="totality_duration">Duration of Totality: </string>
+    <string name="minutes">Minutes</string>
+    <string name="seconds">Seconds</string>
+    <string name="min_abbr">Min</string>
+    <string name="sec_abbr">Sec</string>
 
-    <string name="eclipse_center_permission">You don\'t want to miss this amazing astronomical event! We\'ll need your location to continue. Press to continue.</string>
-    <string name="settings_permission_off">Location settings is turned off. Go to More > Settings > Enable Location or tap to go.</string>
-    <string name="noPermissionRationale">Location services has been denied. This features requires your location permission to display information about the eclipse. Click this to enable, or go to Settings, Apps, Eclipse Soundscapes, Permissions </string>
-    <string name="app_settings_permission">Please turn on location permission in the app settings by either clicking here or go to About, Settings and enable location.</string>
+    <string name="show_next">Show next</string>
+    <string name="show_prev">show previous</string>
+
+    <!-- permissions -->
+    <string name="location_permission">Location permission</string>
+    <string name="error_finding_location">Unable to determine your current location</string>
+    <string name="permission_denied">Permission denied</string>
+    <string name="location_disabled">Location disabled</string>
+    <string name="location_disabled_message">To continue, enable location services from your device settings.</string>
+
+    <string name="device_settings_permission">To continue, please allow access to your location from your device settings.</string>
+    <string name="app_settings_permission">To continue, please allow access to your location from the application settings.</string>
+
+    <!-- Notifications -->
+    <string name="notification_channel_desc">Display notifications about an upcoming eclipse.</string>
+    <string name="first_contact_reminder">The Solar Eclipse is going to begin soon.</string>
+    <string name="first_contact_begun">The Solar Eclipse has begun!</string>
+    <string name="totality_reminder">The Total Solar Eclipse is going to begin soon.</string>
+    <string name="totality_begun">The Total Solar Eclipse has begun!</string>
+    <string name="tap_listen">Tap to listen now.</string>
+
+    <!-- Settings -->
+    <string name="license">License</string>
+    <string name="enable_notifications">Enable Notifications</string>
+    <string name="access_location">Access Location</string>
+    <string name="open_src_libs">Open Source Libraries</string>
+    <string name="photo_credits">Photo Credits</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="legal">Legal</string>
+    <string name="libs_in_use">Libraries We Use</string>
+    <string name="jsyn_lib">JSyn</string>
+
+    <string name="about_us">About Us</string>
+    <string name="about_us_details">The Eclipse Soundscapes mobile application is a product of the Eclipse Soundscapes Project, which is an enterprise ARISA Lab, LLC.
+        The Eclipse Soundscapes Project aims to engage ALL learners with astrophysics, with an intentional focus on inclusion and accessibility. For more information, visit EclipseSoundscapes.org.
+        The development of the Eclipse Soundscapes mobile application is funded by NASA Space Science Education Consortium.</string>
+
+    <!-- Eclipse Center -->
+    <string name="eclipse_center_lockout_details">Updated Eclipse data coming soon.</string>
+    <string name="eclipse_countdown_title">Countdown Until Eclipse</string>
+    <string name="countdown_format">Countdown until eclipse from your location, %1$s days, %2$s hours, %3$s minutes and %4$s seconds</string>
+    <string name="event_section_desc">Events at closest location are below. Events include your local time and universal time.</string>
+    <string name="event_desc_format">Event from closest location, %1$s, local time, %2$s, universal time, %3$s</string>
+    <string name="eclipse_center_permission">You don\'t want to miss this amazing astronomical event! We\'ll need your location to access this feature.\nPress anywhere on the screen to continue.</string>
+
     <string name="location_search">Finding your location…</string>
-    <string name="location_search_stop">Tap to stop</string>
 
-    <string name="outside_path_of_eclipse">Unfortunately the Eclipse is not visible from your location</string>
-    <string name="get_closest_location">Get closest location from me</string>
+    <string name="outside_eclipse_path">Unfortunately the Eclipse is not visible from your location</string>
+    <string name="get_closest_location">Get closest location to Eclipse</string>
 
-    <string name="my_latitude">Your latitude:</string>
-    <string name="my_longitude">Your longitude:</string>
-    <string name="percent_eclipse">% Eclipse:</string>
-    <string name="eclipse_date">Date:</string>
-    <string name="eclipse_type">Eclipse type:</string>
+    <string name="eclipse_center_title_format">%1$s:</string>
+    <string name="eclipse_type">Eclipse Type</string>
+    <string name="location_latitude">Location\'s Latitude</string>
+    <string name="location_longitude">Location\'s Longitude</string>
+    <string name="lat_lng_format">%1$.3f&#xb0; %2$s</string>
+    <string name="percent_eclipse">% Eclipse</string>
+    <string name="totality_duration">Duration of Totality</string>
     <string name="eclipse_event">Event</string>
-    <string name="eclipse_local_time">Local Time</string>
-    <string name="eclipse_time_ut">Time (UT)</string>
+    <string name="local_time">Local Time</string>
+    <string name="universal_time">Universal Time</string>
+    <string name="time_ut">Time (UT)</string>
 
     <string name="eclipse_type_full">Total Solar Eclipse</string>
     <string name="eclipse_type_partial">Partial Solar Eclipse</string>
     <string name="eclipse_type_none">No Solar Eclipse</string>
-    <string name="eclipse_none_description">The solar eclipse is not visible from your location</string>
 
     <string name="eclipse_start_partial">Start of partial eclipse</string>
     <string name="eclipse_start_full">Start of total eclipse</string>
@@ -66,95 +113,215 @@
     <string name="eclipse_max">Maximum eclipse</string>
 
     <!-- Eclipse Features -->
-    <string name="first_contact_description">This is the first moment that the moon, slowly moving from left to right, appears to touch the sun. The intensity of the sun\'s light makes it unsafe to look at without special eye protection until the totality, the few minutes during which the moon completely eclipses the sun. The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk. For the next 90 minutes, the moon\'s black disk will creep across the sun, progressively blocking more of sun\'s light and heat until the totality.\n\nYou can use this time to explore rumble map images and audio descriptions of phenomena unique to a total eclipse. In the moments before, during and after totality, this app will provide a play-by-play of the action, providing images and descriptions of this rare and fascinating stellar event.\n\nAdditional scientific info:\nThe outer atmosphere of the Sun, called the corona, is usually not visible from the surface of the Earth. To study the corona, scientists send satellites into space to make observations of the corona in wavelengths of light that the human eye cannot see, such as this image of the Sun in X-rays taken by the X-ray Telescope on the Hinode spacecraft. This X-ray image shows the view of the Sun being eclipsed by the moon a seen from space. The total solar eclipse on August 21, 2017 provides the rare opportunity to see the corona from the ground in visible light.</string>
-    <string name="bailys_beads_description">On the right side of the moon, orbs of glowing sunlight shimmer off the edge of the moon\'s black disk. Called Baily\'s Beads, these final areas of the sun\'s light appear as glimmering pearls on a wire, made intensely bright by the absence of light surrounding them.\n\nExplanation of what you might feel as you interact: \nOn the rumble map, explore the difference between the moon, the sun\'s corona and Baily\'s beads which are intense and irregular.\n\nAdditional scientific info: \nEven this small section of the Sun\'s light cannot be viewed without special eye protection. Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes.\nBaily\'s beads are caused because the moon\'s surface is not a smooth, perfect sphere. Rays of light peer through the ravines and valleys between mountains on the moon causing this spectacular feature.</string>
-    <string name="corona_description">During the totality, the moon completely covers the sun\'s glowing orb, and the sun\'s outer atmosphere is revealed. As if the moon were the center of a celestial sunflower, the corona appears as soft white petals, massive flumes of faint light that taper out across the sky. Closer to the surface of the moon\'s flat ebony circle, the corona is a swirling chaos of loops and flares. Intense fiery lines of light appear to ignite the moon’s black edge.\n\nHow to interact with the rumble map:\nOn the rumble map, explore the difference between the moon and the sun’s corona. You will hear/feel variations as your fingers pass over different features of the corona. \n\nAdditional scientific info:\nThe corona is the thin outer atmosphere of the Sun.  With temperatures at over 1 million degrees Fahrenheit, it radiates light in wavelengths that are too short for the human eye to see (like X-rays) and that are absorbed by the Earth\'s atmosphere.  However, the corona reflects some of the white light from the Sun\'s photosphere below it.  This faint reflection is only seen when the much brighter photosphere is blocked, like during a total eclipse.</string>
-    <string name="diamond_ring_description">On the left side of the black moon, a sliver of sunlight blasts into view with white-hot intensity. As the area of re-emerging sunlight grows, it resembles a diamond, beaming out its brilliant light from its setting on the circular ring of the moon\'s edge.\n\nAdditional scientific info:\nEven this small section of the Sun\'s light cannot be viewed without special eye protection. Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes.\nAs the moon barely moves away from the solar surface, the powerful light of the Sun peers around the side of the moon.  This light is so intense that even this small fraction of it dominates the sky.</string>
-    <string name="helmet_streamers_description">Projections of light from the sun\'s outer atmosphere called helmet streamers extend in all directions from behind the moon. In contrast to the black, featureless moon, the pale, wispy streamers appear as delicate as lace. The largest streamers have a tapered shape that resemble flower petals. They extend from opposite sides of the sun, with smaller rays of light between them.\n\nExplanation of what you might feel as you interact:\nAs you trace your finger along a helmet streamer, you can feel the smooth arches come to long sharp points as they extend from the base of the Sun outward.\n\nAdditional scientific info:\nHelmet streamers get their shape from two different processes. The arch shape of streamers come from magnetic fields from concentrations of magnetic field on the surface of the Sun extending out into the corona and then arching back down to the surface to connect to other regions of magnetic field of opposite polarity.  The long, pointed tops of helmet streamers come from streams of gas flowing out from the corona into interplanetary space forming the solar wind.</string>
-    <string name="prominence_description">Fiery loops of hot pink light appear to leap off the moon\'s black surface.  With the sheer white corona as their backdrop, these pink prominences seem to dance above the moon like lines of liquid neon.\n\nExplanation of what you might feel as you interact:\nYou will notice a sharp contrast when you interact with a prominence due to its intense brightness relative to the background.\n\nAdditional scientific info:\nProminences are magnetic fields that are filled with very dense material making them much brighter than the surrounding background. The magnetic fields of prominences can be very complicated giving them complex and dynamic shapes.</string>
-    <string name="totality_description">This is the full eclipse, when the moon\'s black disk completely covers the sun. Now, in the absence of the sun\'s full light, its massive outer corona is revealed. Uniquely visible during a full eclipse, grand flourishes of light called helmet streamers extend in all directions behind the moon’s black disk. At the edge of the moon, the helmet streamers are intensely bright, fading to wisps of ghostly white as they stretch across space, far from the moon, like flower petals.\n\nExplanation of what you might feel as you interact:\nOn the rumble map, explore the difference between the moon and the sun\'s corona.\n\nAdditional scientific info:\nYou may notice changes in temperature and natural sounds, such a birds and wind during the total eclipse.\nDuring the total solar eclipse, and only during totality, you can view the corona of the Sun without eye protection. The Sun\'s outer atmosphere, the corona, is in full display and viewable from the ground. The highly structured nature of the corona is clearly evident. This structure is caused by the Sun\'s intense and complicated magnetic fields interacting with the material that makes up the corona. This material is called a plasma, which is like a gas, but is susceptible to magnetic fields. The magnetic fields can then shape the plasma in the corona into the complicated patterns that are viewable during the eclipse.</string>
-    <string name="sun_as_star_description">Framed by a larger view of space, the solar wind draws the helmet streamers far out into space as other stars come into view. Many of these stars also have planets orbiting them. Those planets can eclipse their parent star just as the moon eclipsed our Sun. Scientists can detect planets eclipsing their stars and determine both, how far the planet is from its star and the planet’s mass. From these clues and other observations, scientists are attempting to discover if there is life on these other planets that may be experiencing their own eclipse.</string>
+    <string name="first_contact_description">This is the first moment that the moon, slowly moving from left to right, appears to touch the sun.
+        The intensity of the sun\'s light makes it unsafe to look at without special eye protection until the totality, the few minutes during which the moon completely eclipses the sun.
+        The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk.
+        For the next several minutes, the moon\'s black disk will creep across the sun, progressively blocking more of sun\'s light and heat until the totality.
+        \n\nYou can use this time to explore Rumble Map images and audio descriptions of phenomena unique to a total eclipse.
+        In the moments before, during and after totality, this app will provide a play-by-play of the action, providing images and descriptions of this rare and fascinating stellar event.
+        \n\nAdditional scientific info:\nThe outer atmosphere of the Sun, called the corona, is usually not visible from the surface of the Earth.
+        To study the corona, scientists send satellites into space to make observations of the corona in wavelengths of light that the human eye cannot see, such as this image of the Sun in X-rays taken by the X-ray Telescope on the Hinode spacecraft.
+        This X-ray image shows the view of the Sun being eclipsed by the moon a seen from space. A total solar eclipse provides a rare opportunity to see the corona from Earth in visible light.</string>
+
+    <string name="bailys_beads_description">On the right side of the moon, orbs of glowing sunlight shimmer off the edge of the moon\'s black disk.
+        Called Baily\'s Beads, these final areas of the sun\'s light appear as glimmering pearls on a wire, made intensely bright by the absence of light surrounding them.
+        \n\nExplanation of what you might feel as you interact: \nOn the Rumble Map, explore the features between the moon, the sun\'s corona and Baily\'s beads which are intense and irregular.
+        \n\nAdditional scientific info: \nEven this small section of the Sun\'s light cannot be viewed without special eye protection.
+        Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes.
+        \nBaily\'s beads are caused because the moon\'s surface is not a smooth, perfect sphere.
+        Rays of light peer through the ravines and valleys between mountains on the moon causing this spectacular feature.</string>
+
+    <string name="corona_description">During the totality, the moon completely covers the sun\'s glowing orb, and the sun\'s outer atmosphere is revealed.
+        As if the moon were the center of a celestial sunflower, the corona appears as soft white petals, massive flumes of faint light that taper out across the sky.
+        Closer to the surface of the moon\'s flat ebony circle, the corona is a swirling chaos of loops and flares. Intense fiery lines of light appear to ignite the moon\’s black edge.
+        \n\nHow to interact with the Rumble Map:\nOn the Rumble Map, explore the features between the moon and the sun\’s corona.
+        You will hear/feel variations as your fingers pass over different features of the corona.
+        \n\nAdditional scientific info:\nThe corona is the thin outer atmosphere of the Sun.
+        With temperatures at over 1 million degrees Fahrenheit, it radiates light in wavelengths that are too short for the human eye to see (like X-rays) and that are absorbed by the Earth\'s atmosphere.
+        However, the corona reflects some of the white light from the Sun\'s photosphere below it. This faint reflection is only seen when the much brighter photosphere is blocked, like during a total eclipse.</string>
+
+    <string name="diamond_ring_description">On the left side of the black moon, a sliver of sunlight blasts into view with white-hot intensity.
+        As the area of re-emerging sunlight grows, it resembles a diamond, beaming out its brilliant light from its setting on the circular ring of the moon\'s edge.
+        \n\nAdditional scientific info:\nEven this small section of the Sun\'s light cannot be viewed without special eye protection.
+        Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes.
+        \nAs the moon barely moves away from the solar surface, the powerful light of the Sun peers around the side of the moon.
+        The Sun\'s light is so intense that even this small fraction of it dominates the sky.</string>
+
+    <string name="helmet_streamers_description">Projections of light from the sun\'s outer atmosphere called helmet streamers extend in all directions from behind the moon.
+        In contrast to the black, featureless moon, the pale, wispy streamers appear as delicate as lace. The largest streamers have a tapered shape that resemble flower petals.
+        They extend from opposite sides of the sun, with smaller rays of light between them.
+        \n\nExplanation of what you might feel as you interact:\nAs you trace your finger along a helmet streamer, you can feel the smooth arches come to long sharp points as they extend from the base of the Sun outward.
+        \n\nAdditional scientific info:\nHelmet streamers get their shape from two different processes.
+        A streamer\'s arch shape is the result of magnetic fields from the Sun reaching out into the corona and then arching back down to the surface of the sun to connect to regions of opposite magnetic polarity.
+        The long, pointed tops of helmet streamers come from streams of gas flowing out from the corona into interplanetary space forming the solar wind.</string>
+
+    <string name="prominence_description">Fiery loops of hot pink light appear to leap off the moon\'s black surface.
+        With the sheer white corona as their backdrop, these pink prominences seem to dance above the moon like lines of liquid neon.
+        \n\nExplanation of what you might feel as you interact:\nYou will notice a sharp contrast when you interact with a prominence due to its intense brightness relative to both the moon and the sun’s corona.
+        \n\nAdditional scientific info:\nProminences are magnetic fields that are filled with very dense material making them much brighter than the surrounding background.
+        The magnetic fields of prominences can be very complicated giving them complex and dynamic shapes.</string>
+
+    <string name="totality_description">This is the full eclipse, when the moon\'s black disk completely covers the sun.
+        Now, in the absence of the sun\'s full light, its massive outer corona is revealed. Uniquely visible during a full eclipse, grand flourishes of light called helmet streamers extend in all directions behind the moon\’s black disk.
+        At the edge of the moon, the helmet streamers are intensely bright, fading to wisps of ghostly white as they stretch across space, far from the moon, like flower petals.
+        \n\nExplanation of what you might feel as you interact:\nOn the Rumble Map, explore the difference between the moon and the sun\'s corona.
+        \n\nAdditional scientific info:\nYou may notice changes in temperature and natural sounds, such a birds and wind during the total eclipse.
+        \nDuring the total solar eclipse, and only during totality, you can view the corona of the Sun without eye protection.
+        The Sun\'s outer atmosphere, the corona, is in full display and viewable from the ground. The highly structured nature of the corona is clearly evident.
+        This structure is caused by the Sun\'s intense and complicated magnetic fields interacting with the material that makes up the corona.
+        This material is called a plasma, which is like a gas, but is susceptible to magnetic fields.
+        The magnetic fields can then shape the plasma in the corona into the complicated patterns that are viewable during the eclipse.</string>
+
+    <string name="sun_as_star_description">Framed by a larger view of space, the solar wind draws the helmet streamers far out into space as other stars come into view.
+        Many of these stars also have planets orbiting them. Those planets can eclipse their parent star just as the moon eclipsed our Sun.
+        Scientists can detect planets eclipsing their stars and determine both how far the planet is from its star and the planet’s mass.
+        From these clues and other observations, scientists are attempting to discover if there is life on these other planets that may be experiencing their own eclipse.</string>
+
+    <string name="viewing_desc_format">Now viewing description for %1$s</string>
+    <string name="viewing_image_format">Now viewing image for %1$s</string>
 
     <!-- Media player -->
-    <string name="more_audio_coming">More audio descriptions coming soon…</string>
-    <string name="bailys_beads_short">For the next six minutes the Rumble map will be disabled so that you can hear about in real time the events surrounding totality.\n\nOn the right side of the moon, orbs of glowing sunlight shimmer off the edge of the moon’s black disk. Called Baily\'s Beads, these final areas of the sun\'s light appear as glimmering pearls on a wire, made intensely bright by the absence of light surrounding them.</string>
-    <string name="first_contact_short">The eclipse has begun and this is the first moment that the moon appears to touch the Sun. The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk.\n\nFor the approximately 90 minutes you will have the opportunity to interact with the Rumble map and explore features of the Sun that are revealed during an eclipse. Then, during six minutes leading up to, during, and just after totality, the Rumble map will be disabled so that you can hear about the events surrounding totality in real time.</string>
-    <string name="diamond_ring_short">On the left side of the black moon, a sliver of sunlight blasts into view with white-hot intensity. As the area of re-emerging sunlight grows, it resembles a diamond ring, beaming out its brilliant light.</string>
-    <string name="totality_short">This is the full eclipse - for just approximately two minutes, the moon\'s black disk completely covers the sun, revealing the sun\'s massive outer corona. Grand flourishes of light extend from the moon in all directions like flower petals. Intensely bright at the moon\'s edge, these helmet streamers fade to wisps of ghostly white as they stretch across space.</string>
+    <string name="media_player">Media Player</string>
+    <string name="audio_descriptions">Audio Descriptions</string>
+    <string name="upcoming_audio">More audio descriptions coming soon…</string>
 
-    <string name="first_contact_title">First Contact</string>
-    <string name="bailys_beads_title">Baily\'s Beads</string>
-    <string name="bailys_beads_closeup_title">Baily\'s Beads Closeup</string>
-    <string name="corona_title">Corona</string>
-    <string name="diamond_ring_title">Diamond Ring</string>
-    <string name="helmet_streamers_title">Helmet Streamers</string>
-    <string name="helmet_streamers_closeup_title">Helmet Streamers Closeup</string>
-    <string name="prominence_title">Prominence</string>
-    <string name="prominence_closeup_title">Prominence Closeup</string>
-    <string name="totality_title">Totality</string>
-    <string name="sun_as_star_title">Sun as a Star</string>
+    <string name="audio_corona_full">During the totality, the moon completely covers the sun\'s glowing orb, and the sun\’s outer atmosphere is revealed.
+        As if the moon were the center of a celestial sunflower, the corona appears as soft white petals, massive flumes of faint light that taper out across the sky.
+        Closer to the surface of the moon\’s flat ebony circle, the corona is a swirling chaos of loops and flares. Intense fiery lines of light appear to ignite the moon\’s black edge.
+        \n\nOn the Rumble Map, explore the features between the moon and the sun\’s corona.You will hear and feel variations as your fingers pass over different features of the corona.
+        \n\nThe corona is the thin outer atmosphere of the Sun. With temperatures at over 1 million degrees Fahrenheit, it radiates light in wavelengths that are too short for the human eye to see (like X-rays) and that are absorbed by the Earth\’s atmosphere.
+        However, the corona reflects some of the white light from the Sun\’s photosphere below it. This faint reflection is only seen when the much brighter photosphere is blocked, like during a total eclipse.</string>
 
+    <string name="audio_helmet_streamers_full">Projections of light from the sun\'s outer atmosphere called helmet streamers extend in all directions from behind the moon.
+        In contrast to the black, featureless moon, the pale, wispy streamers appear as delicate as lace. The largest streamers have a tapered shape that resemble flower petals. 
+        They extend from opposite sides of the sun, with smaller rays of light between them.
+        \n\nAs you trace your finger along a helmet streamer, you can feel the smooth arches come to long sharp points as they extend from the base of the Sun outward.
+        \n\nHelmet streamers get their shape from two different processes. A streamer\'s arch shape is the result of magnetic fields from the Sun reaching out into the corona and then arching back down to the surface of the sun to connect to regions of opposite magnetic polarity.  
+        The long, pointed tops of helmet streamers come from streams of gas flowing out from the corona into interplanetary space forming the solar wind.</string>
+    
+    <string name="audio_prominence_full">Fiery loops of hot pink light appear to leap off the moon\’s black surface. With the sheer white corona as their backdrop, these pink prominences seem to dance above the moon like lines of liquid neon.
+        \n\nYou will notice a sharp contrast when you interact with a prominence due to its intense brightness relative to both the moon and the sun\’s corona.
+        \n\nProminences are magnetic fields that are filled with very dense material making them much brighter than the surrounding background.
+        The magnetic fields of prominences can be very complicated giving them complex and dynamic shapes.</string>
 
-    <string name="rumble_map_launch">Press to interact with Rumble Map</string>
+    <string name="audio_bailys_beads_full">On the right side of the moon, orbs of glowing sunlight shimmer off the edge of the moon\’s black disk.
+        Called Baily\’s Beads, these final areas of the sun\’s light appear as glimmering pearls on a wire, made intensely bright by the absence of light surrounding them.
+        \n\nOn the Rumble Map, explore the features between the moon, the sun\’s corona and Baily\’s beads which are intense and irregular.
+        \n\nEven this small section of the Sun’s light cannot be viewed without special eye protection.
+        Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes.
+        Baily\’s beads appear because the moon\’s surface is not a smooth, perfect sphere.
+        This spectacular feature is caused by rays of sunlight beaming through the ravines and valleys between the mountains on the moon.</string>
 
-    <!-- content descriptions -->
-    <string name="nextImgButton">Show next image</string>
-    <string name="prevImgButton">show previous image</string>
+    <string name="audio_diamond_ring_full">On the left side of the black moon, a sliver of sunlight blasts into view with white-hot intensity. 
+        As the area of re-emerging sunlight grows, it resembles a diamond, beaming out its brilliant light from its setting on the circular ring of the moon\’s edge.
+        \n\nEven this small section of the sun\’s light cannot be viewed without special eye protection. Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes. 
+        As the moon barely moves away from the solar surface, the powerful light of the Sun peers around the side of the moon. The sun\’s light is so intense that even this small fraction of it dominates the sky.</string>
+    
+    <string name="audio_first_contact_full">This is the first moment that the moon, slowly moving from left to right, appears to touch the sun.
+        The intensity of the sun\'s light makes it unsafe to look at without special eye protection until the totality, the few minutes during which the moon completely eclipses the sun.
+        The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk.
+        For the next several minutes, the moon\'s black disk will creep across the sun, progressively blocking more of sun\'s light and heat until the totality.
+        \n\nYou can use this time to explore Rumble Map images and audio descriptions of phenomena unique to a total eclipse.
+        In the moments before, during and after totality, this app will provide a play-by-play of the action, providing images and descriptions of this rare and fascinating stellar event.
+        \n\nThe outer atmosphere of the Sun, called the corona, is usually not visible from the surface of the Earth.
+        To study the corona, scientists send satellites into space to make observations of the corona in wavelengths of light that the human eye cannot see, such as this image of the Sun in X-rays taken by the X-ray Telescope on the Hinode spacecraft.
+        This X-ray image shows the view of the Sun being eclipsed by the moon a seen from space. A total solar eclipse provides a rare opportunity to see the corona from Earth in visible light.</string>
+
+    <string name="audio_totality_full">This is the full eclipse, when the moon’s black disk completely covers the sun. Now, in the absence of the sun\’s full light, its massive outer corona is revealed.
+        Uniquely visible during a full eclipse, grand flourishes of light called helmet streamers extend in all directions behind the moon\’s black disk.
+        At the edge of the moon, the helmet streamers are intensely bright, fading to wisps of ghostly white as they stretch across space, far from the moon, like flower petals.
+        \n\nOn the Rumble Map, explore the difference between the moon and the sun\’s corona.
+        \n\nYou may notice changes in temperature and natural sounds, such birds and wind during the total eclipse.
+        \n\nDuring the total eclipse, and only during totality, you can view the corona of the Sun without eye protection.
+        The Sun\’s outer atmosphere, the corona, is in full display and viewable from the ground. The highly structured nature of the corona is clearly evident.
+        This structure is caused by the Sun\’s intense and complicated magnetic field interacting with the material that makes up the corona.
+        This material is called plasma, which is like a gas, but is susceptible to magnetic fields.
+        The magnetic field shapes the plasma in the corona into the complicated patterns that are viewable during the eclipse.</string>
+
+    <string name="audio_sun_as_star_full">Framed by a larger view of space, the solar wind draws helmet streamers far out into space as other stars come into view.
+        Many of these stars also have planets orbiting them. Those planets can eclipse their parent star just as the moon eclipsed our sun.
+        Scientists can detect planets eclipsing their stars and determine both how far the planet is from its star and the planet\’s mass.
+        From these clues and other observations, scientists are attempting to discover if there is life on those other planets that may be experiencing their own eclipses.</string>
+
+    <string name="bailys_beads_short">For the next six minutes the Rumble Map will be disabled so that you can hear in real time the events surrounding totality.
+        \n\nOn the right side of the moon orbs of glowing sunlight shimmer off the edge of the moon\’s black disc.
+        Called Bailey\’s beads, these final areas of the sun\’s light appear as glimmering pearls on a wire made intensely bright by the absence of light surrounding them.</string>
+
+    <string name="first_contact_short">The eclipse has begun and this is the first moment that the moon appears to touch the sun.
+        These two celestial bodies look as if they are the same size. The sun\’s light is so bright that it obliterates all of the moon\’s features causing the moon to appear as a smooth obsidian disc.
+        For the next approximately 90 minutes you will have the opportunity to interact with the Rumble Map and explore features of the sun that are revealed during an eclipse.
+        Then, during the six minutes leading up to, during, and just after totality, the Rumble Map will be disabled so that you can hear about events surrounding totality in real time.</string>
+
+    <string name="diamond_ring_short">On the left side of the black moon a sliver of sunlight blasts into view with white hot intensity.
+        As the area of reemerging sunlight grows, it resembles a diamond ring beaming out its brilliant light.</string>
+
+    <string name="totality_short">THIS is the full eclipse. For approximately two minutes the moon\’s black disc completely covers the sun revealing the sun\’s massive outer corona.
+        Grand flourishes of light extend from the moon in all directions like flower petals.
+        Intensely bright at the moon\’s edge, these helmet streamers fade to wisps of ghostly white as they stretch across space.</string>
+
+    <string name="first_contact">First Contact</string>
+    <string name="bailys_beads">Baily\'s Beads</string>
+    <string name="bailys_beads_closeup">Baily\'s Beads Closeup</string>
+    <string name="corona">Corona</string>
+    <string name="diamond_ring">Diamond Ring</string>
+    <string name="helmet_streamers">Helmet Streamers</string>
+    <string name="helmet_streamers_closeup">Helmet Streamers Closeup</string>
+    <string name="prominence">Prominence</string>
+    <string name="prominence_closeup">Prominence Closeup</string>
+    <string name="totality">Totality</string>
+    <string name="sun_as_star">Sun as a Star</string>
+    <string name="eclipse_experience">Eclipse Experience</string>
+    <string name="duration_desc_seconds">%1$s seconds</string>
+    <string name="duration_desc_minute">One minute, %1$s seconds</string>
+    <string name="duration_desc_minutes">%1$s minutes, %2$s seconds</string>
+    <string name="duration_current_progress">%1$s of %2$s</string>
+    <string name="duration_min_sec">%1$s minutes and %2$s seconds</string>
 
     <!-- rumble map interaction -->
-    <string name="instructions_button">Instructions</string>
-    <string name="eclipse_image">Eclipse image</string>
-    <string name="rumble_map_instructions">To use the Rumble Map, touch your screen with only one finger. The map will produce audio tones and vibrations depending on how much light is underneath that particular spot. For best results, drag your finger across the touchscreen slowly. As you move your finger onto the bright sections of the Sun, your phone will vibrate more and produce a sharper, more pronounced audio tone. As you move your finger into the dark spaces blocked by the Moon’s disk, the vibration will diminish as the audio tone darkens and disappears. At times, you may hear a metronome-like ticking sound: that means you have entered an area of total darkness, either on the face of the Moon, or in the dark space outside the sphere of the Sun. By paying close attention to the audio tones and the strength of your phone’s vibration, you can learn how much sunlight is visible at each stage of the eclipse, and even explore some of the fascinating features of the Sun’s corona such as Baily’s Beads, Helmet Streamers, Prominences, and the Diamond Ring effect. If a specific section of an image interests you and you want to return to it later, hold down your finger in one place until you hear a “blip” noise. You’ve created a marker! Next time your finger passes over this point, you will hear the “blip” again so you can continue to explore that area.
-</string>
-    <string name="rumble_map_inactive">Rumble map inactive</string>
-    <string name="rumble_map_running">Rumble map running, double tap to turn off</string>
-
+    <string name="rumble_map">Rumble Map</string>
+    <string name="rumble_map_interaction">Rumble Map Interaction</string>
+    <string name="rumble_map_launch">Press to interact with Rumble Map</string>
+    <string name="rumble_map_how">How to Use The Rumble Map</string>
+    <string name="rumble_map_instructions_title">Rumble Map Instructions</string>
+    <string name="rumble_map_instructions">To use the Rumble Map, touch your screen with only one finger. The map will produce audio tones and vibrations depending on how much light is underneath that particular spot. For best results, drag your finger across the touchscreen slowly. As you move your finger onto the bright sections of the Sun, your phone will vibrate more and produce a sharper, more pronounced audio tone. As you move your finger into the dark spaces blocked by the Moon’s disk, the vibration will diminish as the audio tone darkens and disappears. At times, you may hear a metronome-like ticking sound: that means you have entered an area of total darkness, either on the face of the Moon, or in the dark space outside the sphere of the Sun. By paying close attention to the audio tones and the strength of your phone’s vibration, you can learn how much sunlight is visible at each stage of the eclipse, and even explore some of the fascinating features of the Sun’s corona such as Baily’s Beads, Helmet Streamers, Prominences, and the Diamond Ring effect. If a specific section of an image interests you and you want to return to it later, hold down your finger in one place until you hear a “blip” noise. You’ve created a marker! Next time your finger passes over this point, you will hear the “blip” again so you can continue to explore that area.</string>
+    <string name="rumble_map_inactive">Rumble Map Inactive, Double Tap to turn on</string>
+    <string name="rumble_map_running">Rumble Map Running, Double Tap to turn off</string>
 
     <!-- About -->
-    <string name="future_eclipse_label">Eclipses we support</string>
+    <string name="supported_eclipse">Eclipses We Support</string>
+    <string name="link_feedback_form" translatable="false"><![CDATA[https://eclipsesoundscapes.org/ES_MobileApp_Feedback]]></string>
+    <string name="privacy_policy_url" translatable="false"><![CDATA[https://eclipsesoundscapes.org/content/eclipse-soundscapes-mobile-application-privacy-policy]]></string>
 
     <!-- Walkthrough -->
-    <string name="walkthrough_label">Eclipse Soundscapes Walkthrough</string>
-    <string name="walkthrough_welcome">Welcome</string>
-    <string name="title_rumble_map">Rumble Map</string>
-    <string name="title_audio_descriptions">Audio Descriptions</string>
-    <string name="walkthrough_skip_button">Skip</string>
-    <string name="walkthrough_title_access">Please allow location access</string>
+    <string name="walkthrough">Walkthrough</string>
+    <string name="walkthrough_title">Eclipse Soundscapes Walkthrough</string>
+    <string name="walkthrough_title_location">Please allow location access</string>
     <string name="walkthrough_location_page">Access to location</string>
-    <string name="walkthrough_ask_later">Ask Later</string>
+    <string name="not_now">Not Now</string>
     <string name="walkthrough_welcome_text">Thank you for downloading the Eclipse Soundscapes app, a multi-sensory experience for people of all learning styles to engage with astronomical events, including total solar eclipses. Inside this app, you will find countdowns to major astronomical events in your area, and real time narrations of those events with illustrative audio descriptions provided by the National Center for Accessible Media. You can also explore the cosmos with high quality photos, educational information, and accessible learning tools.</string>
     <string name="walkthrough_rumble_map_text">Our Rumble Map tool is designed for you to hear and feel astronomical phenomena, such as eclipses, using the touchscreen and the speakers on your smartphone. For example: the Rumble Map will display photos of the Moon passing in front of the Sun during the most engaging and educational moments of an eclipse. When you touch the image on the screen, the app will read the grayscale value of a pixel underneath your finger, and play an audio tone which will vibrate your phone with a strength relative to the brightness of that section. As you move your finger onto the bright sections of the Sun, your phone will vibrate more. As you move your finger into the dark spaces blocked by the Moon’s disk, the vibration will diminish and disappear. By paying close attention to the audio tones and the strength of your phone\'s vibration, you can learn how much sunlight is visible at each stage of the eclipse, and explore some of the fascinating features of the Sun\'s corona.</string>
     <string name="walkthrough_eclipse_center">The Eclipse Center is your go-to destination for learning about eclipses in your area so you can discover them as they happen. When you open the Eclipse Center, it will ask to pinpoint your geographic location. Once you accept, you will find a countdown to the next eclipse, information on whether you will experience a total or a partial solar eclipse in your area, and the exact start time, peak time, and end time of the eclipse. </string>
     <string name="walkthrough_audio_description">When it is time for the next eclipse to start, you will receive a push notification to open Eclipse Soundscapes. The app will then guide you through the main event with illustrative audio descriptions of an eclipse\'s most important moments. These audio descriptions, provided by the National Center for Accessible Media, are explanations of photos developed with specialized language to help people who are blind and visually impaired engage with an eclipse. After each audio description ends, you will have the option to either hear more educational information or explore that feature of an eclipse using the Rumble Map.</string>
-    <string name="prev_page_button">previous page</string>
-    <string name="next_page_button">next page</string>
+    <string name="walkthrough_permission">You don\'t want to miss this amazing astronomical event! We\'ll need access to your location to show you information about the eclipse.</string>
+
+    <string name="prev_page">previous page</string>
+    <string name="next_page">next page</string>
+    <string name="page_indicator">Page %1$d of %2$d</string>
+
+    <!-- Future Eclipses -->
+    <string name="future_eclipse_label_format">%1$s: %2$s</string>
+    <string name="future_eclipse_features">Tracking, Rumble Maps, Narrations</string>
 
     <!-- Dialog -->
-    <string name="closeDialogButton">Close Dialog</string>
-    <string name="closeButton">Close</string>
-    <string name="playButton">Play</string>
-    <string name="pauseButton">Pause</string>
-    <string name="cancelButton">CancelButton</string>
-    <string name="permission_dialog_header">Hello Soundscapers!</string>
-    <string name="permission_dialog_body">Don\'t miss the Eclipse. We need your permission to notify you about Eclipse Events.</string>
-    <string name="permission_dialog_rationale">Allow permission please. This helps to keep you informed with the Eclipse</string>
-    <string name="permission_dialog_button">Enable Notifications</string>
-    <string name="permission_dialog_footer">You can manage permissions in settings</string>
-
-    <!-- permissions -->
-    <string name="permission_rationale_location">Access to the location service is required to provide Eclipse information based on your location.</string>
-    <string name="location_permission_denied">Permission to access the device\'s location has been denied. Please grant access by enabling the location permission from the System Settings &gt; Apps &gt; \'Eclipse Soundscapes\'.</string>
-    <string name="location_permission">Location permission</string>
-
     <array name="eclipse_imgs_title">
-        <item name="diamond_ring">Diamond Ring</item>
-        <item name="helmet_streamers">Helmet Streamers</item>
-        <item name="prominence">Prominence</item>
-        <item name="sun_as_star">Sun as a Star</item>
-        <item name="first_contact">1st Contact</item>
-        <item name="totality">Totality</item>
-        <item name="bailys_beads">Baily\'s Beads</item>
-        <item name="corona">Corona</item>
+        <item name="diamond_ring">@string/diamond_ring</item>
+        <item name="helmet_streamers">@string/helmet_streamers</item>
+        <item name="prominence">@string/prominence</item>
+        <item name="sun_as_star">@string/sun_as_star</item>
+        <item name="first_contact">@string/first_contact</item>
+        <item name="totality">@string/totality</item>
+        <item name="bailys_beads">@string/bailys_beads</item>
+        <item name="corona">@string/corona</item>
     </array>
 
     <array name="eclipse_img_credits">
@@ -202,906 +369,172 @@
     </array>
 
     <array name="listOptions">
-        <item name="item_rumble_map">How to use the Rumble Map</item>
-        <item name="item_team">Our team</item>
-        <item name="item_partners">Our partners</item>
-        <item name="item_future_eclipses">Eclipses We Support</item>
-        <item name="item_instructions">Walkthrough</item>
-        <item name="item_settings">Settings</item>
-        <item name="item_legal">Legal</item>
+        <item name="item_rumble_map">@string/rumble_map_how</item>
+        <item name="item_team">@string/our_team</item>
+        <item name="item_partners">@string/our_partners</item>
+        <item name="item_future_eclipses">@string/supported_eclipse</item>
+        <item name="item_walkthrough">@string/walkthrough</item>
+        <item name="item_feedback">@string/feedback</item>
+        <item name="item_settings">@string/settings</item>
+        <item name="item_legal">@string/legal</item>
     </array>
 
     <string name="our_partners">Our Partners</string>
+    <string name="current_partners">Current Partners</string>
+    <string name="past_partners">Past Partners</string>
     <string name="our_team">Our Team</string>
+    <string name="feedback">Give Feedback</string>
 
-    <array name="partners">
-        <item name="partner_nasa">NASA</item>
-        <item name="partner_national_park">National Park Service</item>
-        <item name="partner_smithsonian">Smithsonian Institution</item>
+    <array name="current_partners_title">
+        <item name="partner_nasa">NASA’s Space Science Education Consortium (NSSEC)</item>
         <item name="partner_wgbh">National Center for Accessible Media, WGBH</item>
-        <item name="partner_eclipse_mob">Eclipse Mob</item>
+        <item name="partner_nfb">National Federation of the Blind</item>
         <item name="partner_science_friday">Science Friday</item>
+    </array>
+
+    <array name="past_partners_title">
+        <item name="partner_national_park">National Park Service</item>
+        <item name="partner_eclipse_mob">Eclipse Mob</item>
+        <item name="partner_smithsonian">Smithsonian Institution</item>
         <item name="partner_national_girls_collab">National Girls Collaborative</item>
         <item name="partner_citizen_cate">Citizen CATE</item>
         <item name="partner_bridham_uni">Brigham Young University, Idaho</item>
     </array>
 
-    <array name="partner_description">
-        <item name="nasa_description">NASA is an independent agency of the United States federal
-            government which conducts the civilian space program, aeronautics, and aerospace
-            research. NASA is leading an educational outreach effort surrounding the August 2017
-            Eclipse which includes information and live coverage of the event. NASA is partnering
-            with Eclipse Soundscapes to provide the script calculating the timing of the eclipse, as
-            well as the funding that makes Eclipse Soundscapes possible.
+    <array name="current_partners_desc">
+        <item name="nasa_description">NASA (National Aeronautics and Space Administration) is an independent agency of the United States federal government which conducts the civilian space program, aeronautics, and aerospace research.
+            NASA is leading an educational outreach effort surrounding eclipses, which includes information and live coverage of these events.
+            For more information on NASA, visit nasa.gov. The NASA Space Science Education Consortium (NSSEC) capitalizes on NASA\’s rich history of sharing research and technology through compelling and innovative education projects.
+            The NSSEC (formerly the Heliophysics Education Consortium (HEC)) continues the Science Mission Directorate\’s (SMD) work at the forefront of NASA\’s educational endeavors by linking exciting science and missions directly to the American public.
+            NSSEC is partnering with Eclipse Soundscapes to provide the script calculating the timing of the eclipse, as well as the funding that makes Eclipse Soundscapes possible.
         </item>
-        <item name="national_park_description">The National Parks Service (an agency of the United
-            States Department of the Interior) manages national parks, monuments, conservation, and
-            historical sites throughout the United States. The NPS is partnering with Eclipse
-            Soundscapes during the August 2017 Eclipse to collect mono and binaural field recordings
-            in parks across the country, especially those in the path of totality. They will collect
-            data the day before, the day of, and the day after the eclipse in order to study how
-            wildlife sounds fluctuate with the changes in light caused by the eclipse.
+
+        <item name="wgbh_description">The Carl and Ruth Shapiro Family National Center for Accessible Media (NCAM) is a non-profit branch of GBH in Boston which is dedicated to achieving media access equality for people with disabilities.
+            NCAM is partnering with Eclipse Soundscapes to provide media coverage of the eclipse, including illustrative audio descriptions of the eclipse which will allow visually impaired individuals to experience the eclipse through real-time audio narrations.
+            NCAM is also conducting a review of the Eclipse Soundscapes app to enhance its accessibility.
         </item>
-        <item name="smithsonian_description">The Smithsonian Institution is a group of museums and
-            research centers established and administered by the United States government. Among the
-            Smithsonian’s many facilities are the National Air and Space Museum and the
-            Harvard-Smithsonian Center for Astrophysics, where Eclipse Soundscapes is based. The
-            Smithsonian is partnering with Eclipse Soundscapes to provide a headquarters and funding
-            for the Eclipse Soundscapes project.
+
+        <item name="nfb_description">The National Federation of the Blind is the oldest and largest nationwide organization of blind Americans.
+            Founded in 1940 and currently headquartered in Baltimore, the NFB consists of affiliates, chapters, and divisions in all fifty states, Washington, DC, and Puerto Rico.
         </item>
-        <item name="wgbh_description">The Carl and Ruth Shapiro Family National Center for
-            Accessible Media (NCAM) is a non-profit branch of WGBH radio in Boston which is
-            dedicated to achieving media access equality for people with disabilities. NCAM is
-            partnering with Eclipse Soundscapes to provide media coverage of the eclipse, including
-            illustrated audio descriptions of the eclipse which will allow visually impaired
-            individuals to experience the eclipse through real-time audio narrations.
-        </item>
-        <item name="eclipse_mob_description">Eclipse Mob is a crowdsourced effort to conduct the
-            largest-ever low-frequency radio wave propagation experiment during the 2017 solar
-            eclipse. They are using radio signals to study the effect of sunlight on the ionosphere.
-            Through crowdsourcing, Eclipse Mob will collect radio wave signals at locations across
-            the United States, allowing them to study how the signals are affected as they travel
-            along various paths. Eclipse Mob is partnering with Eclipse Soundscapes to provide radio
-            wave data (a form of audio data) for the Eclipse Soundscapes database.
-        </item>
-        <item name="science_friday_description">The Science Friday Initiative is a non-profit
-            organization dedicated to increasing the public’s access to science and scientific
-            information. They host a radio show distributed by Public Radio International (PRI) and
-            produce science and technology related digital videos, original web articles, and
-            educational resources for educators. Science Friday is partnering with Eclipse
-            Soundscapes to provide audio recordings and social media support.
-        </item>
-        <item name="nation_girls_collab_description">The National Girls Collaborative Project (NGC)
-            brings together United States organizations that are committed to informing and
-            encouraging girls to pursue careers in science, technology, engineering, and
-            mathematics. NGC is partnering with Eclipse Soundscapes to organize listening parties
-            where young women can experience the total solar eclipse complete with audio
-            information.
-        </item>
-        <item name="citizen_cate">The Citizen CATE (Continental-America Telescopic Eclipse)
-            Experiment is an effort to document the 2017 Eclipse by capturing images of the inner
-            solar corona using a network of more than 60 telescopes. CATE is working with high
-            schools, universities, education groups, astronomy clubs, national science research
-            labs, and corporate sponsors to produce 90 minutes of continuous, high-resolution, and
-            rapid-cadence images detailing the Sun’s inner corona...More TBD
-        </item>
-        <item name="brigham_young_uni_description">Brigham Young University (BYU) is a private
-            research university with three locations, including Rexburg, Idaho. They are partnering
-            with Eclipse Soundscapes to provide a series of field recordings of the 2017 Eclipse,
-            including audio of an active beehive. Because Rexburg lies in the path of totality, BYU
-            is hosting a number of viewing and educational events with the City of Rexburg."
+
+        <item name="science_friday_description">The Science Friday Initiative is a non-profit organization dedicated to increasing the public\’s access to science and scientific information.
+            They host a radio show distributed by Public Radio International (PRI) and produce science and technology related digital videos, original web articles, and educational resources for educators.
+            Science Friday is partnering with Eclipse Soundscapes to provide audio recordings and social media support for the project.
         </item>
     </array>
 
-    <array name="partner_links">
-        <item name="nasa_link">https://www.nasa.gov/</item>
-        <item name="nationa_park_link">https://www.nps.gov/</item>
-        <item name="smithsonian_link">https://www.si.edu/</item>
-        <item name="smithsonian_link">http://ncam.wgbh.org/</item>
-        <item name="eclipse_mob_link">http://eclipsemob.org</item>
-        <item name="science_friday_link">https://www.sciencefriday.com/</item>
-        <item name="nationa_girls_collab_link">https://ngcproject.org/</item>
-        <item name="citizen_cate">http://eclipse2017.nso.edu/citizen-cate/</item>
-        <item name="brigham_uni_link">http://www.byui.edu/eclipse-2017</item>
+    <array name="past_partners_desc">
+        <item name="national_park_description">The National Park Service (NPS), an agency of the United States Department of the Interior, manages national parks, monuments, conservation, and historical sites throughout the United States.
+            NPS is partnering with Eclipse Soundscapes during the August 2017 Eclipse to collect mono and binaural field recordings in parks across the country, especially those in the path of totality.
+            They will collect data the day before, the day of, and the day after the eclipse in order to study how wildlife sounds fluctuate with the changes in light and temperature caused by the eclipse.
+        </item>
 
+        <item name="eclipse_mob_description">Eclipse Mob is a crowdsourced effort to conduct the largest-ever low-frequency radio wave propagation experiment during the 2017 solar eclipse.
+            They are using radio signals to study the effect of sunlight on the ionosphere. By crowdsourcing, Eclipse Mob can collect radio wave signals at locations across the United States, allowing them to study how the signals are affected as they travel along various paths.
+            Eclipse Mob is partnering with Eclipse Soundscapes to provide radio wave data (a form of audio data) the Eclipse Soundscapes database.
+        </item>
+
+        <item name="smithsonian_description">The Smithsonian Institution is a group of museums and research centers established and administered by the United States government.
+            Among the Smithsonian\’s many facilities are the National Air and Space Museum and the Harvard-Smithsonian Center for Astrophysics, where Eclipse Soundscapes is based.
+            The Smithsonian is partnering with Eclipse Soundscapes to provide a headquarters and funding for the Eclipse Soundscapes project.
+        </item>
+
+        <item name="nation_girls_collab_description">The National Girls Collaborative Project (NGC) brings together United States organizations that are committed to informing and encouraging girls to pursue careers in science, technology, engineering, and mathematics.
+            NGC is partnering with Eclipse Soundscapes to organize listening parties where young women can experience the total solar eclipse complete with audio information.
+        </item>
+
+        <item name="citizen_cate">The Citizen CATE (Continental-America Telescopic Eclipse) Experiment is an effort to document the 2017 Eclipse by capturing images of the inner solar corona using a network of more than 60 telescopes.
+            CATE is working with high schools, universities, education groups, astronomy clubs, national science research labs, and corporate sponsors to produce 90 minutes of continuous, high-resolution, and rapid-cadence images detailing the Sun\’s inner corona.
+            Citizen CATE is partnering with Eclipse Soundscapes to provide high quality images for the Eclipse Soundscapes app.
+        </item>
+
+        <item name="brigham_young_uni_description">Brigham Young University (BYU) is a private research university with three locations, including Rexburg, Idaho.
+            They are partnering with Eclipse Soundscapes to provide a series of field recordings of the 2017 Eclipse, including audio of an active beehive.
+            Because Rexburg lies in the path of totality, BYU is hosting a number of viewing and educational events with the City of Rexburg.
+        </item>
+    </array>
+
+    <array name="current_partners_link">
+        <item name="nasa_link">science.nasa.gov/science-activation-team/nasa-space-science-education-consortium</item>
+        <item name="gbh_link">ncam.wgbh.org</item>
+        <item name="nfb_link">www.nfb.org</item>
+        <item name="science_friday_link">sciencefriday.com</item>
+    </array>
+
+    <array name="past_partners_link">
+        <item name="national_park_link">nps.gov/</item>
+        <item name="eclipse_mob_link">eclipsemob.org</item>
+        <item name="smithsonian_link">si.edu</item>
+        <item name="national_girls_collab_link">ngcproject.org/</item>
+        <item name="citizen_cate">eclipse2017.nso.edu/citizen-cate/</item>
+        <item name="brigham_uni_link">byui.edu/eclipse-2017</item>
     </array>
 
     <array name="team">
         <item name="member_henry_winter">Dr. Henry Winter</item>
         <item name="member_marykay">MaryKay Severino</item>
         <item name="member_arlindo">Arlindo Goncalves</item>
+        <item name="member_joel">Joel Goncalves</item>
         <item name="member_miles">Miles Gordon</item>
-        <item name="member_christina">Christina Migliore</item>
         <item name="member_kristin">Kristin DiVona</item>
         <item name="member_kelsey">Kelsey Perrett</item>
-        <item name="member_wanda">Dr. Wanda Diaz Merced</item>
     </array>
 
     <array name="team_title">
         <item name="member_henry_winter">Principal Investigator</item>
         <item name="member_marykay">Project Manager</item>
-        <item name="member_arlindo">iOS Developer</item>
+        <item name="member_arlindo">Application Developer</item>
+        <item name="member_joel">Application Developer</item>
         <item name="member_miles">Audio Engineer</item>
-        <item name="member_christina">Image Analysis Intern</item>
         <item name="member_kristin">Graphic Designer</item>
         <item name="member_kelsey">Social Media Coordinator/Content Writer</item>
-        <item name="member_wanda">Consultant</item>
     </array>
 
     <array name="team_bio">
-        <item name="member_henry_winter">Dr. Henry \'Trae\' Winter III, an astrophysicist at the
-            Harvard-Smithsonian Center for Astrophysics (CfA), has worked on eight NASA missions
-            observing the Sun. His primary research focus is improving computer simulations to
-            explore energy is released in the Sun\'s atmosphere, the corona, and in other stars. Dr.
-            Winter has designed video wall exhibits for the Cooper-Hewitt National Design Museum,
-            the National Air and Space Museum, North Carolina State University’s Hunt Library, and
-            the Harvard Art Museums’ Lightbox Gallery. In addition to Eclipse Soundscapes, his
-            current project “The Tactile Sun” aims to engage the blind and visually disabled
-            community with universally designed solar exhibits. Dr. Winter has spearheaded many
-            efforts to engage the public in scientific discovery, including work with the Montana
-            Space Grant Consortium\'s Space Public Outreach Team, the Yohkoh Public Outreach
-            Project, and science education programs at the Salish-Kootenai Flathead Lake
-            Reservation. Currently Dr. Winter is the Chairperson of the Astrolabe Advisory Board,
-            Chairperson of the AAS Eclipse Task Force Education Committee, active member of the
-            Education and Public Outreach Committee for the Solar Physics Division (SPD) of the AAS,
-            Press Officer for the SPD, and Co-Director of the CfA\'s Solar REU Summer Intern Program
-            sponsored by the National Science Foundation.
+        <item name="member_henry_winter">Dr. Henry \"Trae\" Winter III, is the Chief Scientist and Co-Founder of the ARISA Lab.
+            Dr. Winter has worked on eight NASA missions observing the Sun. His primary research focus is improving computer simulations to explore energy is released in the Sun\'s atmosphere, the corona, and in other stars.
+            Dr. Winter has designed video wall exhibits for the Cooper-Hewitt National Design Museum, the National Air and Space Museum, North Carolina State University\’s Hunt Library, and the Harvard Art Museums\’ Lightbox Gallery.
+            In addition to Eclipse Soundscapes, his current project \“The Tactile Sun\” aims to engage the blind and visually disabled community with universally designed solar exhibits.
         </item>
-        <item name="member_marykay">MaryKay Severino is originally from Somerville, Massachusetts,
-            but only recently returned to the Boston area. After earning a business degree from
-            Villanova University, she worked in South Carolina and California as a Program Manager
-            and Marketing Consultant. Realizing she was ready for a change, she went on to earn her
-            Master\'s degree in Education and worked in public school systems and universities in
-            Italy, Taiwan, and South Korea. Living abroad, immersed in other cultures and navigating
-            daily life with language and literacy barriers, gave MaryKay a strong understanding of
-            the challenges faced by anyone who communicates differently. For this reason, the
-            Eclipse Soundscapes project was a natural fit. She is excited to use her program
-            management skills to promote, plan and execute a project which will bring the amazement
-            and wonder of an eclipse to a more inclusive demographic.
+
+        <item name="member_marykay">MaryKay Severino is the Educational Director and Co-Founder of the ARISA Lab.
+            After earning a business degree from Villanova University, she worked in South Carolina and California as a Program Manager and Marketing Consultant.
+            Realizing she was ready for a change, she went on to earn her Master\'s degree in Education and worked in public school systems and universities in Italy, Taiwan, and South Korea.
+            Living abroad, immersed in other cultures and navigating daily life with language and literacy barriers, gave MaryKay a strong understanding of the challenges faced by anyone who communicates differently.
+            For this reason, the Eclipse Soundscapes project was a natural fit. She is excited to use her skills to promote, plan, and execute a project which will bring the amazement and wonder of an eclipse to a more inclusive demographic.
         </item>
-        <item name="member_arlindo">Arlindo Goncalves is an iOS developer from Brockton,
-            Massachusetts, and a computer science student at the University of Massachusetts,
-            Boston. He aspires to develop applications that help schools and other institution
-            engage youth, making education a focus point in their lives. In his free time, Arlindo
-            enjoys playing soccer and cooking for his family and friends.
+
+        <item name="member_arlindo">
+            Arlindo Goncalves is an iOS developer from Brockton, Massachusetts.
+            He aspires to develop applications that help schools and other institutions engage youth, making education a focal point in their lives.
+            In his free time, Arlindo enjoys playing soccer and cooking for his family and friends.
         </item>
-        <item name="member_miles">Miles Gordon is an audio engineer and multi-media artist from New
-            England. Between mixing and mastering tracks for his friends and his work on the Eclipse
-            Soundscapes project, he also enjoys tinkering with machines and editing papers for a
-            Chinese translation company. When he grows up, he wants to be a supporting character in
-            a William Gibson novel. Miles got involved in the Eclipse Soundscapes Project after a
-            mutual friend introduced him to Dr. Winter. Their shared enthusiasm for innovation in
-            audio engineering led to a collaboration on Eclipse Soundscapes
+
+        <item name="member_joel">Joel Goncalves is a software engineer from Brockton, Massachusetts and a Computer Science graduate from the University of Massachusetts, Boston.
+            As an engineer, he is passionate about creating and contributing to meaningful applications.
+            As a hobby, he likes to hike, travel and play sports.
         </item>
-        <item name="member_christina">Originally from a small town in New Jersey, Christina is an
-            undergraduate student studying physics and math at Northeastern University. She works on
-            image and video analysis for the Eclipse Soundscapes project and numerically modeling
-            solar flares at the Harvard-Smithsonian Center for Astrophysics. She became involved
-            with Eclipse Soundscapes because she enjoys scientific outreach and is interested in
-            conveying numerical information in new ways. Christina hopes to continue studying in the
-            field of plasma physics as a graduate student.
+
+        <item name="member_miles">Miles Gordon is an audio engineer and multimedia artist from New England.
+            Between mixing and mastering tracks for his friends and his work on the Eclipse Soundscapes project, he also enjoys tinkering with machines and editing papers for a Chinese translation company.
+            When he grows up, he wants to be a supporting character in a William Gibson novel. Miles got involved in the Eclipse Soundscapes Project after a mutual friend introduced him to Dr. Winter.
+            Their shared enthusiasm for innovation in audio engineering led to a collaboration on Eclipse Soundscapes.
         </item>
-        <item name="member_kristin">Kristin DiVona is the Visual Information Specialist for NASA\'s
-            Chandra X-Ray Observatory. An award-winning designer and illustrator, she is responsible
-            for the creation of printed materials, exhibits, and interactive educational tools that
-            visually interpret concepts related to astrophysics and x-ray astronomy— connecting
-            everyday life to science exploration and technology. (Yes, it\'s as cool as it sounds.)
-            She is a graduate of Rhode Island School of Design. Kristin is waiting not-so-patiently
-            for this amazing astronomical event, and is excited to work with the Eclipse Soundscapes
-            team on this inclusive design project
+
+        <item name="member_kristin">Kristin DiVona is the Visual Information Specialist for NASA\'s Chandra X-Ray Observatory.
+            An award-winning designer and illustrator, she is responsible for the creation of printed materials, exhibits, and interactive educational tools that visually interpret concepts related to astrophysics and x-ray astronomy— connecting everyday life to science exploration and technology.
+            (Yes, it\'s as cool as it sounds.) She is a graduate of Rhode Island School of Design. Kristin is waiting not-so-patiently for this amazing astronomical event, and is excited to work with the Eclipse Soundscapes team on this inclusive design project.
         </item>
-        <item name="member_kelsey">Kelsey Perrett is a Massachusetts-based freelance writer, editor,
-            web producer, and social media specialist. She enjoys writing about travel, health and
-            fitness, and the environment. When she isn’t writing, she can be found outside exploring
-            trails, at the gym/yoga studio, or attempting to conquer an ever-expanding reading list.
-            Kelsey got involved in the Eclipse Soundscapes Project due to her interest in
-            environmental reporting, and is thrilled to work with a talented group to make the
-            wonders of space accessible to everyone.
-        </item>
-        <item name="member_wanda">Development in South Africa. When Dr. Winter invited Wanda to join
-            the Eclipse Soundscapes team as a blind person and an astrophysicist, she accepted,
-            saying she hoped the project could bring an innovative experience to the blind and
-            visually impaired, to people who are not visually oriented, and to people who have never
-            experienced an eclipse.
+
+        <item name="member_kelsey">Kelsey Perrett is a Massachusetts-based freelance writer, editor, web producer, and social media specialist.
+            She enjoys writing about travel, health and fitness, and the environment. When she isn\’t writing, she can be found outside exploring trails, at the gym/yoga studio, or attempting to conquer an ever-expanding reading list.
+            Kelsey got involved in the Eclipse Soundscapes Project due to her interest in environmental reporting, and is thrilled to work with a talented group to make the wonders of space accessible to everyone.
         </item>
     </array>
 
-    <string name="libraries_use_detail">The following sets forth attribution notices for third party software that may be contained in portions of the Eclipse Soundscapes product. We thank the open sources community for all of their contributions.\n</string>
-    <string name="audiokit_license">The MIT License (MIT)\n
-
-\nCopyright © 2016 Aurelius Prochazka\n
-
-\nPermission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:\n
-
-\nThe above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.\n
-
-\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.\n</string>
-
-    <string name="legal_license_details"><![CDATA[GNU GENERAL PUBLIC LICENSE\nVersion 3, 29 June 2007\n
-        \nCopyright © 2007 Free Software Foundation, Inc. <http://fsf.org/>
- Everyone is permitted to copy and distribute verbatim copies
- of this license document, but changing it is not allowed.\n
-
-                            \nPreamble\n
-
-  \nThe GNU General Public License is a free, copyleft license for
-software and other kinds of works.
-
-  \nThe licenses for most software and other practical works are designed
-to take away your freedom to share and change the works.  By contrast,
-the GNU General Public License is intended to guarantee your freedom to
-share and change all versions of a program—to make sure it remains free
-software for all its users.  We, the Free Software Foundation, use the
-GNU General Public License for most of our software; it applies also to
-any other work released this way by its authors.  You can apply it to
-your programs, too.\n
-
-  \nWhen we speak of free software, we are referring to freedom, not
-price.  Our General Public Licenses are designed to make sure that you
-have the freedom to distribute copies of free software (and charge for
-them if you wish), that you receive source code or can get it if you
-want it, that you can change the software or use pieces of it in new
-free programs, and that you know you can do these things.\n
-
-  \nTo protect your rights, we need to prevent others from denying you
-these rights or asking you to surrender the rights.  Therefore, you have
-certain responsibilities if you distribute copies of the software, or if
-you modify it: responsibilities to respect the freedom of others.\n
-
-  \nFor example, if you distribute copies of such a program, whether
-gratis or for a fee, you must pass on to the recipients the same
-freedoms that you received.  You must make sure that they, too, receive
-or can get the source code.  And you must show them these terms so they
-know their rights.\n
-
-  \nDevelopers that use the GNU GPL protect your rights with two steps:
-(1) assert copyright on the software, and (2) offer you this License
-giving you legal permission to copy, distribute and/or modify it.\n
-
-  \nFor the developers\' and authors\' protection, the GPL clearly explains
-that there is no warranty for this free software.  For both users\' and
-authors\' sake, the GPL requires that modified versions be marked as
-changed, so that their problems will not be attributed erroneously to
-authors of previous versions.\n
-
-  \nSome devices are designed to deny users access to install or run
-modified versions of the software inside them, although the manufacturer
-can do so.  This is fundamentally incompatible with the aim of
-protecting users\' freedom to change the software.  The systematic
-pattern of such abuse occurs in the area of products for individuals to
-use, which is precisely where it is most unacceptable.  Therefore, we
-have designed this version of the GPL to prohibit the practice for those
-products.  If such problems arise substantially in other domains, we
-stand ready to extend this provision to those domains in future versions
-of the GPL, as needed to protect the freedom of users.\n
-
-  \nFinally, every program is threatened constantly by software patents.
-States should not allow patents to restrict development and use of
-software on general-purpose computers, but in those that do, we wish to
-avoid the special danger that patents applied to a free program could
-make it effectively proprietary.  To prevent this, the GPL assures that
-patents cannot be used to render the program non-free.\n
-
-  \nThe precise terms and conditions for copying, distribution and
-modification follow.\n
-
-                       \nTERMS AND CONDITIONS\n
-
-  \n0. Definitions.\n
-
-  \n"This License" refers to version 3 of the GNU General Public License.\n
-
-  \n"Copyright" also means copyright-like laws that apply to other kinds of
-works, such as semiconductor masks.\n
-
-  \n"The Program" refers to any copyrightable work licensed under this
-License.  Each licensee is addressed as "you".  "Licensees" and
-"recipients" may be individuals or organizations.\n
-
-  \nTo "modify" a work means to copy from or adapt all or part of the work
-in a fashion requiring copyright permission, other than the making of an
-exact copy.  The resulting work is called a "modified version" of the
-earlier work or a work "based on" the earlier work.\n
-
-  \nA "covered work" means either the unmodified Program or a work based
-on the Program.\n
-
-  \nTo "propagate" a work means to do anything with it that, without
-permission, would make you directly or secondarily liable for
-infringement under applicable copyright law, except executing it on a
-computer or modifying a private copy.  Propagation includes copying,
-distribution (with or without modification), making available to the
-public, and in some countries other activities as well.\n
-
-  \nTo "convey" a work means any kind of propagation that enables other
-parties to make or receive copies.  Mere interaction with a user through
-a computer network, with no transfer of a copy, is not conveying.\n
-
-  \nAn interactive user interface displays "Appropriate Legal Notices"
-to the extent that it includes a convenient and prominently visible
-feature that (1) displays an appropriate copyright notice, and (2)
-tells the user that there is no warranty for the work (except to the
-extent that warranties are provided), that licensees may convey the
-work under this License, and how to view a copy of this License.  If
-the interface presents a list of user commands or options, such as a
-menu, a prominent item in the list meets this criterion.\n
-
-  \n1. Source Code.\n
-
-  \nThe "source code" for a work means the preferred form of the work
-for making modifications to it.  "Object code" means any non-source
-form of a work.\n
-
-  \nA "Standard Interface" means an interface that either is an official
-standard defined by a recognized standards body, or, in the case of
-interfaces specified for a particular programming language, one that
-is widely used among developers working in that language.\n
-
-  \nThe "System Libraries" of an executable work include anything, other
-than the work as a whole, that (a) is included in the normal form of
-packaging a Major Component, but which is not part of that Major
-Component, and (b) serves only to enable use of the work with that
-Major Component, or to implement a Standard Interface for which an
-implementation is available to the public in source code form.  A
-"Major Component", in this context, means a major essential component
-(kernel, window system, and so on) of the specific operating system
-(if any) on which the executable work runs, or a compiler used to
-produce the work, or an object code interpreter used to run it.\n
-
-  \nThe "Corresponding Source" for a work in object code form means all
-the source code needed to generate, install, and (for an executable
-work) run the object code and to modify the work, including scripts to
-control those activities.  However, it does not include the work\'s
-System Libraries, or general-purpose tools or generally available free
-programs which are used unmodified in performing those activities but
-which are not part of the work.  For example, Corresponding Source
-includes interface definition files associated with source files for
-the work, and the source code for shared libraries and dynamically
-linked subprograms that the work is specifically designed to require,
-such as by intimate data communication or control flow between those
-subprograms and other parts of the work.\n
-
-  \nThe Corresponding Source need not include anything that users
-can regenerate automatically from other parts of the Corresponding
-Source.\n
-
-  \nThe Corresponding Source for a work in source code form is that
-same work.\n
-
-  \n2. Basic Permissions.\n
-
-  \nAll rights granted under this License are granted for the term of
-copyright on the Program, and are irrevocable provided the stated
-conditions are met.  This License explicitly affirms your unlimited
-permission to run the unmodified Program.  The output from running a
-covered work is covered by this License only if the output, given its
-content, constitutes a covered work.  This License acknowledges your
-rights of fair use or other equivalent, as provided by copyright law.\n
-
-  \nYou may make, run and propagate covered works that you do not
-convey, without conditions so long as your license otherwise remains
-in force.  You may convey covered works to others for the sole purpose
-of having them make modifications exclusively for you, or provide you
-with facilities for running those works, provided that you comply with
-the terms of this License in conveying all material for which you do
-not control copyright.  Those thus making or running the covered works
-for you must do so exclusively on your behalf, under your direction
-and control, on terms that prohibit them from making any copies of
-your copyrighted material outside their relationship with you.\n
-
-  \nConveying under any other circumstances is permitted solely under
-the conditions stated below.  Sublicensing is not allowed; section 10
-makes it unnecessary.\n
-
-  \n3. Protecting Users\' Legal Rights From Anti-Circumvention Law.\n
-
-  \nNo covered work shall be deemed part of an effective technological
-measure under any applicable law fulfilling obligations under article
-11 of the WIPO copyright treaty adopted on 20 December 1996, or
-similar laws prohibiting or restricting circumvention of such
-measures.\n
-
-  \nWhen you convey a covered work, you waive any legal power to forbid
-circumvention of technological measures to the extent such circumvention
-is effected by exercising rights under this License with respect to
-the covered work, and you disclaim any intention to limit operation or
-modification of the work as a means of enforcing, against the work\'s
-users, your or third parties\' legal rights to forbid circumvention of
-technological measures.\n
-
-  \n4. Conveying Verbatim Copies.\n
-
-  \nYou may convey verbatim copies of the Program\'s source code as you
-receive it, in any medium, provided that you conspicuously and
-appropriately publish on each copy an appropriate copyright notice;
-keep intact all notices stating that this License and any
-non-permissive terms added in accord with section 7 apply to the code;
-keep intact all notices of the absence of any warranty; and give all
-recipients a copy of this License along with the Program.\n
-
-  \nYou may charge any price or no price for each copy that you convey,
-and you may offer support or warranty protection for a fee.\n
-
-  \n5. Conveying Modified Source Versions.\n
-
-  \nYou may convey a work based on the Program, or the modifications to
-produce it from the Program, in the form of source code under the
-terms of section 4, provided that you also meet all of these conditions:\n
-
-    \na) The work must carry prominent notices stating that you modified
-    it, and giving a relevant date.\n
-
-    \nb) The work must carry prominent notices stating that it is
-    released under this License and any conditions added under section
-    7.  This requirement modifies the requirement in section 4 to
-    "keep intact all notices".\n
-
-    \nc) You must license the entire work, as a whole, under this
-    License to anyone who comes into possession of a copy.  This
-    License will therefore apply, along with any applicable section 7
-    additional terms, to the whole of the work, and all its parts,
-    regardless of how they are packaged.  This License gives no
-    permission to license the work in any other way, but it does not
-    invalidate such permission if you have separately received it.\n
-
-    \nd) If the work has interactive user interfaces, each must display
-    Appropriate Legal Notices; however, if the Program has interactive
-    interfaces that do not display Appropriate Legal Notices, your
-    work need not make them do so.\n
-
-  \nA compilation of a covered work with other separate and independent
-works, which are not by their nature extensions of the covered work,
-and which are not combined with it such as to form a larger program,
-in or on a volume of a storage or distribution medium, is called an
-"aggregate" if the compilation and its resulting copyright are not
-used to limit the access or legal rights of the compilation\'s users
-beyond what the individual works permit.  Inclusion of a covered work
-in an aggregate does not cause this License to apply to the other
-parts of the aggregate.\n
-
-  \n6. Conveying Non-Source Forms.\n
-
-  \nYou may convey a covered work in object code form under the terms
-of sections 4 and 5, provided that you also convey the
-machine-readable Corresponding Source under the terms of this License,
-in one of these ways:\n
-
-    \na) Convey the object code in, or embodied in, a physical product
-    (including a physical distribution medium), accompanied by the
-    Corresponding Source fixed on a durable physical medium
-    customarily used for software interchange.\n
-
-    \nb) Convey the object code in, or embodied in, a physical product
-    (including a physical distribution medium), accompanied by a
-    written offer, valid for at least three years and valid for as
-    long as you offer spare parts or customer support for that product
-    model, to give anyone who possesses the object code either (1) a
-    copy of the Corresponding Source for all the software in the
-    product that is covered by this License, on a durable physical
-    medium customarily used for software interchange, for a price no
-    more than your reasonable cost of physically performing this
-    conveying of source, or (2) access to copy the
-    Corresponding Source from a network server at no charge.\n
-
-    \nc) Convey individual copies of the object code with a copy of the
-    written offer to provide the Corresponding Source.  This
-    alternative is allowed only occasionally and noncommercially, and
-    only if you received the object code with such an offer, in accord
-    with subsection 6b.\n
-
-    \nd) Convey the object code by offering access from a designated
-    place (gratis or for a charge), and offer equivalent access to the
-    Corresponding Source in the same way through the same place at no
-    further charge.  You need not require recipients to copy the
-    Corresponding Source along with the object code.  If the place to
-    copy the object code is a network server, the Corresponding Source
-    may be on a different server (operated by you or a third party)
-    that supports equivalent copying facilities, provided you maintain
-    clear directions next to the object code saying where to find the
-    Corresponding Source.  Regardless of what server hosts the
-    Corresponding Source, you remain obligated to ensure that it is
-    available for as long as needed to satisfy these requirements.\n
-
-    \ne) Convey the object code using peer-to-peer transmission, provided
-    you inform other peers where the object code and Corresponding
-    Source of the work are being offered to the general public at no
-    charge under subsection 6d.\n
-
-  \nA separable portion of the object code, whose source code is excluded
-from the Corresponding Source as a System Library, need not be
-included in conveying the object code work.\n
-
-  \nA "User Product" is either (1) a "consumer product", which means any
-tangible personal property which is normally used for personal, family,
-or household purposes, or (2) anything designed or sold for incorporation
-into a dwelling.  In determining whether a product is a consumer product,
-doubtful cases shall be resolved in favor of coverage.  For a particular
-product received by a particular user, "normally used" refers to a
-typical or common use of that class of product, regardless of the status
-of the particular user or of the way in which the particular user
-actually uses, or expects or is expected to use, the product.  A product
-is a consumer product regardless of whether the product has substantial
-commercial, industrial or non-consumer uses, unless such uses represent
-the only significant mode of use of the product.\n
-
-  \n"Installation Information" for a User Product means any methods,
-procedures, authorization keys, or other information required to install
-and execute modified versions of a covered work in that User Product from
-a modified version of its Corresponding Source.  The information must
-suffice to ensure that the continued functioning of the modified object
-code is in no case prevented or interfered with solely because
-modification has been made.\n
-
-  \nIf you convey an object code work under this section in, or with, or
-specifically for use in, a User Product, and the conveying occurs as
-part of a transaction in which the right of possession and use of the
-User Product is transferred to the recipient in perpetuity or for a
-fixed term (regardless of how the transaction is characterized), the
-Corresponding Source conveyed under this section must be accompanied
-by the Installation Information.  But this requirement does not apply
-if neither you nor any third party retains the ability to install
-modified object code on the User Product (for example, the work has
-been installed in ROM).\n
-
-  \nThe requirement to provide Installation Information does not include a
-requirement to continue to provide support service, warranty, or updates
-for a work that has been modified or installed by the recipient, or for
-the User Product in which it has been modified or installed.  Access to a
-network may be denied when the modification itself materially and
-adversely affects the operation of the network or violates the rules and
-protocols for communication across the network.\n
-
-  \nCorresponding Source conveyed, and Installation Information provided,
-in accord with this section must be in a format that is publicly
-documented (and with an implementation available to the public in
-source code form), and must require no special password or key for
-unpacking, reading or copying.\n
-
-  \n7. Additional Terms.\n
-
-  \n"Additional permissions" are terms that supplement the terms of this
-License by making exceptions from one or more of its conditions.
-Additional permissions that are applicable to the entire Program shall
-be treated as though they were included in this License, to the extent
-that they are valid under applicable law.  If additional permissions
-apply only to part of the Program, that part may be used separately
-under those permissions, but the entire Program remains governed by
-this License without regard to the additional permissions.\n
-
-  \nWhen you convey a copy of a covered work, you may at your option
-remove any additional permissions from that copy, or from any part of
-it.  (Additional permissions may be written to require their own
-removal in certain cases when you modify the work.)  You may place
-additional permissions on material, added by you to a covered work,
-for which you have or can give appropriate copyright permission.\n
-
-  \nNotwithstanding any other provision of this License, for material you
-add to a covered work, you may (if authorized by the copyright holders of
-that material) supplement the terms of this License with terms:\n
-
-    \na) Disclaiming warranty or limiting liability differently from the
-    terms of sections 15 and 16 of this License; or\n
-
-    \nb) Requiring preservation of specified reasonable legal notices or
-    author attributions in that material or in the Appropriate Legal
-    Notices displayed by works containing it; or\n
-
-   \nc) Prohibiting misrepresentation of the origin of that material, or
-    requiring that modified versions of such material be marked in
-    reasonable ways as different from the original version; or\n
-
-    \nd) Limiting the use for publicity purposes of names of licensors or
-    authors of the material; or\n
-
-   \ne) Declining to grant rights under trademark law for use of some
-    trade names, trademarks, or service marks; or\n
-
-    \nf) Requiring indemnification of licensors and authors of that
-    material by anyone who conveys the material (or modified versions of
-    it) with contractual assumptions of liability to the recipient, for
-    any liability that these contractual assumptions directly impose on
-    those licensors and authors.\n
-
-  \nAll other non-permissive additional terms are considered "further
-restrictions" within the meaning of section 10.  If the Program as you
-received it, or any part of it, contains a notice stating that it is
-governed by this License along with a term that is a further
-restriction, you may remove that term.  If a license document contains
-a further restriction but permits relicensing or conveying under this
-License, you may add to a covered work material governed by the terms
-of that license document, provided that the further restriction does
-not survive such relicensing or conveying.\n
-
-  \nIf you add terms to a covered work in accord with this section, you
-must place, in the relevant source files, a statement of the
-additional terms that apply to those files, or a notice indicating
-where to find the applicable terms.\n
-
-  \nAdditional terms, permissive or non-permissive, may be stated in the
-form of a separately written license, or stated as exceptions;
-the above requirements apply either way.\n
-
-  \n8. Termination.\n
-
-  \nYou may not propagate or modify a covered work except as expressly
-provided under this License.  Any attempt otherwise to propagate or
-modify it is void, and will automatically terminate your rights under
-this License (including any patent licenses granted under the third
-paragraph of section 11).\n
-
-  \nHowever, if you cease all violation of this License, then your
-license from a particular copyright holder is reinstated (a)
-provisionally, unless and until the copyright holder explicitly and
-finally terminates your license, and (b) permanently, if the copyright
-holder fails to notify you of the violation by some reasonable means
-prior to 60 days after the cessation.\n
-
-  \nMoreover, your license from a particular copyright holder is
-reinstated permanently if the copyright holder notifies you of the
-violation by some reasonable means, this is the first time you have
-received notice of violation of this License (for any work) from that
-copyright holder, and you cure the violation prior to 30 days after
-your receipt of the notice.\n
-
-  \nTermination of your rights under this section does not terminate the
-licenses of parties who have received copies or rights from you under
-this License.  If your rights have been terminated and not permanently
-reinstated, you do not qualify to receive new licenses for the same
-material under section 10.\n
-
-  \n9. Acceptance Not Required for Having Copies.\n
-
-  \nYou are not required to accept this License in order to receive or
-run a copy of the Program.  Ancillary propagation of a covered work
-occurring solely as a consequence of using peer-to-peer transmission
-to receive a copy likewise does not require acceptance.  However,
-nothing other than this License grants you permission to propagate or
-modify any covered work.  These actions infringe copyright if you do
-not accept this License.  Therefore, by modifying or propagating a
-covered work, you indicate your acceptance of this License to do so.\n
-
-  \n10. Automatic Licensing of Downstream Recipients.\n
-
-  \nEach time you convey a covered work, the recipient automatically
-receives a license from the original licensors, to run, modify and
-propagate that work, subject to this License.  You are not responsible
-for enforcing compliance by third parties with this License.\n
-
-  \nAn "entity transaction" is a transaction transferring control of an
-organization, or substantially all assets of one, or subdividing an
-organization, or merging organizations.  If propagation of a covered
-work results from an entity transaction, each party to that
-transaction who receives a copy of the work also receives whatever
-licenses to the work the party\'s predecessor in interest had or could
-give under the previous paragraph, plus a right to possession of the
-Corresponding Source of the work from the predecessor in interest, if
-the predecessor has it or can get it with reasonable efforts.\n
-
-  \nYou may not impose any further restrictions on the exercise of the
-rights granted or affirmed under this License.  For example, you may
-not impose a license fee, royalty, or other charge for exercise of
-rights granted under this License, and you may not initiate litigation
-(including a cross-claim or counterclaim in a lawsuit) alleging that
-any patent claim is infringed by making, using, selling, offering for
-sale, or importing the Program or any portion of it.\n
-
-  \n11. Patents.\n
-
-  A "contributor" is a copyright holder who authorizes use under this
-License of the Program or a work on which the Program is based.  The
-work thus licensed is called the contributor\'s "contributor version".\n
-
-  \nA contributor\'s "essential patent claims" are all patent claims
-owned or controlled by the contributor, whether already acquired or
-hereafter acquired, that would be infringed by some manner, permitted
-by this License, of making, using, or selling its contributor version,
-but do not include claims that would be infringed only as a
-consequence of further modification of the contributor version.  For
-purposes of this definition, "control" includes the right to grant
-patent sublicenses in a manner consistent with the requirements of
-this License.\n
-
-  \nEach contributor grants you a non-exclusive, worldwide, royalty-free
-patent license under the contributor\'s essential patent claims, to
-make, use, sell, offer for sale, import and otherwise run, modify and
-propagate the contents of its contributor version.\n
-
-  \nIn the following three paragraphs, a "patent license" is any express
-agreement or commitment, however denominated, not to enforce a patent
-(such as an express permission to practice a patent or covenant not to
-sue for patent infringement).  To "grant" such a patent license to a
-party means to make such an agreement or commitment not to enforce a
-patent against the party.\n
-
-  \nIf you convey a covered work, knowingly relying on a patent license,
-and the Corresponding Source of the work is not available for anyone
-to copy, free of charge and under the terms of this License, through a
-publicly available network server or other readily accessible means,
-then you must either (1) cause the Corresponding Source to be so
-available, or (2) arrange to deprive yourself of the benefit of the
-patent license for this particular work, or (3) arrange, in a manner
-consistent with the requirements of this License, to extend the patent
-license to downstream recipients.  "Knowingly relying" means you have
-actual knowledge that, but for the patent license, your conveying the
-covered work in a country, or your recipient\'s use of the covered work
-in a country, would infringe one or more identifiable patents in that
-country that you have reason to believe are valid.\n
-
-  \nIf, pursuant to or in connection with a single transaction or
-arrangement, you convey, or propagate by procuring conveyance of, a
-covered work, and grant a patent license to some of the parties
-receiving the covered work authorizing them to use, propagate, modify
-or convey a specific copy of the covered work, then the patent license
-you grant is automatically extended to all recipients of the covered
-work and works based on it.\n
-
-  \nA patent license is "discriminatory" if it does not include within
-the scope of its coverage, prohibits the exercise of, or is
-conditioned on the non-exercise of one or more of the rights that are
-specifically granted under this License.  You may not convey a covered
-work if you are a party to an arrangement with a third party that is
-in the business of distributing software, under which you make payment
-to the third party based on the extent of your activity of conveying
-the work, and under which the third party grants, to any of the
-parties who would receive the covered work from you, a discriminatory
-patent license (a) in connection with copies of the covered work
-conveyed by you (or copies made from those copies), or (b) primarily
-for and in connection with specific products or compilations that
-contain the covered work, unless you entered into that arrangement,
-or that patent license was granted, prior to 28 March 2007.\n
-
-  \nNothing in this License shall be construed as excluding or limiting
-any implied license or other defenses to infringement that may
-otherwise be available to you under applicable patent law.\n
-
-  \n12. No Surrender of Others\' Freedom.\n
-
-  \nIf conditions are imposed on you (whether by court order, agreement or
-otherwise) that contradict the conditions of this License, they do not
-excuse you from the conditions of this License.  If you cannot convey a
-covered work so as to satisfy simultaneously your obligations under this
-License and any other pertinent obligations, then as a consequence you may
-not convey it at all.  For example, if you agree to terms that obligate you
-to collect a royalty for further conveying from those to whom you convey
-the Program, the only way you could satisfy both those terms and this
-License would be to refrain entirely from conveying the Program.\n
-
-  \n13. Use with the GNU Affero General Public License.\n
-
-  \nNotwithstanding any other provision of this License, you have
-permission to link or combine any covered work with a work licensed
-under version 3 of the GNU Affero General Public License into a single
-combined work, and to convey the resulting work.  The terms of this
-License will continue to apply to the part which is the covered work,
-but the special requirements of the GNU Affero General Public License,
-section 13, concerning interaction through a network will apply to the
-combination as such.\n
-
-  \n14. Revised Versions of this License.\n
-
-  \nThe Free Software Foundation may publish revised and/or new versions of
-the GNU General Public License from time to time.  Such new versions will
-be similar in spirit to the present version, but may differ in detail to
-address new problems or concerns.\n
-
-  \nEach version is given a distinguishing version number.  If the
-Program specifies that a certain numbered version of the GNU General
-Public License "or any later version" applies to it, you have the
-option of following the terms and conditions either of that numbered
-version or of any later version published by the Free Software
-Foundation.  If the Program does not specify a version number of the
-GNU General Public License, you may choose any version ever published
-by the Free Software Foundation.\n
-
-  \nIf the Program specifies that a proxy can decide which future
-versions of the GNU General Public License can be used, that proxy\'s
-public statement of acceptance of a version permanently authorizes you
-to choose that version for the Program.\n
-
-  \nLater license versions may give you additional or different
-permissions.  However, no additional obligations are imposed on any
-author or copyright holder as a result of your choosing to follow a
-later version.\n
-
-  \n15. Disclaimer of Warranty.\n
-
-  \nTHERE IS NO WARRANTY FOR THE PROGRAM, TO THE EXTENT PERMITTED BY
-APPLICABLE LAW.  EXCEPT WHEN OTHERWISE STATED IN WRITING THE COPYRIGHT
-HOLDERS AND/OR OTHER PARTIES PROVIDE THE PROGRAM "AS IS" WITHOUT WARRANTY
-OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING, BUT NOT LIMITED TO,
-THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-PURPOSE.  THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE PROGRAM
-IS WITH YOU.  SHOULD THE PROGRAM PROVE DEFECTIVE, YOU ASSUME THE COST OF
-ALL NECESSARY SERVICING, REPAIR OR CORRECTION.\n
-
-  \n16. Limitation of Liability.\n
-
-  \nIN NO EVENT UNLESS REQUIRED BY APPLICABLE LAW OR AGREED TO IN WRITING
-WILL ANY COPYRIGHT HOLDER, OR ANY OTHER PARTY WHO MODIFIES AND/OR CONVEYS
-THE PROGRAM AS PERMITTED ABOVE, BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY
-GENERAL, SPECIAL, INCIDENTAL OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE
-USE OR INABILITY TO USE THE PROGRAM (INCLUDING BUT NOT LIMITED TO LOSS OF
-DATA OR DATA BEING RENDERED INACCURATE OR LOSSES SUSTAINED BY YOU OR THIRD
-PARTIES OR A FAILURE OF THE PROGRAM TO OPERATE WITH ANY OTHER PROGRAMS),
-EVEN IF SUCH HOLDER OR OTHER PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
-SUCH DAMAGES.\n
-
-  \n17. Interpretation of Sections 15 and 16.\n
-
-  \nIf the disclaimer of warranty and limitation of liability provided
-above cannot be given local legal effect according to their terms,
-reviewing courts shall apply local law that most closely approximates
-an absolute waiver of all civil liability in connection with the
-Program, unless a warranty or assumption of liability accompanies a
-copy of the Program in return for a fee.\n
-
-                     \nEND OF TERMS AND CONDITIONS\n
-
-            \nHow to Apply These Terms to Your New Programs\n
-
-  \nIf you develop a new program, and you want it to be of the greatest
-possible use to the public, the best way to achieve this is to make it
-free software which everyone can redistribute and change under these terms.\n
-
-  \nTo do so, attach the following notices to the program.  It is safest
-to attach them to the start of each source file to most effectively
-state the exclusion of warranty; and each file should have at least
-the "copyright" line and a pointer to where the full notice is found.\n
-
-    \n{one line to give the program\'s name and a brief idea of what it does.}
-    Copyright © {year}  {name of author}\n
-
-    \nThis program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.\n
-
-    \nThis program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.\n
-
-    \nYou should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.\n
-
-\nAlso add information on how to contact you by electronic and paper mail.\n
-
-  \nIf the program does terminal interaction, make it output a short
-notice like this when it starts in an interactive mode:\n
-
-    \n{project}  Copyright © {year}  {fullname}
-    This program comes with ABSOLUTELY NO WARRANTY; for details type `show w\'.
-    This is free software, and you are welcome to redistribute it
-    under certain conditions; type `show c\' for details.\n
-
-\nThe hypothetical commands `show w\' and `show c\' should show the appropriate
-parts of the General Public License.  Of course, your program\'s commands
-might be different; for a GUI interface, you would use an "about box".\n
-
-  \nYou should also get your employer (if you work as a programmer) or school,
-if any, to sign a "copyright disclaimer" for the program, if necessary.
-For more information on this, and how to apply and follow the GNU GPL, see
-<http://www.gnu.org/licenses/>.\n
-
-  \nThe GNU General Public License does not permit incorporating your program
-into proprietary programs.  If your program is a subroutine library, you
-may consider it more useful to permit linking proprietary applications with
-the library.  If this is what you want to do, use the GNU Lesser General
-Public License instead of this License.  But first, please read
-<http://www.gnu.org/philosophy/why-not-lgpl.html>.]]>\n</string>
-
+    <string name="libraries_use_detail">The following sets forth attribution notices for third party software that may be contained in portions of the Eclipse Soundscapes product.
+        We thank the open sources community for all of their contributions.\n</string>
 
 </resources>
 

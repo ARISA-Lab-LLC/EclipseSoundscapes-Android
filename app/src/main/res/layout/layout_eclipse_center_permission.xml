@@ -2,16 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/custom_background"
+    android:background="@color/colorPrimaryDark"
     android:gravity="center">
 
     <TextView
         android:id="@+id/permission_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
+        android:layout_margin="16dp"
+        android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
-        android:textSize="23sp"
+        android:textSize="@dimen/default_text_size"
         android:textColor="@android:color/white"
         android:text="@string/eclipse_center_permission"/>
 

@@ -1,16 +1,19 @@
 package org.eclipsesoundscapes.service;
 
-import android.app.AlertDialog;
+import android.Manifest;
 import android.app.Service;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.provider.Settings;
+import androidx.core.content.ContextCompat;
+import android.widget.Toast;
+
+import org.eclipsesoundscapes.R;
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -27,7 +30,6 @@ import android.provider.Settings;
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  * */
 
-
 /**
  * @author Joel Goncalves
  *
@@ -37,16 +39,18 @@ import android.provider.Settings;
 public class GPSTracker extends Service implements LocationListener {
 
     private final Context context;
-    boolean isGPSEnabled = false;
-    boolean isNetworkEnabled = false;
-    public boolean canGetLocation = false;
+    private boolean canGetLocation = false;
 
-    Location location;
-    double latitude;
-    double longitude;
+    private Location location;
+    private double latitude;
+    private double longitude;
 
-    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10;
-    private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 1;
+    // The minimum distance to change Updates in meters
+    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; // 10 meters
+
+    // The minimum time between updates in milliseconds
+    private static final long MIN_TIME_BW_UPDATES = 1000 * 60; // 1 minute
+
     protected LocationManager locationManager;
 
     public GPSTracker(Context context) {
@@ -54,24 +58,30 @@ public class GPSTracker extends Service implements LocationListener {
         getLocation();
     }
 
-    /**
-     * Get location from either gps provider or network provider, which ever is available
-     */
+    /** Get location from either gps provider or network provider, which ever is available */
+
     public Location getLocation() {
+        this.locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
+        int rc = ContextCompat.checkSelfPermission(context, Manifest.permission.ACCESS_FINE_LOCATION);
+        if (locationManager == null || rc == PackageManager.PERMISSION_DENIED) return null;
+
         try {
-            locationManager = (LocationManager) context.getSystemService(LOCATION_SERVICE);
+            // GPS status
+            boolean isGPSEnabled = locationManager
+                    .isProviderEnabled(LocationManager.GPS_PROVIDER);
 
-            isGPSEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-
-            isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+            // Network status
+            boolean isNetworkEnabled = locationManager
+                    .isProviderEnabled(LocationManager.NETWORK_PROVIDER);
 
             if (!isGPSEnabled && !isNetworkEnabled) {
-
+                // no network provider is enabled
+                final String message = context.getString(R.string.error_finding_location);
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
             } else {
                 this.canGetLocation = true;
 
                 if (isNetworkEnabled) {
-
                     locationManager.requestLocationUpdates(
                             LocationManager.NETWORK_PROVIDER,
                             MIN_TIME_BW_UPDATES,
@@ -82,12 +92,10 @@ public class GPSTracker extends Service implements LocationListener {
                                 .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 
                         if (location != null) {
-
                             latitude = location.getLatitude();
                             longitude = location.getLongitude();
                         }
                     }
-
                 }
 
                 if(isGPSEnabled) {
@@ -107,7 +115,6 @@ public class GPSTracker extends Service implements LocationListener {
                     }
                 }
             }
-
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -139,33 +146,6 @@ public class GPSTracker extends Service implements LocationListener {
         return this.canGetLocation;
     }
 
-    public void showSettingsAlert() {
-        AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
-
-        alertDialog.setTitle("GPS is settings");
-
-        alertDialog.setMessage("Turn on your GPS to find nearby helpers");
-
-        alertDialog.setPositiveButton("Settings", new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                context.startActivity(intent);
-            }
-        });
-
-        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-
-        alertDialog.show();
-    }
-
     public void stopUsingGps() {
         if(locationManager != null) {
             locationManager.removeUpdates(GPSTracker.this);
@@ -180,22 +160,21 @@ public class GPSTracker extends Service implements LocationListener {
 
     @Override
     public void onProviderDisabled(String arg0) {
-        // TODO Auto-generated method stub
+        // no-op
     }
 
     @Override
     public void onProviderEnabled(String arg0) {
-        // TODO Auto-generated method stub
+        // no-op
     }
 
     @Override
     public void onStatusChanged(String arg0, int arg1, Bundle arg2) {
-        // TODO Auto-generated method stub
+        // no-op
     }
 
     @Override
     public IBinder onBind(Intent intent) {
-        // TODO Auto-generated method stub
         return null;
     }
 }

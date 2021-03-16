@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/rl_rumble_map"
-    android:background="@drawable/custom_background"
+    android:background="@color/colorPrimary"
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:clickable="true"
@@ -20,17 +20,15 @@
         android:focusableInTouchMode="false"
         android:clickable="false"
         android:contentDescription="@string/rumble_map_launch"
-        android:src="@drawable/eclipse_first_contact"
-        />
+        android:src="@drawable/eclipse_first_contact" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:fontFamily="sans-serif-"
-        android:textSize="21sp"
-        android:textStyle="bold"
+        android:fontFamily="sans-serif-medium"
+        android:textSize="@dimen/title_text_size"
         android:alpha="0.7"
         android:importantForAccessibility="no"
         android:focusable="false"

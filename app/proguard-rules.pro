@@ -24,6 +24,6 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--keepclassmembers class android.support.design.internal.BottomNavigationMenuView {
-    boolean mShiftingMode;
-}
+#-keepclassmembers class android.support.design.internal.BottomNavigationMenuView {
+#    boolean mShiftingMode;
+#}
