@@ -12,7 +12,7 @@
         android:layout_margin="16dp"
         android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
-        android:textSize="18sp"
+        android:textSize="@dimen/default_text_size"
         android:textColor="@android:color/white"
         android:text="@string/eclipse_center_permission"/>
 

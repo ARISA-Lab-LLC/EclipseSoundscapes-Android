@@ -1,27 +1,28 @@
 package org.eclipsesoundscapes.ui.features;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import com.google.android.material.tabs.TabLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
+
 import org.eclipsesoundscapes.R;
-import org.eclipsesoundscapes.ui.main.MainActivity;
 import org.eclipsesoundscapes.ui.custom.CustomViewPager;
+import org.eclipsesoundscapes.ui.main.MainActivity;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -59,7 +60,7 @@ public class EclipseFeaturesFragment extends Fragment {
     private static final int ITEM_ECLIPSE = 1;
 
     private int currentView;
-    private SparseArray<String> titles;
+    private ArrayList<String> titles = new ArrayList<>();
 
     @BindView(R.id.toolbar_title) TextView toolbarTitle;
     @BindView(R.id.tabs) TabLayout tabLayout;
@@ -69,7 +70,7 @@ public class EclipseFeaturesFragment extends Fragment {
         Fragment page = getChildFragmentManager().findFragmentByTag("android:switcher:" +
                 R.id.viewpager + ":" + mViewPager.getCurrentItem());
 
-        currentView = (currentView < titles.size()) ? currentView + 1 : 1;
+        currentView = (currentView >= titles.size() - 1) ? 0 : currentView + 1;
         setTitleFromView(currentView);
 
         if (mViewPager.getCurrentItem() == 0 && page != null)
@@ -82,7 +83,7 @@ public class EclipseFeaturesFragment extends Fragment {
         Fragment page = getChildFragmentManager().findFragmentByTag("android:switcher:" +
                 R.id.viewpager + ":" + mViewPager.getCurrentItem());
 
-        currentView = (currentView > 1) ? currentView - 1 : titles.size();
+        currentView = (currentView >= 1) ? currentView - 1 : titles.size() - 1;
         setTitleFromView(currentView);
 
         if (mViewPager.getCurrentItem() == 0 && page != null)
@@ -136,34 +137,20 @@ public class EclipseFeaturesFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        titles = new SparseArray<>();
+        final boolean showAllFeatures = getResources().getBoolean(R.bool.show_all_content);
+        if (showAllFeatures) {
+            titles = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.totality_features_title)));
+            return;
+        }
+
+        titles = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.default_features_title)));
 
         if (getActivity() != null && getActivity() instanceof MainActivity) {
-
-            if (!((MainActivity) getActivity()).isAfterFirstContact()) {
-                titles.put(1, getString(org.eclipsesoundscapes.R.string.bailys_beads));
-                titles.put(2, getString(org.eclipsesoundscapes.R.string.bailys_beads_closeup));
-                titles.put(3, getString(org.eclipsesoundscapes.R.string.corona));
-                titles.put(4, getString(org.eclipsesoundscapes.R.string.diamond_ring));
-                titles.put(5, getString(org.eclipsesoundscapes.R.string.helmet_streamers));
-                titles.put(6, getString(org.eclipsesoundscapes.R.string.helmet_streamers_closeup));
-                titles.put(7, getString(org.eclipsesoundscapes.R.string.prominence));
-                titles.put(8, getString(org.eclipsesoundscapes.R.string.prominence_closeup));
-                return;
+            if (((MainActivity) getActivity()).isAfterTotality()) {
+                titles = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.totality_features_title)));
+            } else {
+                titles = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.first_contact_features_title)));
             }
-
-                titles.put(1, getString(org.eclipsesoundscapes.R.string.first_contact));
-                titles.put(2, getString(org.eclipsesoundscapes.R.string.bailys_beads));
-                titles.put(3, getString(org.eclipsesoundscapes.R.string.bailys_beads_closeup));
-                titles.put(4, getString(org.eclipsesoundscapes.R.string.corona));
-                titles.put(5, getString(org.eclipsesoundscapes.R.string.diamond_ring));
-                titles.put(6, getString(org.eclipsesoundscapes.R.string.helmet_streamers));
-                titles.put(7, getString(org.eclipsesoundscapes.R.string.helmet_streamers_closeup));
-                titles.put(8, getString(org.eclipsesoundscapes.R.string.prominence));
-                titles.put(9, getString(org.eclipsesoundscapes.R.string.prominence_closeup));
-
-                if (((MainActivity) getActivity()).isAfterTotality())
-                    titles.put(10, getString(org.eclipsesoundscapes.R.string.totality));
         }
     }
 

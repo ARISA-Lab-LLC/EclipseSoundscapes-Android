@@ -1,14 +1,15 @@
 package org.eclipsesoundscapes.ui.features;
 
 import android.content.Intent;
+import android.content.res.TypedArray;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import android.util.SparseIntArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.ui.main.MainActivity;
@@ -21,8 +22,8 @@ import butterknife.OnClick;
 
 public class EclipseFragment extends Fragment {
 
-    private int currentImg = 1; // current eclipse img displaying
-    private SparseIntArray images;
+    private int currentImg;
+    private TypedArray images;
 
     @BindView(R.id.contact_point_img) ImageView imageView;
     @OnClick(R.id.contact_point_img) void launchRumbleMap(){
@@ -45,33 +46,21 @@ public class EclipseFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        images = new SparseIntArray();
 
-        if (getActivity() != null && getActivity() instanceof MainActivity){
-            if (!((MainActivity) getActivity()).isAfterFirstContact()){
-                images.put(1, R.drawable.eclipse_bailys_beads);
-                images.put(2, R.drawable.bailys_beads_close_up);
-                images.put(3, R.drawable.eclipse_corona);
-                images.put(4, R.drawable.eclipse_diamond_ring);
-                images.put(5, R.drawable.helmet_streamers);
-                images.put(6, R.drawable.helmet_streamer_closeup);
-                images.put(7, R.drawable.eclipse_prominence);
-                images.put(8, R.drawable.prominence_closeup);
-                return;
+        final boolean showAllFeatures = getResources().getBoolean(R.bool.show_all_content);
+        if (showAllFeatures) {
+            images = getResources().obtainTypedArray(R.array.totality_features_image);
+            return;
+        }
+
+        images = getResources().obtainTypedArray(R.array.default_features_image);
+
+        if (getActivity() != null && getActivity() instanceof MainActivity) {
+            if (((MainActivity) getActivity()).isAfterTotality()) {
+                images = getResources().obtainTypedArray(R.array.totality_features_image);
+            } else {
+                images = getResources().obtainTypedArray(R.array.first_contact_features_image);
             }
-
-            images.put(1, R.drawable.eclipse_first_contact);
-            images.put(2, R.drawable.eclipse_bailys_beads);
-            images.put(3, R.drawable.bailys_beads_close_up);
-            images.put(4, R.drawable.eclipse_corona);
-            images.put(5, R.drawable.eclipse_diamond_ring);
-            images.put(6, R.drawable.helmet_streamers);
-            images.put(7, R.drawable.helmet_streamer_closeup);
-            images.put(8, R.drawable.eclipse_prominence);
-            images.put(9, R.drawable.prominence_closeup);
-
-            if (((MainActivity) getActivity()).isAfterTotality())
-                images.put(10, R.drawable.eclipse_totality);
         }
     }
 
@@ -89,7 +78,15 @@ public class EclipseFragment extends Fragment {
      * @param contactPoint Corresponds to a particular eclipse image
      */
     public void updateView(int contactPoint){
-        imageView.setImageResource(images.get(contactPoint));
-        currentImg = images.get(contactPoint);
+        imageView.setImageDrawable(images.getDrawable(contactPoint));
+        currentImg = images.getResourceId(contactPoint, R.drawable.eclipse_first_contact);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (images != null) {
+            images.recycle();
+        }
     }
 }

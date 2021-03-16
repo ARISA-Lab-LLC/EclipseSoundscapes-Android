@@ -38,11 +38,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.about.OurPartnersActivity"
-            android:label="Our Partners"
+            android:label="@string/our_partners"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.about.OurTeamActivity"
-            android:label="Our Team"
+            android:label="@string/our_team"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.about.SettingsActivity"
@@ -62,14 +62,21 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.media.MediaPlayerActivity"
-            android:label="Media Player"
+            android:label="@string/media_player"
             android:screenOrientation="portrait"
             android:theme="@style/TranslucentTheme" />
         <activity
             android:name=".ui.rumblemap.RumbleMapInteractionActivity"
-            android:label="Rumble Map Interaction"
+            android:label="@string/rumble_map_interaction"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.rumblemap.RumbleMapInstructionsActivity"
+            android:label="@string/rumble_map_instructions_title"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.about.LanguageSelectionActivity"
+            android:screenOrientation="portrait"/>
 
         <service
             android:name=".service.GPSTracker"
@@ -84,13 +91,6 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
-        <activity
-            android:name=".ui.rumblemap.RumbleMapInstructionsActivity"
-            android:label="@string/rumble_map_instructions_title"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.about.LanguageSelectionActivity"
-            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

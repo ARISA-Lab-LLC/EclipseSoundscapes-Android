@@ -70,7 +70,7 @@
     <string name="privacy_policy">Privacy Policy</string>
     <string name="legal">Legal</string>
     <string name="libs_in_use">Libraries We Use</string>
-    <string name="audiokit">AUDIOKIT</string>
+    <string name="jsyn_lib">JSyn</string>
 
     <string name="about_us">About Us</string>
     <string name="about_us_details">The Eclipse Soundscapes mobile application is a product of the Eclipse Soundscapes Project, which is an enterprise ARISA Lab, LLC.
@@ -78,6 +78,7 @@
         The development of the Eclipse Soundscapes mobile application is funded by NASA Space Science Education Consortium.</string>
 
     <!-- Eclipse Center -->
+    <string name="eclipse_center_lockout_details">Updated Eclipse data coming soon.</string>
     <string name="eclipse_countdown_title">Countdown Until Eclipse</string>
     <string name="countdown_format">Countdown until eclipse from your location, %1$s days, %2$s hours, %3$s minutes and %4$s seconds</string>
     <string name="event_section_desc">Events at closest location are below. Events include your local time and universal time.</string>
@@ -180,6 +181,7 @@
     <string name="viewing_image_format">Now viewing image for %1$s</string>
 
     <!-- Media player -->
+    <string name="media_player">Media Player</string>
     <string name="audio_descriptions">Audio Descriptions</string>
     <string name="upcoming_audio">More audio descriptions coming soon…</string>
 
@@ -277,6 +279,7 @@
 
     <!-- rumble map interaction -->
     <string name="rumble_map">Rumble Map</string>
+    <string name="rumble_map_interaction">Rumble Map Interaction</string>
     <string name="rumble_map_launch">Press to interact with Rumble Map</string>
     <string name="rumble_map_how">How to Use The Rumble Map</string>
     <string name="rumble_map_instructions_title">Rumble Map Instructions</string>
@@ -286,7 +289,8 @@
 
     <!-- About -->
     <string name="supported_eclipse">Eclipses We Support</string>
-    <string name="link_feedback_form"><![CDATA[ https://docs.google.com/forms/d/e/1FAIpQLSez-hoTy2NkUO5FDud0eOCvjDXCx9jNsdCMrqV_GgMG6tFOiw/viewform]]></string>
+    <string name="link_feedback_form" translatable="false"><![CDATA[https://eclipsesoundscapes.org/ES_MobileApp_Feedback]]></string>
+    <string name="privacy_policy_url" translatable="false"><![CDATA[https://eclipsesoundscapes.org/content/eclipse-soundscapes-mobile-application-privacy-policy]]></string>
 
     <!-- Walkthrough -->
     <string name="walkthrough">Walkthrough</string>
@@ -531,28 +535,6 @@
 
     <string name="libraries_use_detail">The following sets forth attribution notices for third party software that may be contained in portions of the Eclipse Soundscapes product.
         We thank the open sources community for all of their contributions.\n</string>
-
-    <string name="audiokit_license">The MIT License (MIT)\n
-
-\nCopyright © 2016 Aurelius Prochazka\n
-
-\nPermission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:\n
-
-\nThe above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.\n
-
-\nTHE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.\n</string>
 
 </resources>
 

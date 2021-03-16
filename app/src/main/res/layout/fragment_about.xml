@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
                 android:fontFamily="sans-serif"
-                android:textSize="16sp"
+                android:textSize="@dimen/default_text_size"
                 android:textColor="@color/text_color_primary"
                 android:text="@string/about_us_details" />
 

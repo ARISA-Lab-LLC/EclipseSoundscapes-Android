@@ -17,6 +17,6 @@
             android:layout_margin="16dp"
             android:fontFamily="sans-serif-condensed"
             android:textColor="@android:color/white"
-            android:textSize="18sp" />
+            android:textSize="@dimen/default_text_size" />
     </LinearLayout>
 </ScrollView>

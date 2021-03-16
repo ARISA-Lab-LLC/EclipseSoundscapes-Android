@@ -20,7 +20,7 @@
             android:layout_height="150dp"
             android:layout_margin="16dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/eclipse_soundscapes_logo"
+            android:src="@drawable/ic_logo"
             android:layout_gravity="center_horizontal"
             android:importantForAccessibility="no"/>
 
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-medium"
             android:textColor="@android:color/white"
-            android:textSize="18sp"
+            android:textSize="@dimen/default_text_size"
             android:gravity="center_horizontal"
             android:text="@string/outside_eclipse_path"
             android:layout_margin="16dp" />
@@ -43,7 +43,7 @@
             android:padding="16dp"
             android:textColor="@android:color/white"
             android:fontFamily="sans-serif-condensed"
-            android:textSize="14sp"
+            android:textSize="16sp"
             android:textAllCaps="false"
             android:text="@string/get_closest_location"
             android:maxLines="1"

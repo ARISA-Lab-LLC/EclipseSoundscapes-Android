@@ -24,6 +24,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -53,7 +54,7 @@ import butterknife.ButterKnife;
 
 public class FutureEclipsesActivity extends BaseActivity {
 
-    final SimpleDateFormat format = new SimpleDateFormat("yyyy, MMM dd");
+    final SimpleDateFormat format = new SimpleDateFormat("yyyy, MMM dd", Locale.US);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -184,7 +185,7 @@ public class FutureEclipsesActivity extends BaseActivity {
     /**
      * Simple adapter for future eclipse objects in a list view
      */
-    class FutureEclipseAdapter extends RecyclerView.Adapter<FutureEclipseAdapter.ViewHolder> {
+    static class FutureEclipseAdapter extends RecyclerView.Adapter<FutureEclipseAdapter.ViewHolder> {
 
         ArrayList<FutureEclipse> futureEclipses;
 

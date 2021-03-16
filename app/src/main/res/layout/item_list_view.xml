@@ -35,7 +35,7 @@
         android:layout_marginStart="@dimen/ma_list_item_text_edge_padding_start"
         android:layout_toStartOf="@id/list_icon"
         android:textColor="@color/ma_text_dark_primary_87"
-        android:textSize="@dimen/ma_list_item_primary_text"
+        android:textSize="@dimen/default_text_size"
         tools:text="Single-line item"/>
 
 </RelativeLayout>

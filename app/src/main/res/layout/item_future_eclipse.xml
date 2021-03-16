@@ -18,7 +18,7 @@
         android:layout_marginBottom="@dimen/ma_list_item_line_spacing"
         android:fontFamily="sans-serif"
         android:textColor="@color/text_color_primary"
-        android:textSize="@dimen/ma_list_item_primary_text"
+        android:textSize="@dimen/default_text_size"
         tools:text="Three-line item" />
 
     <TextView
@@ -28,7 +28,7 @@
         android:layout_marginBottom="@dimen/ma_list_item_line_spacing"
         android:fontFamily="sans-serif"
         android:textColor="@color/text_color_primary"
-        android:textSize="@dimen/ma_list_item_primary_text"
+        android:textSize="@dimen/default_text_size"
         tools:text="Secondary text"/>
 
     <TextView
@@ -38,7 +38,7 @@
         android:layout_marginBottom="@dimen/ma_list_item_line_spacing"
         android:fontFamily="sans-serif"
         android:textColor="@color/text_color_primary"
-        android:textSize="@dimen/ma_list_item_primary_text"
+        android:textSize="@dimen/default_text_size"
         tools:text="Tertiary text"/>
 
 
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:textColor="@color/text_color_primary"
-        android:textSize="@dimen/ma_list_item_primary_text"
+        android:textSize="@dimen/default_text_size"
         tools:text="Tertiary text"/>
 
 </LinearLayout>
