@@ -50,8 +50,7 @@
     <string name="location_permission">Permiso de ubicación</string>
     <string name="error_finding_location">"incapaz de determinar su ubicación actual</string>
     <string name="permission_denied">Permiso denegado</string>
-    <string name="location_disabled">Ubicación deshabilitada</string>
-    <string name="location_disabled_message">Para continuar, habilite los servicios de ubicación desde la configuración de su dispositivo.</string>
+    <string name="location_disabled_message">Ubicación deshabilitada.\nPara continuar, habilite los servicios de ubicación desde la configuración de su dispositivo.</string>
 
     <string name="device_settings_permission">Para continuar, permite el acceso a su ubicación desde la configuración de su dispositivo.</string>
     <string name="app_settings_permission">Para continuar, permite el acceso a su ubicación desde la configuración de la aplicación.</string>
@@ -113,6 +112,7 @@
     <string name="eclipse_type_full">Eclipse solar total</string>
     <string name="eclipse_type_partial">Eclipse solar parcial</string>
     <string name="eclipse_type_none">No Eclipse Solar</string>
+    <string name="eclipse_type_unnkown">Desconocido</string>
 
     <string name="eclipse_start_partial">Inicio del eclipse parcial</string>
     <string name="eclipse_start_full">Inicio del eclipse total</string>

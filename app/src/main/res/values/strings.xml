@@ -47,8 +47,8 @@
     <string name="location_permission">Location permission</string>
     <string name="error_finding_location">Unable to determine your current location</string>
     <string name="permission_denied">Permission denied</string>
-    <string name="location_disabled">Location disabled</string>
-    <string name="location_disabled_message">To continue, enable location services from your device settings.</string>
+    <string name="location_disabled_message">Location disabled.\nTo continue, enable location services from your device settings.</string>
+    <string name="enable_location">Enable Location</string>
 
     <string name="device_settings_permission">To continue, please allow access to your location from your device settings.</string>
     <string name="app_settings_permission">To continue, please allow access to your location from the application settings.</string>
@@ -105,6 +105,7 @@
     <string name="eclipse_type_full">Total Solar Eclipse</string>
     <string name="eclipse_type_partial">Partial Solar Eclipse</string>
     <string name="eclipse_type_none">No Solar Eclipse</string>
+    <string name="eclipse_type_unkown">Unknown</string>
 
     <string name="eclipse_start_partial">Start of partial eclipse</string>
     <string name="eclipse_start_full">Start of total eclipse</string>

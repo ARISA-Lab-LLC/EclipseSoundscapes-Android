@@ -1,6 +1,5 @@
 package org.eclipsesoundscapes.ui.main;
 
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -27,7 +26,6 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
 
-import static org.eclipsesoundscapes.util.Constants.LOCATION_PERMISSION_REQUEST_CODE;
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -307,26 +305,5 @@ public class MainActivity extends BaseActivity {
 
     public DataManager getDataManager() {
         return dataManager;
-    }
-
-    /**************************************************************************
-     * Handle location permission for Eclipse Center
-     *************************************************************************/
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE){
-            String backStateName =  EclipseCenterFragment.class.getName();
-            EclipseCenterFragment fragment = (EclipseCenterFragment) getSupportFragmentManager().findFragmentByTag(backStateName);
-
-            if (grantResults.length != 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                if (fragment != null)
-                    fragment.onPermissionGranted();
-            } else {
-                if (fragment != null) {
-                    fragment.showPermissionView(true);
-                }
-            }
-        }
     }
 }

@@ -3,7 +3,7 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:id="@+id/progress_layout"
     android:layout_height="match_parent"
-    android:background="@drawable/custom_background"
+    android:background="@color/colorPrimaryDark"
     android:focusable="true"
     android:gravity="center">
 
