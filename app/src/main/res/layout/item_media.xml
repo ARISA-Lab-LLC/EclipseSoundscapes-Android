@@ -1,42 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="?android:attr/selectableItemBackground">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ImageView
-        android:id="@+id/list_media_img"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:adjustViewBounds="true"
-        android:scaleType="centerCrop"
-        android:layout_centerVertical="true"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="16dp"/>
+    <data>
+        <variable
+            name="media"
+            type="org.eclipsesoundscapes.model.MediaItem" />
 
-    <ImageView
-        android:id="@+id/list_media_extra"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="@dimen/ma_list_item_edges_padding"
-        app:srcCompat="@drawable/ic_chevron_right"/>
+        <variable
+            name="clickListener"
+            type="org.eclipsesoundscapes.ui.media.MediaAdapter.MediaClickListener" />
+    </data>
 
-    <TextView
-        android:id="@+id/list_media_title"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_toEndOf="@+id/list_media_img"
-        android:layout_centerInParent="true"
-        android:layout_toStartOf="@+id/list_media_extra"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@color/text_color_primary"
-        android:textSize="@dimen/default_text_size"/>
+        android:background="?android:attr/selectableItemBackground"
+        android:onClick="@{() -> clickListener.onMediaClicked(media)}">
 
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/list_media_img"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="16dp"
+            app:roundImage="@{media.imageResId}"/>
+
+        <ImageView
+            android:id="@+id/list_media_extra"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="@dimen/ma_list_item_edges_padding"
+            app:srcCompat="@drawable/ic_chevron_right"/>
+
+        <TextView
+            android:id="@+id/list_media_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@+id/list_media_img"
+            android:layout_centerInParent="true"
+            android:layout_toStartOf="@+id/list_media_extra"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/text_color_primary"
+            android:textSize="@dimen/default_text_size"
+            app:stringId="@{media.titleResId}"/>
+    </RelativeLayout>
+
+</layout>
