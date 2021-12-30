@@ -3,32 +3,24 @@ package org.eclipsesoundscapes.ui.about;
 import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.text.util.Linkify;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CenterCrop;
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
-import com.bumptech.glide.request.RequestOptions;
-
 import org.eclipsesoundscapes.BuildConfig;
 import org.eclipsesoundscapes.R;
+import org.eclipsesoundscapes.model.Eclipse;
+import org.eclipsesoundscapes.model.PhotoCredit;
 import org.eclipsesoundscapes.ui.base.BaseActivity;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,12 +38,12 @@ import butterknife.ButterKnife;
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
-  * */
+ * */
 
 
 /**
  * @author Joel Goncalves
- *
+ * <p>
  * Display legal document depending on intent from SettingsActivity
  * E.g Application license, Photo Credits, open source libraries
  * See {@link SettingsActivity}
@@ -100,27 +92,20 @@ public class LegalActivity extends BaseActivity {
             case EXTRA_PHOTO_CREDS:
                 title = getString(R.string.photo_credits);
                 getSupportActionBar().setTitle(title);
-                setTitle(title); 
+                setTitle(title);
                 setContentView(R.layout.legal_photo_credits);
-
-                Integer[] imgs = {R.drawable.eclipse_diamond_ring, R.drawable.helmet_streamers,
-                        R.drawable.eclipse_prominence, R.drawable.sun_as_a_star, R.drawable.eclipse_first_contact,
-                        R.drawable.eclipse_totality, R.drawable.eclipse_bailys_beads, R.drawable.eclipse_corona};
-                String[] titles = getResources().getStringArray(R.array.eclipse_imgs_title);
-                String[] credits = getResources().getStringArray(R.array.eclipse_img_credits);
-                String[] links = getResources().getStringArray(R.array.eclipse_img_credit_links);
 
                 RecyclerView recyclerView = findViewById(R.id.photo_credits_recycler);
                 recyclerView.setLayoutManager(new LinearLayoutManager(this));
                 recyclerView.setHasFixedSize(true);
-                recyclerView.setAdapter(new CreditsAdapter(imgs, titles, credits, links));
+                recyclerView.setAdapter(new PhotoCreditAdapter(createPhotoCredits()));
                 break;
         }
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home){
+        if (item.getItemId() == android.R.id.home) {
             onBackPressed();
             return true;
         } else
@@ -183,58 +168,73 @@ public class LegalActivity extends BaseActivity {
         return "";
     }
 
-    static class CreditsAdapter extends RecyclerView.Adapter<CreditsAdapter.ViewHolder> {
+    /**
+     * Creates a list of entities credited for {@link Eclipse} images
+     * @return a list of {@link PhotoCredit}
+     */
+    private ArrayList<PhotoCredit> createPhotoCredits() {
+        final ArrayList<PhotoCredit> credits = new ArrayList<>();
 
-        private final Integer[] photos;
-        private final String[] titles;
-        private final String[] credits;
-        private final String[] links;
+        for (Eclipse eclipse : Eclipse.Companion.photoCreditEclipses()) {
+            PhotoCredit photoCredit = null;
 
-        CreditsAdapter(Integer[] photos, String[] titles, String[] credits, String[] links) {
-            this.photos = photos;
-            this.titles = titles;
-            this.credits = credits;
-            this.links = links;
-        }
-
-        @NonNull
-        @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View itemView = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.item_photo_credit, parent, false);
-            return new ViewHolder(itemView);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-            holder.title.setText(titles[position]);
-            holder.author.setText(credits[position]);
-            holder.link.setText(links[position]);
-
-            Glide.with(holder.photo.getContext())
-                    .load(photos[position])
-                    .apply(new RequestOptions().transforms(new CenterCrop(), new RoundedCorners(8)))
-                    .into(holder.photo);
-
-            Linkify.addLinks(holder.link, Linkify.ALL);
-        }
-
-        @Override
-        public int getItemCount() {
-            return photos.length;
-        }
-
-        //View holder for list view items in photo credits
-        class ViewHolder extends RecyclerView.ViewHolder {
-            @BindView(R.id.photo) ImageView photo;
-            @BindView(R.id.title) TextView title;
-            @BindView(R.id.credit) TextView author;
-            @BindView(R.id.link) TextView link;
-
-            ViewHolder(View view) {
-                super(view);
-                ButterKnife.bind(this, view);
+            switch (eclipse) {
+                case FIRST_CONTACT:
+                    photoCredit = new PhotoCredit(eclipse, getString(R.string.credits_first_contact),
+                            getString(R.string.credits_link_first_contact));
+                    break;
+                case BAILYS_BEADS:
+                case BAILYS_BEADS_CLOSEUP:
+                    photoCredit = new PhotoCredit(eclipse, getString(R.string.credits_bailys_beads),
+                            getString(R.string.credits_link_bailys_beads));
+                    break;
+                case CORONA:
+                    photoCredit = new PhotoCredit(eclipse, getString(R.string.credits_corona),
+                            getString(R.string.credits_link_corona));
+                    break;
+                case DIAMOND_RING:
+                    photoCredit = new PhotoCredit(eclipse, getString(R.string.credits_diamond_ring),
+                            getString(R.string.credits_link_diamond_ring));
+                    break;
+                case HELMET_STREAMER:
+                case HELMET_STREAMER_CLOSEUP:
+                    photoCredit = new PhotoCredit(eclipse, getString(R.string.credits_helmet_streamers),
+                            getString(R.string.credits_link_helmet_streamers));
+                    break;
+                case PROMINENCE:
+                case PROMINENCE_CLOSEUP:
+                    photoCredit = new PhotoCredit(eclipse, getString(R.string.credits_prominence),
+                            getString(R.string.credits_link_prominence));
+                    break;
+                case TOTALITY:
+                    photoCredit = new PhotoCredit(eclipse, getString(R.string.credits_totality),
+                            getString(R.string.credits_link_totality));
+                    break;
+                case ANNULAR_START:
+                    photoCredit = new PhotoCredit(eclipse, getString(R.string.credits_annular_start),
+                            getString(R.string.credits_link_annular_start));
+                    break;
+                case ANNULAR_PHASE_START:
+                    photoCredit = new PhotoCredit(eclipse, getString(R.string.credits_annular_phase_start),
+                            getString(R.string.credits_link_annular_phase_start));
+                    break;
+                case ANNULARITY:
+                    photoCredit = new PhotoCredit(eclipse, getString(R.string.credits_annularity),
+                            getString(R.string.credits_link_annularity));
+                    break;
+                case ANNULAR_PHASE_END:
+                    photoCredit = new PhotoCredit(eclipse, getString(R.string.credits_annular_phase_end),
+                            getString(R.string.credits_link_annular_phase_end));
+                    break;
+                case ANNULAR_END:
+                    photoCredit = new PhotoCredit(eclipse, getString(R.string.credits_annular_end),
+                            getString(R.string.credits_link_annular_end));
+                    break;
             }
+
+            credits.add(photoCredit);
         }
+
+        return credits;
     }
 }
