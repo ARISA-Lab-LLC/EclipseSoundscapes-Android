@@ -17,7 +17,7 @@ import org.eclipsesoundscapes.data.DataManager;
 import org.eclipsesoundscapes.ui.about.AboutFragment;
 import org.eclipsesoundscapes.ui.base.BaseActivity;
 import org.eclipsesoundscapes.ui.center.EclipseCenterFragment;
-import org.eclipsesoundscapes.ui.features.EclipseFeaturesFragment;
+import org.eclipsesoundscapes.ui.features.FeaturesFragment;
 import org.eclipsesoundscapes.ui.media.MediaFragment;
 
 import java.text.ParseException;
@@ -25,7 +25,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.TimeZone;
-
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -58,49 +57,42 @@ public class MainActivity extends BaseActivity {
     private BottomNavigationView navigation;
     private DataManager dataManager;
 
-    // track current eclipseImageView view in EclipseFeatures fragment
-    int currentView = 0;
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = item -> {
+                Fragment fragment;
+                Class fragmentClass;
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+                switch (item.getItemId()) {
+                    case R.id.navigation_eclipse_features:
+                        fragmentClass = FeaturesFragment.class;
+                        break;
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            Fragment fragment;
-            Class fragmentClass;
+                    case R.id.navigation_eclipse_center:
+                        fragmentClass = EclipseCenterFragment.class;
+                        break;
 
-            switch (item.getItemId()) {
-                case R.id.navigation_eclipse_features:
-                    fragmentClass = EclipseFeaturesFragment.class;
-                    break;
+                    case R.id.navigation_media:
+                        fragmentClass = MediaFragment.class;
+                        break;
 
-                case R.id.navigation_eclipse_center:
-                    fragmentClass = EclipseCenterFragment.class;
-                    break;
+                    case R.id.navigation_about:
+                        fragmentClass = AboutFragment.class;
+                        break;
+                    default:
+                        fragmentClass = FeaturesFragment.class;
+                }
 
-                case R.id.navigation_media:
-                    fragmentClass = MediaFragment.class;
-                    break;
-
-                case R.id.navigation_about:
-                    fragmentClass = AboutFragment.class;
-                    break;
-                default:
-                    fragmentClass = EclipseFeaturesFragment.class;
-            }
-
-            try {
-                fragment = (Fragment) fragmentClass.newInstance();
-                replaceFragment(fragment);
-                item.setChecked(true);
-                setTitle(item.getTitle());
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return false;
-        }
-    };
+                try {
+                    fragment = (Fragment) fragmentClass.newInstance();
+                    replaceFragment(fragment);
+                    item.setChecked(true);
+                    setTitle(item.getTitle());
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return false;
+            };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,8 +137,8 @@ public class MainActivity extends BaseActivity {
         switch (tag) {
             case EclipseCenterFragment.TAG:
                 return EclipseCenterFragment.newInstance();
-            case EclipseFeaturesFragment.TAG:
-                return EclipseFeaturesFragment.newInstance();
+            case FeaturesFragment.TAG:
+                return FeaturesFragment.newInstance();
             case MediaFragment.TAG:
                 return MediaFragment.newInstance();
             case AboutFragment.TAG:
@@ -160,7 +152,7 @@ public class MainActivity extends BaseActivity {
         switch (tag) {
             case EclipseCenterFragment.TAG:
                 return R.id.navigation_eclipse_center;
-            case EclipseFeaturesFragment.TAG:
+            case FeaturesFragment.TAG:
                 return R.id.navigation_eclipse_features;
             case MediaFragment.TAG:
                 return R.id.navigation_media;
@@ -186,7 +178,7 @@ public class MainActivity extends BaseActivity {
 
         int id;
         switch (currentFrag) {
-            case EclipseFeaturesFragment.TAG:
+            case FeaturesFragment.TAG:
                 id = R.id.navigation_eclipse_features;
                 break;
             case EclipseCenterFragment.TAG:
@@ -289,18 +281,6 @@ public class MainActivity extends BaseActivity {
         }
 
         return false;
-    }
-
-    /**
-     *
-     * @param currentView set current view in eclipseImageView features fragment
-     */
-    public void setCurrentView(int currentView){
-        this.currentView = currentView;
-    }
-
-    public int getCurrentView(){
-        return currentView;
     }
 
     public DataManager getDataManager() {

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include
+        layout="@layout/view_feature_description"
+        android:visibility="gone"
+        android:id="@+id/description_view"/>
+
+    <include
+        layout="@layout/view_feature_rumble_map"
+        android:visibility="gone"
+        android:id="@+id/rumble_map_view"/>
+
+</FrameLayout>

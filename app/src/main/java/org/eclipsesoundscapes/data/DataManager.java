@@ -1,8 +1,13 @@
 package org.eclipsesoundscapes.data;
 
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
+
 public class DataManager {
 
     private SharedPrefsHelper sharedPrefsHelper;
+
+    private Pair<Integer, Integer> featuresPosition;
 
     public DataManager(SharedPrefsHelper sharedPrefsHelper) {
         this.sharedPrefsHelper = sharedPrefsHelper;
@@ -78,5 +83,14 @@ public class DataManager {
 
     public boolean getNotifications(){
         return sharedPrefsHelper.getNotifications();
+    }
+
+    public void saveFeaturesPosition(int page, int tab) {
+        featuresPosition = new Pair(page, tab);
+    }
+
+    @Nullable
+    public Pair<Integer, Integer> getFeaturesPosition() {
+        return featuresPosition;
     }
 }

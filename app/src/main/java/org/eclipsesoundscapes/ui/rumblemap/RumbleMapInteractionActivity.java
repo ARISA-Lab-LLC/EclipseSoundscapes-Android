@@ -31,7 +31,6 @@ import org.eclipsesoundscapes.EclipseSoundscapesApp;
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.data.DataManager;
 import org.eclipsesoundscapes.ui.base.BaseActivity;
-import org.eclipsesoundscapes.ui.features.EclipseFragment;
 import org.eclipsesoundscapes.util.AndroidAudioForJSyn;
 
 import java.io.IOException;
