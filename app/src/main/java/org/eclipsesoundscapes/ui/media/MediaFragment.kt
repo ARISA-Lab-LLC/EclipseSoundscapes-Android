@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.eclipsesoundscapes.R
@@ -64,13 +63,8 @@ class MediaFragment : Fragment() {
                 activity?.let {
                     // start media player
                     it.startActivity(Intent(it, MediaPlayerActivity::class.java).apply {
-                        arguments = bundleOf(
-                            MediaPlayerActivity.EXTRA_TITLE to media.titleResId,
-                            MediaPlayerActivity.EXTRA_IMG to media.imageResId,
-                            MediaPlayerActivity.EXTRA_AUDIO to media.audioResId,
-                            MediaPlayerActivity.EXTRA_DESCRIPTION to media.descriptionResId,
-                            MediaPlayerActivity.EXTRA_LIVE to false,
-                        )
+                        putExtra(MediaPlayerActivity.EXTRA_MEDIA, media)
+                        putExtra(MediaPlayerActivity.EXTRA_LIVE, false)
                     })
                 }
             })
