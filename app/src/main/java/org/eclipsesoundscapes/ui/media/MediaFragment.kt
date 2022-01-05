@@ -82,6 +82,8 @@ class MediaFragment : Fragment() {
 
     private fun updateMediaContent() {
         (activity as? MainActivity)?.let {
+            mediaList.clear()
+
             val items = ArrayList<Eclipse>()
             val showAll = resources.getBoolean(R.bool.show_all_content) || it.isAfterTotality
             when {
