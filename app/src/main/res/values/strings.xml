@@ -382,17 +382,6 @@
     <string name="credits_link_annular_phase_end">http://xjubier.free.fr/en/site_pages/solar_eclipses/ASE_20200621_pg02.html</string>
     <string name="credits_link_annular_end">https://sdo.gsfc.nasa.gov/gallery/main/item/131</string>
 
-    <array name="listOptions">
-        <item name="item_rumble_map">@string/rumble_map_how</item>
-        <item name="item_team">@string/our_team</item>
-        <item name="item_partners">@string/our_partners</item>
-        <item name="item_future_eclipses">@string/supported_eclipse</item>
-        <item name="item_walkthrough">@string/walkthrough</item>
-        <item name="item_feedback">@string/feedback</item>
-        <item name="item_settings">@string/settings</item>
-        <item name="item_legal">@string/legal</item>
-    </array>
-
     <string name="our_partners">Our Partners</string>
     <string name="current_partners">Current Partners</string>
     <string name="past_partners">Past Partners</string>
