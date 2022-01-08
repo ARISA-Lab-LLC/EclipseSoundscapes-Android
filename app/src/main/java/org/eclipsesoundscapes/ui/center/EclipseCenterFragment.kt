@@ -133,6 +133,10 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
                     }
                 }
             }
+
+            if (resources.getBoolean(R.bool.lockout_eclipse_center)) {
+                lockoutView.root.visibility = View.VISIBLE
+            }
         }
 
         return binding.root
@@ -148,11 +152,6 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
 
     override fun onResume() {
         super.onResume()
-//        if (resources.getBoolean(R.bool.lockout_eclipse_center)) {
-//            binding.lockoutView.root.visibility = View.VISIBLE
-//            return
-//        }
-
         verifyLocationAccess()
     }
 
