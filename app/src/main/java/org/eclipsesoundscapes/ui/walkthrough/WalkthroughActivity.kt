@@ -97,9 +97,12 @@ class WalkthroughActivity : BaseActivity() {
         when (position) {
             pageCount - 1 -> {
                 // last page
-                binding.nextButton.visibility = View.GONE
-                binding.skipCloseButton.visibility = View.GONE
+                binding.nextButton.visibility = View.INVISIBLE
                 binding.prevButton.visibility = View.VISIBLE
+
+                if (mode != MODE_MENU) {
+                    binding.skipCloseButton.visibility = View.GONE
+                }
             }
             0 -> {
                 // first page
