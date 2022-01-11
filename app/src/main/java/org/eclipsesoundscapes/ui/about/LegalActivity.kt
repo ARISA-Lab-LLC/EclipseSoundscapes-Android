@@ -191,26 +191,6 @@ class LegalActivity : BaseActivity() {
                     eclipse, getString(R.string.credits_totality),
                     getString(R.string.credits_link_totality)
                 )
-                Eclipse.ANNULAR_START -> PhotoCredit(
-                    eclipse, getString(R.string.credits_annular_start),
-                    getString(R.string.credits_link_annular_start)
-                )
-                Eclipse.ANNULAR_PHASE_START -> PhotoCredit(
-                    eclipse, getString(R.string.credits_annular_phase_start),
-                    getString(R.string.credits_link_annular_phase_start)
-                )
-                Eclipse.ANNULARITY -> PhotoCredit(
-                    eclipse, getString(R.string.credits_annularity),
-                    getString(R.string.credits_link_annularity)
-                )
-                Eclipse.ANNULAR_PHASE_END -> PhotoCredit(
-                    eclipse, getString(R.string.credits_annular_phase_end),
-                    getString(R.string.credits_link_annular_phase_end)
-                )
-                Eclipse.ANNULAR_END -> PhotoCredit(
-                    eclipse, getString(R.string.credits_annular_end),
-                    getString(R.string.credits_link_annular_end)
-                )
             }
             credits.add(photoCredit)
         }
