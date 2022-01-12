@@ -48,7 +48,7 @@ class FeaturesFragment : Fragment() {
                 }
             }
 
-            saveState()
+            savePosition()
             updateTitle()
             showEclipse()
         }
@@ -72,7 +72,7 @@ class FeaturesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val lastPosition = (activity as MainActivity).dataManager?.featuresPosition
+        val lastPosition = (activity as? MainActivity)?.dataManager?.featuresPosition
 
         binding.tabs.apply {
             val descriptionTab =
@@ -83,13 +83,16 @@ class FeaturesFragment : Fragment() {
             addTab(descriptionTab)
             addTab(imageTab)
 
-            selectTab(
-                if ((lastPosition?.second ?: 0) == 0) {
-                    descriptionTab
-                } else {
-                    imageTab
-                }
-            )
+            lastPosition?.second?.let {
+                _tabState.value = it
+                selectTab(
+                    if (it == 0) {
+                        descriptionTab
+                    } else {
+                        imageTab
+                    }
+                )
+            }
 
             addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
                 override fun onTabSelected(tab: TabLayout.Tab?) {
@@ -98,7 +101,7 @@ class FeaturesFragment : Fragment() {
                         announceChange()
                     }
 
-                    saveState()
+                    savePosition()
                 }
 
                 override fun onTabUnselected(tab: TabLayout.Tab?) {}
@@ -128,8 +131,8 @@ class FeaturesFragment : Fragment() {
         currentPosition = lastPosition?.first ?: 0
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onStart() {
+        super.onStart()
         (activity as? AppCompatActivity)?.let { activity ->
             activity.setSupportActionBar(binding.toolbar)
             activity.supportActionBar?.let {
@@ -166,7 +169,7 @@ class FeaturesFragment : Fragment() {
         binding.toolbarTitle.announceForAccessibility(announce)
     }
 
-    private fun saveState() {
+    private fun savePosition() {
         (activity as? MainActivity)?.dataManager?.saveFeaturesPosition(
             currentPosition,
             binding.tabs.selectedTabPosition
