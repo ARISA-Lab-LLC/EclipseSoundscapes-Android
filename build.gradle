@@ -40,7 +40,6 @@ ext {
     fragmentVersion = '1.3.0'
     preferenceVersion = '1.1.0'
     glideVersion = '4.7.1'
-    butterKnifeVersion = '10.2.3'
     kotlinCoroutineVersion = '1.5.2'
     lifecycleVersion = '2.4.0'
     firebaseBomVersion = '26.1.1'
