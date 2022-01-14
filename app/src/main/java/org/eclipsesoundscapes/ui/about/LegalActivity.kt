@@ -73,14 +73,19 @@ class LegalActivity : BaseActivity() {
                 setContentView(binding.root)
                 showWebView(R.id.jsyn_license, "apache_license_2.0.html")
             }
-            EXTRA_PRIVACY_POLICY -> {
+            EXTRA_PRIVACY_POLICY, EXTRA_TOS -> {
                 val binding = ActivityLegalWebviewBinding.inflate(layoutInflater).apply {
-                    title = getString(R.string.privacy_policy)
+                    title = if (legalMode == EXTRA_PRIVACY_POLICY) {
+                        getString(R.string.privacy_policy)
+                    } else {
+                        getString(R.string.tos)
+                    }
+
                     supportActionBar?.title = title
                 }
 
                 setContentView(binding.root)
-                showPrivacyPolicy()
+                showLegalLink(legalMode == EXTRA_PRIVACY_POLICY)
             }
             EXTRA_PHOTO_CREDS -> {
                 val binding = LegalPhotoCreditsBinding.inflate(layoutInflater).apply {
@@ -110,7 +115,7 @@ class LegalActivity : BaseActivity() {
         overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
     }
 
-    private fun showPrivacyPolicy() {
+    private fun showLegalLink(privacyPolicy: Boolean) {
         val webView = findViewById<WebView>(R.id.webview)
         val progressBar = findViewById<ProgressBar>(R.id.webview_progress)
 
@@ -126,7 +131,12 @@ class LegalActivity : BaseActivity() {
             }
         }
 
-        val url = getString(R.string.privacy_policy_url)
+        val url = if (privacyPolicy) {
+            getString(R.string.privacy_policy_url)
+        } else {
+            getString(R.string.tos_url)
+        }
+
         webView?.loadUrl(url)
     }
 
@@ -203,5 +213,6 @@ class LegalActivity : BaseActivity() {
         const val EXTRA_LIBS = "libraries"
         const val EXTRA_PHOTO_CREDS = "photo_credits"
         const val EXTRA_PRIVACY_POLICY = "privacy_policy"
+        const val EXTRA_TOS = "tos"
     }
 }
