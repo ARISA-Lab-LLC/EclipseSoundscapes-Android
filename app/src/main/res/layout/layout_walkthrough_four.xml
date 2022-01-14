@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="5dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5"/>
+        app:layout_constraintGuide_percent="0.4"/>
 
     <LinearLayout
         android:id="@+id/image_header"

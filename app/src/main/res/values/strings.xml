@@ -47,8 +47,8 @@
     <string name="location_permission">Location permission</string>
     <string name="error_finding_location">Unable to determine your current location</string>
     <string name="permission_denied">Permission denied</string>
-    <string name="location_disabled">Location disabled</string>
-    <string name="location_disabled_message">To continue, enable location services from your device settings.</string>
+    <string name="location_disabled_message">Location disabled.\nTo continue, enable location services from your device settings.</string>
+    <string name="enable_location">Enable Location</string>
 
     <string name="device_settings_permission">To continue, please allow access to your location from your device settings.</string>
     <string name="app_settings_permission">To continue, please allow access to your location from the application settings.</string>
@@ -105,6 +105,7 @@
     <string name="eclipse_type_full">Total Solar Eclipse</string>
     <string name="eclipse_type_partial">Partial Solar Eclipse</string>
     <string name="eclipse_type_none">No Solar Eclipse</string>
+    <string name="eclipse_type_unkown">Unknown</string>
 
     <string name="eclipse_start_partial">Start of partial eclipse</string>
     <string name="eclipse_start_full">Start of total eclipse</string>
@@ -324,60 +325,28 @@
         <item name="corona">@string/corona</item>
     </array>
 
-    <array name="eclipse_img_credits">
-        <item name="diamond_ring">©1991 Bill Reyna\n©2005 Hana Druckmüllerová, Miloslav
-            Druckmüller
-        </item>
-        <item name="helmet_streamers">©1994 Úpice Observatory and Vojtech Rušin\n©2007 Miloslav
-            Druckmüller
-        </item>
-        <item name="prominence">©1991 Peter Aniol\n©2010 Miloslav Druckmüller</item>
-        <item name="sun_as_star">©2006 Martin Antoš, Hana Druckmüllerová, Miloslav Druckmüller,
-            ESA/NASA
-        </item>
-        <item name="first_contact">XRT team(SAO, NASA, JAXA, NAOJ)</item>
-        <item name="totality">©2006 Miloslav Druckmüller, Peter Aniol</item>
-        <item name="bailys_beads">©2013 Úpice observatory Petr Horálek, Jan Sládeček\n©2014
-            Miloslav Duckmüller
-        </item>
-        <item name="corona">©2002 Arne Danielsen\n©2005 Miloslav Druckmüller</item>
-    </array>
-
-    <array name="eclipse_img_credit_links">
-        <item name="diamond_ring">
-            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1991m/Ecl1991_rdd_dr/0-info.htm
-        </item>
-        <item name="helmet_streamers">
-            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1994ch/Mid_ecl/0-info.htm
-        </item>
-        <item name="prominence">
-            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1991a/Ecl1991a_in03/0-info.htm
-        </item>
-        <item name="sun_as_star">
-            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2006th/Tse2006tc_m200_inh30_32_c3/0-info.htm
-        </item>
-        <item name="first_contact">https://xrt.cfa.harvard.edu/xpow/20160315.html</item>
-        <item name="totality">
-            http://www.zam.fme.vutbr.cz/~druck/eclipse/ecl2006l/Tse2006l_1640_15/0-info.htm
-        </item>
-        <item name="bailys_beads">
-            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2013u/Tse_2013_bp-7430/0-info.htm
-        </item>
-        <item name="corona">
-            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2002a/Ecl2002_dd_cor/0-info.htm
-        </item>
-    </array>
-
-    <array name="listOptions">
-        <item name="item_rumble_map">@string/rumble_map_how</item>
-        <item name="item_team">@string/our_team</item>
-        <item name="item_partners">@string/our_partners</item>
-        <item name="item_future_eclipses">@string/supported_eclipse</item>
-        <item name="item_walkthrough">@string/walkthrough</item>
-        <item name="item_feedback">@string/feedback</item>
-        <item name="item_settings">@string/settings</item>
-        <item name="item_legal">@string/legal</item>
-    </array>
+    <!-- Photo credits -->
+    <string name="credits_diamond_ring">©1991 Bill Reyna\n©2005 Hana Druckmüllerová, Miloslav Druckmüller</string>
+    <string name="credits_helmet_streamers">©1994 Úpice Observatory and Vojtech Rušin\n©2007 Miloslav Druckmüller</string>
+    <string name="credits_prominence">©1991 Peter Aniol\n©2010 Miloslav Druckmüller</string>
+    <string name="credits_sun_as_star">©2006 Martin Antoš, Hana Druckmüllerová, Miloslav Druckmüller, ESA/NASA</string>
+    <string name="credits_first_contact">XRT team(SAO, NASA, JAXA, NAOJ)</string>
+    <string name="credits_totality">©2006 Miloslav Druckmüller, Peter Aniol</string>
+    <string name="credits_bailys_beads">©2013 Úpice observatory Petr Horálek, Jan Sládeček\n©2014 Miloslav Duckmüller </string>
+    <string name="credits_corona">©2002 Arne Danielsen\n©2005 Miloslav Druckmüller</string>
+    <string name="credits_annular_start">© Rick Fienberg</string>
+    <string name="credits_annular_phase_start">© Ajay Talwar</string>
+    <string name="credits_annularity">© 2020 Talha Zia</string>
+    <string name="credits_annular_phase_end">© Ajay Talwar</string>
+    <string name="credits_annular_end">Courtesy of NASA/SDO and the AIA, EVE, and HMI science teams</string>
+    <string name="credits_link_diamond_ring">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1991m/Ecl1991_rdd_dr/0-info.htm</string>
+    <string name="credits_link_helmet_streamers">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1994ch/Mid_ecl/0-info.htm</string>
+    <string name="credits_link_prominence">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1991a/Ecl1991a_in03/0-info.htm</string>
+    <string name="credits_link_sun_as_star">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2006th/Tse2006tc_m200_inh30_32_c3/0-info.htm</string>
+    <string name="credits_link_first_contact">https://xrt.cfa.harvard.edu/xpow/20160315.html</string>
+    <string name="credits_link_totality">http://www.zam.fme.vutbr.cz/~druck/eclipse/ecl2006l/Tse2006l_1640_15/0-info.htm</string>
+    <string name="credits_link_bailys_beads">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2013u/Tse_2013_bp-7430/0-info.htm</string>
+    <string name="credits_link_corona">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2002a/Ecl2002_dd_cor/0-info.htm</string>
 
     <string name="our_partners">Our Partners</string>
     <string name="current_partners">Current Partners</string>

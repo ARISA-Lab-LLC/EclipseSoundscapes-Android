@@ -24,7 +24,6 @@
             android:src="@drawable/eclipse_bailys_beads" />
     </RelativeLayout>
 
-
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
@@ -45,7 +44,7 @@
             android:textColor="@android:color/white"
             android:text="@string/close"
             android:contentDescription="@string/close"
-            android:layout_weight="1" />
+            android:layout_weight="1"/>
 
         <View
             android:layout_width="0.5dp"

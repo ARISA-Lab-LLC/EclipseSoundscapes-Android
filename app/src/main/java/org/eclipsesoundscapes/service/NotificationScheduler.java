@@ -15,13 +15,11 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 
 import org.eclipsesoundscapes.R;
+import org.eclipsesoundscapes.util.DateTimeUtils;
 import org.eclipsesoundscapes.util.NotificationUtils;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 import java.util.TimeZone;
 
 import static android.content.Context.ALARM_SERVICE;
@@ -53,30 +51,21 @@ public class NotificationScheduler {
             return;
         }
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy HH:mm:ss.S", Locale.getDefault());
-        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
+        Date contactDate = DateTimeUtils.INSTANCE.eclipseEventDate(contactOne);
+        Date totalityDate = DateTimeUtils.INSTANCE.eclipseEventDate(totality);
 
-        Date contactDate;
-        Date totalityDate;
-        try {
-            contactDate = dateFormat.parse(contactOne);
-            totalityDate = dateFormat.parse(totality);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
 
-            Calendar cal = Calendar.getInstance();
-            cal.setTimeZone(TimeZone.getTimeZone("UTC"));
+        if (contactDate != null) {
+            calendar.setTime(contactDate);
+            setFirstContactReminder(context, NotificationReceiver.class, calendar);
+        }
 
-            if (contactDate != null) {
-                cal.setTime(contactDate);
-                setFirstContactReminder(context, NotificationReceiver.class, cal);
-            }
-
-            if (totalityDate != null){
-                cal.clear();
-                cal.setTime(totalityDate);
-                setTotalityReminder(context, NotificationReceiver.class, cal);
-            }
-        } catch (ParseException e) {
-            e.printStackTrace();
+        if (totalityDate != null){
+            calendar.clear();
+            calendar.setTime(totalityDate);
+            setTotalityReminder(context, NotificationReceiver.class, calendar);
         }
     }
 

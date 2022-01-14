@@ -7,6 +7,7 @@ import android.content.Intent;
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.data.DataManager;
 import org.eclipsesoundscapes.data.SharedPrefsHelper;
+import org.eclipsesoundscapes.model.MediaItem;
 import org.eclipsesoundscapes.ui.main.MainActivity;
 import org.eclipsesoundscapes.ui.media.MediaPlayerActivity;
 
@@ -63,18 +64,12 @@ public class NotificationReceiver extends BroadcastReceiver {
                     Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
             if (isFirstContact){
-                mediaIntent.putExtra(MediaPlayerActivity.EXTRA_TITLE, context.getString(R.string.first_contact));
-                mediaIntent.putExtra(MediaPlayerActivity.EXTRA_DESCRIPTION, R.string.audio_first_contact_full);
-                mediaIntent.putExtra(MediaPlayerActivity.EXTRA_IMG, R.drawable.eclipse_first_contact);
-                mediaIntent.putExtra(MediaPlayerActivity.EXTRA_AUDIO, R.raw.first_contact_full);
+                mediaIntent.putExtra(MediaPlayerActivity.EXTRA_MEDIA, new MediaItem(R.drawable.eclipse_first_contact, R.string.first_contact, R.string.audio_first_contact_full, R.raw.first_contact_full));
                 mediaIntent.putExtra(MediaPlayerActivity.EXTRA_LIVE, true);
                 showNotification(context, MediaPlayerActivity.class, type, true,
                         context.getString(R.string.first_contact_begun), context.getString(R.string.tap_listen), mediaIntent);
             } else {
-                mediaIntent.putExtra(MediaPlayerActivity.EXTRA_TITLE, context.getString(R.string.bailys_beads));
-                mediaIntent.putExtra(MediaPlayerActivity.EXTRA_DESCRIPTION, R.string.bailys_beads_short);
-                mediaIntent.putExtra(MediaPlayerActivity.EXTRA_IMG, R.drawable.eclipse_bailys_beads);
-                mediaIntent.putExtra(MediaPlayerActivity.EXTRA_AUDIO, R.raw.realtime_eclipse_shorts_saas);
+                mediaIntent.putExtra(MediaPlayerActivity.EXTRA_MEDIA, new MediaItem(R.drawable.eclipse_bailys_beads, R.string.bailys_beads, R.string.bailys_beads_short, R.raw.realtime_eclipse_shorts_saas));
                 mediaIntent.putExtra(MediaPlayerActivity.EXTRA_LIVE, true);
                 showNotification(context, MediaPlayerActivity.class, type, true,
                         context.getString(R.string.totality_begun), context.getString(R.string.tap_listen), mediaIntent);

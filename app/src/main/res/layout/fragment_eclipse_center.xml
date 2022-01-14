@@ -21,12 +21,7 @@
             android:visibility="gone"/>
 
         <include
-            android:id="@+id/gps_view"
-            layout="@layout/layout_eclipse_center_permission"
-            android:visibility="gone"/>
-
-        <include
-            android:id="@+id/progressView"
+            android:id="@+id/progress_view"
             layout="@layout/layout_location_search"
             android:visibility="gone"/>
 
@@ -40,5 +35,14 @@
             layout="@layout/view_eclipse_center_lockout"
             android:visibility="gone"/>
 
+        <include
+            android:id="@+id/location_disabled_view"
+            layout="@layout/view_location_disabled"
+            android:visibility="gone"/>
+
+        <include
+            android:id="@+id/location_search_failed"
+            layout="@layout/view_location_search_failed"
+            android:visibility="gone"/>
     </FrameLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
