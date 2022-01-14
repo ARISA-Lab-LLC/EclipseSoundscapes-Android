@@ -40,8 +40,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
-        android:textColor="@color/text_color_primary"
-        android:textSize="12sp"
+        android:textSize="@dimen/page_indicator_text_size"
+        android:textColor="@android:color/black"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/image_header"
@@ -69,7 +69,6 @@
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/eclipse_center"
                 android:textSize="21sp"
-                android:textColor="@color/text_color_primary"
                 android:focusable="false"/>
 
             <TextView
@@ -84,7 +83,6 @@
                 android:fontFamily="sans-serif"
                 android:text="@string/walkthrough_eclipse_center"
                 android:textSize="@dimen/default_text_size"
-                android:textColor="@color/text_color_primary"
                 android:focusable="false"/>
         </LinearLayout>
     </ScrollView>

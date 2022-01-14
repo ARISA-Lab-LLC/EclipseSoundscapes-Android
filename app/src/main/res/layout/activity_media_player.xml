@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -61,6 +60,8 @@
         android:background="@null"
         android:progressDrawable="@drawable/seekbar_progress"
         android:thumb="@drawable/ic_seekbar_progress"
+        android:paddingStart="@dimen/seekbar_size_half"
+        android:paddingEnd="@dimen/seekbar_size_half"
 
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -90,7 +91,6 @@
         android:textStyle="bold"
         android:layout_marginStart="@dimen/default_margin"
         android:layout_marginBottom="4dp"
-
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintBottom_toTopOf="@id/audio_progress"/>
 
@@ -124,15 +124,14 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/default_margin"
             android:fontFamily="sans-serif-medium"
-            android:textColor="@color/text_color_primary"
             android:textSize="@dimen/title_text_size" />
 
         <View
             android:id="@+id/divider"
             android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_marginTop="@dimen/default_margin"
-            android:background="@color/divider_color" />
+            android:layout_height="@dimen/divider_size"
+            android:background="?attr/colorControlNormal"
+            android:layout_marginTop="@dimen/default_margin"/>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -150,11 +149,9 @@
                 android:paddingBottom="@dimen/default_margin"
                 android:focusable="true"
                 android:fontFamily="sans-serif"
-                android:textColor="@color/text_color_primary"
                 android:textSize="@dimen/default_text_size"
                 android:layout_marginBottom="16dp"
                 tools:text="@string/totality_description"/>
-
 
         </ScrollView>
 

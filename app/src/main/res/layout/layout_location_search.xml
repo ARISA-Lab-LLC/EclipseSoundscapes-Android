@@ -3,7 +3,6 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:id="@+id/progress_layout"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
     android:focusable="true"
     android:gravity="center">
 
@@ -13,18 +12,15 @@
         android:layout_height="wrap_content"
         style="?android:attr/progressBarStyleLarge" />
 
-
     <TextView
         android:id="@+id/location_search_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
         android:textSize="21sp"
-        android:textColor="@color/colorAccent"
         android:text="@string/location_search"
         android:contentDescription="@string/location_search"
         android:gravity="center_horizontal"
         android:layout_marginTop="16dp"/>
-
 
 </LinearLayout>

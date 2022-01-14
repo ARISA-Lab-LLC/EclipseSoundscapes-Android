@@ -4,8 +4,7 @@
     android:id="@+id/coordinator_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.center.EclipseCenterFragment"
-    android:background="@color/colorPrimary">
+    tools:context=".ui.center.EclipseCenterFragment">
 
     <FrameLayout
         android:layout_width="match_parent"

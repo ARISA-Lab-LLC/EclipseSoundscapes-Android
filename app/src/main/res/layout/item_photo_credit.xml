@@ -8,69 +8,71 @@
             type="org.eclipsesoundscapes.model.PhotoCredit" />
     </data>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:layout_marginBottom="16dp"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
+   <androidx.cardview.widget.CardView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginBottom="@dimen/default_margin">
 
-        <ImageView
-            android:id="@+id/photo"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:adjustViewBounds="true"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="@dimen/ma_list_multi_line_item_avatar_icon_padding_top"
-            android:layout_marginStart="@dimen/ma_list_item_edges_padding"
-            tools:src="@drawable/eclipse_first_contact"/>
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:focusable="true"
+           android:focusableInTouchMode="true">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@+id/photo"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="@dimen/ma_list_item_edges_padding"
-            android:layout_marginBottom="@dimen/ma_list_item_edges_padding"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="@dimen/ma_list_item_edges_padding"
-            android:orientation="vertical">
+           <ImageView
+               android:id="@+id/photo"
+               android:layout_width="80dp"
+               android:layout_height="80dp"
+               android:adjustViewBounds="true"
+               android:layout_centerVertical="true"
+               android:layout_marginTop="@dimen/default_margin"
+               android:layout_marginStart="@dimen/default_margin"
+               tools:src="@drawable/eclipse_first_contact"/>
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{photoCredit.eclipse.title()}"
-                android:layout_marginBottom="@dimen/ma_list_item_line_spacing"
-                android:fontFamily="sans-serif"
-                android:textColor="@color/text_color_primary"
-                android:textSize="@dimen/ma_list_item_primary_text"
-                android:gravity="center_horizontal"
-                tools:text="Three-line item"/>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_toEndOf="@+id/photo"
+               android:layout_centerVertical="true"
+               android:layout_marginTop="@dimen/default_margin"
+               android:layout_marginBottom="@dimen/default_margin"
+               android:layout_marginStart="16dp"
+               android:layout_marginEnd="@dimen/default_margin"
+               android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/credit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{photoCredit.copyright}"
-                android:layout_marginBottom="@dimen/ma_list_item_line_spacing"
-                android:fontFamily="sans-serif"
-                android:textSize="@dimen/ma_list_item_secondary_text"
-                android:textColor="@color/text_color_secondary"
-                android:gravity="center_horizontal"
-                tools:text="Secondary text"/>
+               <TextView
+                   android:id="@+id/title"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@{photoCredit.eclipse.title()}"
+                   android:layout_marginBottom="@dimen/list_item_line_spacing"
+                   android:fontFamily="sans-serif"
+                   android:textSize="@dimen/default_text_size"
+                   android:gravity="center_horizontal"
+                   tools:text="Three-line item"/>
 
-            <TextView
-                android:id="@+id/link"
-                android:text="@{photoCredit.link}"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-condensed"
-                android:textSize="@dimen/ma_list_item_secondary_text"
-                android:gravity="center_horizontal"
-                tools:text="Tertiary text"/>
+               <TextView
+                   android:id="@+id/credit"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@{photoCredit.copyright}"
+                   android:layout_marginBottom="@dimen/list_item_line_spacing"
+                   android:fontFamily="sans-serif"
+                   android:textSize="@dimen/secondary_text_size"
+                   android:gravity="center_horizontal"
+                   tools:text="Secondary text"/>
 
-        </LinearLayout>
-    </RelativeLayout>
+               <TextView
+                   android:id="@+id/link"
+                   android:text="@{photoCredit.link}"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:fontFamily="sans-serif-condensed"
+                   android:textSize="@dimen/secondary_text_size"
+                   android:gravity="center_horizontal"
+                   tools:text="Tertiary text"/>
+
+           </LinearLayout>
+       </RelativeLayout>
+   </androidx.cardview.widget.CardView>
 </layout>

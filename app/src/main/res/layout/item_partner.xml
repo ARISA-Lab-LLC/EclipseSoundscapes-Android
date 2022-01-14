@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="@dimen/default_margin">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -41,7 +41,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:fontFamily="sans-serif-medium"
-                    android:textColor="@color/text_color_primary"
                     android:textSize="@dimen/title_text_size"
                     tools:text="NASA"/>
 
@@ -51,7 +50,6 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:fontFamily="sans-serif"
-                    android:textColor="@color/text_color_secondary"
                     android:textSize="@dimen/default_text_size"
                     tools:text="Extra details"/>
 
@@ -62,8 +60,8 @@
         <View
             android:id="@+id/divider"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/ma_divider_thickness_light"
-            android:background="@color/divider_color"
+            android:layout_height="@dimen/divider_size"
+            android:background="?attr/colorControlNormal"
             android:layout_marginTop="16dp"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"/>
@@ -75,7 +73,6 @@
             android:layout_margin="16dp"
             android:fontFamily="sans-serif"
             android:textSize="@dimen/default_text_size"
-            android:textColor="@color/text_color_primary"
             tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum condimentum nibh convallis, volutpat lorem non, mattis lacus. Pellentesque nec lorem risus. Phasellus vitae est mattis neque ornare malesuada a ut magna. Sed nec laoreet est. Maecenas sagittis, nisi nec maximus gravida, lectus magna tempus ex, ac pharetra neque leo id velit."/>
 
     </LinearLayout>
