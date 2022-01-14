@@ -49,7 +49,7 @@ class LegalActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         val legalMode = intent.getStringExtra(EXTRA_LEGAL)
-        if (supportActionBar != null) supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         when (legalMode) {
             EXTRA_LICENSE -> {
                 val binding = ActivityLegalLicenseBinding.inflate(layoutInflater).apply {
@@ -58,7 +58,7 @@ class LegalActivity : BaseActivity() {
                         BuildConfig.VERSION_NAME
                     )
 
-                    supportActionBar?.setTitle(title)
+                    supportActionBar?.title = title
                 }
 
                 setContentView(binding.root)
@@ -67,7 +67,7 @@ class LegalActivity : BaseActivity() {
             EXTRA_LIBS -> {
                 val binding = ActivityLegalLibrariesBinding.inflate(layoutInflater).apply {
                     title = getString(R.string.open_src_libs)
-                    supportActionBar?.setTitle(title)
+                    supportActionBar?.title = title
                 }
 
                 setContentView(binding.root)
@@ -76,7 +76,7 @@ class LegalActivity : BaseActivity() {
             EXTRA_PRIVACY_POLICY -> {
                 val binding = ActivityLegalWebviewBinding.inflate(layoutInflater).apply {
                     title = getString(R.string.privacy_policy)
-                    supportActionBar?.setTitle(title)
+                    supportActionBar?.title = title
                 }
 
                 setContentView(binding.root)
@@ -85,7 +85,7 @@ class LegalActivity : BaseActivity() {
             EXTRA_PHOTO_CREDS -> {
                 val binding = LegalPhotoCreditsBinding.inflate(layoutInflater).apply {
                     title = getString(R.string.photo_credits)
-                    supportActionBar?.setTitle(title)
+                    supportActionBar?.title = title
 
                     photoCreditsRecycler.layoutManager = LinearLayoutManager(this@LegalActivity)
                     photoCreditsRecycler.setHasFixedSize(true)

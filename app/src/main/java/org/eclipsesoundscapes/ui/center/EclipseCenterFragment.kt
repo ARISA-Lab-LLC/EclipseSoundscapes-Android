@@ -136,6 +136,9 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
 
             if (resources.getBoolean(R.bool.lockout_eclipse_center)) {
                 lockoutView.root.visibility = View.VISIBLE
+                eclipseCenterLayout.root.visibility = View.GONE
+            } else {
+                eclipseCenterLayout.root.visibility = View.VISIBLE
             }
         }
 
@@ -152,6 +155,10 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
 
     override fun onResume() {
         super.onResume()
+        if (resources.getBoolean(R.bool.lockout_eclipse_center)) {
+            return
+        }
+
         verifyLocationAccess()
     }
 
