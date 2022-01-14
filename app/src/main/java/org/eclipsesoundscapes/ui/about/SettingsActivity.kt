@@ -197,6 +197,14 @@ class SettingsActivity : BaseActivity() {
                     }
             }
 
+            findPreference<Preference>("tos")?.let {
+                it.onPreferenceClickListener =
+                    Preference.OnPreferenceClickListener {
+                        showLegality(LegalActivity.EXTRA_TOS)
+                        true
+                    }
+            }
+
             findPreference<Preference>("privacy_policy")?.let {
                 it.onPreferenceClickListener =
                     Preference.OnPreferenceClickListener {

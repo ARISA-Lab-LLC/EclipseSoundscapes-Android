@@ -68,6 +68,7 @@
     <string name="open_src_libs">Open Source Libraries</string>
     <string name="photo_credits">Photo Credits</string>
     <string name="privacy_policy">Privacy Policy</string>
+    <string name="tos">Terms of Service</string>
     <string name="legal">Legal</string>
     <string name="libs_in_use">Libraries We Use</string>
     <string name="jsyn_lib">JSyn</string>
@@ -291,7 +292,8 @@
     <!-- About -->
     <string name="supported_eclipse">Eclipses We Support</string>
     <string name="link_feedback_form" translatable="false"><![CDATA[https://eclipsesoundscapes.org/ES_MobileApp_Feedback]]></string>
-    <string name="privacy_policy_url" translatable="false"><![CDATA[https://eclipsesoundscapes.org/content/eclipse-soundscapes-mobile-application-privacy-policy]]></string>
+    <string name="privacy_policy_url" translatable="false"><![CDATA[https://eclipsesoundscapes.org/privacy-policy]]></string>
+    <string name="tos_url" translatable="false"><![CDATA[https://eclipsesoundscapes.org/Terms-of-Service]]></string>
 
     <!-- Walkthrough -->
     <string name="walkthrough">Walkthrough</string>
