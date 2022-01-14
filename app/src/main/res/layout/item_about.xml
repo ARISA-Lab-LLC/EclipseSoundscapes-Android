@@ -16,8 +16,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/ma_list_item_edges_padding"
-        android:paddingBottom="@dimen/ma_list_item_edges_padding"
+        android:paddingTop="@dimen/default_margin"
+        android:paddingBottom="@dimen/default_margin"
         android:background="?android:attr/selectableItemBackground"
         android:focusable="true"
         android:clickable="true"
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/ma_list_item_edges_padding" />
+            android:layout_marginStart="@dimen/default_margin" />
 
         <ImageView
             android:id="@+id/list_icon"
@@ -36,8 +36,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/ma_list_item_end_icon_padding_start"
-            android:layout_marginEnd="@dimen/ma_list_item_edges_padding"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/default_margin"
             app:srcCompat="@drawable/ic_chevron_right"/>
 
         <TextView
@@ -45,9 +45,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginStart="@dimen/ma_list_item_text_edge_padding_start"
+            android:layout_marginStart="@dimen/list_item_text_edge_padding_start"
             android:layout_toStartOf="@id/list_icon"
-            android:textColor="@color/ma_text_dark_primary_87"
             android:textSize="@dimen/default_text_size"
             tools:text="Single-line item"/>
 

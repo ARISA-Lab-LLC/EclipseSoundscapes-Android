@@ -17,7 +17,7 @@
 
     <application
         android:name=".EclipseSoundscapesApp"
-        android:allowBackup="true"
+        android:fullBackupOnly="true"
         android:icon="@mipmap/soundscape_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/soundscape_logo"
@@ -25,17 +25,20 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".ui.splash.SplashActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.main.MainActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
+
         <activity
             android:name=".ui.about.OurPartnersActivity"
             android:label="@string/our_partners"
@@ -64,7 +67,7 @@
             android:name=".ui.media.MediaPlayerActivity"
             android:label="@string/media_player"
             android:screenOrientation="portrait"
-            android:theme="@style/TranslucentTheme" />
+            android:theme="@style/MediaPlayerTheme" />
         <activity
             android:name=".ui.rumblemap.RumbleMapInteractionActivity"
             android:label="@string/rumble_map_interaction"
