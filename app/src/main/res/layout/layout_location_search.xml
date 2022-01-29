@@ -4,7 +4,8 @@
     android:id="@+id/progress_layout"
     android:layout_height="match_parent"
     android:focusable="true"
-    android:gravity="center">
+    android:gravity="center"
+    android:background="?android:colorBackground">
 
     <ProgressBar
         android:id="@+id/progressbar"
