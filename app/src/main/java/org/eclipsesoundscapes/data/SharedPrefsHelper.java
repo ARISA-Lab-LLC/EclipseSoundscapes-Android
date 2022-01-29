@@ -19,6 +19,8 @@ public class SharedPrefsHelper {
     private final static String PREF_KEY_WALKTHROUGH = "PREF_KEY_WALKTHROUGH";
     private final static String PREF_KEY_LANGUAGE = "PREF_KEY_LANGUAGE";
 
+    private final static String PREF_KEY_CURRENT_ECLIPSE = "PREF_KEY_CURRENT_ECLIPSE";
+
 
     private SharedPreferences mSharedPreferences;
 
@@ -66,6 +68,10 @@ public class SharedPrefsHelper {
         mSharedPreferences.edit().putString(PREF_KEY_LANGUAGE, language).apply();
     }
 
+    public void setEclipseDate(final String eclipseDate) {
+        mSharedPreferences.edit().putString(PREF_KEY_CURRENT_ECLIPSE, eclipseDate).apply();
+    }
+
     public String getPreferredLanguage(){
         return mSharedPreferences.getString(PREF_KEY_LANGUAGE, "");
     }
@@ -100,5 +106,9 @@ public class SharedPrefsHelper {
 
     public boolean getWalkthroughComplete(){
         return mSharedPreferences.getBoolean(PREF_KEY_WALKTHROUGH, false);
+    }
+
+    public String getEclipseDate(){
+        return mSharedPreferences.getString(PREF_KEY_CURRENT_ECLIPSE, "");
     }
 }
