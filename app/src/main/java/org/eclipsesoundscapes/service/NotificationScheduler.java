@@ -15,7 +15,6 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.content.ContextCompat;
 
 import org.eclipsesoundscapes.R;
-import org.eclipsesoundscapes.util.DateTimeUtils;
 import org.eclipsesoundscapes.util.NotificationUtils;
 
 import java.util.Calendar;
@@ -43,28 +42,24 @@ public class NotificationScheduler {
     static final String ECLIPSE_FIRST_CONTACT = "first_contact";
     private static final String ECLIPSE_TOTALITY = "totality";
 
-
-    public static void scheduleNotifications(Context context, String contactOne, String totality) {
+    public static void scheduleNotifications(Context context, Date contactOne, Date totality) {
 
         final boolean isLiveEnabled = context.getResources().getBoolean(R.bool.live_experience_enabled);
         if (!isLiveEnabled) {
             return;
         }
 
-        Date contactDate = DateTimeUtils.INSTANCE.eclipseEventDate(contactOne);
-        Date totalityDate = DateTimeUtils.INSTANCE.eclipseEventDate(totality);
-
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeZone(TimeZone.getTimeZone("UTC"));
 
-        if (contactDate != null) {
-            calendar.setTime(contactDate);
+        if (contactOne != null) {
+            calendar.setTime(contactOne);
             setFirstContactReminder(context, NotificationReceiver.class, calendar);
         }
 
-        if (totalityDate != null){
+        if (totality != null){
             calendar.clear();
-            calendar.setTime(totalityDate);
+            calendar.setTime(totality);
             setTotalityReminder(context, NotificationReceiver.class, calendar);
         }
     }

@@ -73,6 +73,10 @@ object DateTimeUtils {
     }
 
     fun eclipseDateFormatToDate(date: String) : Date? {
-        return eclipseDateFormatter.parse(date)
+        return try {
+            eclipseDateFormatter.parse(date)
+        } catch (e: Exception) {
+            null
+        }
     }
 }

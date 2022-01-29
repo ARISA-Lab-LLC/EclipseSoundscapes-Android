@@ -22,11 +22,12 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.location.LocationManagerCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleObserver
 import com.google.android.gms.location.*
+import dagger.hilt.android.AndroidEntryPoint
 import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.data.DataManager
-import org.eclipsesoundscapes.data.EclipseSimulator
 import org.eclipsesoundscapes.data.EclipseTimeGenerator
 import org.eclipsesoundscapes.databinding.FragmentEclipseCenterBinding
 import org.eclipsesoundscapes.databinding.LayoutEclipseEventRowBinding
@@ -61,10 +62,13 @@ import java.util.concurrent.TimeUnit
  * location.
  * @see EclipseTimeGenerator
  */
+
+@AndroidEntryPoint
 class EclipseCenterFragment : Fragment(), LifecycleObserver {
     private var _binding: FragmentEclipseCenterBinding? = null
     private val binding get() = _binding!!
 
+    private val viewModel: EclipseCenterViewModel by viewModels()
     private var dataManager: DataManager? = null
         get() {
             if (field == null) {
@@ -79,6 +83,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             field = value
 
             value?.let {
+                viewModel.saveEclipseEventDates(value)
                 updateView()
                 showEclipseDetails()
                 setupNotifications()
@@ -89,8 +94,6 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
     private var lastKnownLocation: Location? = null
     private var fusedLocationProviderClient: FusedLocationProviderClient? = null
     private var locationCallback : LocationCallback? = null
-    private var simulatedLocation: Location? = null
-
     private var countDownTimer: CountDownTimer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -159,7 +162,12 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             return
         }
 
-        verifyLocationAccess()
+        viewModel.eclipseConfiguration.observe(viewLifecycleOwner) { result ->
+            result?.let {
+                viewModel.saveEclipseDate(it)
+                verifyLocationAccess()
+            }
+        }
     }
 
     override fun onPause() {
@@ -167,13 +175,21 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         stopLocationUpdates()
     }
 
+    private fun createEclipseGenerator(location: Location?) : EclipseTimeGenerator? {
+        return location?.let {
+            viewModel.eclipseConfiguration.value?.let { eclipseConfig ->
+                EclipseTimeGenerator(context,
+                    eclipseConfig,
+                    it.latitude,
+                    it.longitude)
+            }
+        }
+    }
+
     private fun onLocationDetermined(location: Location?) {
         binding.progressView.root.visibility = View.GONE
         location?.let {
-            val simulator = EclipseSimulator(context)
-            simulatedLocation = simulator.closestPointOnPath(it)
-
-            eclipseTimeGenerator = EclipseTimeGenerator(context, it.latitude, it.longitude)
+            eclipseTimeGenerator = createEclipseGenerator(it)
         }
     }
 
@@ -182,11 +198,10 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
      * in the path of totality
      */
     private fun simulateEclipseLocation() {
-        simulatedLocation?.let {
-            eclipseTimeGenerator = EclipseTimeGenerator(
-                context, it.latitude,
-                it.longitude
-            )
+        lastKnownLocation?.let {
+            viewModel.closestPointOnPath(it)?.let { point ->
+                eclipseTimeGenerator = createEclipseGenerator(point)
+            }
         }
     }
 
@@ -223,6 +238,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             }
 
             binding.eclipseCenterLayout.eclipseType.text = when (eclipseTimeGenerator?.type) {
+                EclipseTimeGenerator.EclipseType.ANNULAR -> getString(R.string.eclipse_type_annular)
                 EclipseTimeGenerator.EclipseType.PARTIAL -> getString(R.string.eclipse_type_partial)
                 EclipseTimeGenerator.EclipseType.FULL -> getString(R.string.eclipse_type_full)
                 EclipseTimeGenerator.EclipseType.NONE -> getString(R.string.eclipse_type_none)
@@ -245,6 +261,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
                 }
 
                 EclipseTimeGenerator.EclipseType.PARTIAL -> showPartialEclipse()
+                EclipseTimeGenerator.EclipseType.ANNULAR,
                 EclipseTimeGenerator.EclipseType.FULL -> showFullEclipse()
             }
         }
@@ -329,42 +346,18 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             return
         }
 
-        eclipseTimeGenerator?.let {
-            val firstContact = it.contact1()
-            val totality = if (it.type == EclipseTimeGenerator.EclipseType.FULL) {
-                it.contact2()
-            } else {
-                // simulate contact point 2
-                val generator = EclipseTimeGenerator(
-                    context,
-                    simulatedLocation?.latitude,
-                    simulatedLocation?.longitude
-                )
-                generator.contact2()
-            }
-
-            val firstContactTime = DateTimeUtils.formatEclipseDate(firstContact)
-            val totalityTime = DateTimeUtils.formatEclipseDate(totality)
-
-            dataManager?.firstContact = firstContactTime
-            dataManager?.totality = totalityTime
-
-            activity?.let {
-                NotificationScheduler.scheduleNotifications(
-                    activity,
-                    firstContactTime,
-                    totalityTime
-                )
-            }
+        activity?.let {
+            NotificationScheduler.scheduleNotifications(
+                activity,
+                viewModel.firstContactDate(),
+                viewModel.totalityDate()
+            )
         }
     }
 
     private fun startCountdown() {
-        if (eclipseTimeGenerator?.type == EclipseTimeGenerator.EclipseType.NONE) {
-            return
-        }
-
-        if ((activity as? MainActivity)?.isAfterTotality == true) {
+        if (eclipseTimeGenerator?.type == EclipseTimeGenerator.EclipseType.NONE
+            || viewModel.afterTotality()) {
             return
         }
 
@@ -421,7 +414,6 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             countDownBinding.minutesSecondary,
             minutes
         )
-
 
         timeMillis -= TimeUnit.MINUTES.toMillis(minutes)
         val seconds = TimeUnit.MILLISECONDS.toSeconds(timeMillis)

@@ -36,9 +36,9 @@ public class NotificationReceiver extends BroadcastReceiver {
             DataManager dataManager = new DataManager(sharedPrefsHelper);
 
             // Reset reminders.
-            final String firstContact = dataManager.getFirstContact();
-            final String totality = dataManager.getTotality();
-            NotificationScheduler.scheduleNotifications(context, firstContact, totality);
+            NotificationScheduler.scheduleNotifications(context,
+                    dataManager.firstContactDate(),
+                    dataManager.totalityDate());
             return;
         }
 

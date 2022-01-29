@@ -106,6 +106,7 @@
     <string name="eclipse_type_full">Total Solar Eclipse</string>
     <string name="eclipse_type_partial">Partial Solar Eclipse</string>
     <string name="eclipse_type_none">No Solar Eclipse</string>
+    <string name="eclipse_type_annular">Annular Solar Eclipse</string>
     <string name="eclipse_type_unkown">Unknown</string>
 
     <string name="eclipse_start_partial">Start of partial eclipse</string>
