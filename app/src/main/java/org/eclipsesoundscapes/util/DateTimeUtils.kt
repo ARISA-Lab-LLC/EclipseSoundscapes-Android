@@ -12,14 +12,14 @@ object DateTimeUtils {
     private val eclipseDateFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.US)
 
     @SuppressLint("ConstantLocale")
-    private val formatter: DateFormat = SimpleDateFormat("MM-dd-yyyy HH:mm:ss.S", Locale.getDefault())
+    private val eclipseEventDateFormatter: DateFormat = SimpleDateFormat("MM-dd-yyyy HH:mm:ss.S", Locale.getDefault())
         .apply { timeZone = TimeZone.getTimeZone("UTC") }
 
     fun formatEclipseDate(event: Event) : String = "${event.date} ${event.time}"
 
     fun eclipseEventDate(event: Event): Date? {
         return try {
-            formatter.parse(formatEclipseDate(event))
+            eclipseEventDateFormatter.parse(formatEclipseDate(event))
         } catch (e: ParseException) {
             return null
         }
@@ -27,7 +27,7 @@ object DateTimeUtils {
 
     fun eclipseEventDate(dateString: String): Date? {
         return try {
-            formatter.parse(dateString)
+            eclipseEventDateFormatter.parse(dateString)
         } catch (e: ParseException) {
             return null
         }

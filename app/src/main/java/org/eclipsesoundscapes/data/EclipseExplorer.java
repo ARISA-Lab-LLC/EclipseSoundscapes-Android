@@ -31,7 +31,7 @@ import java.util.Locale;
  * Generate eclipse events based on latitude, longitude
  */
 
-public class EclipseTimeGenerator {
+public class EclipseExplorer {
     public enum EclipseType {
         PARTIAL, ANNULAR, FULL, NONE
     }
@@ -54,8 +54,8 @@ public class EclipseTimeGenerator {
     private Double[] c3 = new Double[40];
     private Double[] c4 = new Double[40];
 
-    public EclipseTimeGenerator(Context context, EclipseConfiguration eclipseConfiguration,
-                                Double latitude, Double longitude) {
+    public EclipseExplorer(Context context, EclipseConfiguration eclipseConfiguration,
+                           Double latitude, Double longitude) {
         this.context = context;
         this.longitude = longitude;
         this.latitude = latitude;

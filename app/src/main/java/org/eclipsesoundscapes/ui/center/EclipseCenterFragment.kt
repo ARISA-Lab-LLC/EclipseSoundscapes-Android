@@ -28,7 +28,7 @@ import com.google.android.gms.location.*
 import dagger.hilt.android.AndroidEntryPoint
 import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.data.DataManager
-import org.eclipsesoundscapes.data.EclipseTimeGenerator
+import org.eclipsesoundscapes.data.EclipseExplorer
 import org.eclipsesoundscapes.databinding.FragmentEclipseCenterBinding
 import org.eclipsesoundscapes.databinding.LayoutEclipseEventRowBinding
 import org.eclipsesoundscapes.model.Event
@@ -60,7 +60,7 @@ import java.util.concurrent.TimeUnit
  *
  * Generates a countdown until eclipse and provides a list view of related information by
  * location.
- * @see EclipseTimeGenerator
+ * @see EclipseExplorer
  */
 
 @AndroidEntryPoint
@@ -78,7 +78,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             return field
         }
 
-    private var eclipseTimeGenerator: EclipseTimeGenerator? = null
+    private var eclipseExplorer: EclipseExplorer? = null
         set(value) {
             field = value
 
@@ -175,13 +175,15 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         stopLocationUpdates()
     }
 
-    private fun createEclipseGenerator(location: Location?) : EclipseTimeGenerator? {
+    private fun createEclipseGenerator(location: Location?) : EclipseExplorer? {
         return location?.let {
             viewModel.eclipseConfiguration.value?.let { eclipseConfig ->
-                EclipseTimeGenerator(context,
+                EclipseExplorer(
+                    context,
                     eclipseConfig,
                     it.latitude,
-                    it.longitude)
+                    it.longitude
+                )
             }
         }
     }
@@ -189,7 +191,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
     private fun onLocationDetermined(location: Location?) {
         binding.progressView.root.visibility = View.GONE
         location?.let {
-            eclipseTimeGenerator = createEclipseGenerator(it)
+            eclipseExplorer = createEclipseGenerator(it)
         }
     }
 
@@ -200,13 +202,13 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
     private fun simulateEclipseLocation() {
         lastKnownLocation?.let {
             viewModel.closestPointOnPath(it)?.let { point ->
-                eclipseTimeGenerator = createEclipseGenerator(point)
+                eclipseExplorer = createEclipseGenerator(point)
             }
         }
     }
 
     private fun updateView() {
-        eclipseTimeGenerator?.let {
+        eclipseExplorer?.let {
 
             binding.eclipseCenterLayout.latitude.text = getString(
                 R.string.lat_lng_format, it.latitude,
@@ -230,27 +232,27 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
                 )
             )
 
-            binding.eclipseCenterLayout.percentEclipse.text = eclipseTimeGenerator?.coverage
+            binding.eclipseCenterLayout.percentEclipse.text = eclipseExplorer?.coverage
 
             // set date of first contact
-            if (eclipseTimeGenerator?.type != EclipseTimeGenerator.EclipseType.NONE) {
-                binding.eclipseCenterLayout.date.text = eclipseTimeGenerator?.contact1()?.date
+            if (eclipseExplorer?.type != EclipseExplorer.EclipseType.NONE) {
+                binding.eclipseCenterLayout.date.text = eclipseExplorer?.contact1()?.date
             }
 
-            binding.eclipseCenterLayout.eclipseType.text = when (eclipseTimeGenerator?.type) {
-                EclipseTimeGenerator.EclipseType.ANNULAR -> getString(R.string.eclipse_type_annular)
-                EclipseTimeGenerator.EclipseType.PARTIAL -> getString(R.string.eclipse_type_partial)
-                EclipseTimeGenerator.EclipseType.FULL -> getString(R.string.eclipse_type_full)
-                EclipseTimeGenerator.EclipseType.NONE -> getString(R.string.eclipse_type_none)
+            binding.eclipseCenterLayout.eclipseType.text = when (eclipseExplorer?.type) {
+                EclipseExplorer.EclipseType.ANNULAR -> getString(R.string.eclipse_type_annular)
+                EclipseExplorer.EclipseType.PARTIAL -> getString(R.string.eclipse_type_partial)
+                EclipseExplorer.EclipseType.FULL -> getString(R.string.eclipse_type_full)
+                EclipseExplorer.EclipseType.NONE -> getString(R.string.eclipse_type_none)
                 null -> getString(R.string.eclipse_type_unkown)
             }
         }
     }
 
     private fun showEclipseDetails() {
-        eclipseTimeGenerator?.type?.let {
+        eclipseExplorer?.type?.let {
             when (it) {
-                EclipseTimeGenerator.EclipseType.NONE -> {
+                EclipseExplorer.EclipseType.NONE -> {
                     val simulated = dataManager?.simulated ?: false
                     if (!simulated) {
                         // show user option to simulate location within the eclipse path
@@ -260,54 +262,54 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
                     }
                 }
 
-                EclipseTimeGenerator.EclipseType.PARTIAL -> showPartialEclipse()
-                EclipseTimeGenerator.EclipseType.ANNULAR,
-                EclipseTimeGenerator.EclipseType.FULL -> showFullEclipse()
+                EclipseExplorer.EclipseType.PARTIAL -> showPartialEclipse()
+                EclipseExplorer.EclipseType.ANNULAR,
+                EclipseExplorer.EclipseType.FULL -> showFullEclipse()
             }
         }
     }
 
     private fun showPartialEclipse() {
         fillEventView(
-            eclipseTimeGenerator?.contact1(),
+            eclipseExplorer?.contact1(),
             binding.eclipseCenterLayout.stubContactOne
         )
         fillEventView(
-            eclipseTimeGenerator?.contactMid(),
+            eclipseExplorer?.contactMid(),
             binding.eclipseCenterLayout.stubContactMid
         )
         fillEventView(
-            eclipseTimeGenerator?.contact4(),
+            eclipseExplorer?.contact4(),
             binding.eclipseCenterLayout.stubContactFour
         )
     }
 
     private fun showFullEclipse() {
         fillEventView(
-            eclipseTimeGenerator?.contact1(),
+            eclipseExplorer?.contact1(),
             binding.eclipseCenterLayout.stubContactOne
         )
         fillEventView(
-            eclipseTimeGenerator?.contact2(),
+            eclipseExplorer?.contact2(),
             binding.eclipseCenterLayout.stubContactTwo
         )
         fillEventView(
-            eclipseTimeGenerator?.contactMid(),
+            eclipseExplorer?.contactMid(),
             binding.eclipseCenterLayout.stubContactMid
         )
         fillEventView(
-            eclipseTimeGenerator?.contact3(),
+            eclipseExplorer?.contact3(),
             binding.eclipseCenterLayout.stubContactThree
         )
         fillEventView(
-            eclipseTimeGenerator?.contact4(),
+            eclipseExplorer?.contact4(),
             binding.eclipseCenterLayout.stubContactFour
         )
 
         binding.eclipseCenterLayout.durationTotalityLayout.visibility = View.VISIBLE
-        binding.eclipseCenterLayout.durationTotality.text = eclipseTimeGenerator?.formattedDuration
+        binding.eclipseCenterLayout.durationTotality.text = eclipseExplorer?.formattedDuration
 
-        eclipseTimeGenerator?.duration?.let {
+        eclipseExplorer?.duration?.let {
             val seconds = String.format(
                 Locale.getDefault(),
                 "%d.%d",
@@ -337,7 +339,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
     }
 
     private fun setupNotifications() {
-        if (eclipseTimeGenerator?.type == EclipseTimeGenerator.EclipseType.NONE) {
+        if (eclipseExplorer?.type == EclipseExplorer.EclipseType.NONE) {
             return
         }
 
@@ -356,12 +358,12 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
     }
 
     private fun startCountdown() {
-        if (eclipseTimeGenerator?.type == EclipseTimeGenerator.EclipseType.NONE
+        if (eclipseExplorer?.type == EclipseExplorer.EclipseType.NONE
             || viewModel.afterTotality()) {
             return
         }
 
-        val firstContactEvent = eclipseTimeGenerator?.contact1() ?: return
+        val firstContactEvent = eclipseExplorer?.contact1() ?: return
 
         try {
             val date = DateTimeUtils.eclipseEventDate(firstContactEvent) ?: return
