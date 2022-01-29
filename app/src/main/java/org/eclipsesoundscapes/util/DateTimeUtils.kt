@@ -9,6 +9,8 @@ import java.util.*
 
 object DateTimeUtils {
 
+    private val eclipseDateFormatter = SimpleDateFormat("yyyy-MM-dd", Locale.US)
+
     @SuppressLint("ConstantLocale")
     private val formatter: DateFormat = SimpleDateFormat("MM-dd-yyyy HH:mm:ss.S", Locale.getDefault())
         .apply { timeZone = TimeZone.getTimeZone("UTC") }
@@ -64,5 +66,13 @@ object DateTimeUtils {
         }
 
         return ""
+    }
+
+    fun dateToEclipseDateFormat() : String {
+        return eclipseDateFormatter.format(Date())
+    }
+
+    fun eclipseDateFormatToDate(date: String) : Date? {
+        return eclipseDateFormatter.parse(date)
     }
 }

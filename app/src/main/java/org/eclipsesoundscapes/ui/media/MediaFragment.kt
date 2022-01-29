@@ -7,7 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.databinding.FragmentMediaBinding
 import org.eclipsesoundscapes.model.Eclipse
@@ -34,6 +36,8 @@ import org.eclipsesoundscapes.ui.main.MainActivity
  * Provides a list view of media/audio content of different eclipse view and launches
  * [MediaPlayerActivity]
  */
+
+@AndroidEntryPoint
 class MediaFragment : Fragment() {
 
     private val defaultEclipses = arrayListOf(
@@ -43,6 +47,8 @@ class MediaFragment : Fragment() {
         Eclipse.HELMET_STREAMER,
         Eclipse.DIAMOND_RING
     )
+
+    private val viewModel: MediaViewModel by viewModels()
 
     private var _binding: FragmentMediaBinding? = null
     private val binding get() = _binding!!
@@ -85,7 +91,7 @@ class MediaFragment : Fragment() {
             mediaList.clear()
 
             val items = ArrayList<Eclipse>()
-            val showAll = resources.getBoolean(R.bool.show_all_content) || it.isAfterTotality
+            val showAll = resources.getBoolean(R.bool.show_all_content) || viewModel.afterTotality()
             when {
                 showAll -> {
                     // show all media content
@@ -94,7 +100,7 @@ class MediaFragment : Fragment() {
                     items.add(Eclipse.TOTALITY)
                     binding.moreContent.visibility = View.GONE
                 }
-                it.isAfterFirstContact -> {
+                viewModel.afterFirstContact() -> {
                     items.add(Eclipse.FIRST_CONTACT)
                     items.addAll(defaultEclipses)
                 }

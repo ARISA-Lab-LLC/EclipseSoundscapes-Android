@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dagger.hilt.android.AndroidEntryPoint
 import org.eclipsesoundscapes.EclipseSoundscapesApp
 import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.data.DataManager
@@ -14,9 +15,6 @@ import org.eclipsesoundscapes.ui.base.BaseActivity
 import org.eclipsesoundscapes.ui.center.EclipseCenterFragment
 import org.eclipsesoundscapes.ui.features.FeaturesFragment
 import org.eclipsesoundscapes.ui.media.MediaFragment
-import org.eclipsesoundscapes.util.DateTimeUtils
-import java.text.ParseException
-import java.util.*
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -39,6 +37,8 @@ import java.util.*
  * About) through BottomNavigationView. Provides back stack navigation and handles
  * runtime permission
  */
+
+@AndroidEntryPoint
 class MainActivity : BaseActivity() {
 
     lateinit var dataManager: DataManager
@@ -185,40 +185,6 @@ class MainActivity : BaseActivity() {
         super.onResume()
         updateUI()
     }
-
-    val isAfterFirstContact: Boolean
-        get() {
-            val date = dataManager.firstContact
-            if (date.isEmpty()) {
-                return false
-            }
-
-            try {
-                val contact = DateTimeUtils.eclipseEventDate(date)
-                val current = Date()
-                return current == contact || current.after(contact)
-            } catch (e: ParseException) {
-                e.printStackTrace()
-            }
-            return false
-        }
-
-    val isAfterTotality: Boolean
-        get() {
-            val date = dataManager.totality
-            if (date.isEmpty()) {
-                return false
-            }
-
-            try {
-                val totality = DateTimeUtils.eclipseEventDate(date)
-                val current = Date()
-                return current == totality || current.after(totality)
-            } catch (e: ParseException) {
-                e.printStackTrace()
-            }
-            return false
-        }
 
     companion object {
         const val EXTRA_FRAGMENT_TAG = "extra_fragment_tag"

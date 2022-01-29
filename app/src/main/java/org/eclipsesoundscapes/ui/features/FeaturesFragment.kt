@@ -1,13 +1,16 @@
 package org.eclipsesoundscapes.ui.features
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.google.android.material.tabs.TabLayout
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import org.eclipsesoundscapes.R
@@ -15,6 +18,7 @@ import org.eclipsesoundscapes.databinding.FragmentFeaturesBinding
 import org.eclipsesoundscapes.model.Eclipse
 import org.eclipsesoundscapes.ui.main.MainActivity
 
+@AndroidEntryPoint
 class FeaturesFragment : Fragment() {
     companion object {
         const val TAG = "FeaturesFragment"
@@ -22,6 +26,8 @@ class FeaturesFragment : Fragment() {
         @JvmStatic
         fun newInstance() = FeaturesFragment()
     }
+
+    private val viewModel: FeaturesViewModel by viewModels()
 
     private var _binding: FragmentFeaturesBinding? = null
     private val binding get() = _binding!!
@@ -64,7 +70,19 @@ class FeaturesFragment : Fragment() {
 
         binding.previousButton.setOnClickListener { currentPosition -= 1 }
 
-        binding.toolbarTitle.doOnTextChanged { _, _, _, _ -> announceChange() }
+        binding.toolbarTitle.addTextChangedListener(object: TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                // no-op
+            }
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                // no-op
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+                announceChange()
+            }
+        })
 
         return binding.root
     }
@@ -111,7 +129,7 @@ class FeaturesFragment : Fragment() {
         }
 
         eclipses =
-            if (view.context.resources.getBoolean(R.bool.show_all_content) || (activity as? MainActivity)?.isAfterTotality == true) {
+            if (view.context.resources.getBoolean(R.bool.show_all_content) || viewModel.afterTotality()) {
                 // show all eclipses
                 Eclipse.values().toCollection(ArrayList())
             } else {
