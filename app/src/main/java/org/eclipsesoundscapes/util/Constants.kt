@@ -1,5 +1,4 @@
-package org.eclipsesoundscapes.util;
-
+package org.eclipsesoundscapes.util
 /*
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -15,14 +14,8 @@ package org.eclipsesoundscapes.util;
  * along with this program.  If not, see [http://www.gnu.org/licenses/].
  * */
 
-
 /**
- * @author Joel Goncalves
+ * Constants used throughout the app.
  */
-
-public class Constants {
-
-    // Request code
-    public static final int LOCATION_PERMISSION_REQUEST_CODE = 104;
-    public static final int SETTINGS_RESULT_CODE = 105;
-}
+const val DATABASE_NAME = "eclipse-db"
+const val ECLIPSE_CONFIG_DATA_FILENAME = "eclipse_configurations.json"
