@@ -21,15 +21,16 @@
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"/>
 
-            <include
+            <org.eclipsesoundscapes.views.CountdownView
                 android:id="@+id/eclipse_countdown"
-                layout="@layout/layout_countdown"
-                android:visibility="gone"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
             <LinearLayout
                 android:focusable="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin"
                 android:weightSum="2">
 
                 <TextView

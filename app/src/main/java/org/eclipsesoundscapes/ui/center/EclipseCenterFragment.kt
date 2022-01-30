@@ -16,7 +16,6 @@ import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -36,9 +35,9 @@ import org.eclipsesoundscapes.service.NotificationScheduler
 import org.eclipsesoundscapes.ui.about.SettingsActivity
 import org.eclipsesoundscapes.ui.main.MainActivity
 import org.eclipsesoundscapes.util.DateTimeUtils
+import org.joda.time.Interval
 import java.text.ParseException
 import java.util.*
-import java.util.concurrent.TimeUnit
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -366,21 +365,16 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             val startTimeMillis = Date().time
             val endTimeMillis = date.time
             val millisDif = endTimeMillis - startTimeMillis
-            val days = TimeUnit.MILLISECONDS.toDays(millisDif)
 
-            if (days > 99) {
-                // current countdown view only supports up to two digits display
-                return
-            }
-
-            binding.eclipseCenterLayout.eclipseCountdown.root.visibility = View.VISIBLE
+            binding.eclipseCenterLayout.eclipseCountdown.visibility = View.VISIBLE
 
             // cancel previous timer
             countDownTimer?.cancel()
 
             countDownTimer = object : CountDownTimer(millisDif, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
-                    updateCountdownView(millisUntilFinished)
+                    val interval = Interval(Date().time, date.time)
+                    binding.eclipseCenterLayout.eclipseCountdown.update(interval.toPeriod())
                 }
 
                 override fun onFinish() {
@@ -391,64 +385,6 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             countDownTimer?.start()
         } catch (e: ParseException) {
             e.printStackTrace()
-        }
-    }
-
-    private fun updateCountdownView(remainingTimeMillis: Long) {
-        val countDownBinding = binding.eclipseCenterLayout.eclipseCountdown
-
-        var timeMillis = remainingTimeMillis
-        val days = TimeUnit.MILLISECONDS.toDays(remainingTimeMillis)
-        updateCountdownLabels(countDownBinding.daysPrimary, countDownBinding.daysSecondary, days)
-
-        timeMillis -= TimeUnit.DAYS.toMillis(days)
-        val hours = TimeUnit.MILLISECONDS.toHours(timeMillis)
-        updateCountdownLabels(countDownBinding.hoursPrimary, countDownBinding.hoursSecondary, hours)
-
-        timeMillis -= TimeUnit.HOURS.toMillis(hours)
-        val minutes = TimeUnit.MILLISECONDS.toMinutes(timeMillis)
-        updateCountdownLabels(
-            countDownBinding.minutesPrimary,
-            countDownBinding.minutesSecondary,
-            minutes
-        )
-
-        timeMillis -= TimeUnit.MINUTES.toMillis(minutes)
-        val seconds = TimeUnit.MILLISECONDS.toSeconds(timeMillis)
-        updateCountdownLabels(
-            countDownBinding.secondsPrimary,
-            countDownBinding.secondsSecondary,
-            seconds
-        )
-
-        if (isAdded) {
-            val countDownDescription = getString(
-                R.string.countdown_format,
-                countDownBinding.daysPrimary.text.toString() +
-                        countDownBinding.daysSecondary.text.toString(),
-                countDownBinding.hoursPrimary.text.toString() +
-                        countDownBinding.hoursSecondary.text.toString(),
-                countDownBinding.minutesPrimary.text.toString() +
-                        countDownBinding.minutesSecondary.text.toString(),
-                countDownBinding.secondsPrimary.text.toString() +
-                        countDownBinding.secondsSecondary.text.toString()
-            )
-            countDownBinding.root.contentDescription = countDownDescription
-        }
-    }
-
-    private fun updateCountdownLabels(
-        primaryTextView: TextView,
-        secondaryTextView: TextView,
-        time: Long
-    ) {
-        if (time > 9) {
-            val secArr = time.toString().split("").toTypedArray()
-            primaryTextView.text = secArr[1]
-            secondaryTextView.text = secArr[2]
-        } else {
-            primaryTextView.text = 0.toString()
-            secondaryTextView.text = time.toString()
         }
     }
 
