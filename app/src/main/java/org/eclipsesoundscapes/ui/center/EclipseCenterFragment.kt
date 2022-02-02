@@ -277,6 +277,9 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             eclipseExplorer?.contact4(),
             binding.eclipseCenterLayout.stubContactFour
         )
+
+        binding.eclipseCenterLayout.stubContactTwo.root.visibility = View.GONE
+        binding.eclipseCenterLayout.stubContactThree.root.visibility = View.GONE
     }
 
     private fun showFullEclipse() {
