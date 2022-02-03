@@ -2,6 +2,7 @@ package org.eclipsesoundscapes.data
 
 import androidx.core.util.Pair
 import org.eclipsesoundscapes.util.DateTimeUtils
+import org.joda.time.DateTime
 import java.util.*
 
 class DataManager(private val sharedPrefsHelper: SharedPrefsHelper) {
@@ -90,8 +91,8 @@ class DataManager(private val sharedPrefsHelper: SharedPrefsHelper) {
     private fun afterCurrentDate(dateString: String) : Boolean {
         val date = DateTimeUtils.eclipseEventDate(dateString)
         return date?.let {
-            val current = Date()
-            current == date || current.after(date)
+            val current = DateTime.now()
+            current.isEqual(date) || current.isAfter(date)
         } ?: false
     }
 

@@ -322,7 +322,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
 
     private fun fillEventView(event: Event?, layout: LayoutEclipseEventRowBinding) {
         event?.let {
-            val localTime = DateTimeUtils.convertLocalTime(it.time)
+            val localTime = DateTimeUtils.convertLocalTime(it)
             layout.eclipseEvent.text = getString(R.string.eclipse_center_title_format, it.name)
             layout.eclipseTimeLocal.text = localTime
             layout.eclipseTimeUt.text = it.time
@@ -366,7 +366,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         try {
             val date = DateTimeUtils.eclipseEventDate(firstContactEvent) ?: return
             val startTimeMillis = Date().time
-            val endTimeMillis = date.time
+            val endTimeMillis = date.millis
             val millisDif = endTimeMillis - startTimeMillis
 
             binding.eclipseCenterLayout.eclipseCountdown.visibility = View.VISIBLE
@@ -376,7 +376,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
 
             countDownTimer = object : CountDownTimer(millisDif, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
-                    val interval = Interval(Date().time, date.time)
+                    val interval = Interval(Date().time, date.millis)
                     binding.eclipseCenterLayout.eclipseCountdown.update(interval.toPeriod())
                 }
 
