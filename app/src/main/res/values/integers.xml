@@ -8,5 +8,5 @@
     <!-- allows user to see all audio and eclipse features content when eclipse data isn't available -->
     <bool name="show_all_content">true</bool>
 
-    <integer name="days_between_eclipse">7</integer>
+    <integer name="days_between_eclipse">14</integer>
 </resources>
