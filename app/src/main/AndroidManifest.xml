@@ -80,11 +80,6 @@
         <activity android:name=".ui.about.LanguageSelectionActivity"
             android:screenOrientation="portrait"/>
 
-        <service
-            android:name=".service.GPSTracker"
-            android:enabled="true"
-            android:exported="true" />
-
         <receiver
             android:name=".service.NotificationReceiver"
             android:enabled="true"

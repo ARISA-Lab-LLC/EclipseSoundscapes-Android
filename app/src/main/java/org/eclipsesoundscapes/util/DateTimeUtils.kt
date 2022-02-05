@@ -1,68 +1,65 @@
 package org.eclipsesoundscapes.util
 
-import android.annotation.SuppressLint
 import org.eclipsesoundscapes.model.Event
-import java.text.DateFormat
-import java.text.ParseException
-import java.text.SimpleDateFormat
+import org.joda.time.DateTime
+import org.joda.time.DateTimeZone
+import org.joda.time.format.DateTimeFormat
+import org.joda.time.format.DateTimeFormatter
 import java.util.*
 
 object DateTimeUtils {
 
-    @SuppressLint("ConstantLocale")
-    private val formatter: DateFormat = SimpleDateFormat("MM-dd-yyyy HH:mm:ss.S", Locale.getDefault())
-        .apply { timeZone = TimeZone.getTimeZone("UTC") }
+    private val eclipseDateFormatter = DateTimeFormat.forPattern("yyyy-MM-dd")
+
+    private val eclipseEventDateFormatter = DateTimeFormat.forPattern("MM-dd-yyyy HH:mm:ss.S")
+        .withZone(DateTimeZone.UTC)
 
     fun formatEclipseDate(event: Event) : String = "${event.date} ${event.time}"
 
-    fun eclipseEventDate(event: Event): Date? {
+    fun eclipseEventDate(event: Event): DateTime? {
         return try {
-            formatter.parse(formatEclipseDate(event))
-        } catch (e: ParseException) {
+            eclipseEventDateFormatter.parseDateTime(formatEclipseDate(event))
+        } catch (e: Exception) {
             return null
         }
     }
 
-    fun eclipseEventDate(dateString: String): Date? {
+    fun eclipseEventDate(dateString: String): DateTime? {
         return try {
-            formatter.parse(dateString)
-        } catch (e: ParseException) {
+            eclipseEventDateFormatter.parseDateTime(dateString)
+        } catch (e: Exception) {
             return null
         }
     }
 
-    fun convertLocalTime(time: String): String {
-        val dtf = SimpleDateFormat("HH:mm:ss.S")
-            .apply {
-                timeZone = TimeZone.getTimeZone("UTC")
+    /**
+     * Converts eclipse event time from UTC to local
+     * @param event the eclipse [Event]
+     */
+    fun convertLocalTime(event: Event): String {
+        return eclipseEventDate(event)?.let {
+            try {
+                val outputFormatter: DateTimeFormatter =
+                    DateTimeFormat.forPattern("h:mm:ss a")
+                        .withZone(DateTimeZone.getDefault())
+
+                val local = it.withZone(DateTimeZone.getDefault())
+                return outputFormatter.print(local)
+            } catch (e: Exception) {
+                ""
             }
+        } ?: ""
+    }
 
-        try {
-            val date = dtf.parse(time) ?: return ""
+    fun dateToEclipseDateFormat() : String {
+        return eclipseDateFormatter.print(DateTime.now())
+    }
 
-            val timeZone = TimeZone.getDefault()
-            val simpleDateFormat = SimpleDateFormat("h:mm:ss a", Locale.getDefault())
-            simpleDateFormat.timeZone = TimeZone.getDefault()
-
-            val localDate: String = simpleDateFormat.format(date)
-
-            // daylight saving time
-            if (timeZone.useDaylightTime()) {
-                val oneHourMillis = (60 * 60 * 1000).toFloat()
-                val dstOffset = timeZone.dstSavings / oneHourMillis
-
-                if (timeZone.inDaylightTime(Date())) {
-                    val calendar = Calendar.getInstance()
-                    calendar.time = date
-                    calendar.add(Calendar.HOUR, dstOffset.toInt())
-                    return simpleDateFormat.format(calendar.time)
-                }
-            }
-            return localDate
-        } catch (e: ParseException) {
-            e.printStackTrace()
+    fun eclipseDateFormatToDate(date: String) : Date? {
+        return try {
+            eclipseDateFormatter.parseDateTime(date).toDate()
+        } catch (e: Exception) {
+            null
         }
-
-        return ""
     }
 }

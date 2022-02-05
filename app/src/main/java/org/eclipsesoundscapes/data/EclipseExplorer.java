@@ -3,6 +3,7 @@ package org.eclipsesoundscapes.data;
 import android.content.Context;
 
 import org.eclipsesoundscapes.R;
+import org.eclipsesoundscapes.model.EclipseConfiguration;
 import org.eclipsesoundscapes.model.Event;
 import org.joda.time.DateTime;
 
@@ -30,9 +31,9 @@ import java.util.Locale;
  * Generate eclipse events based on latitude, longitude
  */
 
-public class EclipseTimeGenerator {
+public class EclipseExplorer {
     public enum EclipseType {
-        PARTIAL, FULL, NONE
+        PARTIAL, ANNULAR, FULL, NONE
     }
 
     public EclipseType type = EclipseType.FULL;
@@ -45,33 +46,7 @@ public class EclipseTimeGenerator {
     private double D2R = Math.PI / 180;
 
     private Double[] obsvconst = new Double[10];
-    private Double[] elements = {2458667.308420,
-            19.0,
-            -4.0,
-            4.0,
-            69.0,
-            -0.21563400,
-            0.56620699,
-            0.00002737,
-            -0.00000880,
-            -0.65070909,
-            0.01064008,
-            -0.00012723,
-            -0.00000026,
-            23.01294899,
-            -0.00318700,
-            -0.00000549,
-            103.97974396,
-            14.99950695,
-            0.00000104,
-            0.53764975,
-            -0.00008983,
-            -0.00001204,
-            -0.00846503,
-            -0.00008938,
-            -0.00001198,
-            0.00459839,
-            0.00457549};
+    private Double[] elements;
 
     private Double[] c1 = new Double[40];
     private Double[] c2 = new Double[40];
@@ -79,10 +54,12 @@ public class EclipseTimeGenerator {
     private Double[] c3 = new Double[40];
     private Double[] c4 = new Double[40];
 
-    public EclipseTimeGenerator(Context context, Double latitude, Double longitude) {
+    public EclipseExplorer(Context context, EclipseConfiguration eclipseConfiguration,
+                           Double latitude, Double longitude) {
         this.context = context;
         this.longitude = longitude;
         this.latitude = latitude;
+        this.elements = eclipseConfiguration.getElements().toArray(new Double[0]);
         loc_circ(latitude, longitude);
         printTimes();
     }
@@ -101,8 +78,12 @@ public class EclipseTimeGenerator {
         return String.valueOf(Math.round(mid[34] * 1000) / 1000);
     }
 
+    public boolean isFullOrAnnular() {
+        return type == EclipseType.FULL || type == EclipseType.ANNULAR;
+    }
+
     public String getFormattedDuration() {
-        if (type == EclipseType.FULL) {
+        if (type == EclipseType.FULL || type == EclipseType.ANNULAR) {
             final DateTime dateTime = getDuration();
             return String.format(Locale.getDefault(), "%dm %d.%ds",
                     dateTime.getMinuteOfHour(),
@@ -206,13 +187,12 @@ public class EclipseTimeGenerator {
         }
 
         return circumstances;
-
     }
 
     // Populate the circumstances array with the time and location dependent circumstances
-    private Double[] timeLocalDependent(Double[] circumstances) {
+    private Double[] timeLocationDependent(Double[] circumstances) {
 
-        circumstances = timeDependent(circumstances);
+        timeDependent(circumstances);
 
         //h, sin h, cos h
         circumstances[16] = circumstances[7] - obsvconst[1] - (elements[4] / 13713.44);
@@ -267,7 +247,7 @@ public class EclipseTimeGenerator {
         Double sign = 0.0;
         Double n = 0.0;
 
-        circumstances = timeLocalDependent(circumstances);
+        timeLocationDependent(circumstances);
         if (circumstances[0] < 0) {
             sign = -1.0;
         } else {
@@ -283,7 +263,7 @@ public class EclipseTimeGenerator {
             tmp = sign * Math.sqrt(1.0 - tmp * tmp) * circumstances[28] / n;
             tmp = (circumstances[24] * circumstances[26] + circumstances[25] * circumstances[27]) / circumstances[30] - tmp;
             circumstances[1] = circumstances[1] - tmp;
-            circumstances = timeLocalDependent(circumstances);
+            timeLocationDependent(circumstances);
             iter += 1;
         }
 
@@ -303,8 +283,8 @@ public class EclipseTimeGenerator {
         c4[0] = 2.0;
         c1[1] = mid[1] - tmp;
         c4[1] = mid[1] + tmp;
-        c1 = c1c4iterate(c1);
-        c4 = c1c4iterate(c4);
+        c1c4iterate(c1);
+        c1c4iterate(c4);
     }
 
     // Iterate on C2 or C3
@@ -312,7 +292,7 @@ public class EclipseTimeGenerator {
         Double sign = 0.0;
         Double n = 0.0;
 
-        circumstances = timeLocalDependent(circumstances);
+        timeLocationDependent(circumstances);
         if (circumstances[0] < 0) {
             sign = -1.0;
         } else {
@@ -332,7 +312,7 @@ public class EclipseTimeGenerator {
             tmp = sign * Math.sqrt(1.0 - tmp * tmp) * circumstances[29] / n;
             tmp = (circumstances[24] * circumstances[26] + circumstances[25] * circumstances[27]) / circumstances[30] - tmp;
             circumstances[1] = circumstances[1] - tmp;
-            circumstances = timeLocalDependent(circumstances);
+            timeLocationDependent(circumstances);
             iter += 1;
         }
 
@@ -383,19 +363,19 @@ public class EclipseTimeGenerator {
         int iter = 0;
         Double tmp = 1.0;
 
-        mid = timeLocalDependent(mid);
+        timeLocationDependent(mid);
         while ((tmp > 0.000001 || tmp < -0.000001) && iter < 50) {
             tmp = (mid[24] * mid[26] + mid[25] * mid[27]) / mid[30];
             mid[1] = mid[1] - tmp;
             iter += 1;
-            mid = timeLocalDependent(mid);
+            timeLocationDependent(mid);
         }
     }
 
     // Populate the c1, c2, mid, c3 and c4 arrays
     private void getAll() {
         getMid();
-        mid = observational(mid);
+        observational(mid);
         // m, magnitude and moon/sun ratio
         mid[33] = Math.sqrt(mid[24]*mid[24] + mid[25]*mid[25]);
         mid[34] = (mid[28] - mid[33]) / (mid[28] + mid[29]);
@@ -410,16 +390,16 @@ public class EclipseTimeGenerator {
                     mid[36] = 2.0; // Annular solar eclipse
                 }
 
-                c2 = observational(c2);
-                c3 = observational(c3);
+                observational(c2);
+                observational(c3);
                 c2[33] = 999.9;
                 c3[33] = 999.9;
             } else {
                 // Partial eclipse
                 mid[36] = 1.0;
             }
-            c1 = observational(c1);
-            c4 = observational(c4);
+            observational(c1);
+            observational(c4);
         } else {
             // No eclipse
             mid[36] = 0.0;
@@ -664,6 +644,7 @@ public class EclipseTimeGenerator {
 
     private void printTimes() {
         boolean isPartial = false;
+        boolean isAnnular = false;
         boolean isEclipse = true;
 
         if (mid[36] > 0) {
@@ -684,6 +665,7 @@ public class EclipseTimeGenerator {
                             // Sun above the horizon for the entire annular/total event
                             if (mid[36] == 2) {
                                 // Annular Solar Eclipse
+                                isAnnular = true;
                             } else {
                                 // Total solar Eclipse
                             }
@@ -706,10 +688,11 @@ public class EclipseTimeGenerator {
             isEclipse = false;
         }
 
-
         if (isEclipse) {
             if (isPartial) {
                 type = EclipseType.PARTIAL;
+            } else if (isAnnular) {
+                type = EclipseType.ANNULAR;
             } else {
                 type = EclipseType.FULL;
             }
