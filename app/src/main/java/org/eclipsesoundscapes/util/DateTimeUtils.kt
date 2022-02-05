@@ -5,7 +5,6 @@ import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
 import org.joda.time.format.DateTimeFormat
 import org.joda.time.format.DateTimeFormatter
-import java.text.ParseException
 import java.util.*
 
 object DateTimeUtils {
@@ -20,7 +19,7 @@ object DateTimeUtils {
     fun eclipseEventDate(event: Event): DateTime? {
         return try {
             eclipseEventDateFormatter.parseDateTime(formatEclipseDate(event))
-        } catch (e: ParseException) {
+        } catch (e: Exception) {
             return null
         }
     }
@@ -28,7 +27,7 @@ object DateTimeUtils {
     fun eclipseEventDate(dateString: String): DateTime? {
         return try {
             eclipseEventDateFormatter.parseDateTime(dateString)
-        } catch (e: ParseException) {
+        } catch (e: Exception) {
             return null
         }
     }
@@ -46,7 +45,7 @@ object DateTimeUtils {
 
                 val local = it.withZone(DateTimeZone.getDefault())
                 return outputFormatter.print(local)
-            } catch (e: ParseException) {
+            } catch (e: Exception) {
                 ""
             }
         } ?: ""
