@@ -17,7 +17,7 @@ import org.eclipsesoundscapes.databinding.ActivityLegalLicenseBinding
 import org.eclipsesoundscapes.databinding.ActivityLegalWebviewBinding
 import org.eclipsesoundscapes.databinding.LegalPhotoCreditsBinding
 import org.eclipsesoundscapes.model.Eclipse
-import org.eclipsesoundscapes.model.Eclipse.Companion.photoCreditEclipses
+import org.eclipsesoundscapes.model.Eclipse.Companion.mediaEclipses
 import org.eclipsesoundscapes.model.PhotoCredit
 import org.eclipsesoundscapes.ui.base.BaseActivity
 import java.io.IOException
@@ -175,7 +175,7 @@ class LegalActivity : BaseActivity() {
      */
     private fun createPhotoCredits(): ArrayList<PhotoCredit> {
         val credits = ArrayList<PhotoCredit>()
-        for (eclipse in photoCreditEclipses()) {
+        for (eclipse in mediaEclipses()) {
             val photoCredit: PhotoCredit = when (eclipse) {
                 Eclipse.FIRST_CONTACT -> PhotoCredit(
                     eclipse, getString(R.string.credits_first_contact),

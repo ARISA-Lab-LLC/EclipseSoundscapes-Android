@@ -21,9 +21,9 @@ enum class Eclipse {
 
     companion object {
         /**
-         * Returns all [Eclipse] which are not close up images
+         * Returns all [Eclipse] which are not close up
          */
-        fun photoCreditEclipses(): ArrayList<Eclipse> {
+        fun mediaEclipses(): ArrayList<Eclipse> {
             return values().filter { !it.isCloseUpEclipse() }.toCollection(ArrayList())
         }
     }
@@ -31,7 +31,7 @@ enum class Eclipse {
     private fun isCloseUpEclipse() : Boolean {
         return this == BAILYS_BEADS_CLOSEUP
                 || this == HELMET_STREAMER_CLOSEUP
-                || this == PROMINENCE_CLOSEUP;
+                || this == PROMINENCE_CLOSEUP
     }
 
     fun imageResource(): Int = when (this) {
