@@ -112,9 +112,9 @@ enum class Eclipse {
         PROMINENCE, PROMINENCE_CLOSEUP -> R.raw.prominence_full
         TOTALITY -> R.raw.totality_full
         ANNULAR_START -> R.raw.annular_eclipse_start_long
-        ANNULAR_PHASE_START -> R.string.annular_phase_start_description
-        ANNULARITY -> R.string.annularity_description
-        ANNULAR_PHASE_END -> R.string.annular_phase_end_description
-        ANNULAR_END -> R.string.annular_end_description
+        ANNULAR_PHASE_START -> R.raw.annular_eclipse_phase_start_long
+        ANNULARITY -> R.raw.annularity_long
+        ANNULAR_PHASE_END -> R.raw.annular_eclipse_phase_end_long
+        ANNULAR_END -> R.raw.annular_eclipse_end_long
     }
 }
