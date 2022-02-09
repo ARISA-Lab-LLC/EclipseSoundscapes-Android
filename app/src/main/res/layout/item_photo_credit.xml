@@ -6,6 +6,10 @@
         <variable
             name="photoCredit"
             type="org.eclipsesoundscapes.model.PhotoCredit" />
+
+        <variable
+            name="clickListener"
+            type="org.eclipsesoundscapes.ui.about.PhotoCreditAdapter.CreditsClickListener"/>
     </data>
 
    <androidx.cardview.widget.CardView
