@@ -1,6 +1,8 @@
 package org.eclipsesoundscapes.ui.about
 
+import android.content.Intent
 import android.graphics.Bitmap
+import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -15,7 +17,7 @@ import org.eclipsesoundscapes.databinding.ActivityLegalLicenseBinding
 import org.eclipsesoundscapes.databinding.ActivityLegalWebviewBinding
 import org.eclipsesoundscapes.databinding.LegalPhotoCreditsBinding
 import org.eclipsesoundscapes.model.Eclipse
-import org.eclipsesoundscapes.model.Eclipse.Companion.photoCreditEclipses
+import org.eclipsesoundscapes.model.Eclipse.Companion.mediaEclipses
 import org.eclipsesoundscapes.model.PhotoCredit
 import org.eclipsesoundscapes.ui.base.BaseActivity
 import java.io.IOException
@@ -94,7 +96,9 @@ class LegalActivity : BaseActivity() {
 
                     photoCreditsRecycler.layoutManager = LinearLayoutManager(this@LegalActivity)
                     photoCreditsRecycler.setHasFixedSize(true)
-                    photoCreditsRecycler.adapter = PhotoCreditAdapter(createPhotoCredits())
+                    photoCreditsRecycler.adapter = PhotoCreditAdapter(createPhotoCredits(), PhotoCreditAdapter.CreditsClickListener {
+                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it.link)))
+                    })
                 }
 
                 setContentView(binding.root)
@@ -171,7 +175,7 @@ class LegalActivity : BaseActivity() {
      */
     private fun createPhotoCredits(): ArrayList<PhotoCredit> {
         val credits = ArrayList<PhotoCredit>()
-        for (eclipse in photoCreditEclipses()) {
+        for (eclipse in mediaEclipses()) {
             val photoCredit: PhotoCredit = when (eclipse) {
                 Eclipse.FIRST_CONTACT -> PhotoCredit(
                     eclipse, getString(R.string.credits_first_contact),
@@ -200,6 +204,26 @@ class LegalActivity : BaseActivity() {
                 Eclipse.TOTALITY -> PhotoCredit(
                     eclipse, getString(R.string.credits_totality),
                     getString(R.string.credits_link_totality)
+                )
+                Eclipse.ANNULAR_START -> PhotoCredit(
+                    eclipse, getString(R.string.credits_annular_start),
+                    getString(R.string.credits_link_annular_start)
+                )
+                Eclipse.ANNULAR_PHASE_START -> PhotoCredit(
+                    eclipse, getString(R.string.credits_annular_phase_start),
+                    getString(R.string.credits_link_annular_phase_start)
+                )
+                Eclipse.ANNULARITY -> PhotoCredit(
+                    eclipse, getString(R.string.credits_annularity),
+                    getString(R.string.credits_link_annularity)
+                )
+                Eclipse.ANNULAR_PHASE_END -> PhotoCredit(
+                    eclipse, getString(R.string.credits_annular_phase_end),
+                    getString(R.string.credits_link_annular_phase_end)
+                )
+                Eclipse.ANNULAR_END -> PhotoCredit(
+                    eclipse, getString(R.string.credits_annular_end),
+                    getString(R.string.credits_link_annular_end)
                 )
             }
             credits.add(photoCredit)

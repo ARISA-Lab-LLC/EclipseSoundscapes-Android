@@ -14,7 +14,6 @@ import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.databinding.FragmentMediaBinding
 import org.eclipsesoundscapes.model.Eclipse
 import org.eclipsesoundscapes.model.MediaItem
-import org.eclipsesoundscapes.ui.main.MainActivity
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -40,14 +39,6 @@ import org.eclipsesoundscapes.ui.main.MainActivity
 @AndroidEntryPoint
 class MediaFragment : Fragment() {
 
-    private val defaultEclipses = arrayListOf(
-        Eclipse.BAILYS_BEADS,
-        Eclipse.PROMINENCE,
-        Eclipse.CORONA,
-        Eclipse.HELMET_STREAMER,
-        Eclipse.DIAMOND_RING
-    )
-
     private val viewModel: MediaViewModel by viewModels()
 
     private var _binding: FragmentMediaBinding? = null
@@ -64,6 +55,9 @@ class MediaFragment : Fragment() {
             toolbar.setTitle(R.string.media)
             (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
+            mediaList.clear()
+            createMediaItems(Eclipse.mediaEclipses())
+
             mediaRecycler.layoutManager = LinearLayoutManager(context)
             mediaAdapter = MediaAdapter(mediaList, MediaAdapter.MediaClickListener { media ->
                 activity?.let {
@@ -79,67 +73,6 @@ class MediaFragment : Fragment() {
         }
 
         return binding.root
-    }
-
-    override fun onResume() {
-        super.onResume()
-        updateMediaContent()
-    }
-
-    private fun updateMediaContent() {
-        (activity as? MainActivity)?.let {
-            mediaList.clear()
-
-            val items = ArrayList<Eclipse>()
-            val showAll = resources.getBoolean(R.bool.show_all_content) || viewModel.afterTotality()
-            when {
-                showAll -> {
-                    // show all media content
-                    items.add(Eclipse.FIRST_CONTACT)
-                    items.addAll(defaultEclipses)
-                    items.add(Eclipse.TOTALITY)
-                    binding.moreContent.visibility = View.GONE
-                }
-                viewModel.afterFirstContact() -> {
-                    items.add(Eclipse.FIRST_CONTACT)
-                    items.addAll(defaultEclipses)
-                }
-                else -> {
-                    items.addAll(defaultEclipses)
-                }
-            }
-
-            createMediaItems(items)
-
-            if (showAll) {
-                // the following media items are added separately because there is no
-                // associated [Eclipse] type
-
-                // sun as a star
-                mediaList.add(
-                    MediaItem(
-                        R.drawable.sun_as_a_star,
-                        R.string.sun_as_star,
-                        R.string.audio_sun_as_star_full,
-                        R.raw.sun_as_a_star
-                    )
-                )
-
-                if (resources.getBoolean(R.bool.live_experience_enabled)) {
-                    // real time experience audio
-                    mediaList.add(
-                        MediaItem(
-                            R.drawable.eclipse_bailys_beads,
-                            R.string.eclipse_experience,
-                            R.string.bailys_beads_short,
-                            R.raw.realtime_eclipse_shorts_saas
-                        )
-                    )
-                }
-            }
-
-            mediaAdapter.notifyDataSetChanged()
-        }
     }
 
     private fun createMediaItems(items: ArrayList<Eclipse>) {

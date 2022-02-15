@@ -128,23 +128,7 @@ class FeaturesFragment : Fragment() {
             })
         }
 
-        eclipses =
-            if (view.context.resources.getBoolean(R.bool.show_all_content) || viewModel.afterTotality()) {
-                // show all eclipses
-                Eclipse.values().toCollection(ArrayList())
-            } else {
-                arrayListOf(
-                    Eclipse.FIRST_CONTACT,
-                    Eclipse.BAILYS_BEADS,
-                    Eclipse.BAILYS_BEADS_CLOSEUP,
-                    Eclipse.CORONA,
-                    Eclipse.DIAMOND_RING,
-                    Eclipse.HELMET_STREAMER,
-                    Eclipse.HELMET_STREAMER_CLOSEUP,
-                    Eclipse.PROMINENCE,
-                    Eclipse.PROMINENCE_CLOSEUP
-                )
-            }
+        eclipses = Eclipse.values().toCollection(ArrayList())
 
         currentPosition = lastPosition?.first ?: 0
     }

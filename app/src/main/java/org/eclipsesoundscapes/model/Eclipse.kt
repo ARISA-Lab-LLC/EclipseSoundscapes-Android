@@ -12,13 +12,18 @@ enum class Eclipse {
     HELMET_STREAMER_CLOSEUP,
     PROMINENCE,
     PROMINENCE_CLOSEUP,
-    TOTALITY;
+    TOTALITY,
+    ANNULAR_START,
+    ANNULAR_PHASE_START,
+    ANNULARITY,
+    ANNULAR_PHASE_END,
+    ANNULAR_END;
 
     companion object {
         /**
-         * Returns all [Eclipse] which are not close up images
+         * Returns all [Eclipse] which are not close up
          */
-        fun photoCreditEclipses(): ArrayList<Eclipse> {
+        fun mediaEclipses(): ArrayList<Eclipse> {
             return values().filter { !it.isCloseUpEclipse() }.toCollection(ArrayList())
         }
     }
@@ -26,7 +31,7 @@ enum class Eclipse {
     private fun isCloseUpEclipse() : Boolean {
         return this == BAILYS_BEADS_CLOSEUP
                 || this == HELMET_STREAMER_CLOSEUP
-                || this == PROMINENCE_CLOSEUP;
+                || this == PROMINENCE_CLOSEUP
     }
 
     fun imageResource(): Int = when (this) {
@@ -40,6 +45,11 @@ enum class Eclipse {
         PROMINENCE -> R.drawable.eclipse_prominence
         PROMINENCE_CLOSEUP -> R.drawable.prominence_closeup
         TOTALITY -> R.drawable.eclipse_totality
+        ANNULAR_START -> R.drawable.annular_eclipse_start
+        ANNULAR_PHASE_START -> R.drawable.annular_eclipse_phase_start
+        ANNULARITY -> R.drawable.annularity
+        ANNULAR_PHASE_END -> R.drawable.annular_eclipse_phase_end
+        ANNULAR_END -> R.drawable.annular_eclipse_end
     }
 
     fun title(): Int = when (this) {
@@ -53,6 +63,11 @@ enum class Eclipse {
         PROMINENCE -> R.string.prominence
         PROMINENCE_CLOSEUP -> R.string.prominence_closeup
         TOTALITY -> R.string.totality
+        ANNULAR_START -> R.string.annular_start
+        ANNULAR_PHASE_START -> R.string.annular_phase_start
+        ANNULARITY -> R.string.annularity
+        ANNULAR_PHASE_END -> R.string.annular_phase_end
+        ANNULAR_END -> R.string.annular_end
     }
 
     fun description(): Int = when (this) {
@@ -66,6 +81,11 @@ enum class Eclipse {
         PROMINENCE -> R.string.prominence_description
         PROMINENCE_CLOSEUP -> R.string.prominence_description
         TOTALITY -> R.string.totality_description
+        ANNULAR_START -> R.string.annular_start_description
+        ANNULAR_PHASE_START -> R.string.annular_phase_start_description
+        ANNULARITY -> R.string.annularity_description
+        ANNULAR_PHASE_END -> R.string.annular_phase_end_description
+        ANNULAR_END -> R.string.annular_end_description
     }
 
     fun audioDescription(): Int = when (this) {
@@ -76,6 +96,11 @@ enum class Eclipse {
         HELMET_STREAMER, HELMET_STREAMER_CLOSEUP -> R.string.audio_helmet_streamers_full
         PROMINENCE, PROMINENCE_CLOSEUP -> R.string.audio_prominence_full
         TOTALITY -> R.string.audio_totality_full
+        ANNULAR_START -> R.string.annular_start_description
+        ANNULAR_PHASE_START -> R.string.annular_phase_start_description
+        ANNULARITY -> R.string.annularity_description
+        ANNULAR_PHASE_END -> R.string.annular_phase_end_description
+        ANNULAR_END -> R.string.annular_end_description
     }
 
     fun audio(): Int = when (this) {
@@ -86,5 +111,10 @@ enum class Eclipse {
         HELMET_STREAMER, HELMET_STREAMER_CLOSEUP -> R.raw.helmet_streamers_full
         PROMINENCE, PROMINENCE_CLOSEUP -> R.raw.prominence_full
         TOTALITY -> R.raw.totality_full
+        ANNULAR_START -> R.raw.annular_eclipse_start_long
+        ANNULAR_PHASE_START -> R.raw.annular_eclipse_phase_start_long
+        ANNULARITY -> R.raw.annularity_long
+        ANNULAR_PHASE_END -> R.raw.annular_eclipse_phase_end_long
+        ANNULAR_END -> R.raw.annular_eclipse_end_long
     }
 }

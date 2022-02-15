@@ -182,6 +182,40 @@
         Scientists can detect planets eclipsing their stars and determine both how far the planet is from its star and the planet’s mass.
         From these clues and other observations, scientists are attempting to discover if there is life on these other planets that may be experiencing their own eclipse.</string>
 
+    <string name="annular_start_description">During an annular eclipse, the Moon blocks the Sun, but not completely. From Earth, the Moon does not appear big enough to block out the Sun entirely.
+        \n\nThis image is from moments after what is called “First Contact.” At First Contact the  Sun appears as a glowing, white disk against a black background. On the left side of the Sun, a small, U-shaped area appears missing from the Sun\’s perfect circle shape.
+        This missing area is the Moon as it creeps in front of the Sun slowly starting to block out the Sun\’s light. The Moon appears to be taking a bite out of the Sun like a bite out of a cookie.
+        \n\nUsually the Moon\’s deep craters make the Moon appear rough. But now, the Sun\’s light is so bright that it erases all of the Moon\’s features. This causes the Moon to appear black and smooth like glass. The intensity of the Sun\’s light makes it unsafe to look at the annular eclipse without always wearing special eye protection.
+        \n\nThis image was taken in 2012 by astronomer and science writer Dr. Rick Fienberg. Dr. Fienberg used a digital camera and zoom lens capped with a special-purpose filter to block 99.999% of the Sun\’s dangerously bright light. You should never  take photos of an eclipse without a special solar filter.
+        The bright light of an eclipse can damage a camera, as well as your eyes! A solar filter helps protect the camera and your eyes. A solar filter fits over the front of a telescope lens and is specifically designed to limit the amount of light without adding color.
+        \n\nDr. Fienberg has been chasing total solar eclipses around the world for 30 years! He observed and photographed this eclipse from a cruise ship in the Pacific Ocean near Australia.
+        \n\nVisit the Rumble Map to explore this image through touch and sound. The absence of light is silent and still. Can you feel and hear where the Moon\’s dark rounded edge begins to block out the bright edge of the Sun?</string>
+
+    <string name="annular_phase_start_description">This image is of the phenomenon called “Baily\’s Beads.” In this stage the Moon has moved in front of the Sun. The Sun\’s light is reduced to a thin C-shape or crescent, shining at the edge of the Moon.
+        \n\nBaily’s Beads look like a few glowing pearls at the ends of the crescent. Baily\’s Beads occur because the Moon\’s surface is not smooth. It is covered by mountains and valleys. Baily\’s Beads are caused by Sunlight beaming between the mountains and through the valleys on the Moon when the Sun begins to peek around the Moon\’s edge.
+        \n\nAfter Baily’s Beads disappear, the Annular Phase begins.
+        \n\nBaily\'s Beads are named for an English astronomer named Sir Francis Baily. Sir Francis published his observations after seeing these bright beads of light during the May 15, 1836 annular solar eclipse. And, even though Sir Francis was not the first person to observe this phenomenon, he was the first to publish his observations.
+        \n\nThis image was taken by Talha Zia in Sukkur, Pakistan. Talha did not use a solar filter, which can be dangerous. To protect their eyes, Talha did not look into the lens. Talha set up a camera with a telescope on a motorized mount that followed the Sun. To protect the camera lens, Talha limited the amount of light by setting a very short exposure time.
+        \n\nVisit the Rumble Map to explore this image of Baily\’s Beads through touch and sound. The absence of light is silent and still. Can you feel and hear where the Sun\’s light creates several beads dotted along a ring of light?</string>
+
+    <string name="annularity_description">This image is of Annularity, when an annular eclipse is at its maximum point. During Annularity, the dark black Moon appears smooth like glass and blocks the center of the Sun. Only a thin ring of light shines around the edge of the round Moon. As a result, the Sun appears to be a very bright ring of fire rather than a glowing ball.
+        This ring of light may only appear for a few minutes. This spectacular feature is why annular solar eclipses are often called “Ring of Fire” eclipses. This ring shape is also why this type of eclipse is called an “annular” eclipse. This ring shape is known as an annulus in mathematics.
+        The word “annular” means “little ring” in Latin. During an annular eclipse the Moon blocks all but this outer ring of the Sun\’s surface. An annular eclipse is just one type of eclipse. Total solar eclipses are another type. During a total solar eclipse the Moon completely covers the surface of the Sun.
+        \n\nThis image was taken by amateur astronomer Talha Zia during the June 21, 2020 eclipse in Sukkur, Pakistan. Talha is a member of the Karachi Astronomers\’ Society. If you\'d like to photograph an eclipse, you will need more than just a telescope or camera! To protect your telescope, AND YOUR EYES, you need to use a special solar filter.
+        This is similar to a very dark piece of glass that fits over the front of your camera or telescope lens. The filter is designed to limit the amount of light without adding color to the image.
+        \n\nVisit the Rumble Map to explore this Annularity image through touch and sound. The absence of light is silent and still. Can you feel and hear the strong change as you move from the intensely bright “Ring of Fire” to the darkness of the Moon?</string>
+
+    <string name="annular_phase_end_description">This image was taken as the annular phase ends. The Moon is slowly creeping away from the center of the Sun.  As the dark, circular Moon blocks less of the Sun\’s bright light, the Sun\’s fiery ring of light slowly transforms into a bright crescent shape once again. Depending on your location, Baily\’s Beads might be visible again.
+        Baily’s Beads appear like glowing pearls at the ends of the Sun\’s glowing crescent.
+        \n\nThis image was taken by Talha Zia in Sukkur, Pakistan. Talha did not use a solar filter on their camera, which can be dangerous. To protect their eyes, Talha did not look directly into the camera. Talha set up the camera with a telescope on a motorized mount that followed the Sun. To protect the camera, Talha limited the amount of light by setting a very short exposure time.
+        \n\nVisit the Rumble Map to explore this Third Contact image through touch and sound. The absence of light is silent and still. Can you feel and hear where the widest part of the crescent shape of light is?</string>
+
+    <string name="annular_end_description">This image is of the end of the annular eclipse. The Moon is slowly moving completely out of the Sun\’s way.
+        \n\nWhile the Moon still appears as a black disk, the Sun is a fiery ball of swirling red and orange. As it moves, the Moon looks like it is taking smaller and smaller bites out of the Sun. In this image, the Moon blocks a small area on the right side of the Sun.
+        \n\nFourth Contact is the end point of the annular eclipse, when the Moon\’s edge moves past the Sun\’s edge, and no longer blocks any part of the Sun\’s light.
+        \n\nThis image was taken by the Atmospheric Imaging Assembly telescope on board NASA’s Solar Dynamics Observatory. This observatory is currently in orbit around the Earth. Its telescope takes eight images like this one every ten seconds. These images help scientists better understand the Sun.
+        \n\nVisit the Rumble Map to explore this image of the eclipse ending through touch and sound. The absence of light is silent and still. Can you feel and hear how much more of the Sun is visible in comparison to other stages of the annular eclipse?</string>
+
     <string name="viewing_desc_format">Now viewing description for %1$s</string>
     <string name="viewing_image_format">Now viewing image for %1$s</string>
 
@@ -274,6 +308,11 @@
     <string name="prominence">Prominence</string>
     <string name="prominence_closeup">Prominence Closeup</string>
     <string name="totality">Totality</string>
+    <string name="annular_start">The Eclipse Begins</string>
+    <string name="annular_phase_start">Annular Phase Begins</string>
+    <string name="annularity">Annularity</string>
+    <string name="annular_phase_end">Annular Phase Ends</string>
+    <string name="annular_end">The Eclipse Ends</string>
     <string name="sun_as_star">Sun as a Star</string>
     <string name="eclipse_experience">Eclipse Experience</string>
     <string name="duration_desc_seconds">%1$s seconds</string>
@@ -318,18 +357,6 @@
     <string name="future_eclipse_label_format">%1$s: %2$s</string>
     <string name="future_eclipse_features">Tracking, Rumble Maps, Narrations</string>
 
-    <!-- Dialog -->
-    <array name="eclipse_imgs_title">
-        <item name="diamond_ring">@string/diamond_ring</item>
-        <item name="helmet_streamers">@string/helmet_streamers</item>
-        <item name="prominence">@string/prominence</item>
-        <item name="sun_as_star">@string/sun_as_star</item>
-        <item name="first_contact">@string/first_contact</item>
-        <item name="totality">@string/totality</item>
-        <item name="bailys_beads">@string/bailys_beads</item>
-        <item name="corona">@string/corona</item>
-    </array>
-
     <!-- Photo credits -->
     <string name="credits_diamond_ring">©1991 Bill Reyna\n©2005 Hana Druckmüllerová, Miloslav Druckmüller</string>
     <string name="credits_helmet_streamers">©1994 Úpice Observatory and Vojtech Rušin\n©2007 Miloslav Druckmüller</string>
@@ -352,6 +379,11 @@
     <string name="credits_link_totality">http://www.zam.fme.vutbr.cz/~druck/eclipse/ecl2006l/Tse2006l_1640_15/0-info.htm</string>
     <string name="credits_link_bailys_beads">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2013u/Tse_2013_bp-7430/0-info.htm</string>
     <string name="credits_link_corona">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2002a/Ecl2002_dd_cor/0-info.htm</string>
+    <string name="credits_link_annular_start">https://eclipse.aas.org/resources/images-videos#partial</string>
+    <string name="credits_link_annular_phase_start">http://xjubier.free.fr/en/site_pages/solar_eclipses/ASE_20200621_pg02.html</string>
+    <string name="credits_link_annularity">http://xjubier.free.fr/en/site_pages/solar_eclipses/ASE_19840530_pg01.html</string>
+    <string name="credits_link_annular_phase_end">http://xjubier.free.fr/en/site_pages/solar_eclipses/ASE_20200621_pg02.html</string>
+    <string name="credits_link_annular_end">https://sdo.gsfc.nasa.gov/gallery/main/item/131</string>
 
     <string name="our_partners">Our Partners</string>
     <string name="current_partners">Current Partners</string>
