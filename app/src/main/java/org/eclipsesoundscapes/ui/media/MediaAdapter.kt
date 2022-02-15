@@ -4,7 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import org.eclipsesoundscapes.databinding.ItemMediaBinding
+import org.eclipsesoundscapes.databinding.ItemSectionBinding
 import org.eclipsesoundscapes.model.MediaItem
+import org.eclipsesoundscapes.model.Section
 import java.util.*
 
 /*
@@ -27,17 +29,57 @@ import java.util.*
  * A [RecyclerView.Adapter] that populates a list with [MediaItem]
  */
 internal class MediaAdapter internal constructor(
-    private val mediaList: ArrayList<MediaItem>,
+    private val mediaList: ArrayList<Any>,
     private val clickListener: MediaClickListener
-) : RecyclerView.Adapter<MediaAdapter.MediaViewHolder>() {
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MediaViewHolder = MediaViewHolder.from(parent)
+    override fun getItemViewType(position: Int): Int {
+        val mediaItem = mediaList[position]
+        return if (mediaItem is Section) {
+            VIEW_SECTION
+        } else {
+            VIEW_MEDIA
+        }
+    }
 
-    override fun onBindViewHolder(holder: MediaViewHolder, position: Int) {
-        holder.bind(mediaList[position], clickListener)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        if (viewType == VIEW_SECTION) {
+            return MediaSectionViewHolder.from(parent)
+        }
+
+        return MediaViewHolder.from(parent)
+    }
+
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val mediaItem = mediaList[position]
+        (holder as? MediaSectionViewHolder)?.let {
+            (mediaItem as? Section)?.let { section ->
+                it.bind(section)
+            }
+        }
+
+        (holder as? MediaViewHolder)?.let {
+            (mediaItem as? MediaItem)?.let { media ->
+                it.bind(media, clickListener)
+            }
+        }
     }
 
     override fun getItemCount(): Int = mediaList.size
+
+    internal class MediaSectionViewHolder private constructor(val binding: ItemSectionBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(section: Section) {
+            binding.title.text = section.title
+        }
+
+        companion object {
+            fun from(parent: ViewGroup): MediaSectionViewHolder {
+                val layoutInflater = LayoutInflater.from(parent.context)
+                val binding = ItemSectionBinding.inflate(layoutInflater, parent, false)
+                return MediaSectionViewHolder(binding)
+            }
+        }
+    }
 
     internal class MediaViewHolder private constructor(val binding: ItemMediaBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(item: MediaItem, clickListener: MediaClickListener) {
@@ -57,5 +99,10 @@ internal class MediaAdapter internal constructor(
 
     class MediaClickListener(val mediaClickListener: (mediaItem: MediaItem) -> Unit) {
         fun onMediaClicked(mediaItem: MediaItem) = mediaClickListener(mediaItem)
+    }
+
+    companion object {
+        private const val VIEW_SECTION = 0
+        private const val VIEW_MEDIA = 1
     }
 }

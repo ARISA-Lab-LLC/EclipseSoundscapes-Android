@@ -26,12 +26,28 @@ enum class Eclipse {
         fun mediaEclipses(): ArrayList<Eclipse> {
             return values().filter { !it.isCloseUpEclipse() }.toCollection(ArrayList())
         }
+
+        fun totalEclipseMedia(): ArrayList<Eclipse> {
+            return values().filter { !it.isCloseUpEclipse() && !it.isAnnularEclipse() }.toCollection(ArrayList())
+        }
+
+        fun annularEclipseMedia(): ArrayList<Eclipse> {
+            return values().filter { it.isAnnularEclipse() }.toCollection(ArrayList())
+        }
     }
 
     private fun isCloseUpEclipse() : Boolean {
         return this == BAILYS_BEADS_CLOSEUP
                 || this == HELMET_STREAMER_CLOSEUP
                 || this == PROMINENCE_CLOSEUP
+    }
+
+    fun isAnnularEclipse() : Boolean {
+        return this == ANNULAR_START
+                || this == ANNULAR_PHASE_START
+                || this == ANNULARITY
+                || this == ANNULAR_PHASE_END
+                || this == ANNULAR_END
     }
 
     fun imageResource(): Int = when (this) {

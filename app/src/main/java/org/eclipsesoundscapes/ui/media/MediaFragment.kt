@@ -14,6 +14,7 @@ import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.databinding.FragmentMediaBinding
 import org.eclipsesoundscapes.model.Eclipse
 import org.eclipsesoundscapes.model.MediaItem
+import org.eclipsesoundscapes.model.Section
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -44,7 +45,7 @@ class MediaFragment : Fragment() {
     private var _binding: FragmentMediaBinding? = null
     private val binding get() = _binding!!
 
-    private var mediaList: ArrayList<MediaItem> = ArrayList()
+    private var mediaList: ArrayList<Any> = ArrayList()
     private lateinit var mediaAdapter: MediaAdapter
 
     override fun onCreateView(
@@ -56,7 +57,14 @@ class MediaFragment : Fragment() {
             (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
             mediaList.clear()
-            createMediaItems(Eclipse.mediaEclipses())
+
+            // total eclipse
+            mediaList.add(Section(getString(R.string.total_solar_eclipse)))
+            addMediaItems(Eclipse.totalEclipseMedia())
+
+            // annular eclipse
+            mediaList.add(Section(getString(R.string.annular_solar_eclipse)))
+            addMediaItems(Eclipse.annularEclipseMedia())
 
             mediaRecycler.layoutManager = LinearLayoutManager(context)
             mediaAdapter = MediaAdapter(mediaList, MediaAdapter.MediaClickListener { media ->
@@ -75,7 +83,7 @@ class MediaFragment : Fragment() {
         return binding.root
     }
 
-    private fun createMediaItems(items: ArrayList<Eclipse>) {
+    private fun addMediaItems(items: ArrayList<Eclipse>) {
         for (eclipse in items) {
             mediaList.add(
                 MediaItem(

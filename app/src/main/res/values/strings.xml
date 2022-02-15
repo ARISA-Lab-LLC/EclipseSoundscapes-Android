@@ -321,6 +321,9 @@
     <string name="duration_current_progress">%1$s of %2$s</string>
     <string name="duration_min_sec">%1$s minutes and %2$s seconds</string>
 
+    <string name="total_solar_eclipse">Total Solar Eclipse</string>
+    <string name="annular_solar_eclipse">Annular Solar Eclipse</string>
+
     <!-- rumble map interaction -->
     <string name="rumble_map">Rumble Map</string>
     <string name="rumble_map_interaction">Rumble Map Interaction</string>
