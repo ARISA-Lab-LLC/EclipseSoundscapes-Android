@@ -198,22 +198,46 @@
         Los científicos pueden detectar planetas eclipsando a sus estrellas y determinar a qué distancia se encuentra el planeta respecto de su estrella y cuál es la masa del planeta.
         A partir de estos indicios y demás observaciones, los científicos intentan descubrir si existe vida en esos planetas que pueda estar viviendo sus propios eclipses.</string>
 
-    <string name="bailys_beads_short">Durante los próximos seis minutos, el Rumble Map se desactiva para que pueda escuchar en tiempo real los eventos que rodean el eclipse total.
+    <string name="audio_bailys_beads_short">Durante los próximos seis minutos, el Rumble Map se desactiva para que pueda escuchar en tiempo real los eventos que rodean el eclipse total.
         \n\nEn el lado derecho de la luna, resplandecen orbes de luz solar fulgurante desde el contorno del oscuro disco lunar.
         Estas áreas finales de la luz solar, llamadas Perlas de Baily, parecen perlas brillantes sobre un hilo, que se ven intensamente luminosas por la falta de luz a su alrededor.</string>
 
-    <string name="first_contact_short">El eclipse ha empezado y este es el primer momento en que la luna parece tocar el sol.
+    <string name="audio_first_contact_short">El eclipse ha empezado y este es el primer momento en que la luna parece tocar el sol.
         Estos dos cuerpos celestes parecen ser del mismo tamaño. La luz solar es tan brillante que borra todas las características de la luna, por eso la luna se ve como un disco liso de obsidiana.
         Durante los próximos noventa minutos, tendrá la oportunidad de interactuar con el Rumble Map y explorar las características del sol que se revelan durante un eclipse.
         A continuación, en los seis minutos previos, durante y justo después del eclipse total, el Rumble Map se desactivará para que usted pueda escuchar los acontecimientos en torno al eclipse total en tiempo real.</string>
 
-    <string name="diamond_ring_short">En el lado izquierdo de la oscura luna, se observa una fina tajada de luz solar que es irradiada con candente intensidad.
+    <string name="audio_diamond_ring_short">En el lado izquierdo de la oscura luna, se observa una fina tajada de luz solar que es irradiada con candente intensidad.
         A medida que el área de luz solar reemergente aumenta, se parece a un anillo de diamantes que irradia su luz brillante.</string>
 
-    <string name="totality_short">ESTE es el eclipse total.
+    <string name="audio_totality_short">ESTE es el eclipse total.
         Durante aproximadamente dos minutos, el oscuro disco de la luna cubre por completo el sol y revela su gran corona exterior.
         Grandes florituras de luz se proyectan desde la luna en todas direcciones como los pétalos de una flor.
         Las cintas de casco, intensamente brillantes en el contorno de la luna, se van desvaneciendo, en hilos de un blanco fantasmal al extenderse por el espacio.</string>
+
+    <string name="audio_annular_start_short">¡El eclipse ha comenzado y es un espectáculo sorprendente! El mapa interactivo (“rumble map”) se desactivará durante el eclipse para que pueda disfrutar de este evento con descripciones en tiempo real. Y recuerde que usted ¡DEBE usar gafas protectoras especiales en TODO momento si quiere ver el eclipse anular! ¡JAMÁS mire al sol con los ojos, a través de binoculares o con un telescopio!
+        \n\nDurante un eclipse anular, la luna cubre el sol, pero no por completo. Desde la Tierra, la luna no parece ser lo suficientemente grande como para cubrir totalmente el sol.
+        \n\nEl eclipse comienza con el “primer contacto”. En el primer contacto, la luna pareciera estar tocando el sol. El sol se ve como un disco blanco brillante contra un fondo negro. Cerca del costado del sol, se observa que falta una pequeña área curva en la forma circular perfecta del sol. Esta área faltante es la luna que comienza a pasar frente al sol y bloquear lentamente una parte de la luz solar. Pareciera que la luna le estuviera dando un pequeño “mordisco” al sol.
+        \n\nNormalmente los profundos cráteres lunares hacen que la luna se vea rugosa. Pero ahora la luz solar es tan brillante que hace desaparecer todas las características de la luna. Por eso la luna se ve negra y lisa como un vidrio.</string>
+
+    <string name="audio_annular_phase_start_short">En esta etapa, la luna se encuentra frente al sol. La luna se ve como un disco totalmente negro y la luz del sol solo brilla en los bordes de la luna en una delgada forma de C o medialuna.
+        \n\nTambién es posible que se pueda ver brevemente un fenómeno denominado Perlas de Baily. Las Perlas de Baily se ven como unas perlas brillantes que se encuentran en los extremos de la forma de medialuna del sol. Las Perlas de Baily se producen porque la luz solar resplandece en los profundos valles lunares. Cuando las Perlas de Baily desaparecen, comienza a aparecer un anillo de luz. El momento en que comienza esta fase se denomina “segundo contacto”.
+        \n\nAunque sea tentador, nunca se debe mirar a las Perlas de Baily o el anillo de luz con los ojos o con un telescopio. ¡Se DEBEN usar gafas protectoras especiales durante todas las etapas de un eclipse anular!</string>
+
+    <string name="audio_annularity_short">En este momento se produce la anularidad.
+        \n\nAhora, el sol se ve como un anillo de fuego muy intenso en lugar de la bola de luz resplandeciente habitual. Esto se produce porque la luna negra oscura ha cubierto el centro del sol y la luz solar resplandece alrededor del borde circular de la luna. En consecuencia, la luz solar parece una letra O brillante. Esa forma de “O” se conoce como annulus en matemática. La palabra “anular” significa “anillo pequeño” en latín. Por eso este tipo de eclipse se denomina eclipse “anular”. Durante un eclipse anular, la luna lo oscurece todo, excepto ese anillo externo del sol.
+        \n\nEse anillo solo se ve unos minutos, porque el sol, la luna y la Tierra aún se están moviendo lentamente.
+        \n\nRecuerde que JAMÁS debe mirar al sol directamente durante un eclipse anular con un telescopio o con los ojos. Si desea ver un eclipse, debe usar gafas especiales para eclipses. De lo contrario, podría sufrir un daño importante.</string>
+
+    <string name="audio_annular_phase_end_short">La fase anular está finalizando.
+        \n\nLa luna se aleja lentamente del centro del sol. Como la luna circular oscura cubre menos luz intensa del sol, el anillo de luz ardiente del sol se transforma lentamente de nuevo en una forma de C. Según dónde se encuentre ubicado usted, es posible que logre ver nuevamente las Perlas de Baily. Las Perlas de Baily se ven como perlas brillantes en los extremos de la medialuna resplandeciente del sol.
+        \n\nAún no es seguro mirar al sol con los ojos o con un telescopio. Se DEBEN usar gafas protectoras especiales, como las gafas oficiales para ver un eclipse, para mirar al sol durante TODAS las etapas de un eclipse anular.</string>
+
+    <string name="audio_annular_end_short">El eclipse anular está finalizando. La luna se aleja lentamente y por completo del sol.
+        \n\nAunque la luna aún se ve como un disco negro, el sol es una bola ardiente de un arremolinado rojo y naranja. A medida que la luna avanza, pareciera que le está dando mordiscos cada vez más pequeños al sol.
+        \n\nEn este punto, la luna solo cubre una pequeña parte del sol. Pronto ya no cubrirá nada de la luz solar.
+        \n\nEl cuarto contacto es el punto final del eclipse anular, cuando el borde de la luna se separa del borde del sol y ya no cubre ninguna parte de la luz solar.
+        \n\nUna vez finalizado el eclipse anular, el mapa interactivo y todas las demás funciones de la aplicación se encontrarán nuevamente disponibles. ¡Esperamos que siga explorando las maravillas de los eclipses con la aplicación incluso después de concluido este eclipse anular!</string>
 
     <string name="first_contact_description">Este es el primer momento en que la luna, moviéndose lentamente de izquierda a derecha, parece tocar el sol.
         La intensidad de la luz solar hace que no sea seguro mirar al sol sin gafas protectoras especiales hasta que el eclipse sea total, los pocos minutos durante los que la luna eclipsa al sol por completo.
