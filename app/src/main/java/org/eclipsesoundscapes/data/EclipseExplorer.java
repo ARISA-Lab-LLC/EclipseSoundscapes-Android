@@ -4,6 +4,7 @@ import android.content.Context;
 
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.model.EclipseConfiguration;
+import org.eclipsesoundscapes.model.EclipseType;
 import org.eclipsesoundscapes.model.Event;
 import org.joda.time.DateTime;
 
@@ -32,15 +33,13 @@ import java.util.Locale;
  */
 
 public class EclipseExplorer {
-    public enum EclipseType {
-        PARTIAL, ANNULAR, FULL, NONE
-    }
 
-    public EclipseType type = EclipseType.FULL;
+    public EclipseType type = EclipseType.TOTAL;
 
     private Context context;
     private Double longitude;
     private Double latitude;
+    private EclipseConfiguration eclipseConfiguration;
 
     private double R2D = 180.0 / Math.PI;
     private double D2R = Math.PI / 180;
@@ -59,6 +58,7 @@ public class EclipseExplorer {
         this.context = context;
         this.longitude = longitude;
         this.latitude = latitude;
+        this.eclipseConfiguration = eclipseConfiguration;
         this.elements = eclipseConfiguration.getElements().toArray(new Double[0]);
         loc_circ(latitude, longitude);
         printTimes();
@@ -72,6 +72,10 @@ public class EclipseExplorer {
         return longitude;
     }
 
+    public EclipseConfiguration getEclipseConfiguration() {
+        return eclipseConfiguration;
+    }
+
     public String getMagnitude() {
         if (type == EclipseType.NONE)
             return null;
@@ -79,11 +83,11 @@ public class EclipseExplorer {
     }
 
     public boolean isFullOrAnnular() {
-        return type == EclipseType.FULL || type == EclipseType.ANNULAR;
+        return type == EclipseType.TOTAL || type == EclipseType.ANNULAR;
     }
 
     public String getFormattedDuration() {
-        if (type == EclipseType.FULL || type == EclipseType.ANNULAR) {
+        if (type == EclipseType.TOTAL || type == EclipseType.ANNULAR) {
             final DateTime dateTime = getDuration();
             return String.format(Locale.getDefault(), "%dm %d.%ds",
                     dateTime.getMinuteOfHour(),
@@ -694,7 +698,7 @@ public class EclipseExplorer {
             } else if (isAnnular) {
                 type = EclipseType.ANNULAR;
             } else {
-                type = EclipseType.FULL;
+                type = EclipseType.TOTAL;
             }
         } else {
             type = EclipseType.NONE;

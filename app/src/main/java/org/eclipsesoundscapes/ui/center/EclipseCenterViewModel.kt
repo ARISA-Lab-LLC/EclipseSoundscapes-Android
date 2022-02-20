@@ -13,6 +13,7 @@ import org.eclipsesoundscapes.data.DataManager
 import org.eclipsesoundscapes.data.EclipseConfigurationRepository
 import org.eclipsesoundscapes.data.EclipseExplorer
 import org.eclipsesoundscapes.model.EclipseConfiguration
+import org.eclipsesoundscapes.model.EclipseType
 import org.eclipsesoundscapes.util.DateTimeUtils
 import org.eclipsesoundscapes.util.DateTimeUtils.dateToEclipseDateFormat
 import org.eclipsesoundscapes.util.DateTimeUtils.eclipseDateFormatToDate
@@ -55,7 +56,7 @@ class EclipseCenterViewModel @Inject internal constructor(
     }
 
     fun saveEclipseEventDates(eclipseExplorer: EclipseExplorer) {
-        if (eclipseExplorer.type == EclipseExplorer.EclipseType.NONE) {
+        if (eclipseExplorer.type == EclipseType.NONE) {
             return
         }
 

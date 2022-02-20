@@ -4,6 +4,7 @@ import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import org.eclipsesoundscapes.model.Coordinate
+import org.eclipsesoundscapes.model.EclipseType
 import java.util.*
 
 /**
@@ -33,4 +34,9 @@ class Converters {
         return Gson().toJson(centralLines)
     }
 
+    @TypeConverter
+    fun eclipseTypeFromString(eclipseTypeString: String) = enumValueOf<EclipseType>(eclipseTypeString)
+
+    @TypeConverter
+    fun eclipseTypeToString(eclipseType: EclipseType) = eclipseType.name
 }
