@@ -5,6 +5,7 @@ import android.content.Context;
 import org.eclipsesoundscapes.R;
 import org.eclipsesoundscapes.model.EclipseConfiguration;
 import org.eclipsesoundscapes.model.EclipseType;
+import org.eclipsesoundscapes.model.EclipseVisibility;
 import org.eclipsesoundscapes.model.Event;
 import org.joda.time.DateTime;
 
@@ -34,8 +35,6 @@ import java.util.Locale;
 
 public class EclipseExplorer {
 
-    public EclipseType type = EclipseType.TOTAL;
-
     private Context context;
     private Double longitude;
     private Double latitude;
@@ -52,6 +51,8 @@ public class EclipseExplorer {
     private Double[] mid = new Double[40];
     private Double[] c3 = new Double[40];
     private Double[] c4 = new Double[40];
+
+    public EclipseVisibility eclipseVisibility = EclipseVisibility.NONE;
 
     public EclipseExplorer(Context context, EclipseConfiguration eclipseConfiguration,
                            Double latitude, Double longitude) {
@@ -76,25 +77,22 @@ public class EclipseExplorer {
         return eclipseConfiguration;
     }
 
+    public EclipseType getEclipseType() {
+        return eclipseConfiguration.getType();
+    }
+
     public String getMagnitude() {
-        if (type == EclipseType.NONE)
+        if (eclipseVisibility == EclipseVisibility.NONE)
             return null;
         return String.valueOf(Math.round(mid[34] * 1000) / 1000);
     }
 
-    public boolean isFullOrAnnular() {
-        return type == EclipseType.TOTAL || type == EclipseType.ANNULAR;
-    }
-
     public String getFormattedDuration() {
-        if (type == EclipseType.TOTAL || type == EclipseType.ANNULAR) {
-            final DateTime dateTime = getDuration();
-            return String.format(Locale.getDefault(), "%dm %d.%ds",
-                    dateTime.getMinuteOfHour(),
-                    dateTime.getSecondOfMinute(),
-                    dateTime.getMillisOfSecond());
-        }
-        return "";
+        final DateTime dateTime = getDuration();
+        return String.format(Locale.getDefault(), "%dm %d.%ds",
+                dateTime.getMinuteOfHour(),
+                dateTime.getSecondOfMinute(),
+                dateTime.getMillisOfSecond());
     }
 
     public Event contact1() {
@@ -648,7 +646,6 @@ public class EclipseExplorer {
 
     private void printTimes() {
         boolean isPartial = false;
-        boolean isAnnular = false;
         boolean isEclipse = true;
 
         if (mid[36] > 0) {
@@ -669,7 +666,6 @@ public class EclipseExplorer {
                             // Sun above the horizon for the entire annular/total event
                             if (mid[36] == 2) {
                                 // Annular Solar Eclipse
-                                isAnnular = true;
                             } else {
                                 // Total solar Eclipse
                             }
@@ -694,14 +690,12 @@ public class EclipseExplorer {
 
         if (isEclipse) {
             if (isPartial) {
-                type = EclipseType.PARTIAL;
-            } else if (isAnnular) {
-                type = EclipseType.ANNULAR;
+                eclipseVisibility = EclipseVisibility.PARTIAL;
             } else {
-                type = EclipseType.TOTAL;
+                eclipseVisibility = EclipseVisibility.FULL;
             }
         } else {
-            type = EclipseType.NONE;
+            eclipseVisibility = EclipseVisibility.NONE;
         }
     }
 }

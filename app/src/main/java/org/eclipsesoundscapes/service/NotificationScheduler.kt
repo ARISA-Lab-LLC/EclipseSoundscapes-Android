@@ -15,6 +15,7 @@ import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.data.EclipseExplorer
 import org.eclipsesoundscapes.model.Eclipse
 import org.eclipsesoundscapes.model.EclipseType
+import org.eclipsesoundscapes.model.EclipseVisibility
 import org.eclipsesoundscapes.model.MediaItem
 import org.eclipsesoundscapes.ui.main.MainActivity
 import org.eclipsesoundscapes.ui.media.MediaPlayerActivity
@@ -52,16 +53,16 @@ object NotificationScheduler {
     private fun scheduleAnnularNotifications(context: Context, eclipseExplorer: EclipseExplorer) {
         // first contact
         DateTimeUtils.eventLocalTime(eclipseExplorer.contact1())?.let {
-            scheduleNotification(context, Eclipse.ANNULAR_START, eclipseExplorer.type, it.minusMinutes(2))
-            scheduleNotification(context, Eclipse.ANNULAR_START, eclipseExplorer.type, it.minusSeconds(10), true)
+            scheduleNotification(context, Eclipse.ANNULAR_START, eclipseExplorer.eclipseType, it.minusMinutes(2))
+            scheduleNotification(context, Eclipse.ANNULAR_START, eclipseExplorer.eclipseType, it.minusSeconds(10), true)
         }
 
         // annularity
         DateTimeUtils.eventLocalTime(eclipseExplorer.contactMid())?.let {
-            scheduleNotification(context, Eclipse.ANNULARITY, eclipseExplorer.type, it.minusSeconds(30), true)
+            scheduleNotification(context, Eclipse.ANNULARITY, eclipseExplorer.eclipseType, it.minusSeconds(30), true)
         }
 
-        if (eclipseExplorer.type == EclipseType.TOTAL) {
+        if (eclipseExplorer.eclipseVisibility == EclipseVisibility.FULL) {
             // annular phase start
             DateTimeUtils.eventLocalTime(eclipseExplorer.contact2())?.let {
                 var mediaDuration = MediaUtils.getAudioDuration(context, R.raw.annular_eclipse_phase_start_short)
@@ -69,7 +70,7 @@ object NotificationScheduler {
                 // scheduled 30 seconds + length of audio file before event
                 mediaDuration = TimeUnit.MILLISECONDS.toSeconds(max(0, mediaDuration)) + 30
 
-                scheduleNotification(context, Eclipse.ANNULAR_PHASE_START, eclipseExplorer.type, it.minusSeconds(mediaDuration.toInt()), true)
+                scheduleNotification(context, Eclipse.ANNULAR_PHASE_START, eclipseExplorer.eclipseType, it.minusSeconds(mediaDuration.toInt()), true)
             }
         }
     }
@@ -77,14 +78,14 @@ object NotificationScheduler {
     private fun scheduleTotalNotifications(context: Context, eclipseExplorer: EclipseExplorer) {
         // first contact
         DateTimeUtils.eventLocalTime(eclipseExplorer.contact1())?.let {
-            scheduleNotification(context, Eclipse.FIRST_CONTACT, eclipseExplorer.type, it.minusMinutes(2))
-            scheduleNotification(context, Eclipse.FIRST_CONTACT, eclipseExplorer.type, it.minusSeconds(10), true)
+            scheduleNotification(context, Eclipse.FIRST_CONTACT, eclipseExplorer.eclipseType, it.minusMinutes(2))
+            scheduleNotification(context, Eclipse.FIRST_CONTACT, eclipseExplorer.eclipseType, it.minusSeconds(10), true)
         }
 
-        if (eclipseExplorer.type == EclipseType.TOTAL) {
+        if (eclipseExplorer.eclipseVisibility == EclipseVisibility.FULL) {
             // totality
             DateTimeUtils.eventLocalTime(eclipseExplorer.contact2())?.let {
-                scheduleNotification(context, Eclipse.TOTALITY, eclipseExplorer.type,
+                scheduleNotification(context, Eclipse.TOTALITY, eclipseExplorer.eclipseType,
                     it.minusSeconds(30), true)
             }
         }

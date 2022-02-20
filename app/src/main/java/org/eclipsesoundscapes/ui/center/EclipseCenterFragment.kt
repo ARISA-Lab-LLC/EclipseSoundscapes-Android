@@ -31,6 +31,7 @@ import org.eclipsesoundscapes.data.EclipseExplorer
 import org.eclipsesoundscapes.databinding.FragmentEclipseCenterBinding
 import org.eclipsesoundscapes.databinding.LayoutEclipseEventRowBinding
 import org.eclipsesoundscapes.model.EclipseType
+import org.eclipsesoundscapes.model.EclipseVisibility
 import org.eclipsesoundscapes.model.Event
 import org.eclipsesoundscapes.service.NotificationScheduler
 import org.eclipsesoundscapes.ui.about.SettingsActivity
@@ -83,7 +84,6 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             field = value
 
             value?.let {
-                viewModel.saveEclipseEventDates(value)
                 updateView()
                 showEclipseDetails()
                 setupNotifications()
@@ -236,14 +236,14 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             binding.eclipseCenterLayout.percentEclipse.text = eclipseExplorer?.coverage
 
             // set date of first contact
-            if (eclipseExplorer?.type != EclipseType.NONE) {
+            if (eclipseExplorer?.eclipseVisibility != EclipseVisibility.NONE) {
                 binding.eclipseCenterLayout.date.text = eclipseExplorer?.contact1()?.date
             }
 
-            binding.eclipseCenterLayout.eclipseType.text = when (eclipseExplorer?.type) {
+            binding.eclipseCenterLayout.eclipseType.text = when (eclipseExplorer?.eclipseConfiguration?.type) {
                 EclipseType.ANNULAR -> getString(R.string.eclipse_type_annular)
-                EclipseType.PARTIAL -> getString(R.string.eclipse_type_partial)
                 EclipseType.TOTAL -> getString(R.string.eclipse_type_full)
+                EclipseType.PARTIAL -> getString(R.string.eclipse_type_partial)
                 EclipseType.NONE -> getString(R.string.eclipse_type_none)
                 null -> getString(R.string.eclipse_type_unkown)
             }
@@ -251,9 +251,9 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
     }
 
     private fun showEclipseDetails() {
-        eclipseExplorer?.type?.let {
+        eclipseExplorer?.eclipseVisibility?.let {
             when (it) {
-                EclipseType.NONE -> {
+                EclipseVisibility.NONE -> {
                     val simulated = dataManager?.simulated ?: false
                     if (!simulated) {
                         // show user option to simulate location within the eclipse path
@@ -263,9 +263,8 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
                     }
                 }
 
-                EclipseType.PARTIAL -> showPartialEclipse()
-                EclipseType.ANNULAR,
-                EclipseType.TOTAL -> showFullEclipse()
+                EclipseVisibility.PARTIAL -> showPartialEclipse()
+                else -> showFullEclipse()
             }
         }
     }
@@ -343,7 +342,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
     }
 
     private fun setupNotifications() {
-        if (eclipseExplorer?.type == EclipseType.NONE) {
+        if (eclipseExplorer?.eclipseVisibility == EclipseVisibility.NONE) {
             return
         }
 
@@ -360,7 +359,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
     }
 
     private fun startCountdown() {
-        if (eclipseExplorer?.type == EclipseType.NONE) {
+        if (eclipseExplorer?.eclipseVisibility == EclipseVisibility.NONE) {
             return
         }
 

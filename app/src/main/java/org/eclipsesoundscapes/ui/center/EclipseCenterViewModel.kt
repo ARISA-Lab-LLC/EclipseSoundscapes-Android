@@ -11,10 +11,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.data.DataManager
 import org.eclipsesoundscapes.data.EclipseConfigurationRepository
-import org.eclipsesoundscapes.data.EclipseExplorer
 import org.eclipsesoundscapes.model.EclipseConfiguration
-import org.eclipsesoundscapes.model.EclipseType
-import org.eclipsesoundscapes.util.DateTimeUtils
 import org.eclipsesoundscapes.util.DateTimeUtils.dateToEclipseDateFormat
 import org.eclipsesoundscapes.util.DateTimeUtils.eclipseDateFormatToDate
 import java.util.*
@@ -53,20 +50,6 @@ class EclipseCenterViewModel @Inject internal constructor(
 
     fun saveEclipseDate(eclipseConfiguration: EclipseConfiguration) {
         dataManager.currentEclipseDate = eclipseConfiguration.date
-    }
-
-    fun saveEclipseEventDates(eclipseExplorer: EclipseExplorer) {
-        if (eclipseExplorer.type == EclipseType.NONE) {
-            return
-        }
-
-        val firstContactDate = DateTimeUtils.formatEclipseDate(eclipseExplorer.contact1())
-        dataManager.firstContact = firstContactDate
-
-        if (eclipseExplorer.isFullOrAnnular) {
-            val secondContact = DateTimeUtils.formatEclipseDate(eclipseExplorer.contact2())
-            dataManager.totality = secondContact
-        }
     }
 
     /**
