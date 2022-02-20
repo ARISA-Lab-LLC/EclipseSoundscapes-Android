@@ -44,7 +44,7 @@ class NotificationReceiver : BroadcastReceiver() {
         val type = enumValueOf<EclipseType>(typeName)
         val showMedia = intent.getBooleanExtra(NOTIFICATION_LAUNCH_MEDIA, false)
 
-        NotificationScheduler.showNotification(context, eclipse, type, showMedia, intent)
+        NotificationScheduler.showNotification(context, eclipse, type, showMedia)
     }
 
     private fun rescheduleNotifications(context: Context) {
