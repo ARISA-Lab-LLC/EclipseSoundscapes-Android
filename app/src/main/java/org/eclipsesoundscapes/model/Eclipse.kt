@@ -133,4 +133,30 @@ enum class Eclipse {
         ANNULAR_PHASE_END -> R.raw.annular_eclipse_phase_end_long
         ANNULAR_END -> R.raw.annular_eclipse_end_long
     }
+
+    fun shortAudioDescription(): Int = when (this) {
+        FIRST_CONTACT -> R.string.audio_first_contact_short
+        BAILYS_BEADS, BAILYS_BEADS_CLOSEUP -> R.string.audio_bailys_beads_short
+        TOTALITY -> R.string.audio_totality_short
+        DIAMOND_RING -> R.string.audio_diamond_ring_short
+        ANNULAR_START -> R.string.audio_annular_start_short
+        ANNULAR_PHASE_START -> R.string.audio_annular_phase_start_short
+        ANNULARITY -> R.string.audio_annularity_short
+        ANNULAR_PHASE_END -> R.string.audio_annular_phase_end_short
+        ANNULAR_END -> R.string.audio_annular_end_short
+        else -> audioDescription()
+    }
+
+    fun shortAudio(): Int = when (this) {
+        FIRST_CONTACT -> R.raw.first_contact_short
+        BAILYS_BEADS, BAILYS_BEADS_CLOSEUP -> R.raw.bailys_beads_short
+        DIAMOND_RING -> R.raw.diamond_ring_short
+        TOTALITY -> R.raw.totality_short
+        ANNULAR_START -> R.raw.annular_eclipse_start_short
+        ANNULAR_PHASE_START -> R.raw.annular_eclipse_phase_start_short
+        ANNULARITY -> R.raw.annularity_short
+        ANNULAR_PHASE_END -> R.raw.annular_eclipse_phase_end_short
+        ANNULAR_END -> R.raw.annular_eclipse_end_short
+        else -> audio()
+    }
 }

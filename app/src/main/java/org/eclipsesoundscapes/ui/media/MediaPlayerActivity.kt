@@ -277,21 +277,21 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
                 // baily's beads < 2:01
                 updateMediaDetails(
                     R.string.bailys_beads,
-                    R.string.bailys_beads_short,
+                    R.string.audio_bailys_beads_short,
                     R.drawable.eclipse_bailys_beads
                 )
             } else if (it.currentPosition in 120000..199999 && currentTitle != getString(R.string.totality)) {
                 // totality >= 2:01 < 5:21
                 updateMediaDetails(
                     R.string.totality,
-                    R.string.totality_short,
+                    R.string.audio_totality_short,
                     R.drawable.eclipse_totality
                 )
             } else if (it.currentPosition in 200500..319999 && currentTitle != getString(R.string.diamond_ring)) {
                 // diamond ring >= 3:21
                 updateMediaDetails(
                     R.string.diamond_ring,
-                    R.string.diamond_ring_short,
+                    R.string.audio_diamond_ring_short,
                     R.drawable.eclipse_diamond_ring
                 )
             } else if (it.currentPosition >= 320500 && currentTitle != getString(R.string.sun_as_star)) {
