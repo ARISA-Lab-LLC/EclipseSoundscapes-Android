@@ -9,5 +9,5 @@ class EclipseConfigurationRepository @Inject constructor(
 ) {
     fun nextEclipseConfiguration(date: String) = eclipseConfigurationDao.getNextEclipse(date)
 
-    fun eclipseConfiguration(date: String) = eclipseConfigurationDao.getNextEclipse(date)
+    fun eclipseConfiguration(date: String) = eclipseConfigurationDao.getEclipseByDate(date)
 }

@@ -69,10 +69,6 @@ class EclipseCenterViewModel @Inject internal constructor(
         }
     }
 
-    fun firstContactDate() : Date? = dataManager.firstContactDate()
-
-    fun totalityDate() : Date? = dataManager.totalityDate()
-
     fun afterTotality() : Boolean {
         return dataManager.isAfterTotality()
     }

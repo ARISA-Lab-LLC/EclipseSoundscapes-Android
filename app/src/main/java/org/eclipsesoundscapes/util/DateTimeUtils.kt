@@ -51,6 +51,16 @@ object DateTimeUtils {
         } ?: ""
     }
 
+    /**
+     * Converts eclipse event time from UTC to local
+     * @param event the eclipse [Event]
+     */
+    fun eventLocalTime(event: Event): DateTime? {
+        return eclipseEventDate(event)?.let {
+            it.withZone(DateTimeZone.getDefault())
+        }
+    }
+
     fun dateToEclipseDateFormat() : String {
         return eclipseDateFormatter.print(DateTime.now())
     }

@@ -2,6 +2,7 @@ package org.eclipsesoundscapes.data;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.location.Location;
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -21,6 +22,8 @@ public class SharedPrefsHelper {
 
     private final static String PREF_KEY_CURRENT_ECLIPSE = "PREF_KEY_CURRENT_ECLIPSE";
 
+    private final static String PREF_KEY_LAST_LOCATION_LATITUDE = "PREF_KEY_LAST_LOCATION_LATITUDE";
+    private final static String PREF_KEY_LAST_LOCATION_LONGITUDE = "PREF_KEY_LAST_LOCATION_LONGITUDE";
 
     private SharedPreferences mSharedPreferences;
 
@@ -72,7 +75,26 @@ public class SharedPrefsHelper {
         mSharedPreferences.edit().putString(PREF_KEY_CURRENT_ECLIPSE, eclipseDate).apply();
     }
 
-    public String getPreferredLanguage(){
+    public void setLastLocation(final Location location) {
+        mSharedPreferences.edit().putFloat(PREF_KEY_LAST_LOCATION_LATITUDE, (float) location.getLatitude()).apply();
+        mSharedPreferences.edit().putFloat(PREF_KEY_LAST_LOCATION_LONGITUDE, (float) location.getLongitude()).apply();
+    }
+
+    public Location getLastLocation() {
+        final float latitude = mSharedPreferences.getFloat(PREF_KEY_LAST_LOCATION_LATITUDE, -1.0f);
+        final float longitude = mSharedPreferences.getFloat(PREF_KEY_LAST_LOCATION_LATITUDE, -1.0f);
+        if (latitude == -1.0f || longitude == -1.0f) {
+            return null;
+        }
+
+        final Location location = new Location("");
+        location.setLatitude(latitude);
+        location.setLongitude(longitude);
+
+        return location;
+    }
+
+    public String getPreferredLanguage() {
         return mSharedPreferences.getString(PREF_KEY_LANGUAGE, "");
     }
 

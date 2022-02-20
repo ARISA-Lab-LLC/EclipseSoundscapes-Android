@@ -1,5 +1,6 @@
 package org.eclipsesoundscapes.data
 
+import android.location.Location
 import androidx.core.util.Pair
 import org.eclipsesoundscapes.util.DateTimeUtils
 import org.joda.time.DateTime
@@ -62,6 +63,12 @@ class DataManager(private val sharedPrefsHelper: SharedPrefsHelper) {
         get() = sharedPrefsHelper.eclipseDate
         set(eclipseDate) {
             sharedPrefsHelper.eclipseDate = eclipseDate
+        }
+
+    var lastLocation: Location?
+        get() = sharedPrefsHelper.lastLocation
+        set(location) {
+            sharedPrefsHelper.lastLocation = location
         }
 
     fun setRumblingCheckpoint(eclipseId: String?, coordinates: String?) {

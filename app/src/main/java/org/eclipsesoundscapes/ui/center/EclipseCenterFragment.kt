@@ -92,6 +92,11 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         }
 
     private var lastKnownLocation: Location? = null
+        set(value) {
+            field = value
+            dataManager?.lastLocation = value
+        }
+
     private var fusedLocationProviderClient: FusedLocationProviderClient? = null
     private var locationCallback : LocationCallback? = null
     private var countDownTimer: CountDownTimer? = null
@@ -347,12 +352,10 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             return
         }
 
-        activity?.let {
-            NotificationScheduler.scheduleNotifications(
-                activity,
-                viewModel.firstContactDate(),
-                viewModel.totalityDate()
-            )
+        activity?.let { activity ->
+            eclipseExplorer?.let {
+                NotificationScheduler.scheduleNotifications(activity, it)
+            }
         }
     }
 

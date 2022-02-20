@@ -16,13 +16,16 @@ package org.eclipsesoundscapes.util;
  * */
 
 
+import android.content.Context;
+import android.media.MediaPlayer;
+
 /**
  * @author Joel Goncalves
  *
  * Helper to handle media / audio player progress
  */
 
-public class MediaHelper {
+public class MediaUtils {
 
     /**
      * Function to convert milliseconds time to
@@ -86,5 +89,26 @@ public class MediaHelper {
 
         // return current duration in milliseconds
         return currentDuration * 1000;
+    }
+
+    /**
+     * Retrieves the duration of a audio file in milliseconds
+     * @param context context to access resource
+     * @param audioId the resource id of the audio
+     * @return the duration in milliseconds or -1 if operation failed
+     */
+    public static long getAudioDuration(Context context, int audioId) {
+        long duration = -1;
+        try {
+            MediaPlayer mediaPlayer = MediaPlayer.create(context, audioId);
+            if (mediaPlayer != null) {
+                duration = mediaPlayer.getDuration();
+                mediaPlayer.release();
+            }
+        } catch (Exception exception) {
+            //TODO: log error
+        }
+
+        return duration;
     }
 }

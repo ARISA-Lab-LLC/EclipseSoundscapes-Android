@@ -11,7 +11,7 @@ import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.databinding.ActivityMediaPlayerBinding
 import org.eclipsesoundscapes.model.MediaItem
 import org.eclipsesoundscapes.ui.base.BaseActivity
-import org.eclipsesoundscapes.util.MediaHelper
+import org.eclipsesoundscapes.util.MediaUtils
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -39,7 +39,7 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
     private lateinit var binding: ActivityMediaPlayerBinding
     private lateinit var mediaItem: MediaItem
 
-    private lateinit var mediaHelper: MediaHelper
+    private lateinit var mediaHelper: MediaUtils
     private lateinit var handler: Handler
     private var mediaPlayer: MediaPlayer? = null
 
@@ -78,7 +78,7 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
             setupLiveAudioUI()
         }
 
-        mediaHelper = MediaHelper()
+        mediaHelper = MediaUtils()
         handler = Handler(Looper.getMainLooper())
 
         mediaPlayer = MediaPlayer.create(this, mediaItem.audioResId)
@@ -127,11 +127,9 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
     }
 
     override fun onBackPressed() {
-        if (!isLive) {
-            super.onBackPressed()
-            overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
-            finish()
-        }
+        super.onBackPressed()
+        overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
+        finish()
     }
 
     public override fun onDestroy() {
@@ -310,7 +308,6 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
         binding.apply {
             audioProgress.setOnTouchListener(null)
             playButton.visibility = View.VISIBLE
-            backButton.visibility = View.VISIBLE
             eclipseTitle.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
             eclipseDescription.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
             isLive = false
