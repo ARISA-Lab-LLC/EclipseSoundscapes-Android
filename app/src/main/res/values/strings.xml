@@ -57,10 +57,15 @@
 
     <!-- Notifications -->
     <string name="notification_channel_desc">Display notifications about an upcoming eclipse.</string>
-    <string name="first_contact_reminder">The Solar Eclipse is going to begin soon.</string>
-    <string name="first_contact_begun">The Solar Eclipse has begun!</string>
-    <string name="totality_reminder">The Total Solar Eclipse is going to begin soon.</string>
-    <string name="totality_begun">The Total Solar Eclipse has begun!</string>
+    <string name="default_eclipse_reminder">The Solar Eclipse is going to begin soon.</string>
+    <string name="total_eclipse_reminder">The Total Solar Eclipse is going to begin soon.</string>
+    <string name="annular_eclipse_reminder">The Annular Solar Eclipse is going to begin soon.</string>
+
+    <string name="notification_first_contact">The Solar Eclipse has begun!</string>
+    <string name="notification_totality">The Total Solar Eclipse has begun!</string>
+    <string name="notification_annular_start">The Annular Solar Eclipse has begun!</string>
+    <string name="notification_annular_phase_start">The Annular Phase has begun!</string>
+    <string name="notification_annularity">Annularity has begun!</string>
     <string name="tap_listen">Tap to listen now.</string>
 
     <!-- Settings -->

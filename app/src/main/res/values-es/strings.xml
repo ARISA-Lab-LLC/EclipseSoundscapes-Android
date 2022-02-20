@@ -57,10 +57,10 @@
 
     <!-- notifications -->
     <string name="notification_channel_desc">Muestra notificaciones sobre un próximo eclipse.</string>
-    <string name="first_contact_reminder">El eclipse solar comenzará pronto.</string>
-    <string name="first_contact_begun">¡El eclipse solar ha comenzado!</string>
-    <string name="totality_reminder">El eclipse solar total comenzará pronto.</string>
-    <string name="totality_begun">¡El eclipse solar total ha comenzado!</string>
+    <string name="default_eclipse_reminder">El eclipse solar comenzará pronto.</string>
+    <string name="notification_first_contact">¡El eclipse solar ha comenzado!</string>
+    <string name="total_eclipse_reminder">El eclipse solar total comenzará pronto.</string>
+    <string name="notification_totality">¡El eclipse solar total ha comenzado!</string>
     <string name="tap_listen">Toca para escuchar ahora.</string>
     <string name="enable_notifications">Permitir notificaciones</string>
 
