@@ -69,10 +69,6 @@ class EclipseCenterViewModel @Inject internal constructor(
         }
     }
 
-    fun afterTotality() : Boolean {
-        return dataManager.isAfterTotality()
-    }
-
     /**
      * Find the closest point in the path of totality from this location
      * @param location location not in path of totality

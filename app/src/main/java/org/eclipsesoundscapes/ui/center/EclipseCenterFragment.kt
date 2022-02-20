@@ -360,8 +360,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
     }
 
     private fun startCountdown() {
-        if (eclipseExplorer?.type == EclipseType.NONE
-            || viewModel.afterTotality()) {
+        if (eclipseExplorer?.type == EclipseType.NONE) {
             return
         }
 
