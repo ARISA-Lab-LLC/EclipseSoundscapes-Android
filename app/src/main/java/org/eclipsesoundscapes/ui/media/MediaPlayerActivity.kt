@@ -216,10 +216,6 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
                             totalTimeDescription
                         )
 
-                    if (mediaItem.audioResId == R.raw.realtime_eclipse_shorts_saas) {
-                        updateFullExperience()
-                    }
-
                     handler.postDelayed(this, 100)
                 }
             }
@@ -260,45 +256,6 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
             }
             else -> {
                 getString(R.string.duration_desc_minutes, lapse[0], lapse[1])
-            }
-        }
-    }
-
-    /**
-     * Updates UI based on current audio description of eclipseImageView event
-     * Currently setup for the eclipseImageView August 21st
-     */
-    fun updateFullExperience() {
-        mediaPlayer?.let {
-            val currentTitle = binding.eclipseTitle.text.toString()
-            if (it.currentPosition < 120000 && currentTitle != getString(R.string.bailys_beads)) {
-                // baily's beads < 2:01
-                updateMediaDetails(
-                    R.string.bailys_beads,
-                    R.string.audio_bailys_beads_short,
-                    R.drawable.eclipse_bailys_beads
-                )
-            } else if (it.currentPosition in 120000..199999 && currentTitle != getString(R.string.totality)) {
-                // totality >= 2:01 < 5:21
-                updateMediaDetails(
-                    R.string.totality,
-                    R.string.audio_totality_short,
-                    R.drawable.eclipse_totality
-                )
-            } else if (it.currentPosition in 200500..319999 && currentTitle != getString(R.string.diamond_ring)) {
-                // diamond ring >= 3:21
-                updateMediaDetails(
-                    R.string.diamond_ring,
-                    R.string.audio_diamond_ring_short,
-                    R.drawable.eclipse_diamond_ring
-                )
-            } else if (it.currentPosition >= 320500 && currentTitle != getString(R.string.sun_as_star)) {
-                // sun as a star 5:21
-                updateMediaDetails(
-                    R.string.sun_as_star,
-                    R.string.sun_as_star_description,
-                    R.drawable.sun_as_a_star
-                )
             }
         }
     }
