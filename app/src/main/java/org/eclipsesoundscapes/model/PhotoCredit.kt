@@ -7,4 +7,5 @@ import kotlinx.parcelize.Parcelize
  * Representation of an entity credited for an [Eclipse] image.
  */
 @Parcelize
-data class PhotoCredit(val eclipse: Eclipse, val copyright: String, val link: String) : Parcelable
+data class PhotoCredit(val imageResource: Int, val title: String,
+                       val copyright: String, val link: String) : Parcelable

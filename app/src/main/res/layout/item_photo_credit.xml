@@ -48,7 +48,7 @@
                    android:id="@+id/title"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:text="@{photoCredit.eclipse.title()}"
+                   android:text="@{photoCredit.title}"
                    android:layout_marginBottom="@dimen/list_item_line_spacing"
                    android:fontFamily="sans-serif"
                    android:textSize="@dimen/default_text_size"

@@ -177,57 +177,79 @@ class LegalActivity : BaseActivity() {
         val credits = ArrayList<PhotoCredit>()
         for (eclipse in mediaEclipses()) {
             val photoCredit: PhotoCredit = when (eclipse) {
+
+
                 Eclipse.FIRST_CONTACT -> PhotoCredit(
-                    eclipse, getString(R.string.credits_first_contact),
+                    eclipse.imageResource(), getString(eclipse.title()),
+                    getString(R.string.credits_first_contact),
                     getString(R.string.credits_link_first_contact)
                 )
                 Eclipse.BAILYS_BEADS, Eclipse.BAILYS_BEADS_CLOSEUP -> PhotoCredit(
-                    eclipse, getString(R.string.credits_bailys_beads),
+                    eclipse.imageResource(), getString(eclipse.title()),
+                    getString(R.string.credits_bailys_beads),
                     getString(R.string.credits_link_bailys_beads)
                 )
                 Eclipse.CORONA -> PhotoCredit(
-                    eclipse, getString(R.string.credits_corona),
+                    eclipse.imageResource(), getString(eclipse.title()),
+                    getString(R.string.credits_corona),
                     getString(R.string.credits_link_corona)
                 )
                 Eclipse.DIAMOND_RING -> PhotoCredit(
-                    eclipse, getString(R.string.credits_diamond_ring),
+                    eclipse.imageResource(), getString(eclipse.title()),
+                    getString(R.string.credits_diamond_ring),
                     getString(R.string.credits_link_diamond_ring)
                 )
                 Eclipse.HELMET_STREAMER, Eclipse.HELMET_STREAMER_CLOSEUP -> PhotoCredit(
-                    eclipse, getString(R.string.credits_helmet_streamers),
+                    eclipse.imageResource(), getString(eclipse.title()),
+                    getString(R.string.credits_helmet_streamers),
                     getString(R.string.credits_link_helmet_streamers)
                 )
                 Eclipse.PROMINENCE, Eclipse.PROMINENCE_CLOSEUP -> PhotoCredit(
-                    eclipse, getString(R.string.credits_prominence),
+                    eclipse.imageResource(), getString(eclipse.title()),
+                    getString(R.string.credits_prominence),
                     getString(R.string.credits_link_prominence)
                 )
                 Eclipse.TOTALITY -> PhotoCredit(
-                    eclipse, getString(R.string.credits_totality),
+                    eclipse.imageResource(), getString(eclipse.title()),
+                    getString(R.string.credits_totality),
                     getString(R.string.credits_link_totality)
                 )
                 Eclipse.ANNULAR_START -> PhotoCredit(
-                    eclipse, getString(R.string.credits_annular_start),
+                    eclipse.imageResource(), getString(eclipse.title()),
+                    getString(R.string.credits_annular_start),
                     getString(R.string.credits_link_annular_start)
                 )
                 Eclipse.ANNULAR_PHASE_START -> PhotoCredit(
-                    eclipse, getString(R.string.credits_annular_phase_start),
+                    eclipse.imageResource(), getString(eclipse.title()),
+                    getString(R.string.credits_annular_phase_start),
                     getString(R.string.credits_link_annular_phase_start)
                 )
                 Eclipse.ANNULARITY -> PhotoCredit(
-                    eclipse, getString(R.string.credits_annularity),
+                    eclipse.imageResource(), getString(eclipse.title()),
+                    getString(R.string.credits_annularity),
                     getString(R.string.credits_link_annularity)
                 )
                 Eclipse.ANNULAR_PHASE_END -> PhotoCredit(
-                    eclipse, getString(R.string.credits_annular_phase_end),
+                    eclipse.imageResource(), getString(eclipse.title()),
+                    getString(R.string.credits_annular_phase_end),
                     getString(R.string.credits_link_annular_phase_end)
                 )
                 Eclipse.ANNULAR_END -> PhotoCredit(
-                    eclipse, getString(R.string.credits_annular_end),
+                    eclipse.imageResource(), getString(eclipse.title()),
+                    getString(R.string.credits_annular_end),
                     getString(R.string.credits_link_annular_end)
                 )
             }
             credits.add(photoCredit)
         }
+
+        // add sun as a star
+        credits.add(PhotoCredit(
+            R.drawable.sun_as_a_star, getString(R.string.sun_as_star),
+            getString(R.string.credits_sun_as_star),
+            getString(R.string.credits_link_sun_as_star)
+        ))
+
         return credits
     }
 

@@ -44,7 +44,7 @@ class PhotoCreditAdapter(private val photoCredits: ArrayList<PhotoCredit>,
             showLink(photoCredit)
 
             Glide.with(binding.photo.context)
-                .load(photoCredit.eclipse.imageResource())
+                .load(photoCredit.imageResource)
                 .apply(RequestOptions().transforms(CenterCrop(), RoundedCorners(8)))
                 .into(binding.photo)
         }
