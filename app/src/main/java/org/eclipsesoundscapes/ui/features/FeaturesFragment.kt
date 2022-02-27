@@ -128,7 +128,8 @@ class FeaturesFragment : Fragment() {
             })
         }
 
-        eclipses = Eclipse.values().toCollection(ArrayList())
+        eclipses = Eclipse.totalEclipseMedia()
+        eclipses.addAll(Eclipse.annularEclipseMedia())
 
         currentPosition = lastPosition?.first ?: 0
     }

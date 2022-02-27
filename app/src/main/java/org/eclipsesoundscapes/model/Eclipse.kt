@@ -13,6 +13,7 @@ enum class Eclipse {
     PROMINENCE,
     PROMINENCE_CLOSEUP,
     TOTALITY,
+    SUN_AS_STAR,
     ANNULAR_START,
     ANNULAR_PHASE_START,
     ANNULARITY,
@@ -28,7 +29,8 @@ enum class Eclipse {
         }
 
         fun totalEclipseMedia(): ArrayList<Eclipse> {
-            return values().filter { !it.isCloseUpEclipse() && !it.isAnnularEclipse() }.toCollection(ArrayList())
+            return values().filter { !it.isCloseUpEclipse() && !it.isAnnularEclipse() && it != SUN_AS_STAR }
+                .toCollection(ArrayList())
         }
 
         fun annularEclipseMedia(): ArrayList<Eclipse> {
@@ -36,13 +38,13 @@ enum class Eclipse {
         }
     }
 
-    private fun isCloseUpEclipse() : Boolean {
+    private fun isCloseUpEclipse(): Boolean {
         return this == BAILYS_BEADS_CLOSEUP
                 || this == HELMET_STREAMER_CLOSEUP
                 || this == PROMINENCE_CLOSEUP
     }
 
-    fun isAnnularEclipse() : Boolean {
+    fun isAnnularEclipse(): Boolean {
         return this == ANNULAR_START
                 || this == ANNULAR_PHASE_START
                 || this == ANNULARITY
@@ -61,6 +63,7 @@ enum class Eclipse {
         PROMINENCE -> R.drawable.eclipse_prominence
         PROMINENCE_CLOSEUP -> R.drawable.prominence_closeup
         TOTALITY -> R.drawable.eclipse_totality
+        SUN_AS_STAR -> R.drawable.sun_as_a_star
         ANNULAR_START -> R.drawable.annular_eclipse_start
         ANNULAR_PHASE_START -> R.drawable.annular_eclipse_phase_start
         ANNULARITY -> R.drawable.annularity
@@ -79,6 +82,7 @@ enum class Eclipse {
         PROMINENCE -> R.string.prominence
         PROMINENCE_CLOSEUP -> R.string.prominence_closeup
         TOTALITY -> R.string.totality
+        SUN_AS_STAR -> R.string.sun_as_star
         ANNULAR_START -> R.string.annular_start
         ANNULAR_PHASE_START -> R.string.annular_phase_start
         ANNULARITY -> R.string.annularity
@@ -97,6 +101,7 @@ enum class Eclipse {
         PROMINENCE -> R.string.prominence_description
         PROMINENCE_CLOSEUP -> R.string.prominence_description
         TOTALITY -> R.string.totality_description
+        SUN_AS_STAR -> R.string.sun_as_star_description
         ANNULAR_START -> R.string.annular_start_description
         ANNULAR_PHASE_START -> R.string.annular_phase_start_description
         ANNULARITY -> R.string.annularity_description
@@ -112,6 +117,7 @@ enum class Eclipse {
         HELMET_STREAMER, HELMET_STREAMER_CLOSEUP -> R.string.audio_helmet_streamers_full
         PROMINENCE, PROMINENCE_CLOSEUP -> R.string.audio_prominence_full
         TOTALITY -> R.string.audio_totality_full
+        SUN_AS_STAR -> R.raw.sun_as_a_star
         ANNULAR_START -> R.string.annular_start_description
         ANNULAR_PHASE_START -> R.string.annular_phase_start_description
         ANNULARITY -> R.string.annularity_description
@@ -127,6 +133,7 @@ enum class Eclipse {
         HELMET_STREAMER, HELMET_STREAMER_CLOSEUP -> R.raw.helmet_streamers_full
         PROMINENCE, PROMINENCE_CLOSEUP -> R.raw.prominence_full
         TOTALITY -> R.raw.totality_full
+        SUN_AS_STAR -> R.string.audio_sun_as_star_full
         ANNULAR_START -> R.raw.annular_eclipse_start_long
         ANNULAR_PHASE_START -> R.raw.annular_eclipse_phase_start_long
         ANNULARITY -> R.raw.annularity_long

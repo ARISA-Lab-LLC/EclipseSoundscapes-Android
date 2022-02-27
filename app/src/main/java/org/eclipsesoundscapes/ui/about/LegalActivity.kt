@@ -205,6 +205,10 @@ class LegalActivity : BaseActivity() {
                     eclipse, getString(R.string.credits_totality),
                     getString(R.string.credits_link_totality)
                 )
+                Eclipse.SUN_AS_STAR -> PhotoCredit(
+                    eclipse, getString(R.string.credits_sun_as_star),
+                    getString(R.string.credits_link_sun_as_star)
+                )
                 Eclipse.ANNULAR_START -> PhotoCredit(
                     eclipse, getString(R.string.credits_annular_start),
                     getString(R.string.credits_link_annular_start)
