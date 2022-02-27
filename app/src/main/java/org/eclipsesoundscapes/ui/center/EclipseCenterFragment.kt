@@ -23,8 +23,12 @@ import androidx.core.location.LocationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.location.*
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.data.DataManager
 import org.eclipsesoundscapes.data.EclipseExplorer
@@ -33,13 +37,18 @@ import org.eclipsesoundscapes.databinding.LayoutEclipseEventRowBinding
 import org.eclipsesoundscapes.model.EclipseType
 import org.eclipsesoundscapes.model.EclipseVisibility
 import org.eclipsesoundscapes.model.Event
+import org.eclipsesoundscapes.model.MediaItem
 import org.eclipsesoundscapes.service.NotificationScheduler
 import org.eclipsesoundscapes.ui.about.SettingsActivity
 import org.eclipsesoundscapes.ui.main.MainActivity
+import org.eclipsesoundscapes.ui.media.MediaPlayerActivity
 import org.eclipsesoundscapes.util.DateTimeUtils
+import org.eclipsesoundscapes.util.EclipseUtils
+import org.joda.time.DateTime
 import org.joda.time.Interval
 import java.text.ParseException
 import java.util.*
+import kotlin.concurrent.timerTask
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -100,6 +109,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
     private var fusedLocationProviderClient: FusedLocationProviderClient? = null
     private var locationCallback : LocationCallback? = null
     private var countDownTimer: CountDownTimer? = null
+    private var liveEventTimer: Timer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -141,10 +151,6 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
                     }
                 }
             }
-
-            if (resources.getBoolean(R.bool.lockout_eclipse_center)) {
-                lockoutView.root.visibility = View.VISIBLE
-            }
         }
 
         return binding.root
@@ -164,14 +170,16 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         viewModel.eclipseConfiguration.observe(viewLifecycleOwner) { result ->
             result?.let {
                 viewModel.saveEclipseDate(it)
+                showLockout(false)
                 verifyLocationAccess()
-            }
+            } ?: showLockout(true)
         }
     }
 
     override fun onPause() {
         super.onPause()
         stopLocationUpdates()
+        liveEventTimer?.cancel()
     }
 
     private fun createEclipseGenerator(location: Location?) : EclipseExplorer? {
@@ -266,6 +274,10 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
                 EclipseVisibility.PARTIAL -> showPartialEclipse()
                 else -> showFullEclipse()
             }
+
+            if (it != EclipseVisibility.NONE) {
+                showCurrentEventMedia()
+            }
         }
     }
 
@@ -338,6 +350,48 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
                 it.time)
 
             layout.root.visibility = View.VISIBLE
+        }
+    }
+
+    private fun showCurrentEventMedia() {
+        lifecycleScope.launch {
+            withContext(Dispatchers.Main) {
+                val currentEvent = EclipseUtils.getCurrentEvent(context, eclipseExplorer)
+                val currentEventView = binding.eclipseCenterLayout.currentEventView
+                if (currentEvent != null) {
+                    currentEventView.root.visibility = View.VISIBLE
+                    binding.eclipseCenterLayout.currentEventView.eclipseImage.setImageResource(currentEvent.imageResource())
+                    currentEventView.root.setOnClickListener {
+                        activity?.let {
+                            val mediaItem = MediaItem(currentEvent.imageResource(), currentEvent.title(),
+                            currentEvent.shortAudioDescription(), currentEvent.shortAudio())
+                            it.startActivity(Intent(it, MediaPlayerActivity::class.java).apply {
+                                putExtra(MediaPlayerActivity.EXTRA_MEDIA, mediaItem)
+                                putExtra(MediaPlayerActivity.EXTRA_LIVE, true)
+                            })
+                        }
+                    }
+                } else {
+                    currentEventView.root.visibility = View.GONE
+                }
+
+                liveEventTimer?.cancel()
+                EclipseUtils.getNextEventDate(context, eclipseExplorer)?.let {
+                    // schedule a task to update current event at next contact
+                    val delay = it.millis - DateTime.now().millis
+                    liveEventTimer = Timer()
+                    liveEventTimer?.schedule(timerTask {
+                        showCurrentEventMedia() }, delay)
+                }
+            }
+        }
+    }
+
+    private fun showLockout(show: Boolean) {
+        binding.lockoutView.root.visibility = if (show) {
+            View.VISIBLE
+        } else {
+            View.GONE
         }
     }
 

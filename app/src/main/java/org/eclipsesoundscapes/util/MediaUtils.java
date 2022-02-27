@@ -16,8 +16,14 @@ package org.eclipsesoundscapes.util;
  * */
 
 
+import static java.lang.Math.max;
+
 import android.content.Context;
 import android.media.MediaPlayer;
+
+import org.eclipsesoundscapes.R;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Joel Goncalves
@@ -110,5 +116,10 @@ public class MediaUtils {
         }
 
         return duration;
+    }
+
+    public static int getPhaseStartOffset(Context context) {
+        long mediaDuration = MediaUtils.getAudioDuration(context, R.raw.annular_eclipse_phase_start_short);
+        return (int) TimeUnit.MILLISECONDS.toSeconds(max(0, mediaDuration)) + 30;
     }
 }
