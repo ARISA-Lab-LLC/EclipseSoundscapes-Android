@@ -24,8 +24,6 @@ import org.eclipsesoundscapes.util.MediaUtils
 import org.eclipsesoundscapes.util.NotificationUtils.NOTIFICATION_CHANNEL_ID
 import org.eclipsesoundscapes.util.NotificationUtils.createNotificationChannel
 import org.joda.time.DateTime
-import java.util.concurrent.TimeUnit
-import kotlin.math.max
 
 /*
  * Schedules notification reminder for Eclipse events
@@ -65,12 +63,11 @@ object NotificationScheduler {
         if (eclipseExplorer.eclipseVisibility == EclipseVisibility.FULL) {
             // annular phase start
             DateTimeUtils.eventLocalTime(eclipseExplorer.contact2())?.let {
-                var mediaDuration = MediaUtils.getAudioDuration(context, R.raw.annular_eclipse_phase_start_short)
-
                 // scheduled 30 seconds + length of audio file before event
-                mediaDuration = TimeUnit.MILLISECONDS.toSeconds(max(0, mediaDuration)) + 30
-
-                scheduleNotification(context, Eclipse.ANNULAR_PHASE_START, eclipseExplorer.eclipseType, it.minusSeconds(mediaDuration.toInt()), true)
+                val mediaDuration = MediaUtils.getPhaseStartOffset(context)
+                scheduleNotification(context, Eclipse.ANNULAR_PHASE_START, eclipseExplorer.eclipseType, it.minusSeconds(
+                    mediaDuration
+                ), true)
             }
         }
     }
@@ -84,7 +81,7 @@ object NotificationScheduler {
 
         if (eclipseExplorer.eclipseVisibility == EclipseVisibility.FULL) {
             // totality
-            DateTimeUtils.eventLocalTime(eclipseExplorer.contact2())?.let {
+            DateTimeUtils.eventLocalTime(eclipseExplorer.contactMid())?.let {
                 scheduleNotification(context, Eclipse.TOTALITY, eclipseExplorer.eclipseType,
                     it.minusSeconds(30), true)
             }
