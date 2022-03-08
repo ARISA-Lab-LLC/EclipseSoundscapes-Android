@@ -124,6 +124,8 @@
 
     <string name="active_event">Tap to hear about what\'s currently happening!</string>
 
+    <string name="next_live_event_countdown">Next live event next in %1$s</string>
+
     <!-- Eclipse Features -->
     <string name="first_contact_description">This is the first moment that the moon, slowly moving from left to right, appears to touch the sun.
         The intensity of the sun\'s light makes it unsafe to look at without special eye protection until the totality, the few minutes during which the moon completely eclipses the sun.
