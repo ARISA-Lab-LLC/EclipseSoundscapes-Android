@@ -2,10 +2,13 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:screenReaderFocusable="true"
+    android:focusable="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <ImageView
+        android:focusable="false"
         android:id="@+id/eclipse_img"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -19,6 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
+        android:focusable="false"
         android:id="@+id/event_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -36,6 +40,7 @@
         app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
+        android:focusable="false"
         android:id="@+id/countdown_label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

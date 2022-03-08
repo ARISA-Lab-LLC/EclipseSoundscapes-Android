@@ -24,6 +24,10 @@ class CountdownView @JvmOverloads constructor(
         binding.hourSection.title.text = context.getString(R.string.hours)
         binding.minuteSection.title.text = context.getString(R.string.minutes)
         binding.secondSection.title.text = context.getString(R.string.seconds)
+
+        binding.rootView.contentDescription = context.getString(
+            R.string.countdown_format, "0", "0", "0", "0", "0", "0"
+        )
     }
 
     fun update(period: Period) {
@@ -42,7 +46,7 @@ class CountdownView @JvmOverloads constructor(
 
         updateCountdownLabels(binding.secondSection.primaryTime, binding.secondSection.secondaryTime, period.seconds)
 
-        binding.root.contentDescription = context.getString(
+        binding.rootView.contentDescription = context.getString(
             R.string.countdown_format,
             period.years.toString(),
             period.months.toString(),
