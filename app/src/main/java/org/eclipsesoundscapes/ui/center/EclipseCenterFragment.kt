@@ -560,7 +560,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             if (locationPermissionGranted(context)) {
                 val locationResult = fusedLocationProviderClient?.lastLocation
                 locationResult?.addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
+                    if (task.isSuccessful && task.result != null) {
                         lastKnownLocation = task.result
                         onLocationDetermined(lastKnownLocation)
                     } else {

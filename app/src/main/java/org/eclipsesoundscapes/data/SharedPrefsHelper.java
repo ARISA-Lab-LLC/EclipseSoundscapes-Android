@@ -76,8 +76,10 @@ public class SharedPrefsHelper {
     }
 
     public void setLastLocation(final Location location) {
-        mSharedPreferences.edit().putFloat(PREF_KEY_LAST_LOCATION_LATITUDE, (float) location.getLatitude()).apply();
-        mSharedPreferences.edit().putFloat(PREF_KEY_LAST_LOCATION_LONGITUDE, (float) location.getLongitude()).apply();
+        if (location != null) {
+            mSharedPreferences.edit().putFloat(PREF_KEY_LAST_LOCATION_LATITUDE, (float) location.getLatitude()).apply();
+            mSharedPreferences.edit().putFloat(PREF_KEY_LAST_LOCATION_LONGITUDE, (float) location.getLongitude()).apply();
+        }
     }
 
     public Location getLastLocation() {
