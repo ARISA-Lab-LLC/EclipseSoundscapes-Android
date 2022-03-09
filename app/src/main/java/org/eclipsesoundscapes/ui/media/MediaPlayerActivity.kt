@@ -6,6 +6,7 @@ import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.view.accessibility.AccessibilityManager
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
 import androidx.activity.viewModels
@@ -131,10 +132,15 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
                 setupLiveAudioUI()
             }
 
+            val accessibilityEnabled = (getSystemService(ACCESSIBILITY_SERVICE) as AccessibilityManager).isEnabled
             handler.postDelayed({
-                // allow time for accessibility to read label before playing audio
                 playAudio()
-            }, 1000)
+            }, if (accessibilityEnabled) {
+                // allow time for accessibility to read labels before playing audio
+                5000L
+            } else {
+                0L
+            })
         }
     }
 
