@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
@@ -66,7 +67,8 @@
             android:name=".ui.media.MediaPlayerActivity"
             android:label="@string/media_player"
             android:screenOrientation="portrait"
-            android:theme="@style/MediaPlayerTheme" />
+            android:theme="@style/MediaPlayerTheme"
+            android:parentActivityName=".ui.main.MainActivity"/>
         <activity
             android:name=".ui.rumblemap.RumbleMapInteractionActivity"
             android:label="@string/rumble_map_interaction"
@@ -83,9 +85,9 @@
         <receiver
             android:name=".service.NotificationReceiver"
             android:enabled="true"
-            android:exported="true">
+            android:exported="false">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
     </application>

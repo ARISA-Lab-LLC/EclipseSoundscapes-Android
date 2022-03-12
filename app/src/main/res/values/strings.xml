@@ -57,10 +57,15 @@
 
     <!-- Notifications -->
     <string name="notification_channel_desc">Display notifications about an upcoming eclipse.</string>
-    <string name="first_contact_reminder">The Solar Eclipse is going to begin soon.</string>
-    <string name="first_contact_begun">The Solar Eclipse has begun!</string>
-    <string name="totality_reminder">The Total Solar Eclipse is going to begin soon.</string>
-    <string name="totality_begun">The Total Solar Eclipse has begun!</string>
+    <string name="default_eclipse_reminder">The Solar Eclipse is going to begin soon.</string>
+    <string name="total_eclipse_reminder">The Total Solar Eclipse is going to begin soon.</string>
+    <string name="annular_eclipse_reminder">The Annular Solar Eclipse is going to begin soon.</string>
+
+    <string name="notification_first_contact">The Solar Eclipse has begun!</string>
+    <string name="notification_totality">The Total Solar Eclipse has begun!</string>
+    <string name="notification_annular_start">The Annular Solar Eclipse has begun!</string>
+    <string name="notification_annular_phase_start">The Annular Phase has begun!</string>
+    <string name="notification_annularity">Annularity has begun!</string>
     <string name="tap_listen">Tap to listen now.</string>
 
     <!-- Settings -->
@@ -116,6 +121,10 @@
     <string name="eclipse_end_partial">End of partial eclipse</string>
     <string name="eclipse_end_full">End of total eclipse</string>
     <string name="eclipse_max">Maximum eclipse</string>
+
+    <string name="active_event">Tap to hear about what\'s currently happening!</string>
+
+    <string name="next_live_event_countdown">Next live event in %1$s</string>
 
     <!-- Eclipse Features -->
     <string name="first_contact_description">This is the first moment that the moon, slowly moving from left to right, appears to touch the sun.
@@ -282,21 +291,52 @@
         Scientists can detect planets eclipsing their stars and determine both how far the planet is from its star and the planet\’s mass.
         From these clues and other observations, scientists are attempting to discover if there is life on those other planets that may be experiencing their own eclipses.</string>
 
-    <string name="bailys_beads_short">For the next six minutes the Rumble Map will be disabled so that you can hear in real time the events surrounding totality.
+    <string name="audio_bailys_beads_short">For the next six minutes the Rumble Map will be disabled so that you can hear in real time the events surrounding totality.
         \n\nOn the right side of the moon orbs of glowing sunlight shimmer off the edge of the moon\’s black disc.
         Called Bailey\’s beads, these final areas of the sun\’s light appear as glimmering pearls on a wire made intensely bright by the absence of light surrounding them.</string>
 
-    <string name="first_contact_short">The eclipse has begun and this is the first moment that the moon appears to touch the sun.
+    <string name="audio_first_contact_short">The eclipse has begun and this is the first moment that the moon appears to touch the sun.
         These two celestial bodies look as if they are the same size. The sun\’s light is so bright that it obliterates all of the moon\’s features causing the moon to appear as a smooth obsidian disc.
         For the next approximately 90 minutes you will have the opportunity to interact with the Rumble Map and explore features of the sun that are revealed during an eclipse.
         Then, during the six minutes leading up to, during, and just after totality, the Rumble Map will be disabled so that you can hear about events surrounding totality in real time.</string>
 
-    <string name="diamond_ring_short">On the left side of the black moon a sliver of sunlight blasts into view with white hot intensity.
+    <string name="audio_diamond_ring_short">On the left side of the black moon a sliver of sunlight blasts into view with white hot intensity.
         As the area of reemerging sunlight grows, it resembles a diamond ring beaming out its brilliant light.</string>
 
-    <string name="totality_short">THIS is the full eclipse. For approximately two minutes the moon\’s black disc completely covers the sun revealing the sun\’s massive outer corona.
+    <string name="audio_totality_short">THIS is the full eclipse. For approximately two minutes the moon\’s black disc completely covers the sun revealing the sun\’s massive outer corona.
         Grand flourishes of light extend from the moon in all directions like flower petals.
         Intensely bright at the moon\’s edge, these helmet streamers fade to wisps of ghostly white as they stretch across space.</string>
+
+    <string name="audio_annular_start_short">The eclipse has begun and it is an amazing show! The Rumble Map will be disabled during the eclipse so you can enjoy this event with real time descriptions.
+        And remember, you MUST wear special eye protection at ALL times if you want to look up at the annular eclipse! NEVER look at the Sun with your eyes, through binoculars or a telescope!
+        \n\nDuring an annular eclipse, the Moon blocks the Sun, but not completely. From Earth, the Moon does not appear big enough to block out the Sun entirely.
+        \n\nThe eclipse begins with “First Contact”. At First Contact, the Moon appears to touch the Sun. The Sun appears as a glowing, white disk against a black background.
+        Near the side of the Sun, a small curved area appears missing from the Sun\’s perfect circle shape. This missing area is the Moon as it begins to creep in front of the Sun, slowly starting to block out some of the Sun\’s light.
+        It appears like the Moon is taking a small “bite” out of the Sun.
+        \n\nUsually the Moon\’s deep craters make the Moon appear rough. But now, the Sun\’s light is so bright that it makes all of the Moon\’s features disappear. This causes the Moon to appear black and smooth like glass.</string>
+
+    <string name="audio_annular_phase_start_short">In this stage, the Moon has moved in front of the Sun. The Moon appears to be a completely black disk and the Sun\’s light shines only at the edges of the Moon in a thin C-shape or crescent.
+        \n\nIt\’s possible that a phenomenon called Baily\’s Beads might also briefly blink into view. Baily\’s Beads look like a few glowing pearls found at the ends of the Sun\’s crescent shape. Baily\’s Beads are caused by Sunlight shining through deep valleys on the Moon.
+        After Baily\’s Beads disappear, a ring of light will start to appear. The moment this phase starts is called “Second Contact.”
+        \n\nIt may be tempting, but you should never look at Baily\’s Beads or the ring of light with your eyes or a telescope. You MUST wear special eye protection during all stages of an annular eclipse!</string>
+
+    <string name="audio_annularity_short">Annularity is now happening.
+        \n\nAt this point, the Sun appears to be a very bright ring of fire rather than its usual glowing ball of light. This is because the dark black Moon has moved to block the center of the Sun and the Sun\’s light glows around the circular edge of the Moon.
+        As a result, the Sun\’s light resembles a glowing letter O.  This “O” shape is known as an annulus in mathematics.
+        The word “annular” means “little ring” in Latin. This is why this type of eclipse is called an “annular” eclipse. During an annular eclipse the Moon obscures all but this outer ring of the Sun.
+        \n\nThis ring will only appear for a few minutes because the Sun, Moon, and earth are still slowly moving.
+        \n\nRemember, NEVER look directly at the Sun during an annular eclipse with a telecope or your eyes. You need to wear special eclipse glasses if you want to look at an eclipse. Otherwise, severe eye damage can occur.</string>
+
+    <string name="audio_annular_phase_end_short">The Annular Phase is ending.
+        \n\nThe Moon is slowly creeping away from the center of the Sun. As the dark, circular Moon blocks less of the Sun\’s bright light, the Sun\’s fiery ring of light slowly transforms back into a  C-shape.
+        Depending on your location, Baily\’s Beads might be visible again. Baily\’s Beads appear like glowing pearls at the ends of the Sun\’s glowing crescent.
+        \n\nIt is still not safe to look at the Sun with your eyes or a telescope. You MUST wear special eye protection, like official eclipse glasses, to look at the Sun during ALL stages of an annular eclipse.</string>
+
+    <string name="audio_annular_end_short">The annular eclipse is ending. The Moon is slowly moving completely out of the Sun\’s way.
+        \n\nWhile the Moon still appears as a black disk, the Sun is a fiery ball of swirling red and orange. As the Moon moves, it looks like it is taking smaller and smaller bites out of the Sun.
+        \n\nAt this point, only a small section of the Sun is blocked by the Moon. Soon the Moon will no longer be blocking any of the Sun\’s light.
+        \n\nFourth Contact is the end point of the annular eclipse, when the Moon\’s edge moves past the Sun\’s edge, and no longer blocks any part of the Sun\’s light.
+        \n\nOnce the annular eclipse ends, the Rumble Map and all other app features will be available again. We hope you will continue to explore the wonders of eclipses using the app even after this annular eclipse\’s completion!</string>
 
     <string name="first_contact">First Contact</string>
     <string name="bailys_beads">Baily\'s Beads</string>
@@ -320,6 +360,9 @@
     <string name="duration_desc_minutes">%1$s minutes, %2$s seconds</string>
     <string name="duration_current_progress">%1$s of %2$s</string>
     <string name="duration_min_sec">%1$s minutes and %2$s seconds</string>
+
+    <string name="total_solar_eclipse">Total Solar Eclipse</string>
+    <string name="annular_solar_eclipse">Annular Solar Eclipse</string>
 
     <!-- rumble map interaction -->
     <string name="rumble_map">Rumble Map</string>

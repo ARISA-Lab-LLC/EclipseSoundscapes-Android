@@ -11,6 +11,7 @@ import kotlinx.parcelize.Parcelize
 data class EclipseConfiguration(
     @PrimaryKey
     val date: String,
+    val type: EclipseType,
     val elements: ArrayList<Double>,
     @SerializedName("central_lines")
     val centralLines: Array<List<Coordinate>>) : Parcelable

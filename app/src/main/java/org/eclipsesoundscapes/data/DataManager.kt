@@ -1,9 +1,7 @@
 package org.eclipsesoundscapes.data
 
+import android.location.Location
 import androidx.core.util.Pair
-import org.eclipsesoundscapes.util.DateTimeUtils
-import org.joda.time.DateTime
-import java.util.*
 
 class DataManager(private val sharedPrefsHelper: SharedPrefsHelper) {
     var featuresPosition: Pair<Int, Int>? = null
@@ -64,6 +62,12 @@ class DataManager(private val sharedPrefsHelper: SharedPrefsHelper) {
             sharedPrefsHelper.eclipseDate = eclipseDate
         }
 
+    var lastLocation: Location?
+        get() = sharedPrefsHelper.lastLocation
+        set(location) {
+            sharedPrefsHelper.lastLocation = location
+        }
+
     fun setRumblingCheckpoint(eclipseId: String?, coordinates: String?) {
         sharedPrefsHelper.setCheckpoint(eclipseId, coordinates)
     }
@@ -74,37 +78,5 @@ class DataManager(private val sharedPrefsHelper: SharedPrefsHelper) {
 
     fun setNotification(canSendNotifications: Boolean) {
         sharedPrefsHelper.saveNotification(canSendNotifications)
-    }
-
-    fun isAfterFirstContact() : Boolean {
-        return firstContact?.let {
-            afterCurrentDate(it)
-        } ?: false
-    }
-
-    fun isAfterTotality() : Boolean {
-        return totality?.let {
-            afterCurrentDate(it)
-        } ?: false
-    }
-
-    private fun afterCurrentDate(dateString: String) : Boolean {
-        val date = DateTimeUtils.eclipseEventDate(dateString)
-        return date?.let {
-            val current = DateTime.now()
-            current.isEqual(date) || current.isAfter(date)
-        } ?: false
-    }
-
-    fun firstContactDate() : Date? {
-        return firstContact?.let {
-            DateTimeUtils.eclipseDateFormatToDate(it)
-        }
-    }
-
-    fun totalityDate() : Date? {
-        return totality?.let {
-            DateTimeUtils.eclipseDateFormatToDate(it)
-        }
     }
 }

@@ -8,9 +8,4 @@ import javax.inject.Inject
 @HiltViewModel
 class FeaturesViewModel @Inject internal constructor(
     val dataManager: DataManager,
-) : ViewModel() {
-
-    fun afterTotality() : Boolean {
-        return dataManager.isAfterTotality()
-    }
-}
+) : ViewModel()

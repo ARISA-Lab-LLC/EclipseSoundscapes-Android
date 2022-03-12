@@ -8,13 +8,4 @@ import javax.inject.Inject
 @HiltViewModel
 class MediaViewModel @Inject internal constructor(
     val dataManager: DataManager,
-) : ViewModel() {
-
-    fun afterFirstContact() : Boolean {
-        return dataManager.isAfterFirstContact()
-    }
-
-    fun afterTotality() : Boolean {
-        return dataManager.isAfterTotality()
-    }
-}
+) : ViewModel()

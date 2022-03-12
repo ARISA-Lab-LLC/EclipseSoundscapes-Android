@@ -13,13 +13,13 @@
             android:orientation="vertical"
             android:gravity="center">
 
-            <ImageView
-                android:id="@+id/banner"
+            <include
+                layout="@layout/view_current_event"
+                android:visibility="gone"
+                android:id="@+id/current_event_view"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:src="@drawable/eclipse_banner_2"
-                android:scaleType="centerCrop"
-                android:adjustViewBounds="true"/>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/default_margin"/>
 
             <org.eclipsesoundscapes.views.CountdownView
                 android:id="@+id/eclipse_countdown"

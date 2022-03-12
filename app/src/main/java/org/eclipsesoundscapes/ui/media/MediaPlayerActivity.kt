@@ -2,16 +2,24 @@ package org.eclipsesoundscapes.ui.media
 
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.view.accessibility.AccessibilityManager
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
+import androidx.activity.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 import org.eclipsesoundscapes.R
+import org.eclipsesoundscapes.data.EclipseExplorer
 import org.eclipsesoundscapes.databinding.ActivityMediaPlayerBinding
 import org.eclipsesoundscapes.model.MediaItem
 import org.eclipsesoundscapes.ui.base.BaseActivity
-import org.eclipsesoundscapes.util.MediaHelper
+import org.eclipsesoundscapes.util.EclipseUtils
+import org.eclipsesoundscapes.util.MediaUtils
+import org.joda.time.DateTime
+import java.util.concurrent.TimeUnit
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -34,14 +42,17 @@ import org.eclipsesoundscapes.util.MediaHelper
  * Also launched during first and second contact of eclipseImageView from notifications for live audio
  * See [MediaFragment]
  */
+@AndroidEntryPoint
 class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
-
     private lateinit var binding: ActivityMediaPlayerBinding
-    private lateinit var mediaItem: MediaItem
-
-    private lateinit var mediaHelper: MediaHelper
+    private lateinit var mediaHelper: MediaUtils
     private lateinit var handler: Handler
+
+    private val viewModel: MediaPlayerViewModel by viewModels()
     private var mediaPlayer: MediaPlayer? = null
+    private var mediaItem: MediaItem? = null
+    private var eclipseExplorer: EclipseExplorer? = null
+    private var liveCountdownTimer: CountDownTimer? = null
 
     var isLive = false
         private set
@@ -60,7 +71,6 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
         mediaItem = intent.extras?.getParcelable<MediaItem>(EXTRA_MEDIA) as MediaItem
         isLive = intent.getBooleanExtra(EXTRA_LIVE, false)
 
-        updateMediaDetails(mediaItem.titleResId, mediaItem.descriptionResId, mediaItem.imageResId)
         binding.apply {
             playButton.setOnClickListener {
                 onPlayButtonClicked()
@@ -75,33 +85,63 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
 
         // setup live audio UI
         if (isLive) {
-            setupLiveAudioUI()
+            viewModel.eclipseConfiguration.observe(this, {
+                it?.let { config ->
+                    viewModel.dataManager.lastLocation?.let { location ->
+                        eclipseExplorer = EclipseExplorer(
+                            this@MediaPlayerActivity,
+                            config,
+                            location.latitude,
+                            location.longitude
+                        )
+                    }
+                }
+            })
         }
 
-        mediaHelper = MediaHelper()
+        mediaHelper = MediaUtils()
         handler = Handler(Looper.getMainLooper())
 
-        mediaPlayer = MediaPlayer.create(this, mediaItem.audioResId)
-        if (mediaPlayer == null) {
-            // media player creation failed
-            finish()
-            return
-        }
+        showMedia()
+    }
 
-        mediaPlayer?.let {
-            it.setOnCompletionListener {
-                if (isLive) {
-                    onLiveExperienceEnd()
-                }
+    private fun showMedia() {
+        mediaItem?.let {
+            showCurrentMediaView(true)
+            updateMediaDetails(it.titleResId, it.descriptionResId, it.imageResId)
 
-                updateMediaState(false)
+            mediaPlayer = MediaPlayer.create(this, it.audioResId)
+
+            if (mediaPlayer == null) {
+                // media player creation failed
+                finish()
+                return
             }
-        }
 
-        handler.postDelayed({
-            // allow time for accessibility to read label before playing audio
-            playAudio()
-        }, 1000)
+            mediaPlayer?.let { mp ->
+                mp.setOnCompletionListener {
+                    if (isLive) {
+                        showNextLiveEvent()
+                    }
+
+                    updateMediaState(false)
+                }
+            }
+
+            if (isLive) {
+                setupLiveAudioUI()
+            }
+
+            val accessibilityEnabled = (getSystemService(ACCESSIBILITY_SERVICE) as AccessibilityManager).isEnabled
+            handler.postDelayed({
+                playAudio()
+            }, if (accessibilityEnabled) {
+                // allow time for accessibility to read labels before playing audio
+                5000L
+            } else {
+                0L
+            })
+        }
     }
 
     private fun onPlayButtonClicked() {
@@ -127,11 +167,9 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
     }
 
     override fun onBackPressed() {
-        if (!isLive) {
-            super.onBackPressed()
-            overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
-            finish()
-        }
+        super.onBackPressed()
+        overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
+        finish()
     }
 
     public override fun onDestroy() {
@@ -218,10 +256,6 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
                             totalTimeDescription
                         )
 
-                    if (mediaItem.audioResId == R.raw.realtime_eclipse_shorts_saas) {
-                        updateFullExperience()
-                    }
-
                     handler.postDelayed(this, 100)
                 }
             }
@@ -266,54 +300,58 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
         }
     }
 
-    /**
-     * Updates UI based on current audio description of eclipseImageView event
-     * Currently setup for the eclipseImageView August 21st
-     */
-    fun updateFullExperience() {
-        mediaPlayer?.let {
-            val currentTitle = binding.eclipseTitle.text.toString()
-            if (it.currentPosition < 120000 && currentTitle != getString(R.string.bailys_beads)) {
-                // baily's beads < 2:01
-                updateMediaDetails(
-                    R.string.bailys_beads,
-                    R.string.bailys_beads_short,
-                    R.drawable.eclipse_bailys_beads
-                )
-            } else if (it.currentPosition in 120000..199999 && currentTitle != getString(R.string.totality)) {
-                // totality >= 2:01 < 5:21
-                updateMediaDetails(
-                    R.string.totality,
-                    R.string.totality_short,
-                    R.drawable.eclipse_totality
-                )
-            } else if (it.currentPosition in 200500..319999 && currentTitle != getString(R.string.diamond_ring)) {
-                // diamond ring >= 3:21
-                updateMediaDetails(
-                    R.string.diamond_ring,
-                    R.string.diamond_ring_short,
-                    R.drawable.eclipse_diamond_ring
-                )
-            } else if (it.currentPosition >= 320500 && currentTitle != getString(R.string.sun_as_star)) {
-                // sun as a star 5:21
-                updateMediaDetails(
-                    R.string.sun_as_star,
-                    R.string.sun_as_star_description,
-                    R.drawable.sun_as_a_star
-                )
-            }
+    private fun showNextLiveEvent() {
+        EclipseUtils.getNextEvent(this@MediaPlayerActivity, eclipseExplorer)?.let {
+            showCurrentMediaView(false)
+            val event = it.first
+
+            binding.nextMediaView.eclipseImg.setImageResource(event.imageResource())
+            binding.nextMediaView.eventLabel.setText(event.title())
+            mediaItem = MediaItem(
+                event.imageResource(),
+                event.title(),
+                event.shortAudioDescription(),
+                event.shortAudio()
+            )
+
+            val millis = it.second.millis - DateTime.now().millis
+            liveCountdownTimer = object : CountDownTimer(millis, 1000) {
+                override fun onTick(millisUntilFinished: Long) {
+                    val seconds = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)
+                    val s: Long = seconds % 60
+                    val m: Long = seconds / 60 % 60
+                    val h: Long = seconds / (60 * 60) % 24
+
+                    val time: String = if (h <= 0) {
+                        if (m > 0) {
+                            String.format("%d:%02d", m, s)
+                        } else {
+                            String.format("%2d", s)
+                        }
+                    } else {
+                        String.format("%d:%02d:%02d", h, m, s)
+                    }
+
+                    binding.nextMediaView.countdownLabel.text =
+                        getString(R.string.next_live_event_countdown, time)
+                }
+
+                override fun onFinish() {
+                    showMedia()
+                }
+            }.start()
         }
     }
 
-    // resume user control over media player
-    private fun onLiveExperienceEnd() {
-        binding.apply {
-            audioProgress.setOnTouchListener(null)
-            playButton.visibility = View.VISIBLE
-            backButton.visibility = View.VISIBLE
-            eclipseTitle.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
-            eclipseDescription.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
-            isLive = false
+    private fun showCurrentMediaView(current: Boolean) {
+        if (current) {
+            binding.eclipseImg.visibility = View.VISIBLE
+            binding.playButton.visibility = View.VISIBLE
+            binding.nextMediaView.root.visibility = View.GONE
+        } else {
+            binding.eclipseImg.visibility = View.GONE
+            binding.playButton.visibility = View.GONE
+            binding.nextMediaView.root.visibility = View.VISIBLE
         }
     }
 

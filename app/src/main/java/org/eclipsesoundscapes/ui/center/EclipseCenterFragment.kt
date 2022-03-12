@@ -23,21 +23,32 @@ import androidx.core.location.LocationManagerCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.lifecycleScope
 import com.google.android.gms.location.*
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.data.DataManager
 import org.eclipsesoundscapes.data.EclipseExplorer
 import org.eclipsesoundscapes.databinding.FragmentEclipseCenterBinding
 import org.eclipsesoundscapes.databinding.LayoutEclipseEventRowBinding
+import org.eclipsesoundscapes.model.EclipseType
+import org.eclipsesoundscapes.model.EclipseVisibility
 import org.eclipsesoundscapes.model.Event
+import org.eclipsesoundscapes.model.MediaItem
 import org.eclipsesoundscapes.service.NotificationScheduler
 import org.eclipsesoundscapes.ui.about.SettingsActivity
 import org.eclipsesoundscapes.ui.main.MainActivity
+import org.eclipsesoundscapes.ui.media.MediaPlayerActivity
 import org.eclipsesoundscapes.util.DateTimeUtils
+import org.eclipsesoundscapes.util.EclipseUtils
+import org.joda.time.DateTime
 import org.joda.time.Interval
 import java.text.ParseException
 import java.util.*
+import kotlin.concurrent.timerTask
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -82,7 +93,6 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             field = value
 
             value?.let {
-                viewModel.saveEclipseEventDates(value)
                 updateView()
                 showEclipseDetails()
                 setupNotifications()
@@ -91,9 +101,15 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         }
 
     private var lastKnownLocation: Location? = null
+        set(value) {
+            field = value
+            dataManager?.lastLocation = value
+        }
+
     private var fusedLocationProviderClient: FusedLocationProviderClient? = null
     private var locationCallback : LocationCallback? = null
     private var countDownTimer: CountDownTimer? = null
+    private var liveEventTimer: Timer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -135,10 +151,6 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
                     }
                 }
             }
-
-            if (resources.getBoolean(R.bool.lockout_eclipse_center)) {
-                lockoutView.root.visibility = View.VISIBLE
-            }
         }
 
         return binding.root
@@ -158,14 +170,16 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         viewModel.eclipseConfiguration.observe(viewLifecycleOwner) { result ->
             result?.let {
                 viewModel.saveEclipseDate(it)
+                showLockout(false)
                 verifyLocationAccess()
-            }
+            } ?: showLockout(true)
         }
     }
 
     override fun onPause() {
         super.onPause()
         stopLocationUpdates()
+        liveEventTimer?.cancel()
     }
 
     private fun createEclipseGenerator(location: Location?) : EclipseExplorer? {
@@ -230,24 +244,24 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             binding.eclipseCenterLayout.percentEclipse.text = eclipseExplorer?.coverage
 
             // set date of first contact
-            if (eclipseExplorer?.type != EclipseExplorer.EclipseType.NONE) {
+            if (eclipseExplorer?.eclipseVisibility != EclipseVisibility.NONE) {
                 binding.eclipseCenterLayout.date.text = eclipseExplorer?.contact1()?.date
             }
 
-            binding.eclipseCenterLayout.eclipseType.text = when (eclipseExplorer?.type) {
-                EclipseExplorer.EclipseType.ANNULAR -> getString(R.string.eclipse_type_annular)
-                EclipseExplorer.EclipseType.PARTIAL -> getString(R.string.eclipse_type_partial)
-                EclipseExplorer.EclipseType.FULL -> getString(R.string.eclipse_type_full)
-                EclipseExplorer.EclipseType.NONE -> getString(R.string.eclipse_type_none)
+            binding.eclipseCenterLayout.eclipseType.text = when (eclipseExplorer?.eclipseConfiguration?.type) {
+                EclipseType.ANNULAR -> getString(R.string.eclipse_type_annular)
+                EclipseType.TOTAL -> getString(R.string.eclipse_type_full)
+                EclipseType.PARTIAL -> getString(R.string.eclipse_type_partial)
+                EclipseType.NONE -> getString(R.string.eclipse_type_none)
                 null -> getString(R.string.eclipse_type_unkown)
             }
         }
     }
 
     private fun showEclipseDetails() {
-        eclipseExplorer?.type?.let {
+        eclipseExplorer?.eclipseVisibility?.let {
             when (it) {
-                EclipseExplorer.EclipseType.NONE -> {
+                EclipseVisibility.NONE -> {
                     val simulated = dataManager?.simulated ?: false
                     if (!simulated) {
                         // show user option to simulate location within the eclipse path
@@ -257,9 +271,12 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
                     }
                 }
 
-                EclipseExplorer.EclipseType.PARTIAL -> showPartialEclipse()
-                EclipseExplorer.EclipseType.ANNULAR,
-                EclipseExplorer.EclipseType.FULL -> showFullEclipse()
+                EclipseVisibility.PARTIAL -> showPartialEclipse()
+                else -> showFullEclipse()
+            }
+
+            if (it != EclipseVisibility.NONE) {
+                showCurrentEventMedia()
             }
         }
     }
@@ -336,8 +353,50 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         }
     }
 
+    private fun showCurrentEventMedia() {
+        lifecycleScope.launch {
+            withContext(Dispatchers.Main) {
+                val currentEvent = EclipseUtils.getCurrentEvent(context, eclipseExplorer)
+                val currentEventView = binding.eclipseCenterLayout.currentEventView
+                if (currentEvent != null) {
+                    currentEventView.root.visibility = View.VISIBLE
+                    binding.eclipseCenterLayout.currentEventView.eclipseImage.setImageResource(currentEvent.imageResource())
+                    currentEventView.root.setOnClickListener {
+                        activity?.let {
+                            val mediaItem = MediaItem(currentEvent.imageResource(), currentEvent.title(),
+                            currentEvent.shortAudioDescription(), currentEvent.shortAudio())
+                            it.startActivity(Intent(it, MediaPlayerActivity::class.java).apply {
+                                putExtra(MediaPlayerActivity.EXTRA_MEDIA, mediaItem)
+                                putExtra(MediaPlayerActivity.EXTRA_LIVE, true)
+                            })
+                        }
+                    }
+                } else {
+                    currentEventView.root.visibility = View.GONE
+                }
+
+                liveEventTimer?.cancel()
+                EclipseUtils.getNextEventDate(context, eclipseExplorer)?.let {
+                    // schedule a task to update current event at next contact
+                    val delay = it.millis - DateTime.now().millis
+                    liveEventTimer = Timer()
+                    liveEventTimer?.schedule(timerTask {
+                        showCurrentEventMedia() }, delay)
+                }
+            }
+        }
+    }
+
+    private fun showLockout(show: Boolean) {
+        binding.lockoutView.root.visibility = if (show) {
+            View.VISIBLE
+        } else {
+            View.GONE
+        }
+    }
+
     private fun setupNotifications() {
-        if (eclipseExplorer?.type == EclipseExplorer.EclipseType.NONE) {
+        if (eclipseExplorer?.eclipseVisibility == EclipseVisibility.NONE) {
             return
         }
 
@@ -346,18 +405,15 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             return
         }
 
-        activity?.let {
-            NotificationScheduler.scheduleNotifications(
-                activity,
-                viewModel.firstContactDate(),
-                viewModel.totalityDate()
-            )
+        activity?.let { activity ->
+            eclipseExplorer?.let {
+                NotificationScheduler.scheduleNotifications(activity, it)
+            }
         }
     }
 
     private fun startCountdown() {
-        if (eclipseExplorer?.type == EclipseExplorer.EclipseType.NONE
-            || viewModel.afterTotality()) {
+        if (eclipseExplorer?.eclipseVisibility == EclipseVisibility.NONE) {
             return
         }
 
@@ -504,7 +560,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             if (locationPermissionGranted(context)) {
                 val locationResult = fusedLocationProviderClient?.lastLocation
                 locationResult?.addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
+                    if (task.isSuccessful && task.result != null) {
                         lastKnownLocation = task.result
                         onLocationDetermined(lastKnownLocation)
                     } else {
