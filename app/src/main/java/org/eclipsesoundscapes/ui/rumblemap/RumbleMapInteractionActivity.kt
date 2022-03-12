@@ -13,6 +13,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.GestureDetector
 import android.view.GestureDetector.SimpleOnGestureListener
+import android.view.HapticFeedbackConstants
 import android.view.MotionEvent
 import android.view.View
 import android.view.View.OnTouchListener
@@ -255,6 +256,7 @@ class RumbleMapInteractionActivity : BaseActivity(), OnTouchListener {
 
         stopSynthesizer()
         stopMediaPlayer()
+        performHapticFeedback()
     }
 
     private fun handleTouchEventDown(event: MotionEvent) {
@@ -275,6 +277,8 @@ class RumbleMapInteractionActivity : BaseActivity(), OnTouchListener {
     }
 
     private fun handleTouchEvent(event: MotionEvent) {
+        performHapticFeedback()
+
         val x = event.rawX.toInt()
         val y = event.rawY.toInt()
 
@@ -291,6 +295,14 @@ class RumbleMapInteractionActivity : BaseActivity(), OnTouchListener {
         } else if (isViewInBounds(binding.rumbleMapLayout, x, y)) {
             // outside image view, gray scale value is always 0
             startMediaPlayer(true)
+        }
+    }
+
+    private fun performHapticFeedback() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+            binding.eclipseImg.performHapticFeedback(HapticFeedbackConstants.TEXT_HANDLE_MOVE)
+        } else {
+            binding.eclipseImg.performHapticFeedback(HapticFeedbackConstants.CLOCK_TICK)
         }
     }
 
