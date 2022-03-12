@@ -462,14 +462,11 @@ class RumbleMapInteractionActivity : BaseActivity(), OnTouchListener {
      * @param enable - set status
      */
     private fun enableInteraction(enable: Boolean) {
-        if (enable) {
-            isRunning = true
-            binding.rumbleMapLayout.announceForAccessibility(getString(R.string.rumble_map_running))
-            binding.rumbleMapLayout.contentDescription = getString(R.string.rumble_map_running)
+        isRunning = enable
+        binding.rumbleMapLayout.contentDescription = if (enable) {
+            getString(R.string.rumble_map_running)
         } else {
-            isRunning = false
-            binding.rumbleMapLayout.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
-            binding.rumbleMapLayout.contentDescription = getString(R.string.rumble_map_inactive)
+            getString(R.string.rumble_map_inactive)
         }
     }
 
