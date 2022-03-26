@@ -71,6 +71,7 @@ dependencies {
     implementation "androidx.viewpager2:viewpager2:$rootProject.viewPagerVersion"
     implementation "androidx.preference:preference:$rootProject.preferenceVersion"
     implementation "androidx.fragment:fragment-ktx:$rootProject.fragmentVersion"
+    implementation "androidx.core:core-splashscreen:$rootProject.splashScreenVersion"
 
     implementation "com.google.android.gms:play-services-location:$rootProject.playServicesVersion"
     implementation platform("com.google.firebase:firebase-bom:$rootProject.firebaseBomVersion")

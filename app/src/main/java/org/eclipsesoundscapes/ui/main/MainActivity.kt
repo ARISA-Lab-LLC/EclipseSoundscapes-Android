@@ -1,6 +1,8 @@
 package org.eclipsesoundscapes.ui.main
 
+import android.content.Intent
 import android.os.Bundle
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -15,6 +17,7 @@ import org.eclipsesoundscapes.ui.base.BaseActivity
 import org.eclipsesoundscapes.ui.center.EclipseCenterFragment
 import org.eclipsesoundscapes.ui.features.FeaturesFragment
 import org.eclipsesoundscapes.ui.media.MediaFragment
+import org.eclipsesoundscapes.ui.walkthrough.WalkthroughActivity
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -62,6 +65,17 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        installSplashScreen()
+
+        dataManager = (application as EclipseSoundscapesApp).dataManager
+
+        if (!dataManager.walkthroughComplete) {
+            val intent = Intent(this, WalkthroughActivity::class.java)
+            startActivity(intent)
+            finish()
+            return
+        }
+
         val binding = ActivityMainBinding.inflate(layoutInflater).apply {
             bottomNavigationView = navigation
             navigation.setOnNavigationItemSelectedListener {
@@ -86,7 +100,6 @@ class MainActivity : BaseActivity() {
 
         setContentView(binding.root)
 
-        dataManager = (application as EclipseSoundscapesApp).dataManager
         fragmentManager = supportFragmentManager
         fragmentManager.addOnBackStackChangedListener { updateUI() }
 
