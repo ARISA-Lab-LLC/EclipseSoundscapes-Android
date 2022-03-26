@@ -170,6 +170,7 @@
                 android:fontFamily="sans-serif"
                 android:textSize="@dimen/default_text_size"
                 android:layout_marginBottom="16dp"
+                android:lineSpacingExtra="@dimen/extraLineSpace"
                 tools:text="@string/totality_description"/>
 
         </ScrollView>
