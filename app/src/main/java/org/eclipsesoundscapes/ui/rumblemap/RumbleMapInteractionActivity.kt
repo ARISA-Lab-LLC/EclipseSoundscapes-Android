@@ -7,12 +7,10 @@ import android.graphics.Matrix
 import android.graphics.Rect
 import android.graphics.drawable.BitmapDrawable
 import android.media.MediaPlayer
-import android.os.Bundle
-import android.os.CountDownTimer
-import android.os.Handler
-import android.os.Looper
+import android.os.*
 import android.view.GestureDetector
 import android.view.GestureDetector.SimpleOnGestureListener
+import android.view.HapticFeedbackConstants
 import android.view.MotionEvent
 import android.view.View
 import android.view.View.OnTouchListener
@@ -128,7 +126,9 @@ class RumbleMapInteractionActivity : BaseActivity(), OnTouchListener {
                 overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left)
             }
 
-            rumbleMapLayout.setOnClickListener { accessibilityActivateRumbleMap() }
+            rumbleMapLayout.setOnClickListener {
+                enableInteraction(!isRunning)
+            }
 
             buttonCloseRumbleMap.setOnClickListener { onBackPressed() }
         }
@@ -255,6 +255,7 @@ class RumbleMapInteractionActivity : BaseActivity(), OnTouchListener {
 
         stopSynthesizer()
         stopMediaPlayer()
+        performHapticFeedback()
     }
 
     private fun handleTouchEventDown(event: MotionEvent) {
@@ -271,10 +272,12 @@ class RumbleMapInteractionActivity : BaseActivity(), OnTouchListener {
         markerY = y
         handler.postDelayed(longPress, LONG_PRESS_TIMEOUT.toLong())
 
-       handleTouchEvent(event)
+        handleTouchEvent(event)
     }
 
     private fun handleTouchEvent(event: MotionEvent) {
+        performHapticFeedback()
+
         val x = event.rawX.toInt()
         val y = event.rawY.toInt()
 
@@ -291,6 +294,14 @@ class RumbleMapInteractionActivity : BaseActivity(), OnTouchListener {
         } else if (isViewInBounds(binding.rumbleMapLayout, x, y)) {
             // outside image view, gray scale value is always 0
             startMediaPlayer(true)
+        }
+    }
+
+    private fun performHapticFeedback() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+            binding.eclipseImg.performHapticFeedback(HapticFeedbackConstants.TEXT_HANDLE_MOVE)
+        } else {
+            binding.eclipseImg.performHapticFeedback(HapticFeedbackConstants.CLOCK_TICK)
         }
     }
 
@@ -438,34 +449,10 @@ class RumbleMapInteractionActivity : BaseActivity(), OnTouchListener {
      * @param x x coordinate of onTouch event
      * @param y y coordinate of onTouch event
      */
-    fun checkSavedPoint(x: Int, y: Int) {
+    private fun checkSavedPoint(x: Int, y: Int) {
         if (abs(savedX - x) <= CHECKPOINT_OFFSET) {
             if (abs(savedY - y) <= CHECKPOINT_OFFSET) {
                 startMediaPlayer(false)
-            }
-        }
-    }
-
-    private fun accessibilityActivateRumbleMap() {
-        if (isAccessibilityEnabled) {
-            if (!isRunning) {
-                enableInteraction(true)
-            } else {
-                if (doubleTap) {
-                    // turn interaction off
-                    enableInteraction(false)
-                } else {
-                    // set timing for double click to turn off interaction
-                    object : CountDownTimer(2000, 1000) {
-                        override fun onTick(millisUntilFinished: Long) {
-                            doubleTap = true
-                        }
-
-                        override fun onFinish() {
-                            doubleTap = false
-                        }
-                    }.start()
-                }
             }
         }
     }
@@ -475,16 +462,11 @@ class RumbleMapInteractionActivity : BaseActivity(), OnTouchListener {
      * @param enable - set status
      */
     private fun enableInteraction(enable: Boolean) {
-        if (enable) {
-            isRunning = true
-            binding.rumbleMapLayout.announceForAccessibility(getString(R.string.rumble_map_running))
-            binding.rumbleMapLayout.contentDescription = getString(R.string.rumble_map_running)
-            binding.rumbleMapLayout.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_NO
+        isRunning = enable
+        binding.rumbleMapLayout.contentDescription = if (enable) {
+            getString(R.string.rumble_map_running)
         } else {
-            isRunning = false
-            binding.rumbleMapLayout.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
-            binding.rumbleMapLayout.contentDescription = getString(R.string.rumble_map_inactive)
-            binding.rumbleMapLayout.announceForAccessibility(getString(R.string.rumble_map_inactive))
+            getString(R.string.rumble_map_inactive)
         }
     }
 
