@@ -39,44 +39,50 @@
         <activity
             android:name=".ui.about.OurPartnersActivity"
             android:label="@string/our_partners"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".ui.about.OurTeamActivity"
             android:label="@string/our_team"
-            android:screenOrientation="portrait" />
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.about.SettingsActivity"
             android:label="@string/settings"
-            android:screenOrientation="portrait" />
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.about.LegalActivity"
-            android:screenOrientation="portrait" />
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.walkthrough.WalkthroughActivity"
             android:label="@string/walkthrough_title"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.about.FutureEclipsesActivity"
             android:label="@string/supported_eclipse"
-            android:screenOrientation="portrait" />
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.media.MediaPlayerActivity"
             android:label="@string/media_player"
-            android:screenOrientation="portrait"
             android:theme="@style/MediaPlayerTheme"
-            android:parentActivityName=".ui.main.MainActivity"/>
+            android:parentActivityName=".ui.main.MainActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.rumblemap.RumbleMapInteractionActivity"
             android:label="@string/rumble_map_interaction"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.rumblemap.RumbleMapInstructionsActivity"
             android:label="@string/rumble_map_instructions_title"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.about.LanguageSelectionActivity"
+            android:theme="@style/AppTheme"
             android:screenOrientation="portrait"/>
 
         <receiver
