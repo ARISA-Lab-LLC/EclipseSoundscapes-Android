@@ -29,6 +29,7 @@
 
     <string name="settings">Configuraciones</string>
     <string name="open_settings">Abre las configuraciónes</string>
+    <string name="open_description">Abrir la descripción</string>
     <string name="description">descripción</string>
     <string name="instructions">Instrucciones</string>
     <string name="welcome">Bienvenido</string>

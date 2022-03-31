@@ -95,6 +95,10 @@
             android:screenOrientation="portrait"
             android:exported="false"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.features.DescriptionActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
 
         <receiver
             android:name=".service.NotificationReceiver"

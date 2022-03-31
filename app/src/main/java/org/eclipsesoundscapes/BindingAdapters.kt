@@ -21,10 +21,17 @@ fun setTextFromId(textView: TextView, stringId: Int) {
 }
 
 @BindingAdapter("roundImage")
-fun setTextFromId(imageView: ImageView, drawableResId: Int) {
+fun setRoundImageFromId(imageView: ImageView, drawableResId: Int) {
     Glide.with(imageView.context)
         .load(drawableResId)
         .apply(RequestOptions().transforms(CenterCrop(), RoundedCorners(10)))
+        .into(imageView)
+}
+
+@BindingAdapter("imageId")
+fun setImageFromId(imageView: ImageView, drawableResId: Int) {
+    Glide.with(imageView.context)
+        .load(drawableResId)
         .into(imageView)
 }
 
