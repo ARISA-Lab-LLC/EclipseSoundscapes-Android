@@ -28,6 +28,7 @@ class LanguageSelectionActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityLanguageSelectionBinding.inflate(layoutInflater).apply {
+            setSupportActionBar(appBar.toolbar)
             supportActionBar?.title = getString(R.string.language)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
 

@@ -41,6 +41,7 @@ class SettingsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivitySettingsBinding.inflate(layoutInflater).apply {
+            setSupportActionBar(appBar.toolbar)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
         }
 

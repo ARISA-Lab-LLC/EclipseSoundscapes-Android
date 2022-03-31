@@ -53,6 +53,7 @@ class MediaFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMediaBinding.inflate(inflater, container, false).apply {
+            val toolbar = appBar.toolbar
             toolbar.setTitle(R.string.media)
             (activity as AppCompatActivity).setSupportActionBar(toolbar)
 

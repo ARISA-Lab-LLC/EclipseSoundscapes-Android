@@ -62,6 +62,7 @@ class AboutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val binding = FragmentAboutBinding.inflate(inflater, container, false).apply {
+            val toolbar = appBar.toolbar
             toolbar.title = getString(R.string.about_us)
             (activity as? AppCompatActivity)?.setSupportActionBar(toolbar)
 

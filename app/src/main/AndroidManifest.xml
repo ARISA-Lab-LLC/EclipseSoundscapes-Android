@@ -24,66 +24,77 @@
         android:roundIcon="@mipmap/soundscape_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppSplash">
-
         <activity
             android:name=".ui.main.MainActivity"
+            android:exported="true"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:exported="true">
+            android:theme="@style/Theme.AppSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.about.OurPartnersActivity"
             android:label="@string/our_partners"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme"/>
+            android:exported="false"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.about.OurTeamActivity"
             android:label="@string/our_team"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.about.SettingsActivity"
             android:label="@string/settings"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.about.LegalActivity"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.walkthrough.WalkthroughActivity"
             android:label="@string/walkthrough_title"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.about.FutureEclipsesActivity"
             android:label="@string/supported_eclipse"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.media.MediaPlayerActivity"
             android:label="@string/media_player"
-            android:theme="@style/MediaPlayerTheme"
             android:parentActivityName=".ui.main.MainActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"
+            android:theme="@style/MediaPlayerTheme" />
         <activity
             android:name=".ui.rumblemap.RumbleMapInteractionActivity"
             android:label="@string/rumble_map_interaction"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.rumblemap.RumbleMapInstructionsActivity"
             android:label="@string/rumble_map_instructions_title"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ui.about.LanguageSelectionActivity"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ui.about.LanguageSelectionActivity"
+            android:screenOrientation="portrait"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
 
         <receiver
             android:name=".service.NotificationReceiver"

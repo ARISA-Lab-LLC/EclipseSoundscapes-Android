@@ -43,6 +43,7 @@ class FutureEclipsesActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityFutureEclipsesBinding.inflate(layoutInflater).apply {
+            setSupportActionBar(appBar.toolbar)
             supportActionBar?.title = getString(R.string.supported_eclipse)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
