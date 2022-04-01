@@ -70,6 +70,10 @@ class AboutAdapter internal constructor(
                 }
                 AboutItem.SETTINGS -> {
                     binding.optionText.text = context.getString(R.string.settings)
+                AboutItem.LANGUAGE -> {
+                    binding.optionText.text = context.getString(R.string.language)
+                    binding.listAvatar.setImageResource(R.drawable.ic_language)
+                }
                     binding.listAvatar.setImageResource(R.drawable.ic_settings)
                 }
                 AboutItem.LEGAL -> {

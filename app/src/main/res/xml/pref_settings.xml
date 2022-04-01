@@ -13,9 +13,4 @@
         android:title="@string/access_location"
         app:iconSpaceReserved="false"/>
 
-    <Preference
-        android:key="language"
-        android:title="@string/language"
-        app:iconSpaceReserved="false"/>
-
 </PreferenceScreen>
