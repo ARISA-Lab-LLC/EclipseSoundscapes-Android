@@ -22,6 +22,7 @@ class DescriptionActivity : AppCompatActivity() {
 
         val binding = ActivityDescriptionBinding.inflate(layoutInflater).apply {
             setSupportActionBar(appBar.toolbar)
+            setTitle(eclipse.title())
             supportActionBar?.title = getString(eclipse.title())
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
 

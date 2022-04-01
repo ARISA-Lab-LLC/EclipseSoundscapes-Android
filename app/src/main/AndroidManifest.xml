@@ -92,6 +92,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.about.LanguageSelectionActivity"
+            android:label="@string/language"
             android:screenOrientation="portrait"
             android:exported="false"
             android:theme="@style/AppTheme" />
