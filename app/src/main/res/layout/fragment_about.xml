@@ -5,11 +5,9 @@
     android:orientation="vertical"
     tools:context=".ui.about.AboutFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:minHeight="?attr/actionBarSize"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/app_bar"/>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/ScrollView01"

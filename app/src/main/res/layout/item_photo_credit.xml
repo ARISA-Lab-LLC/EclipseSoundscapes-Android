@@ -12,10 +12,10 @@
             type="org.eclipsesoundscapes.ui.about.PhotoCreditAdapter.CreditsClickListener"/>
     </data>
 
-   <androidx.cardview.widget.CardView
+   <com.google.android.material.card.MaterialCardView
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:layout_marginBottom="@dimen/default_margin">
+       android:layout_marginTop="@dimen/default_margin">
 
        <RelativeLayout
            android:layout_width="match_parent"
@@ -78,5 +78,5 @@
 
            </LinearLayout>
        </RelativeLayout>
-   </androidx.cardview.widget.CardView>
+   </com.google.android.material.card.MaterialCardView>
 </layout>

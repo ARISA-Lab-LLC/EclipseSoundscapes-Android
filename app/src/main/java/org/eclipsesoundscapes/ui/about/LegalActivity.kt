@@ -9,6 +9,7 @@ import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.eclipsesoundscapes.BuildConfig
 import org.eclipsesoundscapes.R
@@ -51,16 +52,16 @@ class LegalActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         val legalMode = intent.getStringExtra(EXTRA_LEGAL)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         when (legalMode) {
             EXTRA_LICENSE -> {
                 val binding = ActivityLegalLicenseBinding.inflate(layoutInflater).apply {
-                    title = getString(
+                    val title = getString(
                         R.string.app_name_version, getString(R.string.app_name),
                         BuildConfig.VERSION_NAME
                     )
 
-                    supportActionBar?.title = title
+                    setToolbar(appBar.toolbar, title)
                 }
 
                 setContentView(binding.root)
@@ -68,8 +69,8 @@ class LegalActivity : BaseActivity() {
             }
             EXTRA_LIBS -> {
                 val binding = ActivityLegalLibrariesBinding.inflate(layoutInflater).apply {
-                    title = getString(R.string.open_src_libs)
-                    supportActionBar?.title = title
+                    val title = getString(R.string.open_src_libs)
+                    setToolbar(appBar.toolbar, title)
                 }
 
                 setContentView(binding.root)
@@ -77,13 +78,13 @@ class LegalActivity : BaseActivity() {
             }
             EXTRA_PRIVACY_POLICY, EXTRA_TOS -> {
                 val binding = ActivityLegalWebviewBinding.inflate(layoutInflater).apply {
-                    title = if (legalMode == EXTRA_PRIVACY_POLICY) {
+                    val title = if (legalMode == EXTRA_PRIVACY_POLICY) {
                         getString(R.string.privacy_policy)
                     } else {
                         getString(R.string.tos)
                     }
 
-                    supportActionBar?.title = title
+                    setToolbar(appBar.toolbar, title)
                 }
 
                 setContentView(binding.root)
@@ -91,8 +92,8 @@ class LegalActivity : BaseActivity() {
             }
             EXTRA_PHOTO_CREDS -> {
                 val binding = LegalPhotoCreditsBinding.inflate(layoutInflater).apply {
-                    title = getString(R.string.photo_credits)
-                    supportActionBar?.title = title
+                    val title = getString(R.string.photo_credits)
+                    setToolbar(appBar.toolbar, title)
 
                     photoCreditsRecycler.layoutManager = LinearLayoutManager(this@LegalActivity)
                     photoCreditsRecycler.setHasFixedSize(true)
@@ -233,6 +234,12 @@ class LegalActivity : BaseActivity() {
             credits.add(photoCredit)
         }
         return credits
+    }
+
+    private fun setToolbar(toolbar: Toolbar, title: String) {
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = title
     }
 
     companion object {

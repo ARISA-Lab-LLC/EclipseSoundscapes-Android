@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_width="match_parent"
     android:orientation="vertical">
 
     <include
@@ -9,34 +9,25 @@
         android:id="@+id/app_bar"/>
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/ScrollView01"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:scrollbars="none" >
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/media_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"/>
+            android:layout_height="match_parent"
+            android:focusable="true">
 
             <TextView
-                android:visibility="gone"
-                android:id="@+id/more_content"
+                android:id="@+id/eclipse_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:layout_margin="16dp"
                 android:fontFamily="sans-serif-condensed"
-                android:textStyle="bold"
                 android:textSize="@dimen/default_text_size"
-                android:gravity="center"
-                android:text="@string/upcoming_audio"/>
+                android:lineSpacingExtra="@dimen/extraLineSpace"/>
         </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
 </LinearLayout>

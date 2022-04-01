@@ -33,6 +33,7 @@ class OurPartnersActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         val binding = ActivityOurPartnersBinding.inflate(layoutInflater).apply {
+            setSupportActionBar(appBar.toolbar)
             supportActionBar?.title = getString(R.string.our_partners)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
 

@@ -37,10 +37,10 @@
         android:weightSum="2">
 
         <Button
+            style="?android:attr/borderlessButtonStyle"
             android:id="@+id/button_close_rumble_map"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/ripple"
             android:text="@string/close"
             android:contentDescription="@string/close"
             android:layout_weight="1"/>
@@ -51,10 +51,10 @@
             android:background="@android:color/white" />
 
         <Button
+            style="?android:attr/borderlessButtonStyle"
             android:id="@+id/button_instructions"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/ripple"
             android:text="@string/instructions"
             android:contentDescription="@string/rumble_map_instructions_title"
             android:layout_weight="1" />

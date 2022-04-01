@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="eclipse"
+            type="org.eclipsesoundscapes.model.Eclipse" />
+
+        <variable
+            name="clickListener"
+            type="org.eclipsesoundscapes.ui.features.FeaturesAdapter.FeaturesClickListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/default_margin"
+        android:layout_marginEnd="@dimen/default_margin"
+        android:layout_marginTop="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:onClick="@{() -> clickListener.onEclipseSelected(eclipse, true)}">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="0dp"
+                android:layout_height="172dp"
+                android:scaleType="centerCrop"
+                android:adjustViewBounds="true"
+                app:imageId="@{eclipse.imageResource()}"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="@dimen/margin_small"
+                app:strokeWidth="0.5dp"
+                app:strokeColor="@android:color/white"
+                app:cardBackgroundColor="@color/colorPrimary"
+                app:cardElevation="0dp"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="@id/image"
+                app:layout_constraintBottom_toBottomOf="@+id/image">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_nav_elcipse_features"/>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_small"
+                android:gravity="center"
+                app:layout_constraintTop_toBottomOf="@+id/image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="@dimen/default_text_size"
+                app:stringId="@{eclipse.title()}"/>
+
+            <Button
+                style="?android:attr/borderlessButtonStyle"
+                android:id="@+id/description_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/open_description"
+                android:textColor="@color/colorPrimary"
+                app:layout_constraintTop_toBottomOf="@+id/title"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:onClick="@{() -> clickListener.onEclipseSelected(eclipse, false)}"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+</layout>

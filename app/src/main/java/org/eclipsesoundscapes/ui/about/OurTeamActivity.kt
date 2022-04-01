@@ -34,6 +34,7 @@ class OurTeamActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityOurTeamBinding.inflate(layoutInflater).apply {
+            setSupportActionBar(appBar.toolbar)
             supportActionBar?.title = getString(R.string.our_team)
             supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
