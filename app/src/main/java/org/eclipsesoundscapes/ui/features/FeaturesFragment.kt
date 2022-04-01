@@ -46,11 +46,11 @@ class FeaturesFragment : Fragment() {
             eclipses = ArrayList()
 
             // annular eclipse
-            eclipses.add(Section(getString(R.string.annular_solar_eclipse)))
+            eclipses.add(Section("${getString(R.string.annular_solar_eclipse)}\n${getString(R.string.rumble_maps)}"))
             eclipses.addAll(Eclipse.annularEclipseMedia())
 
             // total eclipse
-            eclipses.add(Section(getString(R.string.total_solar_eclipse)))
+            eclipses.add(Section("${getString(R.string.total_solar_eclipse)}\n${getString(R.string.rumble_maps)}"))
             eclipses.addAll(Eclipse.totalEclipseMedia())
 
 

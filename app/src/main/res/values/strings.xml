@@ -367,6 +367,7 @@
 
     <!-- rumble map interaction -->
     <string name="rumble_map">Rumble Map</string>
+    <string name="rumble_maps">Rumble Maps</string>
     <string name="rumble_map_interaction">Rumble Map Interaction</string>
     <string name="rumble_map_launch">Press to interact with Rumble Map</string>
     <string name="rumble_map_how">How to Use The Rumble Map</string>
