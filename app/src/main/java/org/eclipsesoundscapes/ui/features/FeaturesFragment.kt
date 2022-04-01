@@ -45,13 +45,14 @@ class FeaturesFragment : Fragment() {
 
             eclipses = ArrayList()
 
+            // annular eclipse
+            eclipses.add(Section(getString(R.string.annular_solar_eclipse)))
+            eclipses.addAll(Eclipse.annularEclipseMedia())
+
             // total eclipse
             eclipses.add(Section(getString(R.string.total_solar_eclipse)))
             eclipses.addAll(Eclipse.totalEclipseMedia())
 
-            // annular eclipse
-            eclipses.add(Section(getString(R.string.annular_solar_eclipse)))
-            eclipses.addAll(Eclipse.annularEclipseMedia())
 
             recycler.layoutManager = LinearLayoutManager(context)
             featuresAdapter = FeaturesAdapter(eclipses, FeaturesAdapter.FeaturesClickListener { media, openRumbleMap ->
