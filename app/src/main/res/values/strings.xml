@@ -81,7 +81,7 @@
     <string name="libs_in_use">Libraries We Use</string>
     <string name="jsyn_lib">JSyn</string>
 
-    <string name="about_us">About Us</string>
+    <string name="menu">Menu</string>
     <string name="about_us_details">The Eclipse Soundscapes mobile application is a product of the Eclipse Soundscapes Project, which is an enterprise ARISA Lab, LLC.
         The Eclipse Soundscapes Project aims to engage ALL learners with astrophysics, with an intentional focus on inclusion and accessibility. For more information, visit EclipseSoundscapes.org.
         The development of the Eclipse Soundscapes mobile application is funded by NASA Space Science Education Consortium.</string>

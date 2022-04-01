@@ -63,7 +63,7 @@ class AboutFragment : Fragment() {
     ): View {
         val binding = FragmentAboutBinding.inflate(inflater, container, false).apply {
             val toolbar = appBar.toolbar
-            toolbar.title = getString(R.string.about_us)
+            toolbar.title = getString(R.string.menu)
             (activity as? AppCompatActivity)?.setSupportActionBar(toolbar)
 
             aboutListView.layoutManager = LinearLayoutManager(activity)

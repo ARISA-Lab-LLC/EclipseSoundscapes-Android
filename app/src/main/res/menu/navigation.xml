@@ -21,9 +21,9 @@
         android:contentDescription="@string/media"/>
 
     <item
-        android:id="@+id/navigation_about"
+        android:id="@+id/navigation_menu"
         android:icon="@drawable/ic_more"
-        android:title="@string/about"
-        android:contentDescription="@string/about"/>
+        android:title="@string/menu"
+        android:contentDescription="@string/menu"/>
 
 </menu>
