@@ -35,6 +35,7 @@
     <string name="welcome">Bienvenido</string>
     <string name="not_now">Ahora no</string>
     <string name="language">Idioma</string>
+    <string name="permissions">Permisos</string>
 
     <!-- actions -->
     <string name="continue_text">Continuar</string>

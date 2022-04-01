@@ -25,6 +25,7 @@
     <string name="instructions">Instructions</string>
     <string name="welcome">Welcome</string>
     <string name="language">Language</string>
+    <string name="permissions">Permissions</string>
 
     <string name="continue_text">Continue</string>
     <string name="skip">Skip</string>

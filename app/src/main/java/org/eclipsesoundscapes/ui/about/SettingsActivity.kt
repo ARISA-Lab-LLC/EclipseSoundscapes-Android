@@ -56,7 +56,7 @@ class SettingsActivity : BaseActivity() {
 
                 setTitle(
                     if (it == MODE_SETTINGS) {
-                        R.string.settings
+                        R.string.permissions
                     } else {
                         R.string.legal
                     }
