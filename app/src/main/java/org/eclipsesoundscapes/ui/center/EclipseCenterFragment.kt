@@ -156,16 +156,10 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         return binding.root
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        (activity as? MainActivity)?.let {
-            dataManager = it.dataManager
-            fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(it)
-        }
-    }
-
     override fun onResume() {
         super.onResume()
+
+        initializeComponents()
 
         viewModel.eclipseConfiguration.observe(viewLifecycleOwner) { result ->
             result?.let {
@@ -180,6 +174,18 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         super.onPause()
         stopLocationUpdates()
         liveEventTimer?.cancel()
+    }
+
+    private fun initializeComponents() {
+        (activity as? MainActivity)?.let {
+            if (dataManager == null) {
+                dataManager = it.dataManager
+            }
+
+            if (fusedLocationProviderClient == null) {
+                fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(it)
+            }
+        }
     }
 
     private fun createEclipseGenerator(location: Location?) : EclipseExplorer? {
