@@ -438,7 +438,14 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
 
             countDownTimer = object : CountDownTimer(millisDif, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
-                    val interval = Interval(Date().time, date.millis)
+                    val currentDate = Date().time
+                    val interval = if (date.isAfter(currentDate)) {
+                        Interval(currentDate, date.millis)
+                    } else {
+                        // prevents crash if user manually sets time in future
+                        Interval(currentDate, currentDate)
+                    }
+
                     binding.eclipseCenterLayout.eclipseCountdown.update(interval.toPeriod())
                 }
 
