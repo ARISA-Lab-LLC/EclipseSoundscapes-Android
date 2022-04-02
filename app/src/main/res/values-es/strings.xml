@@ -142,7 +142,7 @@
     <string name="eclipse_max">Eclipse Total</string>
 
     <string name="active_event">¡Toca para escuchar lo que está sucediendo actualmente!</string>
-    <string name="next_live_event_countdown">Próximo evento en vivo en %1$s</string>
+    <string name="next_live_event_countdown">Próximo evento en vivo en \n%1$s</string>
 
     <!-- media/audio -->
     <string name="media_player">reproductor multimedia</string>
