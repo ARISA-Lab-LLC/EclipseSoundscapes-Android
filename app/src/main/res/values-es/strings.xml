@@ -405,7 +405,8 @@
 
     <string name="walkthrough_welcome_text">Gracias por descargar la aplicación Eclipse Soundscapes, una experiencia multisensorial para que personas de todo tipo de estilos de aprendizaje, participen en eventos astronómicos, incluidos los eclipse solares totales y anulares.
         Dentro de la aplicación, encontrará cuentas atrás para eventos astronómicos importantes en su área, así como también narraciones en tiempo real de dichos eventos con audiodescripciones ilustrativas.
-        También puede explorar el cosmos mediante fotos de alta resolución, material educativo y herramientas de aprendizaje accesibles.</string>
+        También puede explorar el cosmos mediante fotos de alta resolución, material educativo y herramientas de aprendizaje accesibles.
+        Esta aplicación está disponible en inglés y español. Para cambiar el idioma de la aplicación, vaya a Menú.</string>
 
     <string name="walkthrough_rumble_map_text">Nuestro mapa sonoro está diseñado para poder escuchar y sentir fenómenos astronómicos, como por ejemplo eclipses, usando la pantalla táctil y los altavoces de su teléfono inteligente.
         Por ejemplo: el mapa sonoro mostrará fotos de la luna pasando por delante del sol durante los momentos más cautivadores y educativos de un eclipse.
