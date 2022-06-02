@@ -29,7 +29,7 @@ buildscript {
         roomVersion = '2.2.5'
         googleServices = '4.3.4'
         crashlyticsGradleVersion = '2.4.1'
-        workVersion = '2.4.0'
+        workVersion = '2.7.0'
         gsonVersion = '2.8.2'
         hiltVersion = '2.38.1'
     }
