@@ -83,7 +83,7 @@ class MainActivity : BaseActivity() {
                     R.id.navigation_eclipse_features -> FeaturesFragment::class.java
                     R.id.navigation_eclipse_center -> EclipseCenterFragment::class.java
                     R.id.navigation_media -> MediaFragment::class.java
-                    R.id.navigation_about -> AboutFragment::class.java
+                    R.id.navigation_menu -> AboutFragment::class.java
                     else -> FeaturesFragment::class.java
                 }
                 try {
@@ -138,7 +138,7 @@ class MainActivity : BaseActivity() {
             EclipseCenterFragment.TAG -> return R.id.navigation_eclipse_center
             FeaturesFragment.TAG -> return R.id.navigation_eclipse_features
             MediaFragment.TAG -> return R.id.navigation_media
-            AboutFragment.TAG -> return R.id.navigation_about
+            AboutFragment.TAG -> return R.id.navigation_menu
         }
         return null
     }
@@ -151,7 +151,7 @@ class MainActivity : BaseActivity() {
             FeaturesFragment.TAG -> R.id.navigation_eclipse_features
             EclipseCenterFragment.TAG -> R.id.navigation_eclipse_center
             MediaFragment.TAG -> R.id.navigation_media
-            AboutFragment.TAG -> R.id.navigation_about
+            AboutFragment.TAG -> R.id.navigation_menu
             else -> R.id.navigation_eclipse_features
         }
 

@@ -324,12 +324,12 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
 
                     val time: String = if (h <= 0) {
                         if (m > 0) {
-                            String.format("%d:%02d", m, s)
+                            String.format("%02d:%02d", m, s)
                         } else {
-                            String.format("%2d", s)
+                            String.format("00:%02d", s)
                         }
                     } else {
-                        String.format("%d:%02d:%02d", h, m, s)
+                        String.format("%02d:%02d:%02d", h, m, s)
                     }
 
                     binding.nextMediaView.countdownLabel.text =

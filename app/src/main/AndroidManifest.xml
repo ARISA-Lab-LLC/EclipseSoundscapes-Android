@@ -50,7 +50,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.about.SettingsActivity"
-            android:label="@string/settings"
+            android:label="@string/permissions"
             android:screenOrientation="portrait"
             android:exported="false"
             android:theme="@style/AppTheme" />

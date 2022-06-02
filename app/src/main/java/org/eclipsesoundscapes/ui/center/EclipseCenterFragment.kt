@@ -156,16 +156,10 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         return binding.root
     }
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        (activity as? MainActivity)?.let {
-            dataManager = it.dataManager
-            fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(it)
-        }
-    }
-
     override fun onResume() {
         super.onResume()
+
+        initializeComponents()
 
         viewModel.eclipseConfiguration.observe(viewLifecycleOwner) { result ->
             result?.let {
@@ -180,6 +174,18 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         super.onPause()
         stopLocationUpdates()
         liveEventTimer?.cancel()
+    }
+
+    private fun initializeComponents() {
+        (activity as? MainActivity)?.let {
+            if (dataManager == null) {
+                dataManager = it.dataManager
+            }
+
+            if (fusedLocationProviderClient == null) {
+                fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(it)
+            }
+        }
     }
 
     private fun createEclipseGenerator(location: Location?) : EclipseExplorer? {
@@ -432,7 +438,14 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
 
             countDownTimer = object : CountDownTimer(millisDif, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
-                    val interval = Interval(Date().time, date.millis)
+                    val currentDate = Date().time
+                    val interval = if (date.isAfter(currentDate)) {
+                        Interval(currentDate, date.millis)
+                    } else {
+                        // prevents crash if user manually sets time in future
+                        Interval(currentDate, currentDate)
+                    }
+
                     binding.eclipseCenterLayout.eclipseCountdown.update(interval.toPeriod())
                 }
 
@@ -493,7 +506,9 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
                     dataManager.requestedLocation = true
                 }
 
-                requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+                requestPermissionLauncher.launch(arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION))
             }
         }
     }
@@ -506,9 +521,11 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
 
     private val requestPermissionLauncher =
         registerForActivityResult(
-            ActivityResultContracts.RequestPermission()
-        ) { isGranted: Boolean ->
-            if (isGranted) {
+            ActivityResultContracts.RequestMultiplePermissions()
+        ) { permissions ->
+            val preciseGranted = permissions[Manifest.permission.ACCESS_FINE_LOCATION] ?: false
+            val coarseGranted = permissions[Manifest.permission.ACCESS_COARSE_LOCATION] ?: false
+            if (preciseGranted || coarseGranted) {
                 onPermissionGranted()
             }
         }

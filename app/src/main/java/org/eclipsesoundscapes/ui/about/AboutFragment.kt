@@ -51,7 +51,8 @@ enum class AboutItem {
     FUTURE_ECLIPSES,
     WALKTHROUGH,
     FEEDBACK,
-    SETTINGS,
+    LANGUAGE,
+    PERMISSIONS,
     LEGAL
 }
 
@@ -63,7 +64,7 @@ class AboutFragment : Fragment() {
     ): View {
         val binding = FragmentAboutBinding.inflate(inflater, container, false).apply {
             val toolbar = appBar.toolbar
-            toolbar.title = getString(R.string.about_us)
+            toolbar.title = getString(R.string.menu)
             (activity as? AppCompatActivity)?.setSupportActionBar(toolbar)
 
             aboutListView.layoutManager = LinearLayoutManager(activity)
@@ -92,7 +93,10 @@ class AboutFragment : Fragment() {
                             })
                         }
                     }
-                    AboutItem.SETTINGS -> {
+                    AboutItem.LANGUAGE -> {
+                        showActivity(Intent(activity, LanguageSelectionActivity::class.java))
+                    }
+                    AboutItem.PERMISSIONS -> {
                         showActivity(Intent(activity, SettingsActivity::class.java).apply {
                             putExtra(SettingsActivity.EXTRA_SETTINGS_MODE, SettingsActivity.MODE_SETTINGS)
                         })

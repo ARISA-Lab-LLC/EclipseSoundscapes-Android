@@ -110,7 +110,7 @@ object NotificationScheduler {
         }
 
         val flags = if (SDK_INT >= Build.VERSION_CODES.S) {
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         } else {
             PendingIntent.FLAG_UPDATE_CURRENT
         }
@@ -180,7 +180,11 @@ object NotificationScheduler {
             addNextIntentWithParentStack(resultIntent)
 
             // Get the PendingIntent containing the entire back stack
-            getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
+            if (SDK_INT >= Build.VERSION_CODES.M) {
+                getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+            } else {
+                getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
+            }
         }
 
         if (SDK_INT >= Build.VERSION_CODES.O) {

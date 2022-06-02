@@ -35,6 +35,7 @@
     <string name="welcome">Bienvenido</string>
     <string name="not_now">Ahora no</string>
     <string name="language">Idioma</string>
+    <string name="permissions">Permisos</string>
 
     <!-- actions -->
     <string name="continue_text">Continuar</string>
@@ -82,7 +83,7 @@
     <string name="libs_in_use">Bibliotecas que utilizamos</string>
     <string name="supported_eclipse">Eclipses que apoyamos</string>
 
-    <string name="about_us">Sobre Nosotros</string>
+    <string name="menu">Menú</string>
     <string name="about_us_details">La aplicación móvil Eclipse Soundscapes es un producto del Eclipse Soundscapes Project, que es una empresa de ARISA Lab, LLC.
         Eclipse Soundscapes Project tiene como objetivo involucrar a TODOS las personas con la astrofísica, con un enfoque intencional en la inclusión y la accesibilidad.
         Para obtener más información, visite EclipseSoundscapes.org. El desarrollo de la aplicación móvil Eclipse Soundscapes está financiado por NASA Space Science Education Consortium.</string>
@@ -141,7 +142,7 @@
     <string name="eclipse_max">Eclipse Total</string>
 
     <string name="active_event">¡Toca para escuchar lo que está sucediendo actualmente!</string>
-    <string name="next_live_event_countdown">Próximo evento en vivo en %1$s</string>
+    <string name="next_live_event_countdown">Próximo evento en vivo en \n%1$s</string>
 
     <!-- media/audio -->
     <string name="media_player">reproductor multimedia</string>
@@ -402,9 +403,10 @@
     <string name="next_page">Página siguiente</string>
     <string name="page_indicator">Página %1$d de %2$d</string>
 
-    <string name="walkthrough_welcome_text">Gracias por descargar la aplicación Eclipse Soundscapes, una experiencia multisensorial para que personas de todo tipo de estilos de aprendizaje, participen en eventos astronómicos, incluidos los eclipse solares totales.
-        Dentro de la aplicación, encontrará cuentas atrás para eventos astronómicos importantes en su área, así como también narraciones en tiempo real de dichos eventos con audiodescripciones ilustrativas, realizadas por el centro nacional de contenido multimedia accesible (National Center for Accessible Media, GBH).
-        También puede explorar el cosmos mediante fotos de alta resolución, material educativo y herramientas de aprendizaje accesibles.</string>
+    <string name="walkthrough_welcome_text">Gracias por descargar la aplicación Eclipse Soundscapes, una experiencia multisensorial para que personas de todo tipo de estilos de aprendizaje, participen en eventos astronómicos, incluidos los eclipse solares totales y anulares.
+        Dentro de la aplicación, encontrará cuentas atrás para eventos astronómicos importantes en su área, así como también narraciones en tiempo real de dichos eventos con audiodescripciones ilustrativas.
+        También puede explorar el cosmos mediante fotos de alta resolución, material educativo y herramientas de aprendizaje accesibles.
+        Esta aplicación está disponible en inglés y español. Para cambiar el idioma de la aplicación, vaya a Menú.</string>
 
     <string name="walkthrough_rumble_map_text">Nuestro mapa sonoro está diseñado para poder escuchar y sentir fenómenos astronómicos, como por ejemplo eclipses, usando la pantalla táctil y los altavoces de su teléfono inteligente.
         Por ejemplo: el mapa sonoro mostrará fotos de la luna pasando por delante del sol durante los momentos más cautivadores y educativos de un eclipse.

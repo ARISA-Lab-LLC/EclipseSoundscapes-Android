@@ -13,7 +13,6 @@ import org.eclipsesoundscapes.data.DataManager
 import org.eclipsesoundscapes.databinding.ActivitySettingsBinding
 import org.eclipsesoundscapes.ui.base.BaseActivity
 import org.eclipsesoundscapes.ui.main.MainActivity
-import java.util.*
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -57,7 +56,7 @@ class SettingsActivity : BaseActivity() {
 
                 setTitle(
                     if (it == MODE_SETTINGS) {
-                        R.string.settings
+                        R.string.permissions
                     } else {
                         R.string.legal
                     }
@@ -120,7 +119,6 @@ class SettingsActivity : BaseActivity() {
         private fun setupMenuOptions() {
             locationPref = findPreference("settings_location")
             notificationPref = findPreference("notifications_enabled")
-            val languagePref = findPreference<Preference>("language")
 
             notificationPref?.let {
                 it.onPreferenceChangeListener =
@@ -136,31 +134,6 @@ class SettingsActivity : BaseActivity() {
                         (newValue as? Boolean)?.let { value -> dataManager?.locationAccess = value }
                         true
                     }
-            }
-
-            languagePref?.let {
-                dataManager?.language?.let { language ->
-                    languagePref.summary = if (language.isNotEmpty()) {
-                        Locale(language).displayName
-                    } else {
-                        Locale.ENGLISH.displayName
-                    }
-
-                    it.onPreferenceClickListener =
-                        Preference.OnPreferenceClickListener {
-                            activity?.startActivity(
-                                Intent(
-                                    activity,
-                                    LanguageSelectionActivity::class.java
-                                )
-                            )
-                            activity?.overridePendingTransition(
-                                R.anim.anim_slide_in_right,
-                                R.anim.anim_slide_out_left
-                            )
-                            false
-                        }
-                }
             }
         }
     }
