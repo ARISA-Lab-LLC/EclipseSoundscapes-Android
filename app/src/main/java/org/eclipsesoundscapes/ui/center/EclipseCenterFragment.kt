@@ -506,7 +506,9 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
                     dataManager.requestedLocation = true
                 }
 
-                requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+                requestPermissionLauncher.launch(arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION,
+                    Manifest.permission.ACCESS_COARSE_LOCATION))
             }
         }
     }
@@ -519,9 +521,11 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
 
     private val requestPermissionLauncher =
         registerForActivityResult(
-            ActivityResultContracts.RequestPermission()
-        ) { isGranted: Boolean ->
-            if (isGranted) {
+            ActivityResultContracts.RequestMultiplePermissions()
+        ) { permissions ->
+            val preciseGranted = permissions[Manifest.permission.ACCESS_FINE_LOCATION] ?: false
+            val coarseGranted = permissions[Manifest.permission.ACCESS_COARSE_LOCATION] ?: false
+            if (preciseGranted || coarseGranted) {
                 onPermissionGranted()
             }
         }
