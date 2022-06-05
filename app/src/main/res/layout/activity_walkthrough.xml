@@ -51,6 +51,7 @@
         android:fontFamily="sans-serif-condensed"
         android:gravity="end"
         android:text="@string/skip"
+        android:textStyle="bold"
         android:textAllCaps="false"
         android:textColor="@color/colorPrimary" />
 
