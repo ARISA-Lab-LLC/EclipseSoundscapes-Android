@@ -3,6 +3,7 @@ package org.eclipsesoundscapes.ui.features
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.databinding.ItemFeatureBinding
 import org.eclipsesoundscapes.databinding.ItemSectionBinding
 import org.eclipsesoundscapes.model.Eclipse
@@ -67,6 +68,11 @@ internal class FeaturesAdapter internal constructor(
             binding.eclipse = item
             binding.clickListener = clickListener
             binding.executePendingBindings()
+
+            binding.root.context?.let {
+                val title = it.getString(item.title())
+                binding.descriptionButton.text = it.getString(R.string.open_description, title)
+            }
         }
 
         companion object {
