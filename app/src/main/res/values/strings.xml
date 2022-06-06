@@ -350,11 +350,11 @@
     <string name="prominence">Prominence</string>
     <string name="prominence_closeup">Prominence Closeup</string>
     <string name="totality">Totality</string>
-    <string name="annular_start">The Eclipse Begins</string>
+    <string name="annular_start">The Annular Eclipse Begins</string>
     <string name="annular_phase_start">Annular Phase Begins</string>
     <string name="annularity">Annularity</string>
     <string name="annular_phase_end">Annular Phase Ends</string>
-    <string name="annular_end">The Eclipse Ends</string>
+    <string name="annular_end">The Annular Eclipse Ends</string>
     <string name="sun_as_star">Sun as a Star</string>
     <string name="eclipse_experience">Eclipse Experience</string>
     <string name="duration_desc_seconds">%1$s seconds</string>
