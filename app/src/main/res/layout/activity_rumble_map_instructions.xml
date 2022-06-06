@@ -95,9 +95,8 @@
         android:contentDescription="@string/back"
         android:layout_margin="16dp"
         app:srcCompat="@drawable/ic_chevron_left"
-
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:tint="@color/colorPrimary" />
+        app:tint="@android:color/black" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
