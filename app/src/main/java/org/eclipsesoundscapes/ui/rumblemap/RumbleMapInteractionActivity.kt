@@ -24,6 +24,7 @@ import org.eclipsesoundscapes.EclipseSoundscapesApp
 import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.data.DataManager
 import org.eclipsesoundscapes.databinding.ActivityRumbleMapInteractionBinding
+import org.eclipsesoundscapes.model.Eclipse
 import org.eclipsesoundscapes.ui.base.BaseActivity
 import org.eclipsesoundscapes.util.AndroidAudioForJSyn
 import java.io.IOException
@@ -104,12 +105,14 @@ class RumbleMapInteractionActivity : BaseActivity(), OnTouchListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (intent == null || !intent.hasExtra(EXTRA_IMG)) {
+        val eclipse = intent?.getSerializableExtra(EXTRA_ECLIPSE) as? Eclipse
+
+        if (eclipse == null) {
             finish()
             return
         }
 
-        eclipseRes = intent.getIntExtra(EXTRA_IMG, 0)
+        eclipseRes = eclipse.imageResource()
 
         binding = ActivityRumbleMapInteractionBinding.inflate(layoutInflater).apply {
 
@@ -133,6 +136,7 @@ class RumbleMapInteractionActivity : BaseActivity(), OnTouchListener {
             buttonCloseRumbleMap.setOnClickListener { onBackPressed() }
         }
 
+        title = "${getString(R.string.rumble_map)}:${getString(eclipse.title())}}"
         setContentView(binding.root)
 
         init()
@@ -512,7 +516,7 @@ class RumbleMapInteractionActivity : BaseActivity(), OnTouchListener {
     }
 
     companion object {
-        const val EXTRA_IMG = "img"
+        const val EXTRA_ECLIPSE = "eclipse"
 
         private const val LONG_PRESS_TIMEOUT = 2500
         private const val CHECKPOINT_OFFSET = 25
