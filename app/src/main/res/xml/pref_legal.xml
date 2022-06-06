@@ -13,11 +13,6 @@
         app:iconSpaceReserved="false"/>
 
     <Preference
-        android:key="credits_display"
-        android:title="@string/photo_credits"
-        app:iconSpaceReserved="false"/>
-
-    <Preference
         android:key="tos"
         android:title="@string/tos"
         app:iconSpaceReserved="false"/>
