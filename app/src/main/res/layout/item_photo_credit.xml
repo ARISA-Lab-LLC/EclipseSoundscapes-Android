@@ -6,10 +6,6 @@
         <variable
             name="photoCredit"
             type="org.eclipsesoundscapes.model.PhotoCredit" />
-
-        <variable
-            name="clickListener"
-            type="org.eclipsesoundscapes.ui.about.PhotoCreditAdapter.CreditsClickListener"/>
     </data>
 
    <com.google.android.material.card.MaterialCardView
@@ -19,9 +15,7 @@
 
        <RelativeLayout
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:focusable="true"
-           android:focusableInTouchMode="true">
+           android:layout_height="wrap_content">
 
            <ImageView
                android:id="@+id/photo"
@@ -74,6 +68,7 @@
                    android:fontFamily="sans-serif-condensed"
                    android:textSize="@dimen/secondary_text_size"
                    android:gravity="center_horizontal"
+                   android:autoLink="web"
                    tools:text="Tertiary text"/>
 
            </LinearLayout>
