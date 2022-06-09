@@ -3,7 +3,7 @@
     <string name="app_name_version">%1$s v%2$s</string>
     <string name="eclipse_features">Features</string>
     <string name="eclipse_center">Center</string>
-    <string name="next_eclipse_center">Next Eclipse Center</string>
+    <string name="eclipse_center_title">Eclipse Center</string>
 
     <!-- General -->
     <string name="media">Media</string>
@@ -90,7 +90,7 @@
 
     <!-- Eclipse Center -->
     <string name="eclipse_center_lockout_details">Updated Eclipse data coming soon.</string>
-    <string name="eclipse_countdown_title">Next Eclipse Countdown</string>
+    <string name="eclipse_countdown_title">Countdown Until Next Eclipse</string>
     <string name="next_eclipse_info">Next Eclipse Info</string>
     <string name="next_eclipse_user_location">Next Eclipse at Your Location</string>
     <string name="next_eclipse_simulated_location">Next Eclipse at Closest Location</string>

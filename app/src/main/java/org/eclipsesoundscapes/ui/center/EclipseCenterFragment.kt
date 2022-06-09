@@ -132,7 +132,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         _binding = FragmentEclipseCenterBinding.inflate(inflater, container, false).apply {
 
             val toolbar = eclipseCenterLayout.appBar.toolbar
-            toolbar.setTitle(R.string.next_eclipse_center)
+            toolbar.setTitle(R.string.eclipse_center_title)
             (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
             permissionView.root.setOnClickListener {

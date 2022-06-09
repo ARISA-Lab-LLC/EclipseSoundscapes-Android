@@ -96,23 +96,48 @@ public class EclipseExplorer {
     }
 
     public Event contact1() {
-        return new Event(context.getString(R.string.eclipse_start_partial), getDate(c1), getTime(c1), getAlt(c1), getAzi(c1));
+        int titleRes = R.string.eclipse_start_partial;
+        if (eclipseConfiguration.getType() == EclipseType.ANNULAR) {
+            titleRes = R.string.annular_start;
+        }
+
+        return new Event(context.getString(titleRes), getDate(c1), getTime(c1), getAlt(c1), getAzi(c1));
     }
 
     public Event contact2() {
-        return new Event(context.getString(R.string.eclipse_start_full), getDate(c2), getTime(c2), getAlt(c2), getAzi(c2));
+        int titleRes = R.string.eclipse_start_full;
+        if (eclipseConfiguration.getType() == EclipseType.ANNULAR) {
+            titleRes = R.string.annular_phase_start;
+        }
+
+        return new Event(context.getString(titleRes), getDate(c2), getTime(c2), getAlt(c2), getAzi(c2));
     }
 
     public Event contactMid() {
-        return new Event(context.getString(R.string.eclipse_max), getDate(mid), getTime(mid), getAlt(mid), getAzi(mid));
+        int titleRes = R.string.eclipse_max;
+        if (eclipseConfiguration.getType() == EclipseType.ANNULAR) {
+            titleRes = R.string.annularity;
+        }
+
+        return new Event(context.getString(titleRes), getDate(mid), getTime(mid), getAlt(mid), getAzi(mid));
     }
 
     public Event contact3() {
-        return new Event(context.getString(R.string.eclipse_end_full), getDate(c3), getTime(c3), getAlt(c3), getAzi(c3));
+        int titleRes = R.string.eclipse_end_full;
+        if (eclipseConfiguration.getType() == EclipseType.ANNULAR) {
+            titleRes = R.string.annular_phase_end;
+        }
+
+        return new Event(context.getString(titleRes), getDate(c3), getTime(c3), getAlt(c3), getAzi(c3));
     }
 
     public Event contact4() {
-        return new Event(context.getString(R.string.eclipse_end_partial), getDate(c4), getTime(c4), getAlt(c4), getAzi(c4));
+        int titleRes = R.string.eclipse_end_partial;
+        if (eclipseConfiguration.getType() == EclipseType.ANNULAR) {
+            titleRes = R.string.annular_end;
+        }
+
+        return new Event(context.getString(titleRes), getDate(c4), getTime(c4), getAlt(c4), getAzi(c4));
     }
 
 
