@@ -25,7 +25,7 @@
     <string name="sec_abbr">s</string>
     <string name="local_time">Hora Local</string>
     <string name="universal_time">Hora Universal</string>
-    <string name="time_ut">Hora (UT)</string>
+    <string name="time_ut">UT</string>
 
     <string name="settings">Configuraciones</string>
     <string name="open_settings">Abre las configuraciónes</string>

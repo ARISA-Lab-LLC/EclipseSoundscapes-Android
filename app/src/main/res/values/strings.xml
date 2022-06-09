@@ -3,6 +3,7 @@
     <string name="app_name_version">%1$s v%2$s</string>
     <string name="eclipse_features">Features</string>
     <string name="eclipse_center">Center</string>
+    <string name="next_eclipse_center">Next Eclipse Center</string>
 
     <!-- General -->
     <string name="media">Media</string>
@@ -89,7 +90,10 @@
 
     <!-- Eclipse Center -->
     <string name="eclipse_center_lockout_details">Updated Eclipse data coming soon.</string>
-    <string name="eclipse_countdown_title">Countdown Until Eclipse</string>
+    <string name="eclipse_countdown_title">Next Eclipse Countdown</string>
+    <string name="next_eclipse_info">Next Eclipse Info</string>
+    <string name="next_eclipse_user_location">Next Eclipse at Your Location</string>
+    <string name="next_eclipse_simulated_location">Next Eclipse at Closest Location</string>
     <string name="countdown_format">Countdown until eclipse from your location, %1$s years, %2$s months, %3$s days, %4$s hours, %5$s minutes and %6$s seconds</string>
     <string name="event_section_desc">Events at closest location are below. Events include your local time and universal time.</string>
     <string name="event_desc_format">Event from closest location, %1$s, local time, %2$s, universal time, %3$s</string>
@@ -107,10 +111,12 @@
     <string name="lat_lng_format">%1$.3f&#xb0; %2$s</string>
     <string name="percent_eclipse">% Eclipse</string>
     <string name="totality_duration">Duration of Totality</string>
+    <string name="annular_duration">Duration of Annularity</string>
+    <string name="eclipse_duration">Duration of Eclipse</string>
     <string name="eclipse_event">Event</string>
-    <string name="local_time">Local Time</string>
+    <string name="local_time">(Local Time)</string>
     <string name="universal_time">Universal Time</string>
-    <string name="time_ut">Time (UT)</string>
+    <string name="time_ut">(UT)</string>
 
     <string name="eclipse_type_full">Total Solar Eclipse</string>
     <string name="eclipse_type_partial">Partial Solar Eclipse</string>
@@ -118,11 +124,11 @@
     <string name="eclipse_type_annular">Annular Solar Eclipse</string>
     <string name="eclipse_type_unkown">Unknown</string>
 
-    <string name="eclipse_start_partial">Start of partial eclipse</string>
-    <string name="eclipse_start_full">Start of total eclipse</string>
-    <string name="eclipse_end_partial">End of partial eclipse</string>
-    <string name="eclipse_end_full">End of total eclipse</string>
-    <string name="eclipse_max">Maximum eclipse</string>
+    <string name="eclipse_start_partial">Start of Partial Eclipse</string>
+    <string name="eclipse_start_full">Start of Total Eclipse</string>
+    <string name="eclipse_end_partial">End of Partial Eclipse</string>
+    <string name="eclipse_end_full">End of Total Eclipse</string>
+    <string name="eclipse_max">Maximum Eclipse</string>
 
     <string name="active_event">Tap to hear about what\'s currently happening!</string>
 

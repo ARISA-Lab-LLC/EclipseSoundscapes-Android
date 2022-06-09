@@ -4,7 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
-import android.widget.TextView
 import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.databinding.LayoutCountdownBinding
 import org.joda.time.Period
@@ -18,35 +17,30 @@ class CountdownView @JvmOverloads constructor(
     private var binding: LayoutCountdownBinding = LayoutCountdownBinding.inflate(LayoutInflater.from(context), this, true)
 
     init {
-        binding.yearSection.title.text = context.getString(R.string.years)
-        binding.monthSection.title.text = context.getString(R.string.months)
-        binding.daySection.title.text = context.getString(R.string.days)
-        binding.hourSection.title.text = context.getString(R.string.hours)
-        binding.minuteSection.title.text = context.getString(R.string.minutes)
-        binding.secondSection.title.text = context.getString(R.string.seconds)
+        binding.stubYears.label.text = "${context.getString(R.string.years)}:"
+        binding.stubMonths.label.text = "${context.getString(R.string.months)}:"
+        binding.stubDays.label.text = "${context.getString(R.string.days)}:"
+        binding.stubHours.label.text = "${context.getString(R.string.hours)}:"
+        binding.stubMinutes.label.text = "${context.getString(R.string.minutes)}:"
 
-        binding.rootView.contentDescription = context.getString(
-            R.string.countdown_format, "0", "0", "0", "0", "0", "0"
-        )
+        binding.stubYears.value.text = "0"
+        binding.stubMonths.value.text = "0"
+        binding.stubDays.value.text = "0"
+        binding.stubHours.value.text = "0"
+        binding.stubMinutes.value.text = "0"
     }
 
     fun update(period: Period) {
-
-        updateCountdownLabels(binding.yearSection.primaryTime, binding.yearSection.secondaryTime, period.years)
-
-        updateCountdownLabels(binding.monthSection.primaryTime, binding.monthSection.secondaryTime, period.months)
+        binding.stubYears.value.text = period.years.toString()
+        binding.stubMonths.value.text = period.months.toString()
+        binding.stubHours.value.text = period.hours.toString()
+        binding.stubMinutes.value.text = period.minutes.toString()
 
         val weeks = period.weeks
         val totalDays = (weeks * 7) + period.days
-        updateCountdownLabels(binding.daySection.primaryTime, binding.daySection.secondaryTime, totalDays)
+        binding.stubDays.value.text = totalDays.toString()
 
-        updateCountdownLabels(binding.hourSection.primaryTime, binding.hourSection.secondaryTime, period.hours)
-
-        updateCountdownLabels(binding.minuteSection.primaryTime, binding.minuteSection.secondaryTime, period.minutes)
-
-        updateCountdownLabels(binding.secondSection.primaryTime, binding.secondSection.secondaryTime, period.seconds)
-
-        binding.rootView.contentDescription = context.getString(
+        binding.countdownContainer.contentDescription = context.getString(
             R.string.countdown_format,
             period.years.toString(),
             period.months.toString(),
@@ -55,20 +49,5 @@ class CountdownView @JvmOverloads constructor(
             period.minutes.toString(),
             period.seconds.toString()
         )
-    }
-
-    private fun updateCountdownLabels(
-        primaryTextView: TextView,
-        secondaryTextView: TextView,
-        time: Int
-    ) {
-        if (time > 9) {
-            val array = time.toString().split("").toTypedArray()
-            primaryTextView.text = array[1]
-            secondaryTextView.text = array[2]
-        } else {
-            primaryTextView.text = 0.toString()
-            secondaryTextView.text = time.toString()
-        }
     }
 }
