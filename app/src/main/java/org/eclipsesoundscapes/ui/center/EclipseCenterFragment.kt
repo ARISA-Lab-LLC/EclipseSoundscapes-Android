@@ -102,10 +102,6 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         }
 
     private var lastKnownLocation: Location? = null
-        set(value) {
-            field = value
-            dataManager?.lastLocation = value
-        }
 
     private var fusedLocationProviderClient: FusedLocationProviderClient? = null
     private var locationCallback : LocationCallback? = null
@@ -209,6 +205,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
     private fun onLocationDetermined(location: Location?) {
         binding.progressView.root.visibility = View.GONE
         location?.let {
+            dataManager?.lastLocation = it
             eclipseExplorer = createEclipseGenerator(it)
         }
     }
