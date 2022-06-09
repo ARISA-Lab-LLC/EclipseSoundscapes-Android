@@ -240,6 +240,7 @@ class LegalActivity : BaseActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = title
+        this.title = title
     }
 
     companion object {
