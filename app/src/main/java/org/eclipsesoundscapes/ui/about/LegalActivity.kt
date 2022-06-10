@@ -172,7 +172,10 @@ class LegalActivity : BaseActivity() {
      */
     private fun createPhotoCredits(): ArrayList<PhotoCredit> {
         val credits = ArrayList<PhotoCredit>()
-        for (eclipse in mediaEclipses()) {
+        val eclipses = Eclipse.annularEclipseMedia()
+        eclipses.addAll(Eclipse.totalEclipseMedia())
+
+        for (eclipse in eclipses) {
             val photoCredit: PhotoCredit = when (eclipse) {
                 Eclipse.FIRST_CONTACT -> PhotoCredit(
                     eclipse, getString(R.string.credits_first_contact),
