@@ -6,13 +6,12 @@
     android:background="?android:colorBackground">
 
     <TextView
+        style="@style/ParagraphText"
         android:id="@+id/permission_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
-        android:textSize="@dimen/default_text_size"
         android:text="@string/eclipse_center_permission"/>
 
 </LinearLayout>

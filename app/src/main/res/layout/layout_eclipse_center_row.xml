@@ -10,7 +10,7 @@
     android:focusable="true">
 
     <TextView
-        style="@style/EclipseCenterItemText"
+        style="@style/EclipseCenterLabelText"
         android:id="@+id/label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

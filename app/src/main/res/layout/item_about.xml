@@ -41,15 +41,13 @@
             app:srcCompat="@drawable/ic_chevron_right"/>
 
         <TextView
+            style="@style/ParagraphText"
             android:id="@+id/option_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginStart="@dimen/list_item_text_edge_padding_start"
             android:layout_toStartOf="@id/list_icon"
-            android:textSize="@dimen/default_text_size"
             tools:text="Single-line item"/>
-
     </RelativeLayout>
-
 </layout>

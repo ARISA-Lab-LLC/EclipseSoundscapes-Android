@@ -48,6 +48,7 @@
                 app:srcCompat="@drawable/ic_chevron_right"/>
 
             <TextView
+                style="@style/HeaderText3"
                 android:id="@+id/list_media_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,12 +56,7 @@
                 android:layout_toEndOf="@+id/list_media_img"
                 android:layout_centerInParent="true"
                 android:layout_toStartOf="@+id/list_media_extra"
-                android:fontFamily="sans-serif-medium"
-                android:textSize="@dimen/default_text_size"
                 app:stringId="@{media.titleResId}"/>
         </RelativeLayout>
-
     </com.google.android.material.card.MaterialCardView>
-
-
 </layout>

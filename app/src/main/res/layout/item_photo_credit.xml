@@ -39,34 +39,31 @@
                android:orientation="vertical">
 
                <TextView
+                   style="@style/HeaderText2"
                    android:id="@+id/title"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:text="@{photoCredit.eclipse.title()}"
                    android:layout_marginBottom="@dimen/list_item_line_spacing"
-                   android:fontFamily="sans-serif"
-                   android:textSize="@dimen/default_text_size"
                    android:gravity="center_horizontal"
                    tools:text="Three-line item"/>
 
                <TextView
+                   style="@style/HeaderText3"
                    android:id="@+id/credit"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:text="@{photoCredit.copyright}"
                    android:layout_marginBottom="@dimen/list_item_line_spacing"
-                   android:fontFamily="sans-serif"
-                   android:textSize="@dimen/secondary_text_size"
                    android:gravity="center_horizontal"
                    tools:text="Secondary text"/>
 
                <TextView
+                   style="@style/ParagraphText"
                    android:id="@+id/link"
                    android:text="@{photoCredit.link}"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:fontFamily="sans-serif-condensed"
-                   android:textSize="@dimen/secondary_text_size"
                    android:gravity="center_horizontal"
                    android:autoLink="web"
                    tools:text="Tertiary text"/>

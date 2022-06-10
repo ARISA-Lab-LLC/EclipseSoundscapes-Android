@@ -3,17 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/default_margin"
+    android:layout_margin="@dimen/default_margin"
     xmlns:tools="http://schemas.android.com/tools">
 
     <CheckedTextView
+        style="@style/ParagraphText"
         android:id="@+id/language"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/default_text_size"
-        android:fontFamily="sans-serif"
         android:checkMark="@drawable/ic_check_white"
-        android:checkMarkTint="#757575"
+        android:checkMarkTint="?attr/colorControlNormal"
         android:checked="false"
         tools:text="English"/>
 
