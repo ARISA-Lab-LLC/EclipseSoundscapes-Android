@@ -20,6 +20,7 @@
             android:id="@+id/date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:layout_marginBottom="@dimen/list_item_line_spacing"
             tools:text="Three-line item" />
 
