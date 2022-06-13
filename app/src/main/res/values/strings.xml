@@ -542,8 +542,8 @@
     </array>
 
     <array name="team_title">
-        <item name="member_henry_winter">Principal Investigator</item>
-        <item name="member_marykay">Project Manager</item>
+        <item name="member_henry_winter">Co-Principal Investigator</item>
+        <item name="member_marykay">Co-Principal Investigator</item>
         <item name="member_arlindo">Application Developer</item>
         <item name="member_joel">Application Developer</item>
         <item name="member_miles">Audio Engineer</item>
