@@ -446,8 +446,8 @@
     <string name="feedback">Give Feedback</string>
 
     <array name="current_partners_title">
-        <item name="partner_nasa">NASA’s Space Science Education Consortium (NSSEC)</item>
-        <item name="partner_wgbh">National Center for Accessible Media, WGBH</item>
+        <item name="partner_nasa">NASA Heliophysics Educational Activation Team (HEAT)</item>
+        <item name="partner_wgbh">National Center for Accessible Media, GBH</item>
         <item name="partner_nfb">National Federation of the Blind</item>
         <item name="partner_science_friday">Science Friday</item>
     </array>
@@ -516,10 +516,10 @@
     </array>
 
     <array name="current_partners_link">
-        <item name="nasa_link">science.nasa.gov/science-activation-team/nasa-space-science-education-consortium</item>
-        <item name="gbh_link">ncam.wgbh.org</item>
-        <item name="nfb_link">www.nfb.org</item>
-        <item name="science_friday_link">sciencefriday.com</item>
+        <item name="nasa_link">https://www.nasa.gov/</item>
+        <item name="gbh_link">http://ncam.wgbh.org/</item>
+        <item name="nfb_link">http://nfb.org/</item>
+        <item name="science_friday_link">https://sciencefriday.com/</item>
     </array>
 
     <array name="past_partners_link">
