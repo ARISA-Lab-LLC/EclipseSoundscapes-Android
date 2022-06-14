@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Eclipse Soundscapes</string>
-    <string name="app_name_version">%1$s v%2$s</string>
+    <string name="app_name" translatable="false">Eclipse Soundscapes</string>
+    <string name="app_name_version" translatable="false">%1$s v%2$s</string>
     <string name="eclipse_features">Features</string>
     <string name="eclipse_center">Center</string>
     <string name="eclipse_center_title">Eclipse Center</string>
@@ -81,7 +81,7 @@
     <string name="tos">Terms of Service</string>
     <string name="legal">Legal</string>
     <string name="libs_in_use">Libraries We Use</string>
-    <string name="jsyn_lib">JSyn</string>
+    <string name="jsyn_lib" translatable="false">JSyn</string>
 
     <string name="menu">Menu</string>
     <string name="about_us_details">The Eclipse Soundscapes mobile application is a product of the Eclipse Soundscapes Project, which is an enterprise ARISA Lab, LLC.
@@ -373,8 +373,8 @@
     <string name="annular_solar_eclipse">Annular Solar Eclipse</string>
 
     <!-- rumble map interaction -->
-    <string name="rumble_map">Rumble Map</string>
-    <string name="rumble_maps">Rumble Maps</string>
+    <string name="rumble_map" translatable="false">Rumble Map</string>
+    <string name="rumble_maps" translatable="false">Rumble Maps</string>
     <string name="rumble_map_interaction">Rumble Map Interaction</string>
     <string name="rumble_map_launch">Press to interact with Rumble Map</string>
     <string name="rumble_map_how">How to Use The Rumble Map</string>
@@ -408,36 +408,36 @@
     <string name="page_indicator">Page %1$d of %2$d</string>
 
     <!-- Future Eclipses -->
-    <string name="future_eclipse_label_format">%1$s: %2$s</string>
+    <string name="future_eclipse_label_format" translatable="false">%1$s: %2$s</string>
     <string name="future_eclipse_features">Tracking, Rumble Maps, Narrations</string>
 
     <!-- Photo credits -->
-    <string name="credits_diamond_ring">©1991 Bill Reyna\n©2005 Hana Druckmüllerová, Miloslav Druckmüller</string>
-    <string name="credits_helmet_streamers">©1994 Úpice Observatory and Vojtech Rušin\n©2007 Miloslav Druckmüller</string>
-    <string name="credits_prominence">©1991 Peter Aniol\n©2010 Miloslav Druckmüller</string>
-    <string name="credits_sun_as_star">©2006 Martin Antoš, Hana Druckmüllerová, Miloslav Druckmüller, ESA/NASA</string>
-    <string name="credits_first_contact">XRT team(SAO, NASA, JAXA, NAOJ)</string>
-    <string name="credits_totality">©2006 Miloslav Druckmüller, Peter Aniol</string>
-    <string name="credits_bailys_beads">©2013 Úpice observatory Petr Horálek, Jan Sládeček\n©2014 Miloslav Duckmüller </string>
-    <string name="credits_corona">©2002 Arne Danielsen\n©2005 Miloslav Druckmüller</string>
-    <string name="credits_annular_start">© Rick Fienberg</string>
-    <string name="credits_annular_phase_start">© Ajay Talwar</string>
-    <string name="credits_annularity">© 2020 Talha Zia</string>
-    <string name="credits_annular_phase_end">© Ajay Talwar</string>
-    <string name="credits_annular_end">Courtesy of NASA/SDO and the AIA, EVE, and HMI science teams</string>
-    <string name="credits_link_diamond_ring">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1991m/Ecl1991_rdd_dr/0-info.htm</string>
-    <string name="credits_link_helmet_streamers">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1994ch/Mid_ecl/0-info.htm</string>
-    <string name="credits_link_prominence">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1991a/Ecl1991a_in03/0-info.htm</string>
-    <string name="credits_link_sun_as_star">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2006th/Tse2006tc_m200_inh30_32_c3/0-info.htm</string>
-    <string name="credits_link_first_contact">https://xrt.cfa.harvard.edu/xpow/20160315.html</string>
-    <string name="credits_link_totality">http://www.zam.fme.vutbr.cz/~druck/eclipse/ecl2006l/Tse2006l_1640_15/0-info.htm</string>
-    <string name="credits_link_bailys_beads">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2013u/Tse_2013_bp-7430/0-info.htm</string>
-    <string name="credits_link_corona">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2002a/Ecl2002_dd_cor/0-info.htm</string>
-    <string name="credits_link_annular_start">https://eclipse.aas.org/resources/images-videos#partial</string>
-    <string name="credits_link_annular_phase_start">http://xjubier.free.fr/en/site_pages/solar_eclipses/ASE_20200621_pg02.html</string>
-    <string name="credits_link_annularity">http://xjubier.free.fr/en/site_pages/solar_eclipses/ASE_19840530_pg01.html</string>
-    <string name="credits_link_annular_phase_end">http://xjubier.free.fr/en/site_pages/solar_eclipses/ASE_20200621_pg02.html</string>
-    <string name="credits_link_annular_end">https://sdo.gsfc.nasa.gov/gallery/main/item/131</string>
+    <string name="credits_diamond_ring" translatable="false">©1991 Bill Reyna\n©2005 Hana Druckmüllerová, Miloslav Druckmüller</string>
+    <string name="credits_helmet_streamers" translatable="false">©1994 Úpice Observatory and Vojtech Rušin\n©2007 Miloslav Druckmüller</string>
+    <string name="credits_prominence" translatable="false">©1991 Peter Aniol\n©2010 Miloslav Druckmüller</string>
+    <string name="credits_sun_as_star" translatable="false">©2006 Martin Antoš, Hana Druckmüllerová, Miloslav Druckmüller, ESA/NASA</string>
+    <string name="credits_first_contact" translatable="false">XRT team(SAO, NASA, JAXA, NAOJ)</string>
+    <string name="credits_totality" translatable="false">©2006 Miloslav Druckmüller, Peter Aniol</string>
+    <string name="credits_bailys_beads" translatable="false">©2013 Úpice observatory Petr Horálek, Jan Sládeček\n©2014 Miloslav Duckmüller </string>
+    <string name="credits_corona" translatable="false">©2002 Arne Danielsen\n©2005 Miloslav Druckmüller</string>
+    <string name="credits_annular_start" translatable="false">© Rick Fienberg</string>
+    <string name="credits_annular_phase_start" translatable="false">© Ajay Talwar</string>
+    <string name="credits_annularity" translatable="false">© 2020 Talha Zia</string>
+    <string name="credits_annular_phase_end" translatable="false">© Ajay Talwar</string>
+    <string name="credits_annular_end" translatable="false">Courtesy of NASA/SDO and the AIA, EVE, and HMI science teams</string>
+    <string name="credits_link_diamond_ring" translatable="false">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1991m/Ecl1991_rdd_dr/0-info.htm</string>
+    <string name="credits_link_helmet_streamers" translatable="false">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1994ch/Mid_ecl/0-info.htm</string>
+    <string name="credits_link_prominence" translatable="false">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1991a/Ecl1991a_in03/0-info.htm</string>
+    <string name="credits_link_sun_as_star" translatable="false">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2006th/Tse2006tc_m200_inh30_32_c3/0-info.htm</string>
+    <string name="credits_link_first_contact" translatable="false">https://xrt.cfa.harvard.edu/xpow/20160315.html</string>
+    <string name="credits_link_totality" translatable="false">http://www.zam.fme.vutbr.cz/~druck/eclipse/ecl2006l/Tse2006l_1640_15/0-info.htm</string>
+    <string name="credits_link_bailys_beads" translatable="false">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2013u/Tse_2013_bp-7430/0-info.htm</string>
+    <string name="credits_link_corona" translatable="false">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2002a/Ecl2002_dd_cor/0-info.htm</string>
+    <string name="credits_link_annular_start" translatable="false">https://eclipse.aas.org/resources/images-videos#partial</string>
+    <string name="credits_link_annular_phase_start" translatable="false">http://xjubier.free.fr/en/site_pages/solar_eclipses/ASE_20200621_pg02.html</string>
+    <string name="credits_link_annularity" translatable="false">http://xjubier.free.fr/en/site_pages/solar_eclipses/ASE_19840530_pg01.html</string>
+    <string name="credits_link_annular_phase_end" translatable="false">http://xjubier.free.fr/en/site_pages/solar_eclipses/ASE_20200621_pg02.html</string>
+    <string name="credits_link_annular_end" translatable="false">https://sdo.gsfc.nasa.gov/gallery/main/item/131</string>
 
     <string name="our_partners">Our Partners</string>
     <string name="current_partners">Current Partners</string>
