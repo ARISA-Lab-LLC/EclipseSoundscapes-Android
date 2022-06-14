@@ -100,8 +100,10 @@
         Agradecemos a la comunidad de código abierto por todas sus contribuciones.</string>
 
     <!-- Eclipse Center -->
-    <string name="next_eclipse_info">La Información del Próximo Eclipse</string>
-    <string name="eclipse_center_lockout_details">Próximamente se actualizarán los datos del Eclipse.</string>
+    <string name="next_eclipse_info">La información del próximo eclipse</string>
+    <string name="next_eclipse_user_location">Próximo eclipse en su ubicación</string>
+    <string name="next_eclipse_simulated_location">Próximo eclipse en la ubicación más cercana</string>
+    <string name="eclipse_center_lockout_details">Próximamente se actualizarán los datos del eclipse.</string>
     <string name="eclipse_countdown_title">Cuenta regresiva hasta el eclipse</string>
     <string name="event_section_desc">A continuación se indican los eventos en la ubicación más cercana. Los eventos incluyen la hora local y universal.</string>
     <string name="event_desc_format">Evento desde la ubicación más cercana: %1$s, hora local, %2$s, hora universal, %3$s</string>
@@ -119,6 +121,8 @@
     <string name="lat_lng_format">%1$.3f&#xb0; %2$s</string>
     <string name="percent_eclipse">% del eclipse</string>
     <string name="totality_duration">Duración del eclipse total</string>
+    <string name="annular_duration">Duración del Eclipse Annular</string>
+    <string name="eclipse_duration">Duración del Eclipse</string>
     <string name="eclipse_event">Evento</string>
 
     <string name="eclipse_type_full">Eclipse solar total</string>
