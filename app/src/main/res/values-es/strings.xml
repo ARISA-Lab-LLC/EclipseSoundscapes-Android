@@ -438,11 +438,10 @@
     </array>
 
     <array name="current_partners_desc">
-        <item name="nasa_description">La NASA (National Aeronautics and Space Administration, Administración Nacional de la Aeronáutica y del Espacio) es una agencia independiente del gobierno federal de Estados Unidos que dirige el programa espacial civil, así como la investigación aeronáutica y aeroespacial.
-            La NASA dirige una iniciativa de extensión educativa en torno a los eclipses, que incluye información y cobertura de estos sucesos en vivo.
-            Para obtener más información sobre la NASA, visite nasa.gov. El NASA Space Science Education Consortium (NSSEC) capitaliza la amplia trayectoria de la NASA de compartir investigación y tecnología mediante proyectos educativos atractivos e innovadores.
-            El NSSEC (anteriormente denominado Heliophysics Education Consortium [HEC]) continúa el trabajo de la organización Science Mission Directorate (SMD) al frente de las iniciativas educativas de la NASA al vincular ciencia y misiones emocionantes directamente con el público estadounidense.
-            El NSSEC colabora con Eclipse Soundscapes a fin de ofrecer el guion calculando el momento del eclipse, así como los fondos que posibilitan el proyecto Eclipse Soundscapes.</item>
+        <item name="nasa_description">El NASA Heliophysics Education Activation Team (NASA HEAT) capitaliza la amplia trayectoria de la NASA de compartir investigación y tecnología mediante proyectos educativos atractivos e innovadores.
+            El NASA HEAT (anteriormente denominado NASA Space Science Education Consortium (NSSEC)) continúa el trabajo de la organización Science Mission Directorate (SMD) al frente de las iniciativas educativas de la NASA al vincular ciencia y misiones
+            emocionantes directamente con el público estadounidense.
+            El NASA HEAT colabora con ARISA Lab para su proyecto Eclipse Soundscapes aplicación mobil a fin de ofrecer el guion calculando el momento del eclipse, expertas en la materia, y los fondos que posibilitan el proyecto Eclipse Soundscapes.</item>
 
         <item name="wgbh_description">El National Center for Accessible Media (NCAM) de la fundación Carl and Ruth Shapiro Family es una rama sin fines de lucro de GBH en Boston que se dedica a lograr igualdad en el acceso a los medios para personas con discapacidades.
             El NCAM colabora con Eclipse Soundscapes a fin de ofrecer cobertura del eclipse en los medios, que incluye descripciones ilustrativas del eclipse por audio que permitirán que las personas con discapacidad visual puedan experimentar el eclipse a través de narraciones por audio en tiempo real.

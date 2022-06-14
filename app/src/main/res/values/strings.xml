@@ -446,7 +446,7 @@
     <string name="feedback">Give Feedback</string>
 
     <array name="current_partners_title">
-        <item name="partner_nasa">NASA Heliophysics Educational Activation Team (HEAT)</item>
+        <item name="partner_nasa">NASA Heliophysics Education Activation Team (NASA HEAT)</item>
         <item name="partner_wgbh">National Center for Accessible Media, GBH</item>
         <item name="partner_nfb">National Federation of the Blind</item>
         <item name="partner_science_friday">Science Friday</item>
@@ -462,12 +462,9 @@
     </array>
 
     <array name="current_partners_desc">
-        <item name="nasa_description">NASA (National Aeronautics and Space Administration) is an independent agency of the United States federal government which conducts the civilian space program, aeronautics, and aerospace research.
-            NASA is leading an educational outreach effort surrounding eclipses, which includes information and live coverage of these events.
-            For more information on NASA, visit nasa.gov. The NASA Space Science Education Consortium (NSSEC) capitalizes on NASA\’s rich history of sharing research and technology through compelling and innovative education projects.
-            The NSSEC (formerly the Heliophysics Education Consortium (HEC)) continues the Science Mission Directorate\’s (SMD) work at the forefront of NASA\’s educational endeavors by linking exciting science and missions directly to the American public.
-            NSSEC is partnering with Eclipse Soundscapes to provide the script calculating the timing of the eclipse, as well as the funding that makes Eclipse Soundscapes possible.
-        </item>
+        <item name="nasa_description">The NASA Heliophysics Education Team (NASA HEAT) capitalizes on NASA\’s rich history of sharing research and technology through compelling and innovative education projects.
+            NASA HEAT (formerly NASA Space Science Education Consortium (NSSEC)) continues the Science Mission Directorate\’s (SMD) work at the forefront of NASA\’s educational endeavors by linking exciting science and missions directly to the American public.
+            NASA HEAT is partnering with ARISA Lab on its Eclipse Soundscapes Mobile Application Project to provide the script calculating the timing of the eclipse, subject matter experts, and the funding that makes the Eclipse Soundscapes mobile application possible.</item>
 
         <item name="wgbh_description">The Carl and Ruth Shapiro Family National Center for Accessible Media (NCAM) is a non-profit branch of GBH in Boston which is dedicated to achieving media access equality for people with disabilities.
             NCAM is partnering with Eclipse Soundscapes to provide media coverage of the eclipse, including illustrative audio descriptions of the eclipse which will allow visually impaired individuals to experience the eclipse through real-time audio narrations.
@@ -516,10 +513,10 @@
     </array>
 
     <array name="current_partners_link">
-        <item name="nasa_link">https://www.nasa.gov/</item>
-        <item name="gbh_link">http://ncam.wgbh.org/</item>
-        <item name="nfb_link">http://nfb.org/</item>
-        <item name="science_friday_link">https://sciencefriday.com/</item>
+        <item name="nasa_link">https://science.nasa.gov/science-activation-team/nasa-heliophysics-education-activation-team</item>
+        <item name="gbh_link">http://ncam.wgbh.org</item>
+        <item name="nfb_link">http://nfb.org</item>
+        <item name="science_friday_link">https://sciencefriday.com</item>
     </array>
 
     <array name="past_partners_link">
