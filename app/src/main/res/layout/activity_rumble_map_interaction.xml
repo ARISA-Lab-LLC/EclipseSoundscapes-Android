@@ -24,7 +24,8 @@
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             android:layout_centerInParent="true"
-            android:src="@drawable/eclipse_bailys_beads" />
+            android:src="@drawable/eclipse_bailys_beads"
+            android:hapticFeedbackEnabled="true"/>
     </RelativeLayout>
 
 </LinearLayout>
