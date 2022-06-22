@@ -85,8 +85,8 @@
 
     <string name="menu">Menu</string>
     <string name="about_us_details">The Eclipse Soundscapes mobile application is a product of the Eclipse Soundscapes Project, which is an enterprise ARISA Lab, LLC.
-        The Eclipse Soundscapes Project aims to engage ALL learners with astrophysics, with an intentional focus on inclusion and accessibility. For more information, visit EclipseSoundscapes.org.
-        The development of the Eclipse Soundscapes mobile application is funded by NASA Space Science Education Consortium.</string>
+        The Eclipse Soundscapes Project aims to engage ALL learners with astrophysics, with an intentional focus on inclusion and accessibility.
+        For more information, visit EclipseSoundscapes.org. The development of the Eclipse Soundscapes mobile application is funded by NASA Heliophysics Education Activation Team (NASA HEAT).</string>
 
     <!-- Eclipse Center -->
     <string name="eclipse_center_lockout_details">Updated Eclipse data coming soon.</string>
