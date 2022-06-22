@@ -10,6 +10,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            style="@style/HeaderText2"
             android:id="@+id/title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -18,8 +19,6 @@
             android:layout_marginTop="24dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:fontFamily="sans-serif-medium"
-            android:textSize="21sp"
             android:text="@string/walkthrough_location_page"
             android:contentDescription="@string/walkthrough_title_location"
             android:focusable="true"
@@ -42,13 +41,12 @@
             android:layout_marginBottom="16dp"/>
 
         <TextView
+            style="@style/ParagraphText"
             android:id="@+id/message"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@string/walkthrough_permission"
             android:gravity="center"
-            android:fontFamily="sans-serif"
-            android:textSize="@dimen/default_text_size"
             android:layout_marginTop="16dp"
             android:layout_marginStart="24dp"
             android:layout_marginEnd="24dp"

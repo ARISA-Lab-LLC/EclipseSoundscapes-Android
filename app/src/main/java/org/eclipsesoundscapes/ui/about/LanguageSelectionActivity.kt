@@ -11,6 +11,7 @@ import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.data.DataManager
 import org.eclipsesoundscapes.databinding.ActivityLanguageSelectionBinding
 import org.eclipsesoundscapes.ui.base.BaseActivity
+import org.eclipsesoundscapes.ui.main.MainActivity
 import org.eclipsesoundscapes.util.LocaleUtils
 import java.util.*
 
@@ -100,10 +101,8 @@ class LanguageSelectionActivity : BaseActivity() {
             finish()
         } else {
             // locale has been updated and task cleared
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
-            startActivity(Intent(this, SettingsActivity::class.java).apply {
-                putExtra(SettingsActivity.EXTRA_SETTINGS_MODE, SettingsActivity.MODE_SETTINGS)
-            })
         }
         overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
     }

@@ -56,6 +56,10 @@ class AboutAdapter internal constructor(
                     binding.optionText.text = context.getString(R.string.our_partners)
                     binding.listAvatar.setImageResource(R.drawable.ic_partners)
                 }
+                AboutItem.PHOTO_CREDITS -> {
+                    binding.optionText.text = context.getString(R.string.photo_credits)
+                    binding.listAvatar.setImageResource(R.drawable.ic_photo_credits)
+                }
                 AboutItem.FUTURE_ECLIPSES -> {
                     binding.optionText.text = context.getString(R.string.supported_eclipse)
                     binding.listAvatar.setImageResource(R.drawable.ic_nav_eclipse_center)

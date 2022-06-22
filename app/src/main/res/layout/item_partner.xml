@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="@dimen/default_margin"
+    android:focusable="true"
     card_view:cardUseCompatPadding="true">
 
     <LinearLayout
@@ -36,21 +37,20 @@
                 android:layout_alignParentEnd="true">
 
                 <TextView
+                    style="@style/HeaderText2"
                     android:id="@+id/partner_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
-                    android:fontFamily="sans-serif-medium"
-                    android:textSize="@dimen/title_text_size"
                     tools:text="NASA"/>
 
                 <TextView
+                    style="@style/HeaderText3"
                     android:id="@+id/extra_detail"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:fontFamily="sans-serif"
-                    android:textSize="@dimen/default_text_size"
+                    android:autoLink="web"
                     tools:text="Extra details"/>
 
             </LinearLayout>
@@ -67,12 +67,11 @@
             android:layout_marginEnd="24dp"/>
 
         <TextView
+            style="@style/ParagraphText"
             android:id="@+id/partner_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:fontFamily="sans-serif"
-            android:textSize="@dimen/default_text_size"
             tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum condimentum nibh convallis, volutpat lorem non, mattis lacus. Pellentesque nec lorem risus. Phasellus vitae est mattis neque ornare malesuada a ut magna. Sed nec laoreet est. Maecenas sagittis, nisi nec maximus gravida, lectus magna tempus ex, ac pharetra neque leo id velit."/>
 
     </LinearLayout>

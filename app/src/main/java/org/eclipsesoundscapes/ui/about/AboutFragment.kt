@@ -48,6 +48,7 @@ enum class AboutItem {
     RUMBLE_MAP,
     TEAM,
     PARTNERS,
+    PHOTO_CREDITS,
     FUTURE_ECLIPSES,
     WALKTHROUGH,
     FEEDBACK,
@@ -79,6 +80,11 @@ class AboutFragment : Fragment() {
                         showActivity(Intent(activity, OurTeamActivity::class.java))
                     AboutItem.PARTNERS ->
                         showActivity(Intent(activity, OurPartnersActivity::class.java))
+                    AboutItem.PHOTO_CREDITS -> {
+                        showActivity(Intent(activity, LegalActivity::class.java).apply {
+                            putExtra(LegalActivity.EXTRA_LEGAL, LegalActivity.EXTRA_PHOTO_CREDS)
+                        })
+                    }
                     AboutItem.FUTURE_ECLIPSES ->
                         showActivity(Intent(activity, FutureEclipsesActivity::class.java))
                     AboutItem.WALKTHROUGH -> {

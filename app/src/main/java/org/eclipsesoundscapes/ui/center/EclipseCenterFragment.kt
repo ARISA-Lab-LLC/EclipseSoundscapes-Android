@@ -17,6 +17,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.location.LocationManagerCompat
@@ -101,10 +102,6 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         }
 
     private var lastKnownLocation: Location? = null
-        set(value) {
-            field = value
-            dataManager?.lastLocation = value
-        }
 
     private var fusedLocationProviderClient: FusedLocationProviderClient? = null
     private var locationCallback : LocationCallback? = null
@@ -129,6 +126,10 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentEclipseCenterBinding.inflate(inflater, container, false).apply {
+
+            val toolbar = eclipseCenterLayout.appBar.toolbar
+            toolbar.setTitle(R.string.eclipse_center_title)
+            (activity as AppCompatActivity).setSupportActionBar(toolbar)
 
             permissionView.root.setOnClickListener {
                 handleLocationPermission()
@@ -204,6 +205,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
     private fun onLocationDetermined(location: Location?) {
         binding.progressView.root.visibility = View.GONE
         location?.let {
+            dataManager?.lastLocation = it
             eclipseExplorer = createEclipseGenerator(it)
         }
     }
@@ -223,38 +225,23 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
     private fun updateView() {
         binding.eclipseCenterLayout.root.visibility = View.VISIBLE
 
+        binding.eclipseCenterLayout.stubDate.label.text = "${getString(R.string.date)}:"
+        binding.eclipseCenterLayout.stubType.label.text = "${getString(R.string.eclipse_type)}:"
+
+        if (dataManager?.simulated == true) {
+            binding.eclipseCenterLayout.nextEclipseLocationTitle.text = getString(R.string.next_eclipse_simulated_location)
+        }
+
         eclipseExplorer?.let {
-
-            binding.eclipseCenterLayout.latitude.text = getString(
-                R.string.lat_lng_format, it.latitude,
-                getString(
-                    if (it.latitude > 0) {
-                        R.string.north
-                    } else {
-                        R.string.south
-                    }
-                )
-            )
-
-            binding.eclipseCenterLayout.longitude.text = getString(
-                R.string.lat_lng_format, it.longitude,
-                getString(
-                    if (it.longitude > 0) {
-                        R.string.east
-                    } else {
-                        R.string.west
-                    }
-                )
-            )
-
-            binding.eclipseCenterLayout.percentEclipse.text = eclipseExplorer?.coverage
+            binding.eclipseCenterLayout.stubPercent.label.text = "${getString(R.string.percent_eclipse)}:"
+            binding.eclipseCenterLayout.stubPercent.value.text = eclipseExplorer?.coverage
 
             // set date of first contact
             if (eclipseExplorer?.eclipseVisibility != EclipseVisibility.NONE) {
-                binding.eclipseCenterLayout.date.text = eclipseExplorer?.contact1()?.date
+                binding.eclipseCenterLayout.stubDate.value.text = eclipseExplorer?.contact1()?.date
             }
 
-            binding.eclipseCenterLayout.eclipseType.text = when (eclipseExplorer?.eclipseConfiguration?.type) {
+            binding.eclipseCenterLayout.stubType.value.text = when (eclipseExplorer?.eclipseConfiguration?.type) {
                 EclipseType.ANNULAR -> getString(R.string.eclipse_type_annular)
                 EclipseType.TOTAL -> getString(R.string.eclipse_type_full)
                 EclipseType.PARTIAL -> getString(R.string.eclipse_type_partial)
@@ -327,8 +314,16 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             binding.eclipseCenterLayout.stubContactFour
         )
 
-        binding.eclipseCenterLayout.durationTotalityLayout.visibility = View.VISIBLE
-        binding.eclipseCenterLayout.durationTotality.text = eclipseExplorer?.formattedDuration
+        binding.eclipseCenterLayout.stubDuration.root.visibility = View.VISIBLE
+        binding.eclipseCenterLayout.stubDuration.value.text = eclipseExplorer?.formattedDuration
+
+        val durationLabel = when (eclipseExplorer?.eclipseConfiguration?.type) {
+            EclipseType.TOTAL -> getString(R.string.totality_duration)
+            EclipseType.ANNULAR -> getString(R.string.annular_duration)
+            else -> getString(R.string.eclipse_duration)
+        }
+
+        binding.eclipseCenterLayout.stubDuration.label.text = "${durationLabel}:"
 
         eclipseExplorer?.duration?.let {
             val seconds = String.format(
@@ -338,7 +333,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
                 it.millisOfSecond
             )
 
-            binding.eclipseCenterLayout.durationTotality.contentDescription =
+            binding.eclipseCenterLayout.stubDuration.value.contentDescription =
                 getString(R.string.duration_min_sec, it.minuteOfHour.toString(), seconds)
         }
     }
@@ -347,8 +342,8 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         event?.let {
             val localTime = DateTimeUtils.convertLocalTime(it)
             layout.eclipseEvent.text = getString(R.string.eclipse_center_title_format, it.name)
-            layout.eclipseTimeLocal.text = localTime
-            layout.eclipseTimeUt.text = it.time
+            layout.eclipseTimeLocal.text = "${localTime} ${getString(R.string.local_time)}"
+            layout.eclipseTimeUtc.text = "${it.time} ${getString(R.string.time_ut)}"
 
             layout.root.contentDescription = getString(R.string.event_desc_format,
                 it.name,
@@ -436,7 +431,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             // cancel previous timer
             countDownTimer?.cancel()
 
-            countDownTimer = object : CountDownTimer(millisDif, 1000) {
+            countDownTimer = object : CountDownTimer(millisDif, COUNTDOWN_INTERVAL) {
                 override fun onTick(millisUntilFinished: Long) {
                     val currentDate = Date().time
                     val interval = if (date.isAfter(currentDate)) {
@@ -642,6 +637,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
     companion object {
         const val TAG = "EclipseCenterFragment"
         private const val KEY_LOCATION = "location"
+        private const val COUNTDOWN_INTERVAL = 60000L
 
         @JvmStatic
         fun newInstance(): EclipseCenterFragment {

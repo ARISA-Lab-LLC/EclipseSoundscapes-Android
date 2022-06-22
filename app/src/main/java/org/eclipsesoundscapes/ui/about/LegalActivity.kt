@@ -1,8 +1,6 @@
 package org.eclipsesoundscapes.ui.about
 
-import android.content.Intent
 import android.graphics.Bitmap
-import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -97,9 +95,7 @@ class LegalActivity : BaseActivity() {
 
                     photoCreditsRecycler.layoutManager = LinearLayoutManager(this@LegalActivity)
                     photoCreditsRecycler.setHasFixedSize(true)
-                    photoCreditsRecycler.adapter = PhotoCreditAdapter(createPhotoCredits(), PhotoCreditAdapter.CreditsClickListener {
-                        startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it.link)))
-                    })
+                    photoCreditsRecycler.adapter = PhotoCreditAdapter(createPhotoCredits())
                 }
 
                 setContentView(binding.root)
@@ -176,7 +172,10 @@ class LegalActivity : BaseActivity() {
      */
     private fun createPhotoCredits(): ArrayList<PhotoCredit> {
         val credits = ArrayList<PhotoCredit>()
-        for (eclipse in mediaEclipses()) {
+        val eclipses = Eclipse.annularEclipseMedia()
+        eclipses.addAll(Eclipse.totalEclipseMedia())
+
+        for (eclipse in eclipses) {
             val photoCredit: PhotoCredit = when (eclipse) {
                 Eclipse.FIRST_CONTACT -> PhotoCredit(
                     eclipse, getString(R.string.credits_first_contact),
@@ -240,6 +239,7 @@ class LegalActivity : BaseActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = title
+        this.title = title
     }
 
     companion object {

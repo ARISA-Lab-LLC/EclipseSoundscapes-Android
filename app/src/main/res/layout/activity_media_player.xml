@@ -137,12 +137,11 @@
         app:layout_constraintRight_toRightOf="parent">
 
         <TextView
+            style="@style/HeaderText2"
             android:id="@+id/eclipse_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/default_margin"
-            android:fontFamily="sans-serif-medium"
-            android:textSize="@dimen/title_text_size"
             tools:text="@string/first_contact"/>
 
         <View
@@ -161,14 +160,13 @@
             android:importantForAccessibility="no">
 
             <TextView
+                style="@style/ParagraphText"
                 android:id="@+id/eclipse_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/default_margin"
                 android:paddingBottom="@dimen/default_margin"
                 android:focusable="true"
-                android:fontFamily="sans-serif"
-                android:textSize="@dimen/default_text_size"
                 android:layout_marginBottom="16dp"
                 android:lineSpacingExtra="@dimen/extraLineSpace"
                 tools:text="@string/totality_description"/>

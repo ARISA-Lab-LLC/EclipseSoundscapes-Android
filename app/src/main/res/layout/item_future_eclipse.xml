@@ -16,38 +16,35 @@
         android:focusableInTouchMode="true">
 
         <TextView
+            style="@style/ParagraphText"
             android:id="@+id/date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textStyle="bold"
             android:layout_marginBottom="@dimen/list_item_line_spacing"
-            android:fontFamily="sans-serif"
-            android:textSize="@dimen/default_text_size"
             tools:text="Three-line item" />
 
         <TextView
+            style="@style/ParagraphText"
             android:id="@+id/time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/list_item_line_spacing"
-            android:fontFamily="sans-serif"
-            android:textSize="@dimen/default_text_size"
             tools:text="Secondary text"/>
 
         <TextView
+            style="@style/ParagraphText"
             android:id="@+id/type"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/list_item_line_spacing"
-            android:fontFamily="sans-serif"
-            android:textSize="@dimen/default_text_size"
             tools:text="Tertiary text"/>
 
         <TextView
             android:id="@+id/features"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif"
-            android:textSize="@dimen/default_text_size"
+            style="@style/ParagraphText"
             tools:text="Tertiary text"/>
 
     </LinearLayout>

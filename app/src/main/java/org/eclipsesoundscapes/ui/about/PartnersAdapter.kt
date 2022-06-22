@@ -93,6 +93,8 @@ class PartnersAdapter internal constructor(
             binding.partnerDescription.text = partner.description
             binding.partnerLogo.setImageDrawable(partner.logo)
             Linkify.addLinks(binding.extraDetail, Linkify.ALL)
+
+            binding.root.nextFocusDownId = binding.extraDetail.id
         }
 
         companion object {

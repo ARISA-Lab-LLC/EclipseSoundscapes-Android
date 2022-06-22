@@ -8,11 +8,8 @@ import android.graphics.Rect
 import android.graphics.drawable.BitmapDrawable
 import android.media.MediaPlayer
 import android.os.*
-import android.view.GestureDetector
+import android.view.*
 import android.view.GestureDetector.SimpleOnGestureListener
-import android.view.HapticFeedbackConstants
-import android.view.MotionEvent
-import android.view.View
 import android.view.View.OnTouchListener
 import android.view.accessibility.AccessibilityManager
 import com.jsyn.JSyn
@@ -24,6 +21,7 @@ import org.eclipsesoundscapes.EclipseSoundscapesApp
 import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.data.DataManager
 import org.eclipsesoundscapes.databinding.ActivityRumbleMapInteractionBinding
+import org.eclipsesoundscapes.model.Eclipse
 import org.eclipsesoundscapes.ui.base.BaseActivity
 import org.eclipsesoundscapes.util.AndroidAudioForJSyn
 import java.io.IOException
@@ -104,35 +102,29 @@ class RumbleMapInteractionActivity : BaseActivity(), OnTouchListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (intent == null || !intent.hasExtra(EXTRA_IMG)) {
+        val eclipse = intent?.getSerializableExtra(EXTRA_ECLIPSE) as? Eclipse
+
+        if (eclipse == null) {
             finish()
             return
         }
 
-        eclipseRes = intent.getIntExtra(EXTRA_IMG, 0)
+        eclipseRes = eclipse.imageResource()
 
         binding = ActivityRumbleMapInteractionBinding.inflate(layoutInflater).apply {
 
             eclipseImg.setImageResource(eclipseRes)
 
-            buttonInstructions.setOnClickListener {
-                if (isRunning && isAccessibilityEnabled) {
-                    isRunning = false
-                    rumbleMapLayout.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
-                    rumbleMapLayout.contentDescription = getString(R.string.rumble_map_inactive)
-                }
-
-                startActivity(Intent(this@RumbleMapInteractionActivity, RumbleMapInstructionsActivity::class.java))
-                overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left)
-            }
-
             rumbleMapLayout.setOnClickListener {
                 enableInteraction(!isRunning)
             }
 
-            buttonCloseRumbleMap.setOnClickListener { onBackPressed() }
+            setSupportActionBar(appBar.toolbar)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.title = getString(eclipse.title())
         }
 
+        title = "${getString(R.string.rumble_map)}:${getString(eclipse.title())}}"
         setContentView(binding.root)
 
         init()
@@ -506,13 +498,39 @@ class RumbleMapInteractionActivity : BaseActivity(), OnTouchListener {
         mediaPlayer = null
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_rumble_map, menu);
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                true
+            }
+            R.id.menu_instructions -> {
+                if (isRunning && isAccessibilityEnabled) {
+                    isRunning = false
+                    binding.rumbleMapLayout.importantForAccessibility = View.IMPORTANT_FOR_ACCESSIBILITY_YES
+                    binding.rumbleMapLayout.contentDescription = getString(R.string.rumble_map_inactive)
+                }
+
+                startActivity(Intent(this@RumbleMapInteractionActivity, RumbleMapInstructionsActivity::class.java))
+                overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_left)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
     override fun onBackPressed() {
         super.onBackPressed()
         finish()
     }
 
     companion object {
-        const val EXTRA_IMG = "img"
+        const val EXTRA_ECLIPSE = "eclipse"
 
         private const val LONG_PRESS_TIMEOUT = 2500
         private const val CHECKPOINT_OFFSET = 25

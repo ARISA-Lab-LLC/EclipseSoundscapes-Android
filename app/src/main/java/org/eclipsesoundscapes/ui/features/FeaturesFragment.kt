@@ -58,7 +58,7 @@ class FeaturesFragment : Fragment() {
             featuresAdapter = FeaturesAdapter(eclipses, FeaturesAdapter.FeaturesClickListener { media, openRumbleMap ->
                 if (openRumbleMap) {
                     activity?.startActivity(Intent(activity, RumbleMapInteractionActivity::class.java).apply {
-                        putExtra(RumbleMapInteractionActivity.EXTRA_IMG, media.imageResource())
+                        putExtra(RumbleMapInteractionActivity.EXTRA_ECLIPSE, media)
                     })
                 } else {
                     // show description

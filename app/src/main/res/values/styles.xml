@@ -5,6 +5,7 @@
         <item name="colorPrimaryVariant">@color/colorPrimaryVariant</item>
         <item name="colorOnPrimary">@android:color/white</item>
         <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="preferenceTheme">@style/SettingsTheme</item>
     </style>
 
     <style name="AppTheme" parent="Base.AppTheme"/>
@@ -13,5 +14,45 @@
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowSharedElementsUseOverlay">false</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+    </style>
+
+    <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="TextAppearance.App.SubTitle1" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="android:textSize">@dimen/default_text_size</item>
+    </style>
+
+    <style name="TextAppearance.App.Body1" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">@dimen/default_text_size</item>
+    </style>
+
+    <style name="HeaderText2" parent="Theme.MaterialComponents.DayNight">
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline6</item>
+    </style>
+
+    <style name="HeaderText3" parent="Theme.MaterialComponents.DayNight">
+        <item name="android:textAppearance">@style/TextAppearance.App.SubTitle1</item>
+    </style>
+
+    <style name="ParagraphText" parent="Theme.MaterialComponents.DayNight">
+        <item name="android:textAppearance">@style/TextAppearance.App.Body1</item>
+    </style>
+
+    <style name="EclipseCenterLabelText" parent="Theme.MaterialComponents.DayNight">
+        <item name="android:textAppearance">@style/TextAppearance.App.Body1</item>
+        <item name="android:gravity">start</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
+    <style name="EclipseCenterValueText" parent="Theme.MaterialComponents.DayNight">
+        <item name="android:textAppearance">@style/TextAppearance.App.Body1</item>
+        <item name="android:gravity">end</item>
+        <item name="android:maxLines">2</item>
+    </style>
+
+    <style name="SettingsTheme" parent="PreferenceThemeOverlay">
+        <item name="android:textSize">@dimen/default_text_size</item>
     </style>
 </resources>

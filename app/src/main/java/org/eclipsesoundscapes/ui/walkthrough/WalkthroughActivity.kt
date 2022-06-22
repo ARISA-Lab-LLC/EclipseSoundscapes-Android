@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.*
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
@@ -102,6 +103,7 @@ class WalkthroughActivity : BaseActivity() {
 
                 if (mode != MODE_MENU) {
                     binding.skipCloseButton.visibility = View.GONE
+                    updateNavButtonColor(true)
                 }
             }
             0 -> {
@@ -109,11 +111,13 @@ class WalkthroughActivity : BaseActivity() {
                 binding.nextButton.visibility = View.VISIBLE
                 binding.skipCloseButton.visibility = View.VISIBLE
                 binding.prevButton.visibility = View.GONE
+                updateNavButtonColor(true)
             }
             else -> {
                 binding.nextButton.visibility = View.VISIBLE
                 binding.skipCloseButton.visibility = View.VISIBLE
                 binding.prevButton.visibility = View.VISIBLE
+                updateNavButtonColor(false)
             }
         }
     }
@@ -133,6 +137,18 @@ class WalkthroughActivity : BaseActivity() {
         dataManager?.walkthroughComplete = true
         startActivity(Intent(this, MainActivity::class.java))
         finish()
+    }
+
+    private fun updateNavButtonColor(lightTheme: Boolean) {
+        if (lightTheme) {
+            binding.nextButton.setColorFilter(ContextCompat.getColor(this, android.R.color.white))
+            binding.skipCloseButton.setTextColor(ContextCompat.getColor(this, android.R.color.white))
+            binding.prevButton.setColorFilter(ContextCompat.getColor(this, android.R.color.white))
+        } else {
+            binding.nextButton.setColorFilter(ContextCompat.getColor(this, android.R.color.black))
+            binding.skipCloseButton.setTextColor(ContextCompat.getColor(this, android.R.color.black))
+            binding.prevButton.setColorFilter(ContextCompat.getColor(this, android.R.color.black))
+        }
     }
 
     private inner class WalkthroughPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {

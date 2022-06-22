@@ -162,15 +162,6 @@ class SettingsActivity : BaseActivity() {
                     }
             }
 
-
-            findPreference<Preference>("credits_display")?.let {
-                it.onPreferenceClickListener =
-                    Preference.OnPreferenceClickListener {
-                        showLegality(LegalActivity.EXTRA_PHOTO_CREDS)
-                        true
-                    }
-            }
-
             findPreference<Preference>("tos")?.let {
                 it.onPreferenceClickListener =
                     Preference.OnPreferenceClickListener {

@@ -1,106 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/root_view"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/countdown_title"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="@dimen/default_margin"
-        android:text="@string/eclipse_countdown_title"
-        android:textSize="@dimen/title_text_size"
-        android:fontFamily="sans-serif-medium"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+    <LinearLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/top_section_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="year_section,month_section"/>
+        <TextView
+            style="@style/HeaderText2"
+            android:id="@+id/countdown_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/eclipse_countdown_title"/>
 
-    <include
-        layout="@layout/view_countdown_section"
-        android:id="@+id/year_section"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@+id/countdown_title"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/month_section"/>
+        <LinearLayout
+            android:id="@+id/countdown_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:focusable="false">
 
-    <include
-        layout="@layout/view_countdown_section"
-        android:id="@+id/month_section"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@+id/countdown_title"
-        app:layout_constraintStart_toEndOf="@+id/year_section"
-        app:layout_constraintEnd_toEndOf="parent"/>
+            <include
+                android:id="@+id/stub_years"
+                layout="@layout/layout_eclipse_center_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/top_section_guide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="year_section,month_section"/>
+            <include
+                android:id="@+id/stub_months"
+                layout="@layout/layout_eclipse_center_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"/>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/center_vertical_guide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5"/>
+            <include
+                android:id="@+id/stub_days"
+                layout="@layout/layout_eclipse_center_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"/>
 
-    <include
-        layout="@layout/view_countdown_section"
-        android:id="@+id/day_section"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@+id/top_section_guide"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/hour_section"/>
+            <include
+                android:id="@+id/stub_hours"
+                layout="@layout/layout_eclipse_center_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"/>
 
-    <include
-        layout="@layout/view_countdown_section"
-        android:id="@+id/hour_section"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@+id/top_section_guide"
-        app:layout_constraintStart_toEndOf="@id/day_section"
-        app:layout_constraintEnd_toEndOf="@+id/center_vertical_guide"/>
+            <include
+                android:id="@+id/stub_minutes"
+                layout="@layout/layout_eclipse_center_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"/>
 
-    <include
-        layout="@layout/view_countdown_section"
-        android:id="@+id/minute_section"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@+id/top_section_guide"
-        app:layout_constraintStart_toEndOf="@+id/center_vertical_guide"
-        app:layout_constraintEnd_toStartOf="@id/second_section"/>
-
-    <include
-        layout="@layout/view_countdown_section"
-        android:id="@+id/second_section"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintTop_toBottomOf="@+id/top_section_guide"
-        app:layout_constraintStart_toEndOf="@+id/minute_section"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/bottom_section_group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="day_section,hour_section,minute_section,second_section"/>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>
