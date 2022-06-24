@@ -78,10 +78,8 @@ class WalkthroughFragment : Fragment() {
     private val requestPermissionLauncher =
         registerForActivityResult(
             ActivityResultContracts.RequestPermission()
-        ) { isGranted: Boolean ->
-            if (isGranted) {
-                (activity as? WalkthroughActivity)?.completeWalkthrough()
-            }
+        ) {
+            (activity as? WalkthroughActivity)?.completeWalkthrough()
         }
 
     companion object {
