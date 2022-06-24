@@ -2,11 +2,11 @@ package org.eclipsesoundscapes.ui.features
 
 import android.os.Bundle
 import android.view.MenuItem
-import androidx.appcompat.app.AppCompatActivity
 import org.eclipsesoundscapes.databinding.ActivityDescriptionBinding
 import org.eclipsesoundscapes.model.Eclipse
+import org.eclipsesoundscapes.ui.base.BaseActivity
 
-class DescriptionActivity : AppCompatActivity() {
+class DescriptionActivity : BaseActivity() {
 
     private lateinit var eclipse: Eclipse
 
