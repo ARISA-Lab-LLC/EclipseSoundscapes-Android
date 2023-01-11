@@ -1,186 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_below="@+id/countdown_title"
-    android:focusable="true"
-    android:layout_centerHorizontal="true"
-    android:layout_margin="16dp">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/countdown_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="8dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="@string/eclipse_countdown_title"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/title_text_size" />
+    <LinearLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/countdown_days"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_below="@+id/countdown_title"
-        android:contentDescription="@string/days"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/default_text_size"
-        android:textAllCaps="true"
-        android:text="@string/days"/>
+        <TextView
+            style="@style/HeaderText2"
+            android:id="@+id/countdown_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/eclipse_countdown_title"/>
 
-    <TextView
-        android:id="@+id/days_primary"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_below="@+id/countdown_days"
-        android:background="@drawable/round_countdown"
-        android:gravity="center"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textSize="@dimen/default_text_size"
-        android:textColor="@android:color/white"
-        android:text="0" />
+        <LinearLayout
+            android:id="@+id/countdown_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:focusable="false">
 
-    <TextView
-        android:id="@+id/days_secondary"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:background="@drawable/round_countdown"
-        android:layout_below="@+id/countdown_days"
-        android:layout_toEndOf="@+id/days_primary"
-        android:layout_marginStart="4dp"
-        android:gravity="center"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textSize="@dimen/default_text_size"
-        android:textColor="@android:color/white"
-        android:text="0"/>
+            <include
+                android:id="@+id/stub_years"
+                layout="@layout/layout_eclipse_center_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-    <TextView
-        android:id="@+id/countdown_hours"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_below="@+id/countdown_title"
-        android:contentDescription="@string/hours"
-        android:layout_toEndOf="@+id/countdown_days"
-        android:layout_marginStart="16dp"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/default_text_size"
-        android:textAllCaps="true"
-        android:text="@string/hours"/>
+            <include
+                android:id="@+id/stub_months"
+                layout="@layout/layout_eclipse_center_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"/>
 
-    <TextView
-        android:id="@+id/hours_primary"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:background="@drawable/round_countdown"
-        android:layout_alignStart="@+id/countdown_hours"
-        android:layout_below="@+id/countdown_hours"
-        android:gravity="center"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textSize="@dimen/default_text_size"
-        android:textColor="@android:color/white"
-        android:text="0" />
+            <include
+                android:id="@+id/stub_days"
+                layout="@layout/layout_eclipse_center_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"/>
 
-    <TextView
-        android:id="@+id/hours_secondary"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:background="@drawable/round_countdown"
-        android:layout_below="@+id/countdown_hours"
-        android:layout_toEndOf="@+id/hours_primary"
-        android:layout_marginStart="4dp"
-        android:gravity="center"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textSize="@dimen/default_text_size"
-        android:textColor="@android:color/white"
-        android:text="0"/>
+            <include
+                android:id="@+id/stub_hours"
+                layout="@layout/layout_eclipse_center_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"/>
 
-    <TextView
-        android:id="@+id/countdown_minutes"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_below="@+id/countdown_title"
-        android:contentDescription="@string/minutes"
-        android:layout_toEndOf="@+id/countdown_hours"
-        android:layout_marginStart="16dp"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/default_text_size"
-        android:textAllCaps="true"
-        android:text="@string/min_abbr"/>
+            <include
+                android:id="@+id/stub_minutes"
+                layout="@layout/layout_eclipse_center_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"/>
 
-    <TextView
-        android:id="@+id/minutes_primary"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:background="@drawable/round_countdown"
-        android:layout_alignStart="@+id/countdown_minutes"
-        android:layout_below="@+id/countdown_minutes"
-        android:gravity="center"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textSize="@dimen/default_text_size"
-        android:textColor="@android:color/white"
-        android:text="0" />
-
-    <TextView
-        android:id="@+id/minutes_secondary"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:background="@drawable/round_countdown"
-        android:layout_below="@+id/countdown_minutes"
-        android:layout_toEndOf="@+id/minutes_primary"
-        android:layout_marginStart="4dp"
-        android:gravity="center"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textSize="@dimen/default_text_size"
-        android:textColor="@android:color/white"
-        android:text="0"/>
-
-    <TextView
-        android:id="@+id/countdown_seconds"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_below="@+id/countdown_title"
-        android:contentDescription="@string/seconds"
-        android:layout_toEndOf="@+id/countdown_minutes"
-        android:layout_marginStart="16dp"
-        android:fontFamily="sans-serif-condensed"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/default_text_size"
-        android:textAllCaps="true"
-        android:text="@string/sec_abbr"/>
-
-    <TextView
-        android:id="@+id/seconds_primary"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:background="@drawable/round_countdown"
-        android:layout_alignStart="@+id/countdown_seconds"
-        android:layout_below="@+id/countdown_seconds"
-        android:gravity="center"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textSize="@dimen/default_text_size"
-        android:textColor="@android:color/white"
-        android:text="0" />
-
-    <TextView
-        android:id="@+id/seconds_secondary"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:background="@drawable/round_countdown"
-        android:layout_below="@+id/countdown_seconds"
-        android:layout_toEndOf="@+id/seconds_primary"
-        android:layout_marginStart="4dp"
-        android:gravity="center"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textSize="@dimen/default_text_size"
-        android:textColor="@android:color/white"
-        android:text="0"/>
-</RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

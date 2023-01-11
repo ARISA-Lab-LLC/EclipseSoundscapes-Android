@@ -4,6 +4,10 @@
     android:layout_height="match_parent"
     android:background="@android:color/black" >
 
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/app_bar"/>
+
     <RelativeLayout
         android:id="@+id/rumble_map_layout"
         android:layout_width="match_parent"
@@ -13,7 +17,6 @@
         android:contentDescription="@string/rumble_map_inactive"
         android:layout_weight="1">
 
-
         <ImageView
             android:id="@+id/eclipse_img"
             android:layout_width="match_parent"
@@ -21,46 +24,8 @@
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             android:layout_centerInParent="true"
-            android:src="@drawable/eclipse_bailys_beads" />
+            android:src="@drawable/eclipse_bailys_beads"
+            android:hapticFeedbackEnabled="true"/>
     </RelativeLayout>
-
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@android:color/white" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingBottom="16dp"
-        android:weightSum="2">
-
-        <Button
-            android:id="@+id/button_close_rumble_map"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ripple"
-            android:textColor="@android:color/white"
-            android:text="@string/close"
-            android:contentDescription="@string/close"
-            android:layout_weight="1" />
-
-        <View
-            android:layout_width="0.5dp"
-            android:layout_height="match_parent"
-            android:background="@android:color/white" />
-
-        <Button
-            android:id="@+id/button_instructions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ripple"
-            android:textColor="@android:color/white"
-            android:text="@string/instructions"
-            android:contentDescription="@string/rumble_map_instructions_title"
-            android:layout_weight="1" />
-    </LinearLayout>
 
 </LinearLayout>

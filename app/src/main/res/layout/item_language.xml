@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="@dimen/default_margin"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="@dimen/default_margin"
     xmlns:tools="http://schemas.android.com/tools">
 
     <CheckedTextView
+        style="@style/ParagraphText"
         android:id="@+id/language"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/default_text_size"
-        android:textColor="@color/text_color_primary"
-        android:fontFamily="sans-serif"
         android:checkMark="@drawable/ic_check_white"
-        android:checkMarkTint="@android:color/black"
+        android:checkMarkTint="?attr/colorControlNormal"
         android:checked="false"
-        app:layout_constraintStart_toStartOf="parent"
         tools:text="English"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

@@ -1,332 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
-        android:id="@+id/rl_eclipse_center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center">
-
-        <ImageView
-            android:id="@+id/banner"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:src="@drawable/eclipse_banner_2"
-            android:scaleType="centerCrop"
-            android:adjustViewBounds="true"/>
+        android:orientation="vertical">
 
         <include
-            android:id="@+id/eclipse_countdown"
-            layout="@layout/layout_countdown"
-            android:visibility="gone"/>
+            layout="@layout/toolbar"
+            android:id="@+id/app_bar"/>
 
-        <LinearLayout
-            android:focusable="true"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="2">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/eclipse_type_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-condensed"
-                android:text="@string/eclipse_type"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/default_text_size"
-                android:maxLines="2"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/eclipse_type"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-condensed"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/default_text_size"
-                android:gravity="end"
-                android:maxLines="2"
-                android:layout_weight="1"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:focusable="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="2">
-
-            <TextView
-                android:id="@+id/date_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-condensed"
-                android:text="@string/date"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/default_text_size"
-                android:maxLines="2"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/date"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-condensed"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/default_text_size"
-                android:gravity="end"
-                android:maxLines="2"
-                android:layout_weight="1"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:focusable="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="2">
-            <TextView
-                android:id="@+id/latitude_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-condensed"
-                android:text="@string/location_latitude"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/default_text_size"
-                android:maxLines="2"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/latitude"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-condensed"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/default_text_size"
-                android:gravity="end"
-                android:maxLines="2"
-                android:layout_weight="1"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:focusable="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="2">
-
-            <TextView
-                android:id="@+id/longitude_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-condensed"
-                android:text="@string/location_longitude"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/default_text_size"
-                android:maxLines="2"
-                android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/longitude"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-condensed"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/default_text_size"
-                android:gravity="end"
-                android:maxLines="2"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:focusable="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="2">
-
-            <TextView
-                android:id="@+id/percent_eclipse_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-condensed"
-                android:text="@string/percent_eclipse"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/default_text_size"
-                android:maxLines="2"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/percent_eclipse"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-condensed"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/default_text_size"
-                android:layout_weight="1"
-                android:maxLines="2"
-                android:gravity="end"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/duration_totality_layout"
-            android:focusable="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:weightSum="2"
-            android:visibility="gone">
-
-            <TextView
-                android:id="@+id/duration_totality_title"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-condensed"
-                android:text="@string/percent_eclipse"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/default_text_size"
-                android:maxLines="2"
-                android:layout_weight="1"/>
-
-            <TextView
-                android:id="@+id/duration_totality"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="sans-serif-condensed"
-                android:textColor="@android:color/white"
-                android:textSize="@dimen/default_text_size"
-                android:layout_weight="1"
-                android:gravity="end"
-                android:maxLines="2" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/eclipse_event_layout"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
-            android:background="@color/colorAccent"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:contentDescription="@string/event_section_desc"
-            android:weightSum="3">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center_horizontal"
-                android:text="@string/eclipse_event"
-                android:textColor="@color/text_color_primary"
-                android:textSize="@dimen/default_text_size"
-                android:textStyle="bold"
-                android:importantForAccessibility="no" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center_horizontal"
-                android:text="@string/local_time"
-                android:textColor="@color/text_color_primary"
-                android:textSize="@dimen/default_text_size"
-                android:textStyle="bold"
-                android:importantForAccessibility="no" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="sans-serif-condensed"
-                android:gravity="center_horizontal"
-                android:text="@string/time_ut"
-                android:textColor="@color/text_color_primary"
-                android:textSize="@dimen/default_text_size"
-                android:textStyle="bold"
-                android:importantForAccessibility="no" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginBottom="32dp">
-
-            <include
-                android:id="@+id/stub_contact_one"
-                layout="@layout/layout_eclipse_event_row"
+            <LinearLayout
+                android:id="@+id/rl_eclipse_center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"/>
+                android:padding="@dimen/default_margin"
+                android:orientation="vertical"
+                android:gravity="center">
 
-            <include
-                android:id="@+id/stub_contact_two"
-                layout="@layout/layout_eclipse_event_row"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"/>
+                <include
+                    layout="@layout/view_current_event"
+                    android:visibility="gone"
+                    android:id="@+id/current_event_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin"/>
 
-            <include
-                android:id="@+id/stub_contact_mid"
-                layout="@layout/layout_eclipse_event_row"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"/>
+                <TextView
+                    style="@style/HeaderText2"
+                    android:id="@+id/info_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/next_eclipse_info"/>
 
-            <include
-                android:id="@+id/stub_contact_three"
-                layout="@layout/layout_eclipse_event_row"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"/>
+                <include
+                    android:id="@+id/stub_type"
+                    layout="@layout/layout_eclipse_center_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_extra_small"/>
 
-            <include
-                android:id="@+id/stub_contact_four"
-                layout="@layout/layout_eclipse_event_row"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone"/>
-        </LinearLayout>
+                <include
+                    android:id="@+id/stub_date"
+                    layout="@layout/layout_eclipse_center_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_extra_small"/>
+
+                <org.eclipsesoundscapes.views.CountdownView
+                    android:id="@+id/eclipse_countdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"/>
+
+                <TextView
+                    style="@style/HeaderText2"
+                    android:id="@+id/next_eclipse_location_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:text="@string/next_eclipse_user_location"/>
+
+                <include
+                    android:id="@+id/stub_percent"
+                    layout="@layout/layout_eclipse_center_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_extra_small"
+                    android:layout_marginBottom="@dimen/margin_extra_small"/>
+
+                <include
+                    android:id="@+id/stub_duration"
+                    layout="@layout/layout_eclipse_center_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:visibility="gone"/>
+
+                <include
+                    android:id="@+id/stub_contact_one"
+                    layout="@layout/layout_eclipse_event_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginBottom="@dimen/margin_small"/>
+
+                <include
+                    android:id="@+id/stub_contact_two"
+                    layout="@layout/layout_eclipse_event_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginBottom="@dimen/margin_small"/>
+
+                <include
+                    android:id="@+id/stub_contact_mid"
+                    layout="@layout/layout_eclipse_event_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginBottom="@dimen/margin_small"/>
+
+                <include
+                    android:id="@+id/stub_contact_three"
+                    layout="@layout/layout_eclipse_event_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginBottom="@dimen/margin_small"/>
+
+                <include
+                    android:id="@+id/stub_contact_four"
+                    layout="@layout/layout_eclipse_event_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginBottom="@dimen/margin_small"/>
+
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
-</ScrollView>
+</layout>

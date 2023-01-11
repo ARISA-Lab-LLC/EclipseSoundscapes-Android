@@ -13,6 +13,8 @@
     <string name="east">Este</string>
     <string name="west">Oeste</string>
 
+    <string name="years">Años</string>
+    <string name="months">Meses</string>
     <string name="date">Fecha</string>
     <string name="time">Hora</string>
     <string name="hours">Horas</string>
@@ -23,15 +25,17 @@
     <string name="sec_abbr">s</string>
     <string name="local_time">Hora Local</string>
     <string name="universal_time">Hora Universal</string>
-    <string name="time_ut">Hora (UT)</string>
+    <string name="time_ut">UT</string>
 
     <string name="settings">Configuraciones</string>
     <string name="open_settings">Abre las configuraciónes</string>
+    <string name="open_description">Abrir la descripción</string>
     <string name="description">descripción</string>
     <string name="instructions">Instrucciones</string>
     <string name="welcome">Bienvenido</string>
     <string name="not_now">Ahora no</string>
     <string name="language">Idioma</string>
+    <string name="permissions">Permisos</string>
 
     <!-- actions -->
     <string name="continue_text">Continuar</string>
@@ -50,52 +54,61 @@
     <string name="location_permission">Permiso de ubicación</string>
     <string name="error_finding_location">"incapaz de determinar su ubicación actual</string>
     <string name="permission_denied">Permiso denegado</string>
-    <string name="location_disabled">Ubicación deshabilitada</string>
-    <string name="location_disabled_message">Para continuar, habilite los servicios de ubicación desde la configuración de su dispositivo.</string>
+    <string name="location_disabled_message">Ubicación deshabilitada.\nPara continuar, habilite los servicios de ubicación desde la configuración de su dispositivo.</string>
+    <string name="enable_location">Servicio de localización activado</string>
 
     <string name="device_settings_permission">Para continuar, permite el acceso a su ubicación desde la configuración de su dispositivo.</string>
     <string name="app_settings_permission">Para continuar, permite el acceso a su ubicación desde la configuración de la aplicación.</string>
 
     <!-- notifications -->
     <string name="notification_channel_desc">Muestra notificaciones sobre un próximo eclipse.</string>
-    <string name="first_contact_reminder">El eclipse solar comenzará pronto.</string>
-    <string name="first_contact_begun">¡El eclipse solar ha comenzado!</string>
-    <string name="totality_reminder">El eclipse solar total comenzará pronto.</string>
-    <string name="totality_begun">¡El eclipse solar total ha comenzado!</string>
+    <string name="default_eclipse_reminder">El eclipse solar comenzará pronto.</string>
+    <string name="notification_first_contact">¡El eclipse solar ha comenzado!</string>
+    <string name="total_eclipse_reminder">El eclipse solar total comenzará pronto.</string>
+    <string name="notification_totality">¡El eclipse solar total ha comenzado!</string>
     <string name="tap_listen">Toca para escuchar ahora.</string>
     <string name="enable_notifications">Permitir notificaciones</string>
+    <string name="annular_eclipse_reminder">El Eclipse Solar Anular va a comenzar pronto.</string>
+    <string name="notification_annular_start">El eclipse solar anular ha comenzado!</string>
+    <string name="notification_annular_phase_start">La fase anular ha comenzado!</string>
+    <string name="notification_annularity">La anularidad ha comenzado!</string>
 
     <!-- about -->
     <string name="license">Licencia</string>
     <string name="open_src_libs">Bibliotecas de código abierto</string>
     <string name="photo_credits">Créditos de fotografía</string>
     <string name="privacy_policy">Política de Privacidad</string>
+    <string name="tos">Términos de servicio</string>
     <string name="legal">Legal</string>
     <string name="libs_in_use">Bibliotecas que utilizamos</string>
     <string name="supported_eclipse">Eclipses que apoyamos</string>
 
-    <string name="about_us">Sobre Nosotros</string>
+    <string name="menu">Menú</string>
     <string name="about_us_details">La aplicación móvil Eclipse Soundscapes es un producto del Eclipse Soundscapes Project, que es una empresa de ARISA Lab, LLC.
         Eclipse Soundscapes Project tiene como objetivo involucrar a TODOS las personas con la astrofísica, con un enfoque intencional en la inclusión y la accesibilidad.
-        Para obtener más información, visite EclipseSoundscapes.org. El desarrollo de la aplicación móvil Eclipse Soundscapes está financiado por NASA Space Science Education Consortium.</string>
+        Para obtener más información, visite EclipseSoundscapes.org. El desarrollo de la aplicación móvil Eclipse Soundscapes está financiado por NASA Heliophysics Education Activation Team (NASA HEAT).</string>
 
     <string name="our_partners">Nuestros colaboradores</string>
     <string name="current_partners">Colaboradores actuales</string>
     <string name="past_partners">Colaboradores anteriores</string>
     <string name="our_team">Nuestro equipo</string>
     <string name="feedback">Dar opinión</string>
-    <string name="privacy_policy_url" translatable="false"><![CDATA[https://eclipsesoundscapes.org/es/content/pol%C3%ADtica-de-privacidad-de-la-aplicaci%C3%B3n-m%C3%B3vil]]></string>
+    <string name="privacy_policy_url"><![CDATA[https://eclipsesoundscapes.org/es/declaracion-de-privacidad]]></string>
+    <string name="tos_url"><![CDATA[https://eclipsesoundscapes.org/es/condiciones-del-servicio]]></string>
 
     <string name="libraries_use_detail">A continuación se establecen los avisos de derechos de autor para el software de terceros que puede ser parte de la aplicación móvil Eclipse Soundscapes.
         Agradecemos a la comunidad de código abierto por todas sus contribuciones.</string>
 
     <!-- Eclipse Center -->
-    <string name="eclipse_center_lockout_details">Próximamente se actualizarán los datos del Eclipse.</string>
+    <string name="next_eclipse_info">La información del próximo eclipse</string>
+    <string name="next_eclipse_user_location">Próximo eclipse en su ubicación</string>
+    <string name="next_eclipse_simulated_location">Próximo eclipse en la ubicación más cercana</string>
+    <string name="eclipse_center_lockout_details">Próximamente se actualizarán los datos del eclipse.</string>
     <string name="eclipse_countdown_title">Cuenta regresiva hasta el eclipse</string>
-    <string name="countdown_format">Cuenta regresiva hasta el eclipse desde su ubicación, %1$s días, %2$s minutos y %4$s segundos</string>
     <string name="event_section_desc">A continuación se indican los eventos en la ubicación más cercana. Los eventos incluyen la hora local y universal.</string>
     <string name="event_desc_format">Evento desde la ubicación más cercana: %1$s, hora local, %2$s, hora universal, %3$s</string>
     <string name="eclipse_center_permission">¡No se pierda este fascinante evento astronómico! Necesitamos su ubicación para acceder a esta función. Presione en cualquier lugar de la pantalla para continuar.</string>
+    <string name="countdown_format">Cuenta regresiva hasta el eclipse en tu ubicación, %1$s años, %2$s meses, %3$s días, %4$s horas, %5$s minutos y %6$s segundos</string>
 
     <string name="location_search">Búsqueda de su ubicación…</string>
     <string name="outside_eclipse_path">Desafortunadamente, el Eclipse no es visible desde su ubicación.</string>
@@ -108,17 +121,33 @@
     <string name="lat_lng_format">%1$.3f&#xb0; %2$s</string>
     <string name="percent_eclipse">% del eclipse</string>
     <string name="totality_duration">Duración del eclipse total</string>
+    <string name="annular_duration">Duración del Eclipse Annular</string>
+    <string name="eclipse_duration">Duración del Eclipse</string>
     <string name="eclipse_event">Evento</string>
 
     <string name="eclipse_type_full">Eclipse solar total</string>
     <string name="eclipse_type_partial">Eclipse solar parcial</string>
     <string name="eclipse_type_none">No Eclipse Solar</string>
+    <string name="eclipse_type_annular">Eclipse Solar Anular</string>
+    <string name="eclipse_type_unkown">Desconocido</string>
+
+    <string name="total_solar_eclipse">Eclipse Solar Total</string>
+    <string name="annular_solar_eclipse">Eclipse Solar Anular</string>
+
+    <string name="annular_start">Comienza el eclipse</string>
+    <string name="annular_phase_start">La fase anular comienza</string>
+    <string name="annularity">Anularidad</string>
+    <string name="annular_phase_end">Finaliza la fase de anularidad</string>
+    <string name="annular_end">Finaliza el eclipse</string>
 
     <string name="eclipse_start_partial">Inicio del eclipse parcial</string>
     <string name="eclipse_start_full">Inicio del eclipse total</string>
     <string name="eclipse_end_partial">Fin del eclipse parcial</string>
     <string name="eclipse_end_full">Fin del eclipse total</string>
     <string name="eclipse_max">Eclipse Total</string>
+
+    <string name="active_event">¡Toca para escuchar lo que está sucediendo actualmente!</string>
+    <string name="next_live_event_countdown">Próximo evento en vivo en \n%1$s</string>
 
     <!-- media/audio -->
     <string name="media_player">reproductor multimedia</string>
@@ -197,22 +226,46 @@
         Los científicos pueden detectar planetas eclipsando a sus estrellas y determinar a qué distancia se encuentra el planeta respecto de su estrella y cuál es la masa del planeta.
         A partir de estos indicios y demás observaciones, los científicos intentan descubrir si existe vida en esos planetas que pueda estar viviendo sus propios eclipses.</string>
 
-    <string name="bailys_beads_short">Durante los próximos seis minutos, el Rumble Map se desactiva para que pueda escuchar en tiempo real los eventos que rodean el eclipse total.
+    <string name="audio_bailys_beads_short">Durante los próximos seis minutos, el Rumble Map se desactiva para que pueda escuchar en tiempo real los eventos que rodean el eclipse total.
         \n\nEn el lado derecho de la luna, resplandecen orbes de luz solar fulgurante desde el contorno del oscuro disco lunar.
         Estas áreas finales de la luz solar, llamadas Perlas de Baily, parecen perlas brillantes sobre un hilo, que se ven intensamente luminosas por la falta de luz a su alrededor.</string>
 
-    <string name="first_contact_short">El eclipse ha empezado y este es el primer momento en que la luna parece tocar el sol.
+    <string name="audio_first_contact_short">El eclipse ha empezado y este es el primer momento en que la luna parece tocar el sol.
         Estos dos cuerpos celestes parecen ser del mismo tamaño. La luz solar es tan brillante que borra todas las características de la luna, por eso la luna se ve como un disco liso de obsidiana.
         Durante los próximos noventa minutos, tendrá la oportunidad de interactuar con el Rumble Map y explorar las características del sol que se revelan durante un eclipse.
         A continuación, en los seis minutos previos, durante y justo después del eclipse total, el Rumble Map se desactivará para que usted pueda escuchar los acontecimientos en torno al eclipse total en tiempo real.</string>
 
-    <string name="diamond_ring_short">En el lado izquierdo de la oscura luna, se observa una fina tajada de luz solar que es irradiada con candente intensidad.
+    <string name="audio_diamond_ring_short">En el lado izquierdo de la oscura luna, se observa una fina tajada de luz solar que es irradiada con candente intensidad.
         A medida que el área de luz solar reemergente aumenta, se parece a un anillo de diamantes que irradia su luz brillante.</string>
 
-    <string name="totality_short">ESTE es el eclipse total.
+    <string name="audio_totality_short">ESTE es el eclipse total.
         Durante aproximadamente dos minutos, el oscuro disco de la luna cubre por completo el sol y revela su gran corona exterior.
         Grandes florituras de luz se proyectan desde la luna en todas direcciones como los pétalos de una flor.
         Las cintas de casco, intensamente brillantes en el contorno de la luna, se van desvaneciendo, en hilos de un blanco fantasmal al extenderse por el espacio.</string>
+
+    <string name="audio_annular_start_short">¡El eclipse ha comenzado y es un espectáculo sorprendente! El mapa interactivo (“rumble map”) se desactivará durante el eclipse para que pueda disfrutar de este evento con descripciones en tiempo real. Y recuerde que usted ¡DEBE usar gafas protectoras especiales en TODO momento si quiere ver el eclipse anular! ¡JAMÁS mire al sol con los ojos, a través de binoculares o con un telescopio!
+        \n\nDurante un eclipse anular, la luna cubre el sol, pero no por completo. Desde la Tierra, la luna no parece ser lo suficientemente grande como para cubrir totalmente el sol.
+        \n\nEl eclipse comienza con el “primer contacto”. En el primer contacto, la luna pareciera estar tocando el sol. El sol se ve como un disco blanco brillante contra un fondo negro. Cerca del costado del sol, se observa que falta una pequeña área curva en la forma circular perfecta del sol. Esta área faltante es la luna que comienza a pasar frente al sol y bloquear lentamente una parte de la luz solar. Pareciera que la luna le estuviera dando un pequeño “mordisco” al sol.
+        \n\nNormalmente los profundos cráteres lunares hacen que la luna se vea rugosa. Pero ahora la luz solar es tan brillante que hace desaparecer todas las características de la luna. Por eso la luna se ve negra y lisa como un vidrio.</string>
+
+    <string name="audio_annular_phase_start_short">En esta etapa, la luna se encuentra frente al sol. La luna se ve como un disco totalmente negro y la luz del sol solo brilla en los bordes de la luna en una delgada forma de C o medialuna.
+        \n\nTambién es posible que se pueda ver brevemente un fenómeno denominado Perlas de Baily. Las Perlas de Baily se ven como unas perlas brillantes que se encuentran en los extremos de la forma de medialuna del sol. Las Perlas de Baily se producen porque la luz solar resplandece en los profundos valles lunares. Cuando las Perlas de Baily desaparecen, comienza a aparecer un anillo de luz. El momento en que comienza esta fase se denomina “segundo contacto”.
+        \n\nAunque sea tentador, nunca se debe mirar a las Perlas de Baily o el anillo de luz con los ojos o con un telescopio. ¡Se DEBEN usar gafas protectoras especiales durante todas las etapas de un eclipse anular!</string>
+
+    <string name="audio_annularity_short">En este momento se produce la anularidad.
+        \n\nAhora, el sol se ve como un anillo de fuego muy intenso en lugar de la bola de luz resplandeciente habitual. Esto se produce porque la luna negra oscura ha cubierto el centro del sol y la luz solar resplandece alrededor del borde circular de la luna. En consecuencia, la luz solar parece una letra O brillante. Esa forma de “O” se conoce como annulus en matemática. La palabra “anular” significa “anillo pequeño” en latín. Por eso este tipo de eclipse se denomina eclipse “anular”. Durante un eclipse anular, la luna lo oscurece todo, excepto ese anillo externo del sol.
+        \n\nEse anillo solo se ve unos minutos, porque el sol, la luna y la Tierra aún se están moviendo lentamente.
+        \n\nRecuerde que JAMÁS debe mirar al sol directamente durante un eclipse anular con un telescopio o con los ojos. Si desea ver un eclipse, debe usar gafas especiales para eclipses. De lo contrario, podría sufrir un daño importante.</string>
+
+    <string name="audio_annular_phase_end_short">La fase anular está finalizando.
+        \n\nLa luna se aleja lentamente del centro del sol. Como la luna circular oscura cubre menos luz intensa del sol, el anillo de luz ardiente del sol se transforma lentamente de nuevo en una forma de C. Según dónde se encuentre ubicado usted, es posible que logre ver nuevamente las Perlas de Baily. Las Perlas de Baily se ven como perlas brillantes en los extremos de la medialuna resplandeciente del sol.
+        \n\nAún no es seguro mirar al sol con los ojos o con un telescopio. Se DEBEN usar gafas protectoras especiales, como las gafas oficiales para ver un eclipse, para mirar al sol durante TODAS las etapas de un eclipse anular.</string>
+
+    <string name="audio_annular_end_short">El eclipse anular está finalizando. La luna se aleja lentamente y por completo del sol.
+        \n\nAunque la luna aún se ve como un disco negro, el sol es una bola ardiente de un arremolinado rojo y naranja. A medida que la luna avanza, pareciera que le está dando mordiscos cada vez más pequeños al sol.
+        \n\nEn este punto, la luna solo cubre una pequeña parte del sol. Pronto ya no cubrirá nada de la luz solar.
+        \n\nEl cuarto contacto es el punto final del eclipse anular, cuando el borde de la luna se separa del borde del sol y ya no cubre ninguna parte de la luz solar.
+        \n\nUna vez finalizado el eclipse anular, el mapa interactivo y todas las demás funciones de la aplicación se encontrarán nuevamente disponibles. ¡Esperamos que siga explorando las maravillas de los eclipses con la aplicación incluso después de concluido este eclipse anular!</string>
 
     <string name="first_contact_description">Este es el primer momento en que la luna, moviéndose lentamente de izquierda a derecha, parece tocar el sol.
         La intensidad de la luz solar hace que no sea seguro mirar al sol sin gafas protectoras especiales hasta que el eclipse sea total, los pocos minutos durante los que la luna eclipsa al sol por completo.
@@ -278,6 +331,41 @@
         Los científicos pueden detectar planetas eclipsando a sus estrellas y determinar a qué distancia se encuentra el planeta respecto de su estrella y cuál es la masa del planeta.
         A partir de estos indicios y demás observaciones, los científicos intentan descubrir si existe vida en esos planetas que pueda estar viviendo sus propios eclipses.</string>
 
+    <string name="annular_start_description">Durante un eclipse anular, la luna cubre el sol, pero no por completo. Desde la Tierra, la luna no parece ser lo suficientemente grande como para cubrir totalmente el sol.
+        \n\nEsta imagen es de momentos después del llamado “primer contacto”. Al producirse el primer contacto,  el sol se ve como un disco blanco brillante contra un fondo negro. En el lado izquierdo del sol, se observa que falta una pequeña área en forma de U en la forma circular perfecta del sol.
+        Esta área faltante es la luna que pasa frente al sol y comienza a bloquear lentamente la luz solar. Pareciera que la luna le está dando un mordisco al sol, como al morder una galleta.
+        \n\nNormalmente los profundos cráteres lunares hacen que la luna se vea rugosa. Pero ahora la luz solar es tan brillante que borra todas las características de la luna. Por eso la luna se ve negra y lisa como un vidrio.
+        La intensidad de la luz solar hace que no sea seguro mirar el eclipse anular sin usar gafas protectoras especiales en todo momento.
+        \n\nEsta imagen fue tomada en 2012 por el astrónomo y escritor científico, el Dr. Rick Fienberg. El Dr. Fienberg usó una cámara digital y un teleobjetivo cubierto con un filtro para propósito especial que bloquea el 99.999% de la luz solar peligrosamente brillante.
+        Nunca se deben tomar fotos de un eclipse sin un filtro solar especial. La luz brillante de un eclipse puede dañar la cámara… ¡y los ojos! El filtro solar ayuda a proteger la cámara y los ojos. El filtro solar se coloca frente a la lente del telescopio y está específicamente diseñado para limitar la cantidad de luz sin agregar color.
+        \n\nEl Dr. Fienberg ha ido tras los eclipses solares totales por todo el mundo durante ¡30 años! Ha observado y fotografiado este eclipse desde un crucero en el océano Pacífico cerca de Australia.
+        \n\nVisite el Rumble Map para explorar esta imagen mediante tacto y sonido. La falta de luz no produce ruido ni movimiento. ¿Puede tocar y escuchar en qué parte el borde redondo oscuro de la luna comienza a cubrir el borde brillante del sol?</string>
+
+    <string name="annular_phase_start_description">Esta imagen es el fenómeno que se denomina “Perlas de Baily”. En esta etapa, la luna se encuentra frente al sol. La luz del sol se reduce a una delgada forma de C o medialuna que resplandece alrededor del borde de la luna.
+        \n\nLas Perlas de Baily se ven como unas perlas brillantes en los extremos de la medialuna. Las Perlas de Baily se producen porque la superficie de la luna no es lisa. Está cubierta por montañas y valles. Las Perlas de Baily se producen por la emisión de luz solar entre las montañas y a través de los valles de la luna cuando el sol comienza a asomarse por el borde de la luna.
+        \n\nCuando las Perlas de Baily desaparecen, comienza la fase anular.
+        \n\nLas Perlas de Baily reciben su nombre del astrónomo inglés llamado Sir Francis Baily. Sir Francis publicó sus observaciones después de ver estas perlas de luz intensa durante el eclipse solar anular del 15 de mayo de 1836. Y aunque Sir Francis no fue la primera persona en observar este fenómeno, fue el primero en publicar sus observaciones.
+        \n\nEsta imagen fue tomada por Talha Zia en Sukkur, Pakistán. Talha no usó un filtro solar, lo que puede ser peligroso. Para protegerse los ojos, lo que hizo fue no mirar por el objetivo. Colocó una cámara con un telescopio sobre un montaje motorizado que seguía el sol. Para proteger el objetivo de la cámara, limitó la cantidad de luz mediante un tiempo de exposición muy breve.
+        \n\nVisite el Rumble Map para explorar esta imagen de las Perlas de Baily mediante tacto y sonido. La falta de luz no produce ruido ni movimiento. ¿Puede tocar y escuchar cuando la luz del sol crea varias perlas esparcidas a lo largo de un anillo de luz?</string>
+
+    <string name="annularity_description">Esta es una imagen de anularidad, cuando el eclipse anular se encuentra en su punto máximo. Durante la anularidad, la luna negra oscura se ve lisa como un vidrio y cubre el centro del sol. Solo un delgado anillo de luz resplandece alrededor del borde de la luna redonda. En consecuencia, el sol se ve como un anillo de fuego muy intenso en lugar de una bola resplandeciente.
+        Posiblemente ese anillo de luz solo se vea unos minutos. Esta es la espectacular característica por la que los eclipses solares anulares a menudo se denominan eclipses “anillo de fuego”. Por esa forma de anillo también este tipo de eclipse se denomina eclipse “anular”. La forma de anillo también se conoce como annulus en matemática. La palabra “anular” significa “anillo pequeño” en latín.
+        Durante un eclipse anular, la luna lo cubre todo, excepto ese anillo externo de la superficie del sol. El eclipse anular es solo un tipo de eclipse. Los eclipses solares totales son otro tipo. Durante un eclipse solar total, la luna cubre la superficie del sol por completo.
+        \n\nEsta imagen fue tomada por el astrónomo amateur Talha Zia durante el eclipse del 21 de junio de 2020 en Sukkur, Pakistán. Talha es miembro de la Sociedad de Astrónomos de Karachi. Si desea tomar fotografías de un eclipse, ¡deberá tener mucho más que un telescopio o una cámara! Para proteger el telescopio, Y LOS OJOS, debe usar un filtro solar especial.
+        Es similar a un trozo de vidrio muy oscuro que se coloca en frente del objetivo de la cámara o del telescopio. El filtro está diseñado para limitar la cantidad de luz sin agregar color a la imagen.
+        \n\nVisite el Rumble Map para explorar esta imagen de anularidad mediante tacto y sonido. La falta de luz no produce ruido ni movimiento. ¿Puede tocar y escuchar el fuerte cambio que se produce al pasar del “anillo de fuego” intensamente resplandeciente a la oscuridad de la luna?</string>
+
+    <string name="annular_phase_end_description">Esta imagen se tomó al finalizar la etapa anular. La luna se aleja lentamente del centro del sol.  Como la luna circular oscura cubre menos luz intensa del sol, el anillo de luz ardiente del sol se transforma lentamente de nuevo en una forma de medialuna resplandeciente. Según dónde se encuentre ubicado usted, es posible que logre ver nuevamente las Perlas de Baily.
+        Las Perlas de Baily se ven como perlas brillantes en los extremos de la medialuna resplandeciente del sol.
+        \n\nEsta imagen fue tomada por Talha Zia en Sukkur, Pakistán. Talha no usó un filtro solar en la cámara, lo que puede ser peligroso. Para protegerse los ojos, lo que hizo fue no mirar directamente a través de la cámara. Colocó la cámara con un telescopio sobre un montaje motorizado que seguía el sol. Para proteger la cámara, limitó la cantidad de luz mediante un tiempo de exposición muy breve.
+        \n\nVisite el Rumble Map para explorar esta imagen del tercer contacto mediante tacto y sonido. La falta de luz no produce ruido ni movimiento. ¿Puede tocar y escuchar dónde se encuentra la mayor parte de la forma de medialuna de luz?</string>
+
+    <string name="annular_end_description">Esta imagen es el final del eclipse anular. La luna se aleja lentamente y por completo del sol.
+        \n\nAunque la luna aún se ve como un disco negro, el sol es una bola ardiente de un arremolinado rojo y naranja. A medida que avanza, pareciera que la luna le está dando mordiscos cada vez más pequeños al sol. En esta imagen, la luna cubre una pequeña área del lado derecho del sol.
+        \n\nEl cuarto contacto es el punto final del eclipse anular, cuando el borde de la luna se separa del borde del sol y ya no cubre ninguna parte de la luz solar.
+        \n\nEsta imagen fue tomada por el telescopio del instrumento Atmospheric Imaging Assembly a bordo del Observatorio de Dinámica Solar de la NASA. Actualmente este observatorio se encuentra en órbita alrededor de la Tierra.  Su telescopio toma ocho imágenes como esta cada diez segundos. Esas imágenes ayudan a los científicos a comprender mejor el sol.
+        \n\nVisite el Rumble Map para explorar esta imagen del final del eclipse mediante tacto y sonido. La falta de luz no produce ruido ni movimiento. ¿Puede tocar y escuchar cuánto más del sol está visible en comparación con otras etapas del eclipse anular?</string>
+
     <!-- eclipse details -->
     <string name="first_contact">Primer contacto</string>
     <string name="bailys_beads">Perlas de Baily</string>
@@ -320,9 +408,10 @@
     <string name="next_page">Página siguiente</string>
     <string name="page_indicator">Página %1$d de %2$d</string>
 
-    <string name="walkthrough_welcome_text">Gracias por descargar la aplicación Eclipse Soundscapes, una experiencia multisensorial para que personas de todo tipo de estilos de aprendizaje, participen en eventos astronómicos, incluidos los eclipse solares totales.
-        Dentro de la aplicación, encontrará cuentas atrás para eventos astronómicos importantes en su área, así como también narraciones en tiempo real de dichos eventos con audiodescripciones ilustrativas, realizadas por el centro nacional de contenido multimedia accesible (National Center for Accessible Media, GBH).
-        También puede explorar el cosmos mediante fotos de alta resolución, material educativo y herramientas de aprendizaje accesibles.</string>
+    <string name="walkthrough_welcome_text">Gracias por descargar la aplicación Eclipse Soundscapes, una experiencia multisensorial para que personas de todo tipo de estilos de aprendizaje, participen en eventos astronómicos, incluidos los eclipse solares totales y anulares.
+        Dentro de la aplicación, encontrará cuentas atrás para eventos astronómicos importantes en su área, así como también narraciones en tiempo real de dichos eventos con audiodescripciones ilustrativas.
+        También puede explorar el cosmos mediante fotos de alta resolución, material educativo y herramientas de aprendizaje accesibles.
+        Esta aplicación está disponible en inglés y español. Para cambiar el idioma de la aplicación, vaya a Menú.</string>
 
     <string name="walkthrough_rumble_map_text">Nuestro mapa sonoro está diseñado para poder escuchar y sentir fenómenos astronómicos, como por ejemplo eclipses, usando la pantalla táctil y los altavoces de su teléfono inteligente.
         Por ejemplo: el mapa sonoro mostrará fotos de la luna pasando por delante del sol durante los momentos más cautivadores y educativos de un eclipse.
@@ -353,11 +442,9 @@
     </array>
 
     <array name="current_partners_desc">
-        <item name="nasa_description">La NASA (National Aeronautics and Space Administration, Administración Nacional de la Aeronáutica y del Espacio) es una agencia independiente del gobierno federal de Estados Unidos que dirige el programa espacial civil, así como la investigación aeronáutica y aeroespacial.
-            La NASA dirige una iniciativa de extensión educativa en torno a los eclipses, que incluye información y cobertura de estos sucesos en vivo.
-            Para obtener más información sobre la NASA, visite nasa.gov. El NASA Space Science Education Consortium (NSSEC) capitaliza la amplia trayectoria de la NASA de compartir investigación y tecnología mediante proyectos educativos atractivos e innovadores.
-            El NSSEC (anteriormente denominado Heliophysics Education Consortium [HEC]) continúa el trabajo de la organización Science Mission Directorate (SMD) al frente de las iniciativas educativas de la NASA al vincular ciencia y misiones emocionantes directamente con el público estadounidense.
-            El NSSEC colabora con Eclipse Soundscapes a fin de ofrecer el guion calculando el momento del eclipse, así como los fondos que posibilitan el proyecto Eclipse Soundscapes.</item>
+        <item name="nasa_description">El NASA Heliophysics Education Activation Team (NASA HEAT) capitaliza la amplia trayectoria de la NASA de compartir investigación y tecnología mediante proyectos educativos atractivos e innovadores.
+            El NASA HEAT (anteriormente denominado NASA Space Science Education Consortium (NSSEC)) continúa el trabajo de la organización Science Mission Directorate (SMD) al frente de las iniciativas educativas de la NASA al vincular ciencia y misiones emocionantes directamente con el público estadounidense.
+            El NASA HEAT colabora con ARISA Lab para su proyecto Eclipse Soundscapes aplicación mobil a fin de ofrecer el guion calculando el momento del eclipse, expertas en la materia, y los fondos que posibilitan el proyecto Eclipse Soundscapes.</item>
 
         <item name="wgbh_description">El National Center for Accessible Media (NCAM) de la fundación Carl and Ruth Shapiro Family es una rama sin fines de lucro de GBH en Boston que se dedica a lograr igualdad en el acceso a los medios para personas con discapacidades.
             El NCAM colabora con Eclipse Soundscapes a fin de ofrecer cobertura del eclipse en los medios, que incluye descripciones ilustrativas del eclipse por audio que permitirán que las personas con discapacidad visual puedan experimentar el eclipse a través de narraciones por audio en tiempo real.

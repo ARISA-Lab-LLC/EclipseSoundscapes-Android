@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="5dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5"/>
+        app:layout_constraintGuide_percent="0.4"/>
 
     <LinearLayout
         android:id="@+id/image_header"
@@ -40,8 +40,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="12sp"
+        android:textSize="@dimen/page_indicator_text_size"
+        android:textColor="@android:color/black"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/image_header"
@@ -61,18 +61,17 @@
             android:focusable="true">
 
             <TextView
+                style="@style/HeaderText2"
                 android:id="@+id/bottom_view_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_gravity="center_horizontal"
-                android:fontFamily="sans-serif-medium"
                 android:text="@string/audio_descriptions"
-                android:textSize="21sp"
-                android:textColor="@color/text_color_primary"
                 android:focusable="false"/>
 
             <TextView
+                style="@style/ParagraphText"
                 android:id="@+id/bottom_view_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -81,10 +80,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:gravity="center"
-                android:fontFamily="sans-serif"
                 android:text="@string/walkthrough_audio_description"
-                android:textSize="@dimen/default_text_size"
-                android:textColor="@color/text_color_primary"
                 android:focusable="false"/>
 
         </LinearLayout>

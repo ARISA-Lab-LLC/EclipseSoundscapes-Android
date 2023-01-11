@@ -5,8 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@color/colorPrimaryDark"
-    android:padding="@dimen/default_margin">
+    android:padding="@dimen/default_margin"
+    android:background="?android:colorBackground">
 
     <ImageView
         android:layout_width="150dp"
@@ -22,7 +22,6 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
         android:textStyle="bold"
-        android:textColor="@android:color/white"
         android:textSize="@dimen/default_text_size"
         android:gravity="center_horizontal"
         android:text="@string/eclipse_center_lockout_details"/>

@@ -1,11 +1,25 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'dagger.hilt.android.plugin'
 
 android {
+    buildFeatures {
+        dataBinding = true
+        viewBinding true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        // work-runtime-ktx 2.1.0 and above now requires Java 8
+        jvmTarget = "1.8"
     }
 
     signingConfigs {
@@ -23,8 +37,8 @@ android {
         applicationId "org.eclipsesoundscapes"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 8
-        versionName "2.0.2"
+        versionCode 11
+        versionName "2.1.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
     }
@@ -44,29 +58,44 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.8.1'
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
     implementation files('libs/jsyn-20161201.jar')
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.1'
-    implementation 'androidx.legacy:legacy-support-v13:1.0.0'
-    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'androidx.cardview:cardview:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
-    implementation "androidx.preference:preference:1.1.1"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    implementation "androidx.viewpager2:viewpager2:$rootProject.viewPagerVersion"
+    implementation "androidx.preference:preference:$rootProject.preferenceVersion"
+    implementation "androidx.fragment:fragment-ktx:$rootProject.fragmentVersion"
+    implementation "androidx.core:core-splashscreen:$rootProject.splashScreenVersion"
 
-    implementation platform('com.google.firebase:firebase-bom:26.1.1')
+    implementation "com.google.android.gms:play-services-location:$rootProject.playServicesVersion"
+    implementation platform("com.google.firebase:firebase-bom:$rootProject.firebaseBomVersion")
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-crashlytics'
 
-    implementation 'joda-time:joda-time:2.10.8'
-
+    kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
-    annotationProcessor "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
+    implementation "joda-time:joda-time:$rootProject.jodaTimeVersion"
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
 
-    implementation "com.jakewharton:butterknife:$rootProject.butterKnifeVersion"
-    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterKnifeVersion"
+    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
+    kapt "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
+    implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutinesVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutinesVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"
+    implementation "androidx.room:room-runtime:$rootProject.roomVersion"
+    implementation "androidx.room:room-ktx:$rootProject.roomVersion"
+    implementation "androidx.work:work-runtime-ktx:$rootProject.workVersion"
+    implementation "com.google.dagger:hilt-android:$rootProject.hiltVersion"
+}
+repositories {
+    mavenCentral()
 }

@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import org.eclipsesoundscapes.EclipseSoundscapesApp;
 import org.eclipsesoundscapes.data.DataManager;
 import org.eclipsesoundscapes.data.SharedPrefsHelper;
+import org.eclipsesoundscapes.model.Eclipse;
 
 import java.util.Locale;
 
@@ -25,6 +26,22 @@ public class LocaleUtils {
         final Configuration config = new Configuration(res.getConfiguration());
         config.setLocale(locale);
         return context.createConfigurationContext(config);
+    }
+
+    public static Locale getCurrentLanguage(final Context context) {
+        if (context == null) {
+            return Locale.getDefault();
+        }
+
+        if (context.getApplicationContext() instanceof EclipseSoundscapesApp) {
+            final DataManager dataManager = ((EclipseSoundscapesApp) context.getApplicationContext()).getDataManager();
+            final String currentLanguage = dataManager.getLanguage();
+            if (currentLanguage != null && !currentLanguage.isEmpty()) {
+                return new Locale(currentLanguage);
+            }
+        }
+
+        return Locale.ENGLISH;
     }
 
     private static String getLanguage(final Context context) {

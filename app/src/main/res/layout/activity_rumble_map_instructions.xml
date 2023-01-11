@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/white"
     android:focusable="true">
 
     <androidx.constraintlayout.widget.Guideline
@@ -53,6 +52,7 @@
             android:importantForAccessibility="yes">
 
             <TextView
+                style="@style/HeaderText2"
                 android:id="@+id/bottom_view_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -64,14 +64,13 @@
                 android:maxLines="1"
                 android:fontFamily="sans-serif-medium"
                 android:text="@string/rumble_map_how"
-                android:textSize="@dimen/title_text_size"
-                android:textColor="@color/text_color_primary"
                 android:focusable="false"
                 app:autoSizeTextType="uniform"
                 app:autoSizeMinTextSize="16sp"
                 app:autoSizeStepGranularity="1sp"/>
 
             <TextView
+                style="@style/ParagraphText"
                 android:id="@+id/bottom_view_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -80,10 +79,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:gravity="center"
-                android:fontFamily="sans-serif"
                 android:text="@string/rumble_map_instructions"
-                android:textSize="@dimen/default_text_size"
-                android:textColor="@color/text_color_primary"
                 android:focusable="false"/>
         </LinearLayout>
 
@@ -97,10 +93,9 @@
         android:background="@android:color/transparent"
         android:contentDescription="@string/back"
         android:layout_margin="16dp"
-        android:tint="@color/colorAccent"
         app:srcCompat="@drawable/ic_chevron_left"
-
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:tint="@android:color/black" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

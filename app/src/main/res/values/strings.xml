@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">Eclipse Soundscapes</string>
-    <string name="app_name_version">%1$s v%2$s</string>
+    <string name="app_name" translatable="false">Eclipse Soundscapes</string>
+    <string name="app_name_version" translatable="false">%1$s v%2$s</string>
     <string name="eclipse_features">Features</string>
     <string name="eclipse_center">Center</string>
+    <string name="eclipse_center_title">Eclipse Center</string>
 
     <!-- General -->
     <string name="media">Media</string>
@@ -20,10 +21,12 @@
 
     <string name="settings">Settings</string>
     <string name="open_settings">Open Settings</string>
+    <string name="open_description">Open Description of \n%1$s</string>
     <string name="description">Description</string>
     <string name="instructions">Instructions</string>
     <string name="welcome">Welcome</string>
     <string name="language">Language</string>
+    <string name="permissions">Permissions</string>
 
     <string name="continue_text">Continue</string>
     <string name="skip">Skip</string>
@@ -33,6 +36,8 @@
     <string name="back">Back</string>
     <string name="cancel">Cancel</string>
 
+    <string name="years">Years</string>
+    <string name="months">Months</string>
     <string name="hours">Hours</string>
     <string name="days">Days</string>
     <string name="minutes">Minutes</string>
@@ -47,18 +52,23 @@
     <string name="location_permission">Location permission</string>
     <string name="error_finding_location">Unable to determine your current location</string>
     <string name="permission_denied">Permission denied</string>
-    <string name="location_disabled">Location disabled</string>
-    <string name="location_disabled_message">To continue, enable location services from your device settings.</string>
+    <string name="location_disabled_message">Location disabled.\nTo continue, enable location services from your device settings.</string>
+    <string name="enable_location">Enable Location</string>
 
     <string name="device_settings_permission">To continue, please allow access to your location from your device settings.</string>
     <string name="app_settings_permission">To continue, please allow access to your location from the application settings.</string>
 
     <!-- Notifications -->
     <string name="notification_channel_desc">Display notifications about an upcoming eclipse.</string>
-    <string name="first_contact_reminder">The Solar Eclipse is going to begin soon.</string>
-    <string name="first_contact_begun">The Solar Eclipse has begun!</string>
-    <string name="totality_reminder">The Total Solar Eclipse is going to begin soon.</string>
-    <string name="totality_begun">The Total Solar Eclipse has begun!</string>
+    <string name="default_eclipse_reminder">The Solar Eclipse is going to begin soon.</string>
+    <string name="total_eclipse_reminder">The Total Solar Eclipse is going to begin soon.</string>
+    <string name="annular_eclipse_reminder">The Annular Solar Eclipse is going to begin soon.</string>
+
+    <string name="notification_first_contact">The Solar Eclipse has begun!</string>
+    <string name="notification_totality">The Total Solar Eclipse has begun!</string>
+    <string name="notification_annular_start">The Annular Solar Eclipse has begun!</string>
+    <string name="notification_annular_phase_start">The Annular Phase has begun!</string>
+    <string name="notification_annularity">Annularity has begun!</string>
     <string name="tap_listen">Tap to listen now.</string>
 
     <!-- Settings -->
@@ -68,19 +78,23 @@
     <string name="open_src_libs">Open Source Libraries</string>
     <string name="photo_credits">Photo Credits</string>
     <string name="privacy_policy">Privacy Policy</string>
+    <string name="tos">Terms of Service</string>
     <string name="legal">Legal</string>
     <string name="libs_in_use">Libraries We Use</string>
-    <string name="jsyn_lib">JSyn</string>
+    <string name="jsyn_lib" translatable="false">JSyn</string>
 
-    <string name="about_us">About Us</string>
+    <string name="menu">Menu</string>
     <string name="about_us_details">The Eclipse Soundscapes mobile application is a product of the Eclipse Soundscapes Project, which is an enterprise ARISA Lab, LLC.
-        The Eclipse Soundscapes Project aims to engage ALL learners with astrophysics, with an intentional focus on inclusion and accessibility. For more information, visit EclipseSoundscapes.org.
-        The development of the Eclipse Soundscapes mobile application is funded by NASA Space Science Education Consortium.</string>
+        The Eclipse Soundscapes Project aims to engage ALL learners with astrophysics, with an intentional focus on inclusion and accessibility.
+        For more information, visit EclipseSoundscapes.org. The development of the Eclipse Soundscapes mobile application is funded by NASA Heliophysics Education Activation Team (NASA HEAT).</string>
 
     <!-- Eclipse Center -->
     <string name="eclipse_center_lockout_details">Updated Eclipse data coming soon.</string>
-    <string name="eclipse_countdown_title">Countdown Until Eclipse</string>
-    <string name="countdown_format">Countdown until eclipse from your location, %1$s days, %2$s hours, %3$s minutes and %4$s seconds</string>
+    <string name="eclipse_countdown_title">Countdown Until Next Eclipse</string>
+    <string name="next_eclipse_info">Next Eclipse Info</string>
+    <string name="next_eclipse_user_location">Next Eclipse at Your Location</string>
+    <string name="next_eclipse_simulated_location">Next Eclipse at Closest Location</string>
+    <string name="countdown_format">Countdown until eclipse from your location, %1$s years, %2$s months, %3$s days, %4$s hours, %5$s minutes and %6$s seconds</string>
     <string name="event_section_desc">Events at closest location are below. Events include your local time and universal time.</string>
     <string name="event_desc_format">Event from closest location, %1$s, local time, %2$s, universal time, %3$s</string>
     <string name="eclipse_center_permission">You don\'t want to miss this amazing astronomical event! We\'ll need your location to access this feature.\nPress anywhere on the screen to continue.</string>
@@ -97,20 +111,28 @@
     <string name="lat_lng_format">%1$.3f&#xb0; %2$s</string>
     <string name="percent_eclipse">% Eclipse</string>
     <string name="totality_duration">Duration of Totality</string>
+    <string name="annular_duration">Duration of Annularity</string>
+    <string name="eclipse_duration">Duration of Eclipse</string>
     <string name="eclipse_event">Event</string>
-    <string name="local_time">Local Time</string>
+    <string name="local_time">(Local Time)</string>
     <string name="universal_time">Universal Time</string>
-    <string name="time_ut">Time (UT)</string>
+    <string name="time_ut">(UT)</string>
 
     <string name="eclipse_type_full">Total Solar Eclipse</string>
     <string name="eclipse_type_partial">Partial Solar Eclipse</string>
     <string name="eclipse_type_none">No Solar Eclipse</string>
+    <string name="eclipse_type_annular">Annular Solar Eclipse</string>
+    <string name="eclipse_type_unkown">Unknown</string>
 
-    <string name="eclipse_start_partial">Start of partial eclipse</string>
-    <string name="eclipse_start_full">Start of total eclipse</string>
-    <string name="eclipse_end_partial">End of partial eclipse</string>
-    <string name="eclipse_end_full">End of total eclipse</string>
-    <string name="eclipse_max">Maximum eclipse</string>
+    <string name="eclipse_start_partial">Start of Partial Eclipse</string>
+    <string name="eclipse_start_full">Start of Total Eclipse</string>
+    <string name="eclipse_end_partial">End of Partial Eclipse</string>
+    <string name="eclipse_end_full">End of Total Eclipse</string>
+    <string name="eclipse_max">Maximum Eclipse</string>
+
+    <string name="active_event">Tap to hear about what\'s currently happening!</string>
+
+    <string name="next_live_event_countdown">Next live event in \n%1$s</string>
 
     <!-- Eclipse Features -->
     <string name="first_contact_description">This is the first moment that the moon, slowly moving from left to right, appears to touch the sun.
@@ -176,6 +198,40 @@
         Many of these stars also have planets orbiting them. Those planets can eclipse their parent star just as the moon eclipsed our Sun.
         Scientists can detect planets eclipsing their stars and determine both how far the planet is from its star and the planet’s mass.
         From these clues and other observations, scientists are attempting to discover if there is life on these other planets that may be experiencing their own eclipse.</string>
+
+    <string name="annular_start_description">During an annular eclipse, the Moon blocks the Sun, but not completely. From Earth, the Moon does not appear big enough to block out the Sun entirely.
+        \n\nThis image is from moments after what is called “First Contact.” At First Contact the  Sun appears as a glowing, white disk against a black background. On the left side of the Sun, a small, U-shaped area appears missing from the Sun\’s perfect circle shape.
+        This missing area is the Moon as it creeps in front of the Sun slowly starting to block out the Sun\’s light. The Moon appears to be taking a bite out of the Sun like a bite out of a cookie.
+        \n\nUsually the Moon\’s deep craters make the Moon appear rough. But now, the Sun\’s light is so bright that it erases all of the Moon\’s features. This causes the Moon to appear black and smooth like glass. The intensity of the Sun\’s light makes it unsafe to look at the annular eclipse without always wearing special eye protection.
+        \n\nThis image was taken in 2012 by astronomer and science writer Dr. Rick Fienberg. Dr. Fienberg used a digital camera and zoom lens capped with a special-purpose filter to block 99.999% of the Sun\’s dangerously bright light. You should never  take photos of an eclipse without a special solar filter.
+        The bright light of an eclipse can damage a camera, as well as your eyes! A solar filter helps protect the camera and your eyes. A solar filter fits over the front of a telescope lens and is specifically designed to limit the amount of light without adding color.
+        \n\nDr. Fienberg has been chasing total solar eclipses around the world for 30 years! He observed and photographed this eclipse from a cruise ship in the Pacific Ocean near Australia.
+        \n\nVisit the Rumble Map to explore this image through touch and sound. The absence of light is silent and still. Can you feel and hear where the Moon\’s dark rounded edge begins to block out the bright edge of the Sun?</string>
+
+    <string name="annular_phase_start_description">This image is of the phenomenon called “Baily\’s Beads.” In this stage the Moon has moved in front of the Sun. The Sun\’s light is reduced to a thin C-shape or crescent, shining at the edge of the Moon.
+        \n\nBaily’s Beads look like a few glowing pearls at the ends of the crescent. Baily\’s Beads occur because the Moon\’s surface is not smooth. It is covered by mountains and valleys. Baily\’s Beads are caused by Sunlight beaming between the mountains and through the valleys on the Moon when the Sun begins to peek around the Moon\’s edge.
+        \n\nAfter Baily’s Beads disappear, the Annular Phase begins.
+        \n\nBaily\'s Beads are named for an English astronomer named Sir Francis Baily. Sir Francis published his observations after seeing these bright beads of light during the May 15, 1836 annular solar eclipse. And, even though Sir Francis was not the first person to observe this phenomenon, he was the first to publish his observations.
+        \n\nThis image was taken by Talha Zia in Sukkur, Pakistan. Talha did not use a solar filter, which can be dangerous. To protect their eyes, Talha did not look into the lens. Talha set up a camera with a telescope on a motorized mount that followed the Sun. To protect the camera lens, Talha limited the amount of light by setting a very short exposure time.
+        \n\nVisit the Rumble Map to explore this image of Baily\’s Beads through touch and sound. The absence of light is silent and still. Can you feel and hear where the Sun\’s light creates several beads dotted along a ring of light?</string>
+
+    <string name="annularity_description">This image is of Annularity, when an annular eclipse is at its maximum point. During Annularity, the dark black Moon appears smooth like glass and blocks the center of the Sun. Only a thin ring of light shines around the edge of the round Moon. As a result, the Sun appears to be a very bright ring of fire rather than a glowing ball.
+        This ring of light may only appear for a few minutes. This spectacular feature is why annular solar eclipses are often called “Ring of Fire” eclipses. This ring shape is also why this type of eclipse is called an “annular” eclipse. This ring shape is known as an annulus in mathematics.
+        The word “annular” means “little ring” in Latin. During an annular eclipse the Moon blocks all but this outer ring of the Sun\’s surface. An annular eclipse is just one type of eclipse. Total solar eclipses are another type. During a total solar eclipse the Moon completely covers the surface of the Sun.
+        \n\nThis image was taken by amateur astronomer Talha Zia during the June 21, 2020 eclipse in Sukkur, Pakistan. Talha is a member of the Karachi Astronomers\’ Society. If you\'d like to photograph an eclipse, you will need more than just a telescope or camera! To protect your telescope, AND YOUR EYES, you need to use a special solar filter.
+        This is similar to a very dark piece of glass that fits over the front of your camera or telescope lens. The filter is designed to limit the amount of light without adding color to the image.
+        \n\nVisit the Rumble Map to explore this Annularity image through touch and sound. The absence of light is silent and still. Can you feel and hear the strong change as you move from the intensely bright “Ring of Fire” to the darkness of the Moon?</string>
+
+    <string name="annular_phase_end_description">This image was taken as the annular phase ends. The Moon is slowly creeping away from the center of the Sun.  As the dark, circular Moon blocks less of the Sun\’s bright light, the Sun\’s fiery ring of light slowly transforms into a bright crescent shape once again. Depending on your location, Baily\’s Beads might be visible again.
+        Baily’s Beads appear like glowing pearls at the ends of the Sun\’s glowing crescent.
+        \n\nThis image was taken by Talha Zia in Sukkur, Pakistan. Talha did not use a solar filter on their camera, which can be dangerous. To protect their eyes, Talha did not look directly into the camera. Talha set up the camera with a telescope on a motorized mount that followed the Sun. To protect the camera, Talha limited the amount of light by setting a very short exposure time.
+        \n\nVisit the Rumble Map to explore this Third Contact image through touch and sound. The absence of light is silent and still. Can you feel and hear where the widest part of the crescent shape of light is?</string>
+
+    <string name="annular_end_description">This image is of the end of the annular eclipse. The Moon is slowly moving completely out of the Sun\’s way.
+        \n\nWhile the Moon still appears as a black disk, the Sun is a fiery ball of swirling red and orange. As it moves, the Moon looks like it is taking smaller and smaller bites out of the Sun. In this image, the Moon blocks a small area on the right side of the Sun.
+        \n\nFourth Contact is the end point of the annular eclipse, when the Moon\’s edge moves past the Sun\’s edge, and no longer blocks any part of the Sun\’s light.
+        \n\nThis image was taken by the Atmospheric Imaging Assembly telescope on board NASA’s Solar Dynamics Observatory. This observatory is currently in orbit around the Earth. Its telescope takes eight images like this one every ten seconds. These images help scientists better understand the Sun.
+        \n\nVisit the Rumble Map to explore this image of the eclipse ending through touch and sound. The absence of light is silent and still. Can you feel and hear how much more of the Sun is visible in comparison to other stages of the annular eclipse?</string>
 
     <string name="viewing_desc_format">Now viewing description for %1$s</string>
     <string name="viewing_image_format">Now viewing image for %1$s</string>
@@ -243,21 +299,52 @@
         Scientists can detect planets eclipsing their stars and determine both how far the planet is from its star and the planet\’s mass.
         From these clues and other observations, scientists are attempting to discover if there is life on those other planets that may be experiencing their own eclipses.</string>
 
-    <string name="bailys_beads_short">For the next six minutes the Rumble Map will be disabled so that you can hear in real time the events surrounding totality.
+    <string name="audio_bailys_beads_short">For the next six minutes the Rumble Map will be disabled so that you can hear in real time the events surrounding totality.
         \n\nOn the right side of the moon orbs of glowing sunlight shimmer off the edge of the moon\’s black disc.
         Called Bailey\’s beads, these final areas of the sun\’s light appear as glimmering pearls on a wire made intensely bright by the absence of light surrounding them.</string>
 
-    <string name="first_contact_short">The eclipse has begun and this is the first moment that the moon appears to touch the sun.
+    <string name="audio_first_contact_short">The eclipse has begun and this is the first moment that the moon appears to touch the sun.
         These two celestial bodies look as if they are the same size. The sun\’s light is so bright that it obliterates all of the moon\’s features causing the moon to appear as a smooth obsidian disc.
         For the next approximately 90 minutes you will have the opportunity to interact with the Rumble Map and explore features of the sun that are revealed during an eclipse.
         Then, during the six minutes leading up to, during, and just after totality, the Rumble Map will be disabled so that you can hear about events surrounding totality in real time.</string>
 
-    <string name="diamond_ring_short">On the left side of the black moon a sliver of sunlight blasts into view with white hot intensity.
+    <string name="audio_diamond_ring_short">On the left side of the black moon a sliver of sunlight blasts into view with white hot intensity.
         As the area of reemerging sunlight grows, it resembles a diamond ring beaming out its brilliant light.</string>
 
-    <string name="totality_short">THIS is the full eclipse. For approximately two minutes the moon\’s black disc completely covers the sun revealing the sun\’s massive outer corona.
+    <string name="audio_totality_short">THIS is the full eclipse. For approximately two minutes the moon\’s black disc completely covers the sun revealing the sun\’s massive outer corona.
         Grand flourishes of light extend from the moon in all directions like flower petals.
         Intensely bright at the moon\’s edge, these helmet streamers fade to wisps of ghostly white as they stretch across space.</string>
+
+    <string name="audio_annular_start_short">The eclipse has begun and it is an amazing show! The Rumble Map will be disabled during the eclipse so you can enjoy this event with real time descriptions.
+        And remember, you MUST wear special eye protection at ALL times if you want to look up at the annular eclipse! NEVER look at the Sun with your eyes, through binoculars or a telescope!
+        \n\nDuring an annular eclipse, the Moon blocks the Sun, but not completely. From Earth, the Moon does not appear big enough to block out the Sun entirely.
+        \n\nThe eclipse begins with “First Contact”. At First Contact, the Moon appears to touch the Sun. The Sun appears as a glowing, white disk against a black background.
+        Near the side of the Sun, a small curved area appears missing from the Sun\’s perfect circle shape. This missing area is the Moon as it begins to creep in front of the Sun, slowly starting to block out some of the Sun\’s light.
+        It appears like the Moon is taking a small “bite” out of the Sun.
+        \n\nUsually the Moon\’s deep craters make the Moon appear rough. But now, the Sun\’s light is so bright that it makes all of the Moon\’s features disappear. This causes the Moon to appear black and smooth like glass.</string>
+
+    <string name="audio_annular_phase_start_short">In this stage, the Moon has moved in front of the Sun. The Moon appears to be a completely black disk and the Sun\’s light shines only at the edges of the Moon in a thin C-shape or crescent.
+        \n\nIt\’s possible that a phenomenon called Baily\’s Beads might also briefly blink into view. Baily\’s Beads look like a few glowing pearls found at the ends of the Sun\’s crescent shape. Baily\’s Beads are caused by Sunlight shining through deep valleys on the Moon.
+        After Baily\’s Beads disappear, a ring of light will start to appear. The moment this phase starts is called “Second Contact.”
+        \n\nIt may be tempting, but you should never look at Baily\’s Beads or the ring of light with your eyes or a telescope. You MUST wear special eye protection during all stages of an annular eclipse!</string>
+
+    <string name="audio_annularity_short">Annularity is now happening.
+        \n\nAt this point, the Sun appears to be a very bright ring of fire rather than its usual glowing ball of light. This is because the dark black Moon has moved to block the center of the Sun and the Sun\’s light glows around the circular edge of the Moon.
+        As a result, the Sun\’s light resembles a glowing letter O.  This “O” shape is known as an annulus in mathematics.
+        The word “annular” means “little ring” in Latin. This is why this type of eclipse is called an “annular” eclipse. During an annular eclipse the Moon obscures all but this outer ring of the Sun.
+        \n\nThis ring will only appear for a few minutes because the Sun, Moon, and earth are still slowly moving.
+        \n\nRemember, NEVER look directly at the Sun during an annular eclipse with a telecope or your eyes. You need to wear special eclipse glasses if you want to look at an eclipse. Otherwise, severe eye damage can occur.</string>
+
+    <string name="audio_annular_phase_end_short">The Annular Phase is ending.
+        \n\nThe Moon is slowly creeping away from the center of the Sun. As the dark, circular Moon blocks less of the Sun\’s bright light, the Sun\’s fiery ring of light slowly transforms back into a  C-shape.
+        Depending on your location, Baily\’s Beads might be visible again. Baily\’s Beads appear like glowing pearls at the ends of the Sun\’s glowing crescent.
+        \n\nIt is still not safe to look at the Sun with your eyes or a telescope. You MUST wear special eye protection, like official eclipse glasses, to look at the Sun during ALL stages of an annular eclipse.</string>
+
+    <string name="audio_annular_end_short">The annular eclipse is ending. The Moon is slowly moving completely out of the Sun\’s way.
+        \n\nWhile the Moon still appears as a black disk, the Sun is a fiery ball of swirling red and orange. As the Moon moves, it looks like it is taking smaller and smaller bites out of the Sun.
+        \n\nAt this point, only a small section of the Sun is blocked by the Moon. Soon the Moon will no longer be blocking any of the Sun\’s light.
+        \n\nFourth Contact is the end point of the annular eclipse, when the Moon\’s edge moves past the Sun\’s edge, and no longer blocks any part of the Sun\’s light.
+        \n\nOnce the annular eclipse ends, the Rumble Map and all other app features will be available again. We hope you will continue to explore the wonders of eclipses using the app even after this annular eclipse\’s completion!</string>
 
     <string name="first_contact">First Contact</string>
     <string name="bailys_beads">Baily\'s Beads</string>
@@ -269,6 +356,11 @@
     <string name="prominence">Prominence</string>
     <string name="prominence_closeup">Prominence Closeup</string>
     <string name="totality">Totality</string>
+    <string name="annular_start">The Annular Eclipse Begins</string>
+    <string name="annular_phase_start">Annular Phase Begins</string>
+    <string name="annularity">Annularity</string>
+    <string name="annular_phase_end">Annular Phase Ends</string>
+    <string name="annular_end">The Annular Eclipse Ends</string>
     <string name="sun_as_star">Sun as a Star</string>
     <string name="eclipse_experience">Eclipse Experience</string>
     <string name="duration_desc_seconds">%1$s seconds</string>
@@ -277,8 +369,12 @@
     <string name="duration_current_progress">%1$s of %2$s</string>
     <string name="duration_min_sec">%1$s minutes and %2$s seconds</string>
 
+    <string name="total_solar_eclipse">Total Solar Eclipse</string>
+    <string name="annular_solar_eclipse">Annular Solar Eclipse</string>
+
     <!-- rumble map interaction -->
-    <string name="rumble_map">Rumble Map</string>
+    <string name="rumble_map" translatable="false">Rumble Map</string>
+    <string name="rumble_maps" translatable="false">Rumble Maps</string>
     <string name="rumble_map_interaction">Rumble Map Interaction</string>
     <string name="rumble_map_launch">Press to interact with Rumble Map</string>
     <string name="rumble_map_how">How to Use The Rumble Map</string>
@@ -290,7 +386,8 @@
     <!-- About -->
     <string name="supported_eclipse">Eclipses We Support</string>
     <string name="link_feedback_form" translatable="false"><![CDATA[https://eclipsesoundscapes.org/ES_MobileApp_Feedback]]></string>
-    <string name="privacy_policy_url" translatable="false"><![CDATA[https://eclipsesoundscapes.org/content/eclipse-soundscapes-mobile-application-privacy-policy]]></string>
+    <string name="privacy_policy_url"><![CDATA[https://eclipsesoundscapes.org/privacy-policy]]></string>
+    <string name="tos_url"><![CDATA[https://eclipsesoundscapes.org/Terms-of-Service]]></string>
 
     <!-- Walkthrough -->
     <string name="walkthrough">Walkthrough</string>
@@ -298,7 +395,9 @@
     <string name="walkthrough_title_location">Please allow location access</string>
     <string name="walkthrough_location_page">Access to location</string>
     <string name="not_now">Not Now</string>
-    <string name="walkthrough_welcome_text">Thank you for downloading the Eclipse Soundscapes app, a multi-sensory experience for people of all learning styles to engage with astronomical events, including total solar eclipses. Inside this app, you will find countdowns to major astronomical events in your area, and real time narrations of those events with illustrative audio descriptions provided by the National Center for Accessible Media. You can also explore the cosmos with high quality photos, educational information, and accessible learning tools.</string>
+    <string name="walkthrough_welcome_text">Thank you for downloading the Eclipse Soundscapes app, a multi-sensory experience for people of all learning styles to engage with astronomical events, including annular and total solar eclipses.
+        Inside this app, you will find countdowns to major astronomical events in your area, and real time narrations of those events with illustrative audio descriptions. You can also explore the cosmos with high quality photos, educational information, and accessible learning tools.
+        This app is available in English and Spanish. To change the language within the application, go to the Menu.</string>
     <string name="walkthrough_rumble_map_text">Our Rumble Map tool is designed for you to hear and feel astronomical phenomena, such as eclipses, using the touchscreen and the speakers on your smartphone. For example: the Rumble Map will display photos of the Moon passing in front of the Sun during the most engaging and educational moments of an eclipse. When you touch the image on the screen, the app will read the grayscale value of a pixel underneath your finger, and play an audio tone which will vibrate your phone with a strength relative to the brightness of that section. As you move your finger onto the bright sections of the Sun, your phone will vibrate more. As you move your finger into the dark spaces blocked by the Moon’s disk, the vibration will diminish and disappear. By paying close attention to the audio tones and the strength of your phone\'s vibration, you can learn how much sunlight is visible at each stage of the eclipse, and explore some of the fascinating features of the Sun\'s corona.</string>
     <string name="walkthrough_eclipse_center">The Eclipse Center is your go-to destination for learning about eclipses in your area so you can discover them as they happen. When you open the Eclipse Center, it will ask to pinpoint your geographic location. Once you accept, you will find a countdown to the next eclipse, information on whether you will experience a total or a partial solar eclipse in your area, and the exact start time, peak time, and end time of the eclipse. </string>
     <string name="walkthrough_audio_description">When it is time for the next eclipse to start, you will receive a push notification to open Eclipse Soundscapes. The app will then guide you through the main event with illustrative audio descriptions of an eclipse\'s most important moments. These audio descriptions, provided by the National Center for Accessible Media, are explanations of photos developed with specialized language to help people who are blind and visually impaired engage with an eclipse. After each audio description ends, you will have the option to either hear more educational information or explore that feature of an eclipse using the Rumble Map.</string>
@@ -309,75 +408,36 @@
     <string name="page_indicator">Page %1$d of %2$d</string>
 
     <!-- Future Eclipses -->
-    <string name="future_eclipse_label_format">%1$s: %2$s</string>
+    <string name="future_eclipse_label_format" translatable="false">%1$s: %2$s</string>
     <string name="future_eclipse_features">Tracking, Rumble Maps, Narrations</string>
 
-    <!-- Dialog -->
-    <array name="eclipse_imgs_title">
-        <item name="diamond_ring">@string/diamond_ring</item>
-        <item name="helmet_streamers">@string/helmet_streamers</item>
-        <item name="prominence">@string/prominence</item>
-        <item name="sun_as_star">@string/sun_as_star</item>
-        <item name="first_contact">@string/first_contact</item>
-        <item name="totality">@string/totality</item>
-        <item name="bailys_beads">@string/bailys_beads</item>
-        <item name="corona">@string/corona</item>
-    </array>
-
-    <array name="eclipse_img_credits">
-        <item name="diamond_ring">©1991 Bill Reyna\n©2005 Hana Druckmüllerová, Miloslav
-            Druckmüller
-        </item>
-        <item name="helmet_streamers">©1994 Úpice Observatory and Vojtech Rušin\n©2007 Miloslav
-            Druckmüller
-        </item>
-        <item name="prominence">©1991 Peter Aniol\n©2010 Miloslav Druckmüller</item>
-        <item name="sun_as_star">©2006 Martin Antoš, Hana Druckmüllerová, Miloslav Druckmüller,
-            ESA/NASA
-        </item>
-        <item name="first_contact">XRT team(SAO, NASA, JAXA, NAOJ)</item>
-        <item name="totality">©2006 Miloslav Druckmüller, Peter Aniol</item>
-        <item name="bailys_beads">©2013 Úpice observatory Petr Horálek, Jan Sládeček\n©2014
-            Miloslav Duckmüller
-        </item>
-        <item name="corona">©2002 Arne Danielsen\n©2005 Miloslav Druckmüller</item>
-    </array>
-
-    <array name="eclipse_img_credit_links">
-        <item name="diamond_ring">
-            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1991m/Ecl1991_rdd_dr/0-info.htm
-        </item>
-        <item name="helmet_streamers">
-            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1994ch/Mid_ecl/0-info.htm
-        </item>
-        <item name="prominence">
-            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1991a/Ecl1991a_in03/0-info.htm
-        </item>
-        <item name="sun_as_star">
-            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2006th/Tse2006tc_m200_inh30_32_c3/0-info.htm
-        </item>
-        <item name="first_contact">https://xrt.cfa.harvard.edu/xpow/20160315.html</item>
-        <item name="totality">
-            http://www.zam.fme.vutbr.cz/~druck/eclipse/ecl2006l/Tse2006l_1640_15/0-info.htm
-        </item>
-        <item name="bailys_beads">
-            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2013u/Tse_2013_bp-7430/0-info.htm
-        </item>
-        <item name="corona">
-            http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2002a/Ecl2002_dd_cor/0-info.htm
-        </item>
-    </array>
-
-    <array name="listOptions">
-        <item name="item_rumble_map">@string/rumble_map_how</item>
-        <item name="item_team">@string/our_team</item>
-        <item name="item_partners">@string/our_partners</item>
-        <item name="item_future_eclipses">@string/supported_eclipse</item>
-        <item name="item_walkthrough">@string/walkthrough</item>
-        <item name="item_feedback">@string/feedback</item>
-        <item name="item_settings">@string/settings</item>
-        <item name="item_legal">@string/legal</item>
-    </array>
+    <!-- Photo credits -->
+    <string name="credits_diamond_ring" translatable="false">©1991 Bill Reyna\n©2005 Hana Druckmüllerová, Miloslav Druckmüller</string>
+    <string name="credits_helmet_streamers" translatable="false">©1994 Úpice Observatory and Vojtech Rušin\n©2007 Miloslav Druckmüller</string>
+    <string name="credits_prominence" translatable="false">©1991 Peter Aniol\n©2010 Miloslav Druckmüller</string>
+    <string name="credits_sun_as_star" translatable="false">©2006 Martin Antoš, Hana Druckmüllerová, Miloslav Druckmüller, ESA/NASA</string>
+    <string name="credits_first_contact" translatable="false">XRT team(SAO, NASA, JAXA, NAOJ)</string>
+    <string name="credits_totality" translatable="false">©2006 Miloslav Druckmüller, Peter Aniol</string>
+    <string name="credits_bailys_beads" translatable="false">©2013 Úpice observatory Petr Horálek, Jan Sládeček\n©2014 Miloslav Duckmüller </string>
+    <string name="credits_corona" translatable="false">©2002 Arne Danielsen\n©2005 Miloslav Druckmüller</string>
+    <string name="credits_annular_start" translatable="false">© Rick Fienberg</string>
+    <string name="credits_annular_phase_start" translatable="false">© Ajay Talwar</string>
+    <string name="credits_annularity" translatable="false">© 2020 Talha Zia</string>
+    <string name="credits_annular_phase_end" translatable="false">© Ajay Talwar</string>
+    <string name="credits_annular_end" translatable="false">Courtesy of NASA/SDO and the AIA, EVE, and HMI science teams</string>
+    <string name="credits_link_diamond_ring" translatable="false">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1991m/Ecl1991_rdd_dr/0-info.htm</string>
+    <string name="credits_link_helmet_streamers" translatable="false">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1994ch/Mid_ecl/0-info.htm</string>
+    <string name="credits_link_prominence" translatable="false">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl1991a/Ecl1991a_in03/0-info.htm</string>
+    <string name="credits_link_sun_as_star" translatable="false">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2006th/Tse2006tc_m200_inh30_32_c3/0-info.htm</string>
+    <string name="credits_link_first_contact" translatable="false">https://xrt.cfa.harvard.edu/xpow/20160315.html</string>
+    <string name="credits_link_totality" translatable="false">http://www.zam.fme.vutbr.cz/~druck/eclipse/ecl2006l/Tse2006l_1640_15/0-info.htm</string>
+    <string name="credits_link_bailys_beads" translatable="false">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2013u/Tse_2013_bp-7430/0-info.htm</string>
+    <string name="credits_link_corona" translatable="false">http://www.zam.fme.vutbr.cz/~druck/eclipse/Ecl2002a/Ecl2002_dd_cor/0-info.htm</string>
+    <string name="credits_link_annular_start" translatable="false">https://eclipse.aas.org/resources/images-videos#partial</string>
+    <string name="credits_link_annular_phase_start" translatable="false">http://xjubier.free.fr/en/site_pages/solar_eclipses/ASE_20200621_pg02.html</string>
+    <string name="credits_link_annularity" translatable="false">http://xjubier.free.fr/en/site_pages/solar_eclipses/ASE_19840530_pg01.html</string>
+    <string name="credits_link_annular_phase_end" translatable="false">http://xjubier.free.fr/en/site_pages/solar_eclipses/ASE_20200621_pg02.html</string>
+    <string name="credits_link_annular_end" translatable="false">https://sdo.gsfc.nasa.gov/gallery/main/item/131</string>
 
     <string name="our_partners">Our Partners</string>
     <string name="current_partners">Current Partners</string>
@@ -386,8 +446,8 @@
     <string name="feedback">Give Feedback</string>
 
     <array name="current_partners_title">
-        <item name="partner_nasa">NASA’s Space Science Education Consortium (NSSEC)</item>
-        <item name="partner_wgbh">National Center for Accessible Media, WGBH</item>
+        <item name="partner_nasa">NASA Heliophysics Education Activation Team (NASA HEAT)</item>
+        <item name="partner_wgbh">National Center for Accessible Media, GBH</item>
         <item name="partner_nfb">National Federation of the Blind</item>
         <item name="partner_science_friday">Science Friday</item>
     </array>
@@ -402,12 +462,9 @@
     </array>
 
     <array name="current_partners_desc">
-        <item name="nasa_description">NASA (National Aeronautics and Space Administration) is an independent agency of the United States federal government which conducts the civilian space program, aeronautics, and aerospace research.
-            NASA is leading an educational outreach effort surrounding eclipses, which includes information and live coverage of these events.
-            For more information on NASA, visit nasa.gov. The NASA Space Science Education Consortium (NSSEC) capitalizes on NASA\’s rich history of sharing research and technology through compelling and innovative education projects.
-            The NSSEC (formerly the Heliophysics Education Consortium (HEC)) continues the Science Mission Directorate\’s (SMD) work at the forefront of NASA\’s educational endeavors by linking exciting science and missions directly to the American public.
-            NSSEC is partnering with Eclipse Soundscapes to provide the script calculating the timing of the eclipse, as well as the funding that makes Eclipse Soundscapes possible.
-        </item>
+        <item name="nasa_description">The NASA Heliophysics Education Activation Team (NASA HEAT) capitalizes on NASA\’s rich history of sharing research and technology through compelling and innovative education projects.
+            NASA HEAT (formerly NASA Space Science Education Consortium (NSSEC)) continues the Science Mission Directorate\’s (SMD) work at the forefront of NASA\’s educational endeavors by linking exciting science and missions directly to the American public.
+            NASA HEAT is partnering with ARISA Lab on its Eclipse Soundscapes Mobile Application Project to provide the script calculating the timing of the eclipse, subject matter experts, and the funding that makes the Eclipse Soundscapes mobile application possible.</item>
 
         <item name="wgbh_description">The Carl and Ruth Shapiro Family National Center for Accessible Media (NCAM) is a non-profit branch of GBH in Boston which is dedicated to achieving media access equality for people with disabilities.
             NCAM is partnering with Eclipse Soundscapes to provide media coverage of the eclipse, including illustrative audio descriptions of the eclipse which will allow visually impaired individuals to experience the eclipse through real-time audio narrations.
@@ -456,10 +513,10 @@
     </array>
 
     <array name="current_partners_link">
-        <item name="nasa_link">science.nasa.gov/science-activation-team/nasa-space-science-education-consortium</item>
-        <item name="gbh_link">ncam.wgbh.org</item>
-        <item name="nfb_link">www.nfb.org</item>
-        <item name="science_friday_link">sciencefriday.com</item>
+        <item name="nasa_link">https://science.nasa.gov/science-activation-team/nasa-heliophysics-education-activation-team</item>
+        <item name="gbh_link">http://ncam.wgbh.org</item>
+        <item name="nfb_link">http://nfb.org</item>
+        <item name="science_friday_link">https://sciencefriday.com</item>
     </array>
 
     <array name="past_partners_link">
@@ -482,8 +539,8 @@
     </array>
 
     <array name="team_title">
-        <item name="member_henry_winter">Principal Investigator</item>
-        <item name="member_marykay">Project Manager</item>
+        <item name="member_henry_winter">Co-Principal Investigator</item>
+        <item name="member_marykay">Co-Principal Investigator</item>
         <item name="member_arlindo">Application Developer</item>
         <item name="member_joel">Application Developer</item>
         <item name="member_miles">Audio Engineer</item>

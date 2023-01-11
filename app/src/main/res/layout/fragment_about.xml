@@ -1,19 +1,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#303030"
     android:orientation="vertical"
     tools:context=".ui.about.AboutFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:minHeight="?attr/actionBarSize"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:titleTextColor="@android:color/white"
-        android:background="?attr/colorPrimary"/>
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/app_bar"/>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/ScrollView01"
@@ -26,7 +20,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@android:color/white"
             android:layout_marginBottom="16dp">
 
             <ImageView
@@ -38,21 +31,19 @@
                 android:adjustViewBounds="true"/>
 
             <TextView
+                style="@style/ParagraphText"
                 android:id="@+id/about_us_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
-                android:fontFamily="sans-serif"
-                android:textSize="@dimen/default_text_size"
-                android:textColor="@color/text_color_primary"
                 android:text="@string/about_us_details" />
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/ma_divider_thickness_light"
+                android:layout_height="@dimen/divider_size"
+                android:background="?attr/dividerVertical"
                 android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="#757575" />
+                android:layout_marginEnd="16dp"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/about_list_view"

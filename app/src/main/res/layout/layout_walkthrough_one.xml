@@ -12,13 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="5dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5"/>
+        app:layout_constraintGuide_percent="0.4"/>
 
     <ImageView
         android:id="@+id/walkthrough_img"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:src="@drawable/logo_2"
+        android:src="@drawable/banner_logo"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
         android:importantForAccessibility="no"
@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-condensed"
         android:textColor="@android:color/white"
-        android:textSize="12sp"
+        android:textSize="@dimen/page_indicator_text_size"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/walkthrough_img"
@@ -51,18 +51,17 @@
             android:focusable="true">
 
             <TextView
+                style="@style/HeaderText2"
                 android:id="@+id/bottom_view_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/welcome"
-                android:fontFamily="sans-serif-medium"
-                android:textColor="@color/text_color_primary"
-                android:textSize="21sp"
                 android:focusable="false"/>
 
             <TextView
+                style="@style/ParagraphText"
                 android:id="@+id/bottom_view_more"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -71,10 +70,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:gravity="center"
-                android:fontFamily="sans-serif"
                 android:text="@string/walkthrough_welcome_text"
-                android:textColor="@color/text_color_primary"
-                android:textSize="@dimen/default_text_size"
                 android:focusable="false"/>
         </LinearLayout>
     </ScrollView>
