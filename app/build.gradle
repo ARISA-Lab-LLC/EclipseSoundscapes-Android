@@ -13,13 +13,13 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
         // work-runtime-ktx 2.1.0 and above now requires Java 8
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     signingConfigs {
@@ -31,16 +31,29 @@ android {
         }
     }
 
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+    compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "org.eclipsesoundscapes"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        minSdk rootProject.ext.minSdkVersion
+        targetSdk rootProject.ext.targetSdkVersion
         versionCode 11
         versionName "2.1.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         vectorDrawables.useSupportLibrary = true
+    }
+
+    buildFeatures {
+        dataBinding = true
+        buildConfig = true
+    }
+
+    signingConfigs {
+        signRelease {
+            storeFile file(STORE_FILE)
+            storePassword STORE_PASS
+            keyAlias KEY_ALIAS
+            keyPassword KEY_PASS
+        }
     }
 
     buildTypes {
@@ -54,11 +67,13 @@ android {
     lintOptions {
         checkReleaseBuilds false
     }
+
+    namespace = "org.eclipsesoundscapes"
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.8.1'
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.9'
     androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
