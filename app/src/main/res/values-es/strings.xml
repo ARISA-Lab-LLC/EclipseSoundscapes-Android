@@ -52,6 +52,7 @@
     <!-- permissions -->
     <string name="access_location">acceder a la ubicación</string>
     <string name="location_permission">Permiso de ubicación</string>
+    <string name="notifications_permission">Permiso de notificaciones</string>
     <string name="error_finding_location">"incapaz de determinar su ubicación actual</string>
     <string name="permission_denied">Permiso denegado</string>
     <string name="location_disabled_message">Ubicación deshabilitada.\nPara continuar, habilite los servicios de ubicación desde la configuración de su dispositivo.</string>
@@ -59,6 +60,15 @@
 
     <string name="device_settings_permission">Para continuar, permite el acceso a su ubicación desde la configuración de su dispositivo.</string>
     <string name="app_settings_permission">Para continuar, permite el acceso a su ubicación desde la configuración de la aplicación.</string>
+
+    <string name="location_access_title">el acceso a la ubicación</string>
+    <string name="notifications_access_title">Acceso a notificaciones</string>
+
+    <string name="location_permission_content_description">Permite el acceso a la ubicación</string>
+    <string name="location_permission_description">¡No querrá perderse este increíble evento astronómico! Necesitamos acceso a su ubicación para mostrarle información sobre el eclipse.</string>
+
+    <string name="notifications_permission_content_description">Por favor permita el acceso a las notificaciones</string>
+    <string name="notifications_permission_description">También necesitaremos acceso a sus notificaciones para notificarle sobre los eventos del eclipse a medida que ocurren.</string>
 
     <!-- notifications -->
     <string name="notification_channel_desc">Muestra notificaciones sobre un próximo eclipse.</string>
@@ -401,8 +411,6 @@
     <!-- walkthrough -->
     <string name="walkthrough">La guía</string>
     <string name="walkthrough_title">La guía de Eclipse Soundscapes</string>
-    <string name="walkthrough_title_location">Permite el acceso a la ubicación</string>
-    <string name="walkthrough_location_page">el acceso a la ubicación</string>
 
     <string name="prev_page">Página anterior</string>
     <string name="next_page">Página siguiente</string>
@@ -426,8 +434,6 @@
         La aplicación lo guiará por el evento principal con descripciones de audio ilustrativas de los momentos más importantes de un eclipse.
         Estas descripciones de audio, creadas por el centro nacional de contenido multimedia accesible (National Center for Accessible Media GBH), son explicaciones de fotos desarrolladas con lenguaje especializado para que las personas ciegas y con baja visión puedan ser partícipes de un eclipse.
         Cuando la descripción de audio termine, habrá la posibilidad de elegir escuchar más información educativa o explorar esa característica de un eclipse usando el Rumble Map.</string>
-
-    <string name="walkthrough_permission">¡No querrá perderse este increíble evento astronómico! Necesitamos acceso a su ubicación para mostrarle información sobre el eclipse.</string>
 
     <!-- Future Eclipses -->
     <string name="future_eclipse_features">Seguimiento, Rumble Maps, Narraciones</string>

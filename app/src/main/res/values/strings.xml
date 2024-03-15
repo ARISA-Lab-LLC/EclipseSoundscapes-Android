@@ -50,6 +50,7 @@
 
     <!-- permissions -->
     <string name="location_permission">Location permission</string>
+    <string name="notifications_permission">Notifications permission</string>
     <string name="error_finding_location">Unable to determine your current location</string>
     <string name="permission_denied">Permission denied</string>
     <string name="location_disabled_message">Location disabled.\nTo continue, enable location services from your device settings.</string>
@@ -57,6 +58,17 @@
 
     <string name="device_settings_permission">To continue, please allow access to your location from your device settings.</string>
     <string name="app_settings_permission">To continue, please allow access to your location from the application settings.</string>
+
+    <string name="location_access_title">Access to location</string>
+    <string name="notifications_access_title">Access to notifications</string>
+
+    <string name="location_permission_content_description">Please allow location access</string>
+    <string name="location_permission_description">You don\'t want to miss this amazing astronomical event! We\'ll need access to your location to show you information about the eclipse.</string>
+
+    <string name="notifications_permission_content_description">Please allow notifications access</string>
+    <string name="notifications_permission_description">We need access to your notifications to notify you about eclipse events as they happen.</string>
+
+    <string name="not_now">Not Now</string>
 
     <!-- Notifications -->
     <string name="notification_channel_desc">Display notifications about an upcoming eclipse.</string>
@@ -254,7 +266,7 @@
         \n\nAs you trace your finger along a helmet streamer, you can feel the smooth arches come to long sharp points as they extend from the base of the Sun outward.
         \n\nHelmet streamers get their shape from two different processes. A streamer\'s arch shape is the result of magnetic fields from the Sun reaching out into the corona and then arching back down to the surface of the sun to connect to regions of opposite magnetic polarity.  
         The long, pointed tops of helmet streamers come from streams of gas flowing out from the corona into interplanetary space forming the solar wind.</string>
-    
+
     <string name="audio_prominence_full">Fiery loops of hot pink light appear to leap off the moon\’s black surface. With the sheer white corona as their backdrop, these pink prominences seem to dance above the moon like lines of liquid neon.
         \n\nYou will notice a sharp contrast when you interact with a prominence due to its intense brightness relative to both the moon and the sun\’s corona.
         \n\nProminences are magnetic fields that are filled with very dense material making them much brighter than the surrounding background.
@@ -272,7 +284,7 @@
         As the area of re-emerging sunlight grows, it resembles a diamond, beaming out its brilliant light from its setting on the circular ring of the moon\’s edge.
         \n\nEven this small section of the sun\’s light cannot be viewed without special eye protection. Please use special eclipse glasses or filters if viewing this feature directly on the Sun with your eyes. 
         As the moon barely moves away from the solar surface, the powerful light of the Sun peers around the side of the moon. The sun\’s light is so intense that even this small fraction of it dominates the sky.</string>
-    
+
     <string name="audio_first_contact_full">This is the first moment that the moon, slowly moving from left to right, appears to touch the sun.
         The intensity of the sun\'s light makes it unsafe to look at without special eye protection until the totality, the few minutes during which the moon completely eclipses the sun.
         The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk.
@@ -392,16 +404,12 @@
     <!-- Walkthrough -->
     <string name="walkthrough">Walkthrough</string>
     <string name="walkthrough_title">Eclipse Soundscapes Walkthrough</string>
-    <string name="walkthrough_title_location">Please allow location access</string>
-    <string name="walkthrough_location_page">Access to location</string>
-    <string name="not_now">Not Now</string>
     <string name="walkthrough_welcome_text">Thank you for downloading the Eclipse Soundscapes app, a multi-sensory experience for people of all learning styles to engage with astronomical events, including annular and total solar eclipses.
         Inside this app, you will find countdowns to major astronomical events in your area, and real time narrations of those events with illustrative audio descriptions. You can also explore the cosmos with high quality photos, educational information, and accessible learning tools.
         This app is available in English and Spanish. To change the language within the application, go to the Menu.</string>
     <string name="walkthrough_rumble_map_text">Our Rumble Map tool is designed for you to hear and feel astronomical phenomena, such as eclipses, using the touchscreen and the speakers on your smartphone. For example: the Rumble Map will display photos of the Moon passing in front of the Sun during the most engaging and educational moments of an eclipse. When you touch the image on the screen, the app will read the grayscale value of a pixel underneath your finger, and play an audio tone which will vibrate your phone with a strength relative to the brightness of that section. As you move your finger onto the bright sections of the Sun, your phone will vibrate more. As you move your finger into the dark spaces blocked by the Moon’s disk, the vibration will diminish and disappear. By paying close attention to the audio tones and the strength of your phone\'s vibration, you can learn how much sunlight is visible at each stage of the eclipse, and explore some of the fascinating features of the Sun\'s corona.</string>
     <string name="walkthrough_eclipse_center">The Eclipse Center is your go-to destination for learning about eclipses in your area so you can discover them as they happen. When you open the Eclipse Center, it will ask to pinpoint your geographic location. Once you accept, you will find a countdown to the next eclipse, information on whether you will experience a total or a partial solar eclipse in your area, and the exact start time, peak time, and end time of the eclipse. </string>
     <string name="walkthrough_audio_description">When it is time for the next eclipse to start, you will receive a push notification to open Eclipse Soundscapes. The app will then guide you through the main event with illustrative audio descriptions of an eclipse\'s most important moments. These audio descriptions, provided by the National Center for Accessible Media, are explanations of photos developed with specialized language to help people who are blind and visually impaired engage with an eclipse. After each audio description ends, you will have the option to either hear more educational information or explore that feature of an eclipse using the Rumble Map.</string>
-    <string name="walkthrough_permission">You don\'t want to miss this amazing astronomical event! We\'ll need access to your location to show you information about the eclipse.</string>
 
     <string name="prev_page">previous page</string>
     <string name="next_page">next page</string>
@@ -462,58 +470,107 @@
     </array>
 
     <array name="current_partners_desc">
-        <item name="nasa_description">The NASA Heliophysics Education Activation Team (NASA HEAT) capitalizes on NASA\’s rich history of sharing research and technology through compelling and innovative education projects.
-            NASA HEAT (formerly NASA Space Science Education Consortium (NSSEC)) continues the Science Mission Directorate\’s (SMD) work at the forefront of NASA\’s educational endeavors by linking exciting science and missions directly to the American public.
-            NASA HEAT is partnering with ARISA Lab on its Eclipse Soundscapes Mobile Application Project to provide the script calculating the timing of the eclipse, subject matter experts, and the funding that makes the Eclipse Soundscapes mobile application possible.</item>
-
-        <item name="wgbh_description">The Carl and Ruth Shapiro Family National Center for Accessible Media (NCAM) is a non-profit branch of GBH in Boston which is dedicated to achieving media access equality for people with disabilities.
-            NCAM is partnering with Eclipse Soundscapes to provide media coverage of the eclipse, including illustrative audio descriptions of the eclipse which will allow visually impaired individuals to experience the eclipse through real-time audio narrations.
-            NCAM is also conducting a review of the Eclipse Soundscapes app to enhance its accessibility.
+        <item name="nasa_description">The NASA Heliophysics Education Activation Team (NASA HEAT)
+            capitalizes on NASA\’s rich history of sharing research and technology through
+            compelling and innovative education projects.
+            NASA HEAT (formerly NASA Space Science Education Consortium (NSSEC)) continues the
+            Science Mission Directorate\’s (SMD) work at the forefront of NASA\’s educational
+            endeavors by linking exciting science and missions directly to the American public.
+            NASA HEAT is partnering with ARISA Lab on its Eclipse Soundscapes Mobile Application
+            Project to provide the script calculating the timing of the eclipse, subject matter
+            experts, and the funding that makes the Eclipse Soundscapes mobile application possible.
         </item>
 
-        <item name="nfb_description">The National Federation of the Blind is the oldest and largest nationwide organization of blind Americans.
-            Founded in 1940 and currently headquartered in Baltimore, the NFB consists of affiliates, chapters, and divisions in all fifty states, Washington, DC, and Puerto Rico.
+        <item name="wgbh_description">The Carl and Ruth Shapiro Family National Center for
+            Accessible Media (NCAM) is a non-profit branch of GBH in Boston which is dedicated to
+            achieving media access equality for people with disabilities.
+            NCAM is partnering with Eclipse Soundscapes to provide media coverage of the eclipse,
+            including illustrative audio descriptions of the eclipse which will allow visually
+            impaired individuals to experience the eclipse through real-time audio narrations.
+            NCAM is also conducting a review of the Eclipse Soundscapes app to enhance its
+            accessibility.
         </item>
 
-        <item name="science_friday_description">The Science Friday Initiative is a non-profit organization dedicated to increasing the public\’s access to science and scientific information.
-            They host a radio show distributed by Public Radio International (PRI) and produce science and technology related digital videos, original web articles, and educational resources for educators.
-            Science Friday is partnering with Eclipse Soundscapes to provide audio recordings and social media support for the project.
+        <item name="nfb_description">The National Federation of the Blind is the oldest and largest
+            nationwide organization of blind Americans.
+            Founded in 1940 and currently headquartered in Baltimore, the NFB consists of
+            affiliates, chapters, and divisions in all fifty states, Washington, DC, and Puerto
+            Rico.
+        </item>
+
+        <item name="science_friday_description">The Science Friday Initiative is a non-profit
+            organization dedicated to increasing the public\’s access to science and scientific
+            information.
+            They host a radio show distributed by Public Radio International (PRI) and produce
+            science and technology related digital videos, original web articles, and educational
+            resources for educators.
+            Science Friday is partnering with Eclipse Soundscapes to provide audio recordings and
+            social media support for the project.
         </item>
     </array>
 
     <array name="past_partners_desc">
-        <item name="national_park_description">The National Park Service (NPS), an agency of the United States Department of the Interior, manages national parks, monuments, conservation, and historical sites throughout the United States.
-            NPS is partnering with Eclipse Soundscapes during the August 2017 Eclipse to collect mono and binaural field recordings in parks across the country, especially those in the path of totality.
-            They will collect data the day before, the day of, and the day after the eclipse in order to study how wildlife sounds fluctuate with the changes in light and temperature caused by the eclipse.
+        <item name="national_park_description">The National Park Service (NPS), an agency of the
+            United States Department of the Interior, manages national parks, monuments,
+            conservation, and historical sites throughout the United States.
+            NPS is partnering with Eclipse Soundscapes during the August 2017 Eclipse to collect
+            mono and binaural field recordings in parks across the country, especially those in the
+            path of totality.
+            They will collect data the day before, the day of, and the day after the eclipse in
+            order to study how wildlife sounds fluctuate with the changes in light and temperature
+            caused by the eclipse.
         </item>
 
-        <item name="eclipse_mob_description">Eclipse Mob is a crowdsourced effort to conduct the largest-ever low-frequency radio wave propagation experiment during the 2017 solar eclipse.
-            They are using radio signals to study the effect of sunlight on the ionosphere. By crowdsourcing, Eclipse Mob can collect radio wave signals at locations across the United States, allowing them to study how the signals are affected as they travel along various paths.
-            Eclipse Mob is partnering with Eclipse Soundscapes to provide radio wave data (a form of audio data) the Eclipse Soundscapes database.
+        <item name="eclipse_mob_description">Eclipse Mob is a crowdsourced effort to conduct the
+            largest-ever low-frequency radio wave propagation experiment during the 2017 solar
+            eclipse.
+            They are using radio signals to study the effect of sunlight on the ionosphere. By
+            crowdsourcing, Eclipse Mob can collect radio wave signals at locations across the United
+            States, allowing them to study how the signals are affected as they travel along various
+            paths.
+            Eclipse Mob is partnering with Eclipse Soundscapes to provide radio wave data (a form of
+            audio data) the Eclipse Soundscapes database.
         </item>
 
-        <item name="smithsonian_description">The Smithsonian Institution is a group of museums and research centers established and administered by the United States government.
-            Among the Smithsonian\’s many facilities are the National Air and Space Museum and the Harvard-Smithsonian Center for Astrophysics, where Eclipse Soundscapes is based.
-            The Smithsonian is partnering with Eclipse Soundscapes to provide a headquarters and funding for the Eclipse Soundscapes project.
+        <item name="smithsonian_description">The Smithsonian Institution is a group of museums and
+            research centers established and administered by the United States government.
+            Among the Smithsonian\’s many facilities are the National Air and Space Museum and the
+            Harvard-Smithsonian Center for Astrophysics, where Eclipse Soundscapes is based.
+            The Smithsonian is partnering with Eclipse Soundscapes to provide a headquarters and
+            funding for the Eclipse Soundscapes project.
         </item>
 
-        <item name="nation_girls_collab_description">The National Girls Collaborative Project (NGC) brings together United States organizations that are committed to informing and encouraging girls to pursue careers in science, technology, engineering, and mathematics.
-            NGC is partnering with Eclipse Soundscapes to organize listening parties where young women can experience the total solar eclipse complete with audio information.
+        <item name="nation_girls_collab_description">The National Girls Collaborative Project (NGC)
+            brings together United States organizations that are committed to informing and
+            encouraging girls to pursue careers in science, technology, engineering, and
+            mathematics.
+            NGC is partnering with Eclipse Soundscapes to organize listening parties where young
+            women can experience the total solar eclipse complete with audio information.
         </item>
 
-        <item name="citizen_cate">The Citizen CATE (Continental-America Telescopic Eclipse) Experiment is an effort to document the 2017 Eclipse by capturing images of the inner solar corona using a network of more than 60 telescopes.
-            CATE is working with high schools, universities, education groups, astronomy clubs, national science research labs, and corporate sponsors to produce 90 minutes of continuous, high-resolution, and rapid-cadence images detailing the Sun\’s inner corona.
-            Citizen CATE is partnering with Eclipse Soundscapes to provide high quality images for the Eclipse Soundscapes app.
+        <item name="citizen_cate">The Citizen CATE (Continental-America Telescopic Eclipse)
+            Experiment is an effort to document the 2017 Eclipse by capturing images of the inner
+            solar corona using a network of more than 60 telescopes.
+            CATE is working with high schools, universities, education groups, astronomy clubs,
+            national science research labs, and corporate sponsors to produce 90 minutes of
+            continuous, high-resolution, and rapid-cadence images detailing the Sun\’s inner corona.
+            Citizen CATE is partnering with Eclipse Soundscapes to provide high quality images for
+            the Eclipse Soundscapes app.
         </item>
 
-        <item name="brigham_young_uni_description">Brigham Young University (BYU) is a private research university with three locations, including Rexburg, Idaho.
-            They are partnering with Eclipse Soundscapes to provide a series of field recordings of the 2017 Eclipse, including audio of an active beehive.
-            Because Rexburg lies in the path of totality, BYU is hosting a number of viewing and educational events with the City of Rexburg.
+        <item name="brigham_young_uni_description">Brigham Young University (BYU) is a private
+            research university with three locations, including Rexburg, Idaho.
+            They are partnering with Eclipse Soundscapes to provide a series of field recordings of
+            the 2017 Eclipse, including audio of an active beehive.
+            Because Rexburg lies in the path of totality, BYU is hosting a number of viewing and
+            educational events with the City of Rexburg.
         </item>
     </array>
 
     <array name="current_partners_link">
-        <item name="nasa_link">https://science.nasa.gov/science-activation-team/nasa-heliophysics-education-activation-team</item>
+        <item name="nasa_link">
+            https://science.nasa.gov/science-activation-team/nasa-heliophysics-education-activation-team
+        </item>
         <item name="gbh_link">http://ncam.wgbh.org</item>
         <item name="nfb_link">http://nfb.org</item>
         <item name="science_friday_link">https://sciencefriday.com</item>
@@ -549,49 +606,83 @@
     </array>
 
     <array name="team_bio">
-        <item name="member_henry_winter">Dr. Henry \"Trae\" Winter III, is the Chief Scientist and Co-Founder of the ARISA Lab.
-            Dr. Winter has worked on eight NASA missions observing the Sun. His primary research focus is improving computer simulations to explore energy is released in the Sun\'s atmosphere, the corona, and in other stars.
-            Dr. Winter has designed video wall exhibits for the Cooper-Hewitt National Design Museum, the National Air and Space Museum, North Carolina State University\’s Hunt Library, and the Harvard Art Museums\’ Lightbox Gallery.
-            In addition to Eclipse Soundscapes, his current project \“The Tactile Sun\” aims to engage the blind and visually disabled community with universally designed solar exhibits.
+        <item name="member_henry_winter">Dr. Henry \"Trae\" Winter III, is the Chief Scientist and
+            Co-Founder of the ARISA Lab.
+            Dr. Winter has worked on eight NASA missions observing the Sun. His primary research
+            focus is improving computer simulations to explore energy is released in the Sun\'s
+            atmosphere, the corona, and in other stars.
+            Dr. Winter has designed video wall exhibits for the Cooper-Hewitt National Design
+            Museum, the National Air and Space Museum, North Carolina State University\’s Hunt
+            Library, and the Harvard Art Museums\’ Lightbox Gallery.
+            In addition to Eclipse Soundscapes, his current project \“The Tactile Sun\” aims to
+            engage the blind and visually disabled community with universally designed solar
+            exhibits.
         </item>
 
-        <item name="member_marykay">MaryKay Severino is the Educational Director and Co-Founder of the ARISA Lab.
-            After earning a business degree from Villanova University, she worked in South Carolina and California as a Program Manager and Marketing Consultant.
-            Realizing she was ready for a change, she went on to earn her Master\'s degree in Education and worked in public school systems and universities in Italy, Taiwan, and South Korea.
-            Living abroad, immersed in other cultures and navigating daily life with language and literacy barriers, gave MaryKay a strong understanding of the challenges faced by anyone who communicates differently.
-            For this reason, the Eclipse Soundscapes project was a natural fit. She is excited to use her skills to promote, plan, and execute a project which will bring the amazement and wonder of an eclipse to a more inclusive demographic.
+        <item name="member_marykay">MaryKay Severino is the Educational Director and Co-Founder of
+            the ARISA Lab.
+            After earning a business degree from Villanova University, she worked in South Carolina
+            and California as a Program Manager and Marketing Consultant.
+            Realizing she was ready for a change, she went on to earn her Master\'s degree in
+            Education and worked in public school systems and universities in Italy, Taiwan, and
+            South Korea.
+            Living abroad, immersed in other cultures and navigating daily life with language and
+            literacy barriers, gave MaryKay a strong understanding of the challenges faced by anyone
+            who communicates differently.
+            For this reason, the Eclipse Soundscapes project was a natural fit. She is excited to
+            use her skills to promote, plan, and execute a project which will bring the amazement
+            and wonder of an eclipse to a more inclusive demographic.
         </item>
 
         <item name="member_arlindo">
             Arlindo Goncalves is an iOS developer from Brockton, Massachusetts.
-            He aspires to develop applications that help schools and other institutions engage youth, making education a focal point in their lives.
+            He aspires to develop applications that help schools and other institutions engage
+            youth, making education a focal point in their lives.
             In his free time, Arlindo enjoys playing soccer and cooking for his family and friends.
         </item>
 
-        <item name="member_joel">Joel Goncalves is a software engineer from Brockton, Massachusetts and a Computer Science graduate from the University of Massachusetts, Boston.
-            As an engineer, he is passionate about creating and contributing to meaningful applications.
+        <item name="member_joel">Joel Goncalves is a software engineer from Brockton, Massachusetts
+            and a Computer Science graduate from the University of Massachusetts, Boston.
+            As an engineer, he is passionate about creating and contributing to meaningful
+            applications.
             As a hobby, he likes to hike, travel and play sports.
         </item>
 
-        <item name="member_miles">Miles Gordon is an audio engineer and multimedia artist from New England.
-            Between mixing and mastering tracks for his friends and his work on the Eclipse Soundscapes project, he also enjoys tinkering with machines and editing papers for a Chinese translation company.
-            When he grows up, he wants to be a supporting character in a William Gibson novel. Miles got involved in the Eclipse Soundscapes Project after a mutual friend introduced him to Dr. Winter.
-            Their shared enthusiasm for innovation in audio engineering led to a collaboration on Eclipse Soundscapes.
+        <item name="member_miles">Miles Gordon is an audio engineer and multimedia artist from New
+            England.
+            Between mixing and mastering tracks for his friends and his work on the Eclipse
+            Soundscapes project, he also enjoys tinkering with machines and editing papers for a
+            Chinese translation company.
+            When he grows up, he wants to be a supporting character in a William Gibson novel. Miles
+            got involved in the Eclipse Soundscapes Project after a mutual friend introduced him to
+            Dr. Winter.
+            Their shared enthusiasm for innovation in audio engineering led to a collaboration on
+            Eclipse Soundscapes.
         </item>
 
-        <item name="member_kristin">Kristin DiVona is the Visual Information Specialist for NASA\'s Chandra X-Ray Observatory.
-            An award-winning designer and illustrator, she is responsible for the creation of printed materials, exhibits, and interactive educational tools that visually interpret concepts related to astrophysics and x-ray astronomy— connecting everyday life to science exploration and technology.
-            (Yes, it\'s as cool as it sounds.) She is a graduate of Rhode Island School of Design. Kristin is waiting not-so-patiently for this amazing astronomical event, and is excited to work with the Eclipse Soundscapes team on this inclusive design project.
+        <item name="member_kristin">Kristin DiVona is the Visual Information Specialist for NASA\'s
+            Chandra X-Ray Observatory.
+            An award-winning designer and illustrator, she is responsible for the creation of
+            printed materials, exhibits, and interactive educational tools that visually interpret
+            concepts related to astrophysics and x-ray astronomy— connecting everyday life to
+            science exploration and technology.
+            (Yes, it\'s as cool as it sounds.) She is a graduate of Rhode Island School of Design.
+            Kristin is waiting not-so-patiently for this amazing astronomical event, and is excited
+            to work with the Eclipse Soundscapes team on this inclusive design project.
         </item>
 
-        <item name="member_kelsey">Kelsey Perrett is a Massachusetts-based freelance writer, editor, web producer, and social media specialist.
-            She enjoys writing about travel, health and fitness, and the environment. When she isn\’t writing, she can be found outside exploring trails, at the gym/yoga studio, or attempting to conquer an ever-expanding reading list.
-            Kelsey got involved in the Eclipse Soundscapes Project due to her interest in environmental reporting, and is thrilled to work with a talented group to make the wonders of space accessible to everyone.
+        <item name="member_kelsey">Kelsey Perrett is a Massachusetts-based freelance writer, editor,
+            web producer, and social media specialist.
+            She enjoys writing about travel, health and fitness, and the environment. When she
+            isn\’t writing, she can be found outside exploring trails, at the gym/yoga studio, or
+            attempting to conquer an ever-expanding reading list.
+            Kelsey got involved in the Eclipse Soundscapes Project due to her interest in
+            environmental reporting, and is thrilled to work with a talented group to make the
+            wonders of space accessible to everyone.
         </item>
     </array>
 
     <string name="libraries_use_detail">The following sets forth attribution notices for third party software that may be contained in portions of the Eclipse Soundscapes product.
         We thank the open sources community for all of their contributions.\n</string>
-
 </resources>
 

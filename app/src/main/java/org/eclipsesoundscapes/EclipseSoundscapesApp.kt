@@ -35,5 +35,7 @@ class EclipseSoundscapesApp : Application() {
     private fun setup() {
         // allow user to simulate location on every launch
         dataManager.simulated = false
+        dataManager.skippedLocationsPermission = false
+        dataManager.skippedNotificationsPermission = false
     }
 }

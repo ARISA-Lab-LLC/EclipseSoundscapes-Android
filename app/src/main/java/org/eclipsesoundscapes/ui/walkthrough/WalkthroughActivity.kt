@@ -14,8 +14,8 @@ import org.eclipsesoundscapes.EclipseSoundscapesApp
 import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.data.DataManager
 import org.eclipsesoundscapes.databinding.ActivityWalkthroughBinding
+import org.eclipsesoundscapes.ui.permission.PermissionActivity
 import org.eclipsesoundscapes.ui.base.BaseActivity
-import org.eclipsesoundscapes.ui.main.MainActivity
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -60,18 +60,18 @@ class WalkthroughActivity : BaseActivity() {
                 }
 
                 nextButton.setOnClickListener {
-                    viewpager.currentItem = viewpager.currentItem + 1
+                    viewpager.currentItem += 1
                 }
 
                 prevButton.setOnClickListener {
-                    viewpager.currentItem = viewpager.currentItem -1
+                    viewpager.currentItem -= 1
                 }
 
                 skipCloseButton.setOnClickListener {
                     if (mode == MODE_MENU) {
-                        onBackPressed()
+                        onBackPressedDispatcher.onBackPressed()
                     } else {
-                        viewpager.currentItem = adapter.itemCount - 1
+                        completeWalkthrough()
                     }
                 }
 
@@ -122,12 +122,6 @@ class WalkthroughActivity : BaseActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        finish()
-        overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
-    }
-
     override fun onStop() {
         super.onStop()
         binding.viewpager.unregisterOnPageChangeCallback(callback)
@@ -135,7 +129,7 @@ class WalkthroughActivity : BaseActivity() {
 
     fun completeWalkthrough() {
         dataManager?.walkthroughComplete = true
-        startActivity(Intent(this, MainActivity::class.java))
+        startActivity(Intent(this, PermissionActivity::class.java))
         finish()
     }
 
@@ -152,22 +146,12 @@ class WalkthroughActivity : BaseActivity() {
     }
 
     private inner class WalkthroughPagerAdapter(activity: AppCompatActivity) : FragmentStateAdapter(activity) {
-        val pages = if (mode == MODE_START) {
-            arrayListOf(
-                R.layout.layout_walkthrough_one,
-                R.layout.layout_walkthrough_two,
-                R.layout.layout_walkthrough_three,
-                R.layout.layout_walkthrough_four,
-                R.layout.layout_walkthrough_five
-            )
-        } else {
-            arrayListOf(
-                R.layout.layout_walkthrough_one,
-                R.layout.layout_walkthrough_two,
-                R.layout.layout_walkthrough_three,
-                R.layout.layout_walkthrough_four
-            )
-        }
+        val pages = arrayListOf(
+            R.layout.layout_walkthrough_one,
+            R.layout.layout_walkthrough_two,
+            R.layout.layout_walkthrough_three,
+            R.layout.layout_walkthrough_four
+        )
 
         override fun getItemCount(): Int = pages.size
 

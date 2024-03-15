@@ -15,6 +15,11 @@ public class SharedPrefsHelper {
 
     private final static String PREF_KEY_LOCATION = "PREF_KEY_LOCATION";
     private final static String PREF_KEY_REQUESTED_LOCATION = "PREF_KEY_REQ_LOCATION";
+    private final static String PREF_KEY_SKIPPED_LOCATION = "PREF_KEY_SKIPPED_LOCATION";
+
+    private final static String PREF_KEY_REQUESTED_NOTIFICATIONS = "PREF_KEY_REQ_NOTIFICATIONS";
+    private final static String PREF_KEY_SKIPPED_NOTIFICATIONS = "PREF_KEY_SKIPPED_NOTIFICATIONS";
+
     private final static String PREF_KEY_NOTIFICATION = "PREF_KEY_NOTIFICATION";
 
     private final static String PREF_KEY_WALKTHROUGH = "PREF_KEY_WALKTHROUGH";
@@ -57,6 +62,18 @@ public class SharedPrefsHelper {
 
     public void saveRequestedLocation(boolean requested){
         mSharedPreferences.edit().putBoolean(PREF_KEY_REQUESTED_LOCATION, requested).apply();
+    }
+
+    public void saveSkippedLocationPermission(boolean requested){
+        mSharedPreferences.edit().putBoolean(PREF_KEY_SKIPPED_LOCATION, requested).apply();
+    }
+
+    public void saveRequestedNotifications(boolean requested){
+        mSharedPreferences.edit().putBoolean(PREF_KEY_REQUESTED_NOTIFICATIONS, requested).apply();
+    }
+
+    public void saveSkippedNotificationsPermission(boolean requested){
+        mSharedPreferences.edit().putBoolean(PREF_KEY_SKIPPED_NOTIFICATIONS, requested).apply();
     }
 
     public void saveNotification(boolean canSendNotifications){
@@ -118,6 +135,18 @@ public class SharedPrefsHelper {
 
     public boolean getRequestedLocation(){
         return mSharedPreferences.getBoolean(PREF_KEY_REQUESTED_LOCATION, false);
+    }
+
+    public boolean getSkippedLocationPermission(){
+        return mSharedPreferences.getBoolean(PREF_KEY_SKIPPED_LOCATION, false);
+    }
+
+    public boolean getRequestedNotifications(){
+        return mSharedPreferences.getBoolean(PREF_KEY_REQUESTED_NOTIFICATIONS, false);
+    }
+
+    public boolean getSkippedNotificationsPermission(){
+        return mSharedPreferences.getBoolean(PREF_KEY_SKIPPED_NOTIFICATIONS, false);
     }
 
     public boolean getLocationAccess(){

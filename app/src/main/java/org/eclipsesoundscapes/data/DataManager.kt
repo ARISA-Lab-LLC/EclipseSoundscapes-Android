@@ -53,6 +53,24 @@ class DataManager(private val sharedPrefsHelper: SharedPrefsHelper) {
             sharedPrefsHelper.saveRequestedLocation(requested)
         }
 
+    var skippedLocationsPermission: Boolean
+        get() = sharedPrefsHelper.skippedLocationPermission
+        set(requested) {
+            sharedPrefsHelper.saveSkippedLocationPermission(requested)
+        }
+
+    var requestedNotification: Boolean
+        get() = sharedPrefsHelper.requestedNotifications
+        set(requested) {
+            sharedPrefsHelper.saveRequestedNotifications(requested)
+        }
+
+    var skippedNotificationsPermission: Boolean
+        get() = sharedPrefsHelper.skippedNotificationsPermission
+        set(requested) {
+            sharedPrefsHelper.saveSkippedNotificationsPermission(requested)
+        }
+
     val notifications: Boolean
         get() = sharedPrefsHelper.notifications
 

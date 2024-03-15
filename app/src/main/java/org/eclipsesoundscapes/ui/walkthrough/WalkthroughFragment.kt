@@ -59,19 +59,6 @@ class WalkthroughFragment : Fragment() {
         currentPage.text = pageText
         currentPage.contentDescription = pageText
 
-        if (walkthroughPage.screenId == R.layout.layout_walkthrough_five) {
-            // handle permissions before main content
-            val askLaterButton = rootView.findViewById<Button>(R.id.button_ask_later)
-            val locationButton = rootView.findViewById<Button>(R.id.button_location)
-            askLaterButton.setOnClickListener {
-                (activity as? WalkthroughActivity)?.completeWalkthrough()
-            }
-
-            locationButton.setOnClickListener {
-                requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
-            }
-        }
-
         return rootView
     }
 

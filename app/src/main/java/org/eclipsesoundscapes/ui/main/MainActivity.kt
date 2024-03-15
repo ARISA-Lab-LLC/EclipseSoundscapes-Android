@@ -17,7 +17,9 @@ import org.eclipsesoundscapes.ui.base.BaseActivity
 import org.eclipsesoundscapes.ui.center.EclipseCenterFragment
 import org.eclipsesoundscapes.ui.features.FeaturesFragment
 import org.eclipsesoundscapes.ui.media.MediaFragment
+import org.eclipsesoundscapes.ui.permission.PermissionActivity
 import org.eclipsesoundscapes.ui.walkthrough.WalkthroughActivity
+import org.eclipsesoundscapes.util.PermissionUtils
 
 /*
  * This library is free software; you can redistribute it and/or
@@ -70,8 +72,14 @@ class MainActivity : BaseActivity() {
         dataManager = (application as EclipseSoundscapesApp).dataManager
 
         if (!dataManager.walkthroughComplete) {
-            val intent = Intent(this, WalkthroughActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, WalkthroughActivity::class.java))
+            finish()
+            return
+        }
+
+        if (PermissionUtils.showNotificationsLockout(this) || PermissionUtils.showLocationLockout(this)) {
+            // Show any permissions that has not been prompted for yet or was previously skipped
+            startActivity(Intent(this, PermissionActivity::class.java))
             finish()
             return
         }
@@ -79,20 +87,20 @@ class MainActivity : BaseActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater).apply {
             bottomNavigationView = navigation
             navigation.setOnNavigationItemSelectedListener {
-                val fragmentClass = when (it.itemId) {
-                    R.id.navigation_eclipse_features -> FeaturesFragment::class.java
-                    R.id.navigation_eclipse_center -> EclipseCenterFragment::class.java
-                    R.id.navigation_media -> MediaFragment::class.java
-                    R.id.navigation_menu -> AboutFragment::class.java
-                    else -> FeaturesFragment::class.java
+                val fragment = when (it.itemId) {
+                    R.id.navigation_eclipse_features -> FeaturesFragment.newInstance()
+                    R.id.navigation_eclipse_center -> EclipseCenterFragment.newInstance()
+                    R.id.navigation_media -> MediaFragment.newInstance()
+                    R.id.navigation_menu -> AboutFragment.newInstance()
+                    else -> FeaturesFragment.newInstance()
                 }
+
                 try {
-                    replaceFragment(fragmentClass.newInstance() as Fragment)
+                    replaceFragment(fragment)
                     it.isChecked = true
                     title = it.title
                     true
                 } catch (e: Exception) {
-                    e.printStackTrace()
                     false
                 }
             }
@@ -104,8 +112,7 @@ class MainActivity : BaseActivity() {
         fragmentManager.addOnBackStackChangedListener { updateUI() }
 
         if (intent != null && intent.hasExtra(EXTRA_FRAGMENT_TAG)) {
-            val fragmentTag = intent.getStringExtra(EXTRA_FRAGMENT_TAG)
-            showFragment(fragmentTag)
+            showFragment(intent.getStringExtra(EXTRA_FRAGMENT_TAG))
         } else {
             showFragment(EclipseCenterFragment.TAG)
         }
@@ -115,10 +122,12 @@ class MainActivity : BaseActivity() {
         val fragment = getFragment(tag)
         val navigationItemId = getNavigationItemId(tag)
         if (fragment != null && navigationItemId != null) {
-            val ft = fragmentManager.beginTransaction()
-            ft.replace(R.id.navigation_content, fragment, tag)
-            ft.addToBackStack(tag)
-            ft.commit()
+            fragmentManager.beginTransaction().also { ft ->
+                ft.replace(R.id.navigation_content, fragment, tag)
+                ft.addToBackStack(tag)
+                ft.commit()
+            }
+
             bottomNavigationView.selectedItemId = navigationItemId
         }
     }
@@ -144,6 +153,10 @@ class MainActivity : BaseActivity() {
     }
 
     private fun updateUI() {
+        if (fragmentManager.backStackEntryCount == 0) {
+            finish()
+        }
+
         val fragmentAfterBackPress = currentFragment ?: return
         val fragTag = fragmentAfterBackPress.tag ?: return
         val fullPath = fragTag.split("\\.".toRegex()).toTypedArray()
@@ -172,24 +185,11 @@ class MainActivity : BaseActivity() {
 
         // fragment not in back stack - create
         if (!fragmentPopped && fragmentManager.findFragmentByTag(backStateName) == null) {
-            val ft = fragmentManager.beginTransaction()
-            ft.replace(R.id.navigation_content, fragment, backStateName)
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-            ft.addToBackStack(backStateName)
-            ft.commit()
-        }
-    }
-
-    override fun onBackPressed() {
-        when {
-            fragmentManager.backStackEntryCount == 1 -> {
-                finish()
-            }
-            fragmentManager.backStackEntryCount > 0 -> {
-                supportFragmentManager.popBackStack()
-            }
-            else -> {
-                super.onBackPressed()
+            fragmentManager.beginTransaction().also { ft ->
+                ft.replace(R.id.navigation_content, fragment, backStateName)
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                ft.addToBackStack(backStateName)
+                ft.commit()
             }
         }
     }

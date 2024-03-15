@@ -10,10 +10,12 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <uses-feature android:name="android.hardware.location.gps" />
 
-    <meta-data android:name="android.webkit.WebView.EnableSafeBrowsing"
+    <meta-data
+        android:name="android.webkit.WebView.EnableSafeBrowsing"
         android:value="true" />
 
     <application
@@ -25,6 +27,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppSplash">
         <activity
+            android:name=".ui.permission.PermissionActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme"/>
+        <activity
             android:name=".ui.main.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
@@ -32,69 +38,68 @@
             android:theme="@style/Theme.AppSplash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.about.OurPartnersActivity"
+            android:exported="false"
             android:label="@string/our_partners"
             android:screenOrientation="portrait"
-            android:exported="false"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.about.OurTeamActivity"
+            android:exported="false"
             android:label="@string/our_team"
             android:screenOrientation="portrait"
-            android:exported="false"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.about.SettingsActivity"
+            android:exported="false"
             android:label="@string/permissions"
             android:screenOrientation="portrait"
-            android:exported="false"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.about.LegalActivity"
-            android:screenOrientation="portrait"
             android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.walkthrough.WalkthroughActivity"
+            android:exported="false"
             android:label="@string/walkthrough_title"
             android:screenOrientation="portrait"
-            android:exported="false"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.about.FutureEclipsesActivity"
+            android:exported="false"
             android:label="@string/supported_eclipse"
             android:screenOrientation="portrait"
-            android:exported="false"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.media.MediaPlayerActivity"
+            android:exported="false"
             android:label="@string/media_player"
             android:parentActivityName=".ui.main.MainActivity"
             android:screenOrientation="portrait"
-            android:exported="false"
             android:theme="@style/MediaPlayerTheme" />
         <activity
             android:name=".ui.rumblemap.RumbleMapInteractionActivity"
+            android:exported="false"
             android:label="@string/rumble_map_interaction"
             android:screenOrientation="portrait"
-            android:exported="false"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.rumblemap.RumbleMapInstructionsActivity"
+            android:exported="false"
             android:label="@string/rumble_map_instructions_title"
             android:screenOrientation="portrait"
-            android:exported="false"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.about.LanguageSelectionActivity"
+            android:exported="false"
             android:label="@string/language"
             android:screenOrientation="portrait"
-            android:exported="false"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.features.DescriptionActivity"
@@ -106,7 +111,7 @@
             android:enabled="true"
             android:exported="false">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
     </application>
