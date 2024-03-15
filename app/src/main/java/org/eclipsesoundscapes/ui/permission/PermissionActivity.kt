@@ -53,9 +53,9 @@ class PermissionActivity : BaseActivity() {
     }
 
     private fun getNextPermission(): String {
-        return if (PermissionUtils.showLocationLockout(this)) {
+        return if (PermissionUtils.showLocationScreen(this)) {
             PERMISSION_TYPE_LOCATION
-        } else if (PermissionUtils.showNotificationsLockout(this)) {
+        } else if (PermissionUtils.showNotificationsScreen(this)) {
             PERMISSION_TYPE_NOTIFICATIONS
         } else {
             ""

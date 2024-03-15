@@ -24,7 +24,7 @@ object PermissionUtils {
                 || (!activity.shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS) && !dataManager.requestedNotification))
     }
 
-    fun showLocationLockout(activity: AppCompatActivity): Boolean {
+    fun showLocationScreen(activity: AppCompatActivity): Boolean {
         val dataManager = (activity.application as EclipseSoundscapesApp).dataManager
         return !dataManager.requestedLocation
                 && !dataManager.skippedLocationsPermission
@@ -32,7 +32,7 @@ object PermissionUtils {
                     || requestLocationPermission(activity, Manifest.permission.ACCESS_COARSE_LOCATION))
     }
 
-    fun showNotificationsLockout(activity: AppCompatActivity): Boolean {
+    fun showNotificationsScreen(activity: AppCompatActivity): Boolean {
         val dataManager = (activity.application as EclipseSoundscapesApp).dataManager
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU
                 && !dataManager.requestedNotification

@@ -77,7 +77,7 @@ class MainActivity : BaseActivity() {
             return
         }
 
-        if (PermissionUtils.showNotificationsLockout(this) || PermissionUtils.showLocationLockout(this)) {
+        if (PermissionUtils.showNotificationsScreen(this) || PermissionUtils.showLocationScreen(this)) {
             // Show any permissions that has not been prompted for yet or was previously skipped
             startActivity(Intent(this, PermissionActivity::class.java))
             finish()
