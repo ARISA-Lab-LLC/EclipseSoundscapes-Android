@@ -79,6 +79,7 @@ dependencies {
     })
 
     implementation files('libs/jsyn-20161201.jar')
+    implementation "androidx.activity:activity:$rootProject.activityVersion"
     implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
     implementation "com.google.android.material:material:$rootProject.materialVersion"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
