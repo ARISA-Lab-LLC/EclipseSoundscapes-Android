@@ -76,8 +76,8 @@ object EclipseUtils {
 
     fun getNextEventDate(context: Context?, eclipseExplorer: EclipseExplorer?) : DateTime? {
         val events = getNextEvents(context, eclipseExplorer)
-        return if (!events.isNullOrEmpty()) {
-            events[0].second
+        return if (events.isNotEmpty()) {
+            events.first().second
         } else {
             null
         }
@@ -85,8 +85,8 @@ object EclipseUtils {
 
     fun getNextEvent(context: Context?, eclipseExplorer: EclipseExplorer?) : Pair<Eclipse, DateTime>? {
         val events = getNextEvents(context, eclipseExplorer)
-        return if (!events.isNullOrEmpty()) {
-            events[0]
+        return if (events.isNotEmpty()) {
+            events.first()
         } else {
             null
         }

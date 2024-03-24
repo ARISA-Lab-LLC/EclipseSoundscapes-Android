@@ -107,7 +107,7 @@ public class SharedPrefsHelper {
 
     public Location getLastLocation() {
         final float latitude = mSharedPreferences.getFloat(PREF_KEY_LAST_LOCATION_LATITUDE, -1.0f);
-        final float longitude = mSharedPreferences.getFloat(PREF_KEY_LAST_LOCATION_LATITUDE, -1.0f);
+        final float longitude = mSharedPreferences.getFloat(PREF_KEY_LAST_LOCATION_LONGITUDE, -1.0f);
         if (latitude == -1.0f || longitude == -1.0f) {
             return null;
         }

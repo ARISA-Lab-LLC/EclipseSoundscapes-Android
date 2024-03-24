@@ -78,13 +78,16 @@ object NotificationScheduler {
         // first contact
         DateTimeUtils.eventLocalTime(eclipseExplorer.contact1())?.let {
             scheduleNotification(context, Eclipse.FIRST_CONTACT, eclipseExplorer.eclipseType, it.minusMinutes(2))
-            scheduleNotification(context, Eclipse.FIRST_CONTACT, eclipseExplorer.eclipseType, it.minusSeconds(10), true)
+            scheduleNotification(context, Eclipse.FIRST_CONTACT, eclipseExplorer.eclipseType,
+                it.minusSeconds(context.resources.getInteger(R.integer.first_contact_offset_sec)),
+                true)
         }
 
         // totality
         DateTimeUtils.eventLocalTime(eclipseExplorer.contactMid())?.let {
             scheduleNotification(context, Eclipse.TOTALITY, eclipseExplorer.eclipseType,
-                    it.minusSeconds(30), true)
+                    it.minusSeconds(context.resources.getInteger(R.integer.mid_contact_offset_sec)),
+                true)
         }
     }
 
