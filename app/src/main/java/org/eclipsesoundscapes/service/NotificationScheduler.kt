@@ -57,7 +57,7 @@ object NotificationScheduler {
             scheduleNotification(context, Eclipse.ANNULAR_START, eclipseExplorer.eclipseType, it.minusSeconds(10), true)
         }
 
-        // annularity
+        // Annularity
         DateTimeUtils.eventLocalTime(eclipseExplorer.contactMid())?.let {
             scheduleNotification(context, Eclipse.ANNULARITY, eclipseExplorer.eclipseType, it.minusSeconds(30), true)
         }
@@ -81,12 +81,10 @@ object NotificationScheduler {
             scheduleNotification(context, Eclipse.FIRST_CONTACT, eclipseExplorer.eclipseType, it.minusSeconds(10), true)
         }
 
-        if (eclipseExplorer.eclipseVisibility == EclipseVisibility.FULL) {
-            // totality
-            DateTimeUtils.eventLocalTime(eclipseExplorer.contactMid())?.let {
-                scheduleNotification(context, Eclipse.TOTALITY, eclipseExplorer.eclipseType,
+        // totality
+        DateTimeUtils.eventLocalTime(eclipseExplorer.contactMid())?.let {
+            scheduleNotification(context, Eclipse.TOTALITY, eclipseExplorer.eclipseType,
                     it.minusSeconds(30), true)
-            }
         }
     }
 
