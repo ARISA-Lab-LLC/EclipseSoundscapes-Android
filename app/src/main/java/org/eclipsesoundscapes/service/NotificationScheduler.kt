@@ -1,5 +1,6 @@
 package org.eclipsesoundscapes.service
 
+import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -23,6 +24,7 @@ import org.eclipsesoundscapes.util.DateTimeUtils
 import org.eclipsesoundscapes.util.MediaUtils
 import org.eclipsesoundscapes.util.NotificationUtils.NOTIFICATION_CHANNEL_ID
 import org.eclipsesoundscapes.util.NotificationUtils.createNotificationChannel
+import org.eclipsesoundscapes.util.PermissionUtils
 import org.joda.time.DateTime
 
 /*
@@ -88,6 +90,7 @@ object NotificationScheduler {
         }
     }
 
+    @SuppressLint("ScheduleExactAlarm")
     private fun scheduleNotification(context: Context, eclipse: Eclipse, eclipseType: EclipseType,
                                      dateTime: DateTime, showMedia: Boolean = false) {
         if (dateTime.isBeforeNow) {
@@ -97,7 +100,11 @@ object NotificationScheduler {
         val pendingIntent = createPendingIntent(context, eclipse, eclipseType, showMedia)
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
-        alarmManager.setExact(AlarmManager.RTC_WAKEUP, dateTime.millis, pendingIntent)
+        if (PermissionUtils.hasAlarmPermission(context)) {
+            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, dateTime.millis, pendingIntent)
+        } else {
+            alarmManager.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, dateTime.millis, pendingIntent)
+        }
     }
 
     private fun createPendingIntent(context: Context, eclipse: Eclipse, eclipseType: EclipseType,
@@ -180,11 +187,7 @@ object NotificationScheduler {
             addNextIntentWithParentStack(resultIntent)
 
             // Get the PendingIntent containing the entire back stack
-            if (SDK_INT >= Build.VERSION_CODES.M) {
-                getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
-            } else {
-                getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
-            }
+            getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
         }
 
         if (SDK_INT >= Build.VERSION_CODES.O) {

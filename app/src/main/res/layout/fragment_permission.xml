@@ -20,7 +20,6 @@
             android:gravity="center"
             android:layout_marginTop="24dp"
             android:text="@string/location_access_title"
-            android:contentDescription="@string/location_permission_content_description"
             android:focusable="true"/>
 
         <ImageView
@@ -48,12 +47,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
-            android:drawableStart="@drawable/ic_map_marker"
             android:padding="16dp"
             android:textColor="@android:color/white"
             android:text="@string/continue_text"
             android:textStyle="bold"
-            android:contentDescription="@string/location_permission"
             android:layout_marginTop="32dp" />
 
         <Button

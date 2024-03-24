@@ -12,6 +12,7 @@ import org.eclipsesoundscapes.util.PermissionUtils
 
 const val PERMISSION_TYPE_LOCATION = "location"
 const val PERMISSION_TYPE_NOTIFICATIONS = "notifications"
+const val PERMISSION_TYPE_ALARM = "alarm"
 
 class PermissionActivity : BaseActivity() {
 
@@ -57,6 +58,8 @@ class PermissionActivity : BaseActivity() {
             PERMISSION_TYPE_LOCATION
         } else if (PermissionUtils.showNotificationsScreen(this)) {
             PERMISSION_TYPE_NOTIFICATIONS
+        } else if (PermissionUtils.showAlarmScreen(this)) {
+            PERMISSION_TYPE_ALARM
         } else {
             ""
         }

@@ -35,7 +35,10 @@ class EclipseSoundscapesApp : Application() {
     private fun setup() {
         // allow user to simulate location on every launch
         dataManager.simulated = false
+
+        // reset flag to prompt user for critical app permissions
         dataManager.skippedLocationsPermission = false
         dataManager.skippedNotificationsPermission = false
+        dataManager.skippedAlarmsPermission = false
     }
 }

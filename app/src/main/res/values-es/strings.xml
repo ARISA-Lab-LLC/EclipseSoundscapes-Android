@@ -50,9 +50,6 @@
     <string name="show_prev">Mostrar anterior</string>
 
     <!-- permissions -->
-    <string name="access_location">acceder a la ubicación</string>
-    <string name="location_permission">Permiso de ubicación</string>
-    <string name="notifications_permission">Permiso de notificaciones</string>
     <string name="error_finding_location">"incapaz de determinar su ubicación actual</string>
     <string name="permission_denied">Permiso denegado</string>
     <string name="location_disabled_message">Ubicación deshabilitada.\nPara continuar, habilite los servicios de ubicación desde la configuración de su dispositivo.</string>
@@ -63,12 +60,11 @@
 
     <string name="location_access_title">el acceso a la ubicación</string>
     <string name="notifications_access_title">Acceso a notificaciones</string>
+    <string name="alarm_access_title">Acceso para configurar alarmas y recordatorios</string>
 
-    <string name="location_permission_content_description">Permite el acceso a la ubicación</string>
     <string name="location_permission_description">¡No querrá perderse este increíble evento astronómico! Necesitamos acceso a su ubicación para mostrarle información sobre el eclipse.</string>
-
-    <string name="notifications_permission_content_description">Por favor permita el acceso a las notificaciones</string>
-    <string name="notifications_permission_description">También necesitaremos acceso a sus notificaciones para notificarle sobre los eventos del eclipse a medida que ocurren.</string>
+    <string name="notifications_permission_description">Necesitamos acceso a sus notificaciones para notificarle sobre los próximos eventos de eclipse.</string>
+    <string name="alarm_permission_description">Permita el acceso para configurar alarmas y recordatorios para que podamos brindarle notificaciones e información en tiempo real sobre un eclipse a medida que ocurre.</string>
 
     <!-- notifications -->
     <string name="notification_channel_desc">Muestra notificaciones sobre un próximo eclipse.</string>
@@ -78,6 +74,7 @@
     <string name="notification_totality">¡El eclipse solar total ha comenzado!</string>
     <string name="tap_listen">Toca para escuchar ahora.</string>
     <string name="enable_notifications">Permitir notificaciones</string>
+    <string name="access_location">Ubicación de acceso</string>
     <string name="annular_eclipse_reminder">El Eclipse Solar Anular va a comenzar pronto.</string>
     <string name="notification_annular_start">El eclipse solar anular ha comenzado!</string>
     <string name="notification_annular_phase_start">La fase anular ha comenzado!</string>

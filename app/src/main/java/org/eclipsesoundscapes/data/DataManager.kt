@@ -71,6 +71,12 @@ class DataManager(private val sharedPrefsHelper: SharedPrefsHelper) {
             sharedPrefsHelper.saveSkippedNotificationsPermission(requested)
         }
 
+    var skippedAlarmsPermission: Boolean
+        get() = sharedPrefsHelper.skippedAlarmPermission
+        set(requested) {
+            sharedPrefsHelper.saveSkippedAlarmPermission(requested)
+        }
+
     val notifications: Boolean
         get() = sharedPrefsHelper.notifications
 

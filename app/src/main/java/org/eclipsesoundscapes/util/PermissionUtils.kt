@@ -1,15 +1,19 @@
 package org.eclipsesoundscapes.util
 
 import android.Manifest
+import android.app.AlarmManager
+import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import org.eclipsesoundscapes.EclipseSoundscapesApp
+import javax.annotation.Nonnull
 
 object PermissionUtils {
 
-    fun requestLocationPermission(activity: AppCompatActivity, permission: String): Boolean {
+    private fun requestLocationPermission(activity: AppCompatActivity, permission: String): Boolean {
         val dataManager = (activity.application as EclipseSoundscapesApp).dataManager
         return activity.checkSelfPermission(permission) == PackageManager.PERMISSION_DENIED
                 && (activity.shouldShowRequestPermissionRationale(permission)
@@ -38,5 +42,19 @@ object PermissionUtils {
                 && !dataManager.requestedNotification
                 && !dataManager.skippedNotificationsPermission
                 && requestNotificationsPermission(activity)
+    }
+
+    fun showAlarmScreen(activity: AppCompatActivity): Boolean {
+        val dataManager = (activity.application as EclipseSoundscapesApp).dataManager
+        return !dataManager.skippedNotificationsPermission && !hasAlarmPermission(activity)
+    }
+
+    fun hasAlarmPermission(@Nonnull context: Context): Boolean {
+        val alarmManager = ContextCompat.getSystemService(context, AlarmManager::class.java)
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            alarmManager?.canScheduleExactAlarms() == true
+        } else {
+            true
+        }
     }
 }

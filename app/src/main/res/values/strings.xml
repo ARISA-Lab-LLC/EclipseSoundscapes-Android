@@ -49,8 +49,6 @@
     <string name="show_prev">show previous</string>
 
     <!-- permissions -->
-    <string name="location_permission">Location permission</string>
-    <string name="notifications_permission">Notifications permission</string>
     <string name="error_finding_location">Unable to determine your current location</string>
     <string name="permission_denied">Permission denied</string>
     <string name="location_disabled_message">Location disabled.\nTo continue, enable location services from your device settings.</string>
@@ -59,14 +57,13 @@
     <string name="device_settings_permission">To continue, please allow access to your location from your device settings.</string>
     <string name="app_settings_permission">To continue, please allow access to your location from the application settings.</string>
 
-    <string name="location_access_title">Access to location</string>
-    <string name="notifications_access_title">Access to notifications</string>
+    <string name="location_access_title">Access to Location</string>
+    <string name="notifications_access_title">Access to Notifications</string>
+    <string name="alarm_access_title">Access to Set Alarms and Reminders</string>
 
-    <string name="location_permission_content_description">Please allow location access</string>
     <string name="location_permission_description">You don\'t want to miss this amazing astronomical event! We\'ll need access to your location to show you information about the eclipse.</string>
-
-    <string name="notifications_permission_content_description">Please allow notifications access</string>
-    <string name="notifications_permission_description">We need access to your notifications to notify you about eclipse events as they happen.</string>
+    <string name="notifications_permission_description">We need access to your notifications to notify you about upcoming eclipse events.</string>
+    <string name="alarm_permission_description">Please allow access to set alarms and reminders so we can provide you with real time notifications and information about an eclipse as it happens. </string>
 
     <string name="not_now">Not Now</string>
 

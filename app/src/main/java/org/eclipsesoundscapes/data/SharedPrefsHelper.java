@@ -20,6 +20,8 @@ public class SharedPrefsHelper {
     private final static String PREF_KEY_REQUESTED_NOTIFICATIONS = "PREF_KEY_REQ_NOTIFICATIONS";
     private final static String PREF_KEY_SKIPPED_NOTIFICATIONS = "PREF_KEY_SKIPPED_NOTIFICATIONS";
 
+    private final static String PREF_KEY_SKIPPED_ALARM = "PREF_KEY_SKIPPED_ALARM";
+
     private final static String PREF_KEY_NOTIFICATION = "PREF_KEY_NOTIFICATION";
 
     private final static String PREF_KEY_WALKTHROUGH = "PREF_KEY_WALKTHROUGH";
@@ -78,6 +80,10 @@ public class SharedPrefsHelper {
 
     public void saveNotification(boolean canSendNotifications){
         mSharedPreferences.edit().putBoolean(PREF_KEY_NOTIFICATION, canSendNotifications).apply();
+    }
+
+    public void saveSkippedAlarmPermission(boolean requested){
+        mSharedPreferences.edit().putBoolean(PREF_KEY_SKIPPED_ALARM, requested).apply();
     }
 
     public void saveWalkthroughComplete(boolean completed){
@@ -147,6 +153,10 @@ public class SharedPrefsHelper {
 
     public boolean getSkippedNotificationsPermission(){
         return mSharedPreferences.getBoolean(PREF_KEY_SKIPPED_NOTIFICATIONS, false);
+    }
+
+    public boolean getSkippedAlarmPermission(){
+        return mSharedPreferences.getBoolean(PREF_KEY_SKIPPED_ALARM, false);
     }
 
     public boolean getLocationAccess(){
