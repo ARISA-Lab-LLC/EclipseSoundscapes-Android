@@ -45,6 +45,7 @@
     <string name="pause">Pausar</string>
     <string name="back">Atrás</string>
     <string name="cancel">Cancelar</string>
+    <string name="complete">Completo</string>
 
     <string name="show_next">Mostrar siguiente</string>
     <string name="show_prev">Mostrar anterior</string>

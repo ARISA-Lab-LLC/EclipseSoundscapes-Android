@@ -95,6 +95,13 @@ class WalkthroughActivity : BaseActivity() {
     fun updateNavigationButtons(position: Int) {
         val pageCount = adapter.itemCount
 
+        if (position != pageCount - 1 && mode == MODE_START) {
+            binding.skipCloseButton.text = getString(R.string.skip)
+            binding.skipCloseButton.contentDescription = getString(R.string.skip)
+        }
+
+        updateNavButtonColor(false)
+
         when (position) {
             pageCount - 1 -> {
                 // last page
@@ -102,22 +109,19 @@ class WalkthroughActivity : BaseActivity() {
                 binding.prevButton.visibility = View.VISIBLE
 
                 if (mode != MODE_MENU) {
-                    binding.skipCloseButton.visibility = View.GONE
-                    updateNavButtonColor(true)
+                    binding.skipCloseButton.text = getString(R.string.complete)
+                    binding.skipCloseButton.contentDescription = getString(R.string.complete)
                 }
             }
             0 -> {
                 // first page
                 binding.nextButton.visibility = View.VISIBLE
-                binding.skipCloseButton.visibility = View.VISIBLE
                 binding.prevButton.visibility = View.GONE
                 updateNavButtonColor(true)
             }
             else -> {
                 binding.nextButton.visibility = View.VISIBLE
-                binding.skipCloseButton.visibility = View.VISIBLE
                 binding.prevButton.visibility = View.VISIBLE
-                updateNavButtonColor(false)
             }
         }
     }
