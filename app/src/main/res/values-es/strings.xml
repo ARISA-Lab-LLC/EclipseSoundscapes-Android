@@ -23,9 +23,9 @@
     <string name="seconds">Segundos</string>
     <string name="min_abbr">Min</string>
     <string name="sec_abbr">s</string>
-    <string name="local_time">Hora Local</string>
+    <string name="local_time">%1$s Hora Local</string>
     <string name="universal_time">Hora Universal</string>
-    <string name="time_ut">UT</string>
+    <string name="time_ut">%1$s UT</string>
 
     <string name="settings">Configuraciones</string>
     <string name="open_settings">Abre las configuraciónes</string>
@@ -122,14 +122,15 @@
     <string name="get_closest_location">Obtener la ubicación más cercana a Eclipse</string>
 
     <string name="eclipse_center_title_format">%1$s:</string>
-    <string name="eclipse_type">Tipo de eclipse</string>
+    <string name="eclipse_type">Tipo de eclipse:</string>
+    <string name="eclipse_date">Fecha:</string>
     <string name="location_latitude">Latitud de la ubicación</string>
     <string name="location_longitude">Longitud de la ubicación</string>
     <string name="lat_lng_format">%1$.3f&#xb0; %2$s</string>
-    <string name="percent_eclipse">% del eclipse</string>
-    <string name="totality_duration">Duración del eclipse total</string>
-    <string name="annular_duration">Duración del Eclipse Annular</string>
-    <string name="eclipse_duration">Duración del Eclipse</string>
+    <string name="percent_eclipse">% del eclipse:</string>
+    <string name="totality_duration">Duración del eclipse total:</string>
+    <string name="annular_duration">Duración del Eclipse Annular:</string>
+    <string name="eclipse_duration">Duración del Eclipse:</string>
     <string name="eclipse_event">Evento</string>
 
     <string name="eclipse_type_full">Eclipse solar total</string>
@@ -372,6 +373,8 @@
         \n\nEl cuarto contacto es el punto final del eclipse anular, cuando el borde de la luna se separa del borde del sol y ya no cubre ninguna parte de la luz solar.
         \n\nEsta imagen fue tomada por el telescopio del instrumento Atmospheric Imaging Assembly a bordo del Observatorio de Dinámica Solar de la NASA. Actualmente este observatorio se encuentra en órbita alrededor de la Tierra.  Su telescopio toma ocho imágenes como esta cada diez segundos. Esas imágenes ayudan a los científicos a comprender mejor el sol.
         \n\nVisite el Rumble Map para explorar esta imagen del final del eclipse mediante tacto y sonido. La falta de luz no produce ruido ni movimiento. ¿Puede tocar y escuchar cuánto más del sol está visible en comparación con otras etapas del eclipse anular?</string>
+
+    <string name="current_event_image_description">Una imagen del evento de eclipse actual</string>
 
     <!-- eclipse details -->
     <string name="first_contact">Primer contacto</string>

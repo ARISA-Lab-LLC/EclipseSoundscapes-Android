@@ -117,7 +117,7 @@ enum class Eclipse {
         HELMET_STREAMER, HELMET_STREAMER_CLOSEUP -> R.string.audio_helmet_streamers_full
         PROMINENCE, PROMINENCE_CLOSEUP -> R.string.audio_prominence_full
         TOTALITY -> R.string.audio_totality_full
-        SUN_AS_STAR -> R.raw.sun_as_a_star
+        SUN_AS_STAR -> R.string.sun_as_star_description
         ANNULAR_START -> R.string.annular_start_description
         ANNULAR_PHASE_START -> R.string.annular_phase_start_description
         ANNULARITY -> R.string.annularity_description
@@ -133,7 +133,7 @@ enum class Eclipse {
         HELMET_STREAMER, HELMET_STREAMER_CLOSEUP -> R.raw.helmet_streamers_full
         PROMINENCE, PROMINENCE_CLOSEUP -> R.raw.prominence_full
         TOTALITY -> R.raw.totality_full
-        SUN_AS_STAR -> R.string.audio_sun_as_star_full
+        SUN_AS_STAR -> R.raw.sun_as_a_star
         ANNULAR_START -> R.raw.annular_eclipse_start_long
         ANNULAR_PHASE_START -> R.raw.annular_eclipse_phase_start_long
         ANNULARITY -> R.raw.annularity_long

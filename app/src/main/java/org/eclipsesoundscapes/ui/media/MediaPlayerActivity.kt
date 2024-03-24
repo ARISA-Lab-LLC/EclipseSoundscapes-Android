@@ -1,6 +1,8 @@
 package org.eclipsesoundscapes.ui.media
 
+import android.annotation.SuppressLint
 import android.media.MediaPlayer
+import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
@@ -9,6 +11,7 @@ import android.view.View
 import android.view.accessibility.AccessibilityManager
 import android.widget.SeekBar
 import android.widget.SeekBar.OnSeekBarChangeListener
+import androidx.activity.addCallback
 import androidx.activity.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import org.eclipsesoundscapes.R
@@ -18,6 +21,7 @@ import org.eclipsesoundscapes.model.MediaItem
 import org.eclipsesoundscapes.ui.base.BaseActivity
 import org.eclipsesoundscapes.util.EclipseUtils
 import org.eclipsesoundscapes.util.MediaUtils
+import org.eclipsesoundscapes.util.parcelable
 import org.joda.time.DateTime
 import java.util.concurrent.TimeUnit
 
@@ -53,22 +57,32 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
     private var mediaItem: MediaItem? = null
     private var eclipseExplorer: EclipseExplorer? = null
     private var liveCountdownTimer: CountDownTimer? = null
-
-    var isLive = false
-        private set
+    private var isLive = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMediaPlayerBinding.inflate(layoutInflater)
+
         val view = binding.root
         setContentView(view)
+
+        onBackPressedDispatcher.addCallback {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                overrideActivityTransition(OVERRIDE_TRANSITION_CLOSE, R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
+            } else {
+                overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
+            }
+
+            finish()
+            return@addCallback
+        }
 
         if (!intent.hasExtra(EXTRA_MEDIA)) {
             finish()
             return
         }
 
-        mediaItem = intent.extras?.getParcelable<MediaItem>(EXTRA_MEDIA) as MediaItem
+        mediaItem = intent.extras?.parcelable<MediaItem>(EXTRA_MEDIA)
         isLive = intent.getBooleanExtra(EXTRA_LIVE, false)
 
         binding.apply {
@@ -77,7 +91,7 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
             }
 
             backButton.setOnClickListener {
-                onBackPressed()
+                onBackPressedDispatcher.onBackPressed()
             }
 
             audioProgress.setOnSeekBarChangeListener(this@MediaPlayerActivity)
@@ -85,18 +99,18 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
 
         // setup live audio UI
         if (isLive) {
-            viewModel.eclipseConfiguration.observe(this, {
+            viewModel.eclipseConfiguration.observe(this) {
                 it?.let { config ->
                     viewModel.dataManager.lastLocation?.let { location ->
                         eclipseExplorer = EclipseExplorer(
-                            this@MediaPlayerActivity,
-                            config,
-                            location.latitude,
-                            location.longitude
+                                this@MediaPlayerActivity,
+                                config,
+                                location.latitude,
+                                location.longitude
                         )
                     }
                 }
-            })
+            }
         }
 
         mediaHelper = MediaUtils()
@@ -166,12 +180,6 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
         }
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
-        finish()
-    }
-
     public override fun onDestroy() {
         super.onDestroy()
         mediaPlayer?.release()
@@ -179,6 +187,7 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
     }
 
     // disable seek bar, play/pause control and accessibility during live audio
+    @SuppressLint("ClickableViewAccessibility")
     private fun setupLiveAudioUI() {
         binding.audioProgress.setOnTouchListener { _, _ -> true }
         binding.playButton.visibility = View.GONE

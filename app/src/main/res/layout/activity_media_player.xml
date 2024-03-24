@@ -19,12 +19,13 @@
         android:layout_height="0dp"
         android:scaleType="centerCrop"
         android:adjustViewBounds="true"
+        android:contentDescription="@string/current_event_image_description"
         tools:src="@drawable/helmet_streamers"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="@+id/guideline"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageButton
         android:id="@+id/play_button"

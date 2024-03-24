@@ -114,18 +114,19 @@
     <string name="get_closest_location">Get closest location to Eclipse</string>
 
     <string name="eclipse_center_title_format">%1$s:</string>
-    <string name="eclipse_type">Eclipse Type</string>
+    <string name="eclipse_type">Eclipse Type:</string>
+    <string name="eclipse_date">Date:</string>
     <string name="location_latitude">Location\'s Latitude</string>
     <string name="location_longitude">Location\'s Longitude</string>
     <string name="lat_lng_format">%1$.3f&#xb0; %2$s</string>
-    <string name="percent_eclipse">% Eclipse</string>
-    <string name="totality_duration">Duration of Totality</string>
-    <string name="annular_duration">Duration of Annularity</string>
-    <string name="eclipse_duration">Duration of Eclipse</string>
+    <string name="percent_eclipse">% Eclipse:</string>
+    <string name="totality_duration">Duration of Totality:</string>
+    <string name="annular_duration">Duration of Annularity:</string>
+    <string name="eclipse_duration">Duration of Eclipse:</string>
     <string name="eclipse_event">Event</string>
-    <string name="local_time">(Local Time)</string>
+    <string name="local_time">%1$s (Local Time)</string>
     <string name="universal_time">Universal Time</string>
-    <string name="time_ut">(UT)</string>
+    <string name="time_ut">%1$s (UT)</string>
 
     <string name="eclipse_type_full">Total Solar Eclipse</string>
     <string name="eclipse_type_partial">Partial Solar Eclipse</string>
@@ -244,6 +245,8 @@
 
     <string name="viewing_desc_format">Now viewing description for %1$s</string>
     <string name="viewing_image_format">Now viewing image for %1$s</string>
+
+    <string name="current_event_image_description">An image of the current eclipse event</string>
 
     <!-- Media player -->
     <string name="media_player">Media Player</string>

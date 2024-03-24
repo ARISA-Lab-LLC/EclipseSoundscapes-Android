@@ -19,10 +19,11 @@ object EclipseUtils {
     }
 
     fun getCurrentEvent(context: Context?, eclipseExplorer: EclipseExplorer?): Eclipse? {
-        var event: Eclipse? = null
         if (context == null || eclipseExplorer == null) {
-            return event
+            return null
         }
+
+        var event: Eclipse? = null
 
         DateTimeUtils.eventLocalTime(eclipseExplorer.contact1())?.let {
             val contactEvent = eclipseForContact(Contact.FIRST, eclipseExplorer)

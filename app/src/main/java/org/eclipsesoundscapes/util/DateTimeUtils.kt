@@ -14,19 +14,11 @@ object DateTimeUtils {
     private val eclipseEventDateFormatter = DateTimeFormat.forPattern("MM-dd-yyyy HH:mm:ss.S")
         .withZone(DateTimeZone.UTC)
 
-    fun formatEclipseDate(event: Event) : String = "${event.date} ${event.time}"
+    private fun formatEclipseDate(event: Event) : String = "${event.date} ${event.time}"
 
     fun eclipseEventDate(event: Event): DateTime? {
         return try {
             eclipseEventDateFormatter.parseDateTime(formatEclipseDate(event))
-        } catch (e: Exception) {
-            return null
-        }
-    }
-
-    fun eclipseEventDate(dateString: String): DateTime? {
-        return try {
-            eclipseEventDateFormatter.parseDateTime(dateString)
         } catch (e: Exception) {
             return null
         }
@@ -56,9 +48,7 @@ object DateTimeUtils {
      * @param event the eclipse [Event]
      */
     fun eventLocalTime(event: Event): DateTime? {
-        return eclipseEventDate(event)?.let {
-            it.withZone(DateTimeZone.getDefault())
-        }
+        return eclipseEventDate(event)?.withZone(DateTimeZone.getDefault())
     }
 
     fun dateToEclipseDateFormat() : String {

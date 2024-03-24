@@ -45,6 +45,7 @@ import org.eclipsesoundscapes.ui.main.MainActivity
 import org.eclipsesoundscapes.ui.media.MediaPlayerActivity
 import org.eclipsesoundscapes.util.DateTimeUtils
 import org.eclipsesoundscapes.util.EclipseUtils
+import org.eclipsesoundscapes.util.parcelable
 import org.joda.time.DateTime
 import org.joda.time.Interval
 import java.text.ParseException
@@ -111,7 +112,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         savedInstanceState?.let {
-            lastKnownLocation = savedInstanceState.getParcelable(KEY_LOCATION)
+            lastKnownLocation = savedInstanceState.parcelable(KEY_LOCATION)
         }
     }
 
@@ -224,16 +225,15 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
 
     private fun updateView() {
         binding.eclipseCenterLayout.root.visibility = View.VISIBLE
-
-        binding.eclipseCenterLayout.stubDate.label.text = "${getString(R.string.date)}:"
-        binding.eclipseCenterLayout.stubType.label.text = "${getString(R.string.eclipse_type)}:"
+        binding.eclipseCenterLayout.stubDate.label.text = getString(R.string.eclipse_date)
+        binding.eclipseCenterLayout.stubType.label.text = getString(R.string.eclipse_type)
 
         if (dataManager?.simulated == true) {
             binding.eclipseCenterLayout.nextEclipseLocationTitle.text = getString(R.string.next_eclipse_simulated_location)
         }
 
         eclipseExplorer?.let {
-            binding.eclipseCenterLayout.stubPercent.label.text = "${getString(R.string.percent_eclipse)}:"
+            binding.eclipseCenterLayout.stubPercent.label.text = getString(R.string.percent_eclipse)
             binding.eclipseCenterLayout.stubPercent.value.text = eclipseExplorer?.coverage
 
             // set date of first contact
@@ -323,7 +323,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
             else -> getString(R.string.eclipse_duration)
         }
 
-        binding.eclipseCenterLayout.stubDuration.label.text = "${durationLabel}:"
+        binding.eclipseCenterLayout.stubDuration.label.text = durationLabel
 
         eclipseExplorer?.duration?.let {
             val seconds = String.format(
@@ -342,8 +342,8 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
         event?.let {
             val localTime = DateTimeUtils.convertLocalTime(it)
             layout.eclipseEvent.text = getString(R.string.eclipse_center_title_format, it.name)
-            layout.eclipseTimeLocal.text = "${localTime} ${getString(R.string.local_time)}"
-            layout.eclipseTimeUtc.text = "${it.time} ${getString(R.string.time_ut)}"
+            layout.eclipseTimeLocal.text = getString(R.string.local_time, localTime)
+            layout.eclipseTimeUtc.text = getString(R.string.time_ut, it.time)
 
             layout.root.contentDescription = getString(R.string.event_desc_format,
                 it.name,
@@ -581,7 +581,6 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
                 }
             }
         } catch (e: SecurityException) {
-            // TODO: log error
             onLocationRetrievalFailed()
         }
     }
@@ -589,12 +588,7 @@ class EclipseCenterFragment : Fragment(), LifecycleObserver {
     @SuppressLint("MissingPermission")
     private fun requestLocationUpdates() {
         locationCallback = object : LocationCallback() {
-            override fun onLocationResult(locationResult: LocationResult?) {
-                if (locationResult == null) {
-                    onLocationRetrievalFailed()
-                    return
-                }
-
+            override fun onLocationResult(locationResult: LocationResult) {
                 onLocationDetermined(locationResult.locations.last())
                 stopLocationUpdates()
             }

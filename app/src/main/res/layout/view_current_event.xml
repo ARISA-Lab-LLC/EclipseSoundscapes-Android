@@ -29,6 +29,7 @@
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
+                android:contentDescription="@string/current_event_image_description"
                 tools:src="@drawable/helmet_streamers"
                 android:src="@drawable/eclipse_first_contact"
                 app:layout_constraintTop_toTopOf="parent"
