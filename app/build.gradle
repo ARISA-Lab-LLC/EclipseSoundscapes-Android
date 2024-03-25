@@ -73,40 +73,38 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.9'
-    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-
     implementation files('libs/jsyn-20161201.jar')
+
     implementation "androidx.activity:activity:$rootProject.activityVersion"
     implementation "androidx.appcompat:appcompat:$rootProject.appCompatVersion"
-    implementation "com.google.android.material:material:$rootProject.materialVersion"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation "androidx.legacy:legacy-support-v4:$rootProject.legacySupportVersion"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
     implementation "androidx.viewpager2:viewpager2:$rootProject.viewPagerVersion"
     implementation "androidx.preference:preference:$rootProject.preferenceVersion"
     implementation "androidx.fragment:fragment-ktx:$rootProject.fragmentVersion"
     implementation "androidx.core:core-splashscreen:$rootProject.splashScreenVersion"
 
-    implementation "com.google.android.gms:play-services-location:$rootProject.playServicesVersion"
+    implementation "com.google.firebase:firebase-crashlytics-buildtools:$rootProject.crashlyticsBuildTools"
     implementation platform("com.google.firebase:firebase-bom:$rootProject.firebaseBomVersion")
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-crashlytics'
 
     kapt "com.github.bumptech.glide:compiler:$rootProject.glideVersion"
     implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
-    implementation "joda-time:joda-time:$rootProject.jodaTimeVersion"
+
+    implementation "com.google.android.gms:play-services-location:$rootProject.playServicesVersion"
+    implementation "com.google.android.material:material:$rootProject.materialVersion"
     implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
 
-    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
     implementation "androidx.core:core-ktx:$rootProject.ktxVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutinesVersion"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutinesVersion"
+
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycleVersion"
 
+    kapt "androidx.room:room-compiler:$rootProject.roomVersion"
     annotationProcessor "androidx.room:room-compiler:$rootProject.roomVersion"
     implementation "androidx.room:room-runtime:$rootProject.roomVersion"
     implementation "androidx.room:room-ktx:$rootProject.roomVersion"
@@ -115,9 +113,10 @@ dependencies {
 
     kapt "com.google.dagger:hilt-android-compiler:$rootProject.hiltVersion"
     implementation "com.google.dagger:hilt-android:$rootProject.hiltVersion"
+    implementation "androidx.hilt:hilt-work:$rootProject.androidHiltVersion"
+    kapt "androidx.hilt:hilt-compiler:$rootProject.androidHiltVersion"
 
-    implementation 'androidx.hilt:hilt-work:1.1.0'
-    kapt 'androidx.hilt:hilt-compiler:1.1.0'
+    implementation "joda-time:joda-time:$rootProject.jodaTimeVersion"
 }
 repositories {
     mavenCentral()
