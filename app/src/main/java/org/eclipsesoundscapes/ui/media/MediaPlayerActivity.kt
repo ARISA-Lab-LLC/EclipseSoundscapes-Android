@@ -182,7 +182,15 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
 
     public override fun onDestroy() {
         super.onDestroy()
-        mediaPlayer?.release()
+        mediaPlayer?.let {
+            if (it.isPlaying) {
+                it.stop()
+            }
+
+            it.reset()
+            it.release()
+        }
+
         mediaPlayer = null
     }
 

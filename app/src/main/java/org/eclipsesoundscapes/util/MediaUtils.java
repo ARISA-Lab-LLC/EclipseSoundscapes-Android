@@ -109,11 +109,11 @@ public class MediaUtils {
             MediaPlayer mediaPlayer = MediaPlayer.create(context, audioId);
             if (mediaPlayer != null) {
                 duration = mediaPlayer.getDuration();
+
+                mediaPlayer.reset();
                 mediaPlayer.release();
             }
-        } catch (Exception exception) {
-            //TODO: log error
-        }
+        } catch (Exception ignored) {}
 
         return duration;
     }
