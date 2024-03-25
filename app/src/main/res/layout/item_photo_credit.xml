@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="photoCredit"
+            type="org.eclipsesoundscapes.model.PhotoCredit" />
+    </data>
+
+   <com.google.android.material.card.MaterialCardView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="@dimen/default_margin">
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <ImageView
+               android:id="@+id/photo"
+               android:layout_width="80dp"
+               android:layout_height="80dp"
+               android:adjustViewBounds="true"
+               android:layout_centerVertical="true"
+               android:layout_marginTop="@dimen/default_margin"
+               android:layout_marginStart="@dimen/default_margin"
+               tools:src="@drawable/eclipse_first_contact"/>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_toEndOf="@+id/photo"
+               android:layout_centerVertical="true"
+               android:layout_marginTop="@dimen/default_margin"
+               android:layout_marginBottom="@dimen/default_margin"
+               android:layout_marginStart="16dp"
+               android:layout_marginEnd="@dimen/default_margin"
+               android:orientation="vertical">
+
+               <TextView
+                   style="@style/HeaderText2"
+                   android:id="@+id/title"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@{photoCredit.eclipse.title()}"
+                   android:layout_marginBottom="@dimen/list_item_line_spacing"
+                   android:gravity="center_horizontal"
+                   tools:text="Three-line item"/>
+
+               <TextView
+                   style="@style/HeaderText3"
+                   android:id="@+id/credit"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@{photoCredit.copyright}"
+                   android:layout_marginBottom="@dimen/list_item_line_spacing"
+                   android:gravity="center_horizontal"
+                   tools:text="Secondary text"/>
+
+               <TextView
+                   style="@style/ParagraphText"
+                   android:id="@+id/link"
+                   android:text="@{photoCredit.link}"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:gravity="center_horizontal"
+                   android:autoLink="web"
+                   tools:text="Tertiary text"/>
+
+           </LinearLayout>
+       </RelativeLayout>
+   </com.google.android.material.card.MaterialCardView>
+</layout>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/default_margin"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <CheckedTextView
+        style="@style/ParagraphText"
+        android:id="@+id/language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:checkMark="@drawable/ic_check_white"
+        android:checkMarkTint="?attr/colorControlNormal"
+        android:checked="false"
+        tools:text="English"/>
+
+</FrameLayout>

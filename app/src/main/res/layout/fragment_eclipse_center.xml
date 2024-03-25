@@ -1,0 +1,43 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.center.EclipseCenterFragment">
+
+    <include
+        android:id="@+id/eclipse_center_layout"
+        layout="@layout/layout_eclipse_center"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/simulation_view"
+        layout="@layout/layout_simulation_view"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/location_search_failed"
+        layout="@layout/view_location_search_failed"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/progress_view"
+        layout="@layout/layout_location_search"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/permission_view"
+        layout="@layout/layout_eclipse_center_permission"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/location_disabled_view"
+        layout="@layout/view_location_disabled"
+        android:visibility="gone"/>
+
+    <include
+        android:id="@+id/lockout_view"
+        layout="@layout/view_eclipse_center_lockout"
+        android:visibility="gone"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

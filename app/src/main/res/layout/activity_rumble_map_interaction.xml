@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black" >
+
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/app_bar"/>
+
+    <RelativeLayout
+        android:id="@+id/rumble_map_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:clickable="true"
+        android:contentDescription="@string/rumble_map_inactive"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/eclipse_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:adjustViewBounds="true"
+            android:layout_centerInParent="true"
+            android:src="@drawable/eclipse_bailys_beads"
+            android:hapticFeedbackEnabled="true"/>
+    </RelativeLayout>
+
+</LinearLayout>

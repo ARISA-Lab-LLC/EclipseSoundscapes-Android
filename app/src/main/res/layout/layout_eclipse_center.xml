@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/toolbar"
+            android:id="@+id/app_bar"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/rl_eclipse_center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/default_margin"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <include
+                    layout="@layout/view_current_event"
+                    android:visibility="gone"
+                    android:id="@+id/current_event_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/default_margin"/>
+
+                <TextView
+                    style="@style/HeaderText2"
+                    android:id="@+id/info_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/next_eclipse_info"/>
+
+                <include
+                    android:id="@+id/stub_type"
+                    layout="@layout/layout_eclipse_center_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_extra_small"/>
+
+                <include
+                    android:id="@+id/stub_date"
+                    layout="@layout/layout_eclipse_center_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_extra_small"/>
+
+                <org.eclipsesoundscapes.views.CountdownView
+                    android:id="@+id/eclipse_countdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"/>
+
+                <TextView
+                    style="@style/HeaderText2"
+                    android:id="@+id/next_eclipse_location_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:text="@string/next_eclipse_user_location"/>
+
+                <include
+                    android:id="@+id/stub_percent"
+                    layout="@layout/layout_eclipse_center_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_extra_small"
+                    android:layout_marginBottom="@dimen/margin_extra_small"/>
+
+                <include
+                    android:id="@+id/stub_duration"
+                    layout="@layout/layout_eclipse_center_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_small"
+                    android:visibility="gone"/>
+
+                <include
+                    android:id="@+id/stub_contact_one"
+                    layout="@layout/layout_eclipse_event_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginBottom="@dimen/margin_small"/>
+
+                <include
+                    android:id="@+id/stub_contact_two"
+                    layout="@layout/layout_eclipse_event_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginBottom="@dimen/margin_small"/>
+
+                <include
+                    android:id="@+id/stub_contact_mid"
+                    layout="@layout/layout_eclipse_event_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginBottom="@dimen/margin_small"/>
+
+                <include
+                    android:id="@+id/stub_contact_three"
+                    layout="@layout/layout_eclipse_event_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginBottom="@dimen/margin_small"/>
+
+                <include
+                    android:id="@+id/stub_contact_four"
+                    layout="@layout/layout_eclipse_event_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_marginBottom="@dimen/margin_small"/>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</layout>

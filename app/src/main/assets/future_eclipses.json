@@ -1,0 +1,12 @@
+[
+	{ "Date" : "2023, Oct 14",
+		"Time" : "18:00:41 UT",
+		"Type" : "Annular",
+		"Features" : "Tracking, Rumble Maps, Narrations"
+	},
+	{ "Date" : "2024, Apr 08",
+		"Time" : "18:18:29 UT",
+		"Type" : "Total",
+		"Features" : "Tracking, Rumble Maps, Narrations"
+	}
+]

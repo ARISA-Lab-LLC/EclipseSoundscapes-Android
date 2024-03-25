@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/root_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/HeaderText2"
+            android:id="@+id/countdown_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/eclipse_countdown_title"/>
+
+        <LinearLayout
+            android:id="@+id/countdown_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:focusable="false">
+
+            <include
+                android:id="@+id/stub_years"
+                layout="@layout/layout_eclipse_center_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <include
+                android:id="@+id/stub_months"
+                layout="@layout/layout_eclipse_center_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"/>
+
+            <include
+                android:id="@+id/stub_days"
+                layout="@layout/layout_eclipse_center_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"/>
+
+            <include
+                android:id="@+id/stub_hours"
+                layout="@layout/layout_eclipse_center_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"/>
+
+            <include
+                android:id="@+id/stub_minutes"
+                layout="@layout/layout_eclipse_center_row"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_extra_small"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,16 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <SwitchPreferenceCompat
+        android:defaultValue="true"
+        android:key="notifications_enabled"
+        android:title="@string/enable_notifications"
+        app:iconSpaceReserved="false"/>
+
+    <SwitchPreferenceCompat
+        android:defaultValue="true"
+        android:key="settings_location"
+        android:title="@string/access_location"
+        app:iconSpaceReserved="false"/>
+
+</PreferenceScreen>

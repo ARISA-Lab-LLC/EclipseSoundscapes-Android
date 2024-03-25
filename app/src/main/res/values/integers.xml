@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="days_between_eclipse">14</integer>
+    <integer name="first_contact_offset_sec">10</integer>
+    <integer name="mid_contact_offset_sec">30</integer>
+</resources>

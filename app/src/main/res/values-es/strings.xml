@@ -1,0 +1,544 @@
+<resources>
+    <string name="eclipse_features">Características</string>
+    <string name="eclipse_center">Centro</string>
+
+    <!-- general -->
+    <string name="media">Medios de comunicación</string>
+    <string name="about">Acerca de</string>
+    <string name="type">Tipo</string>
+    <string name="features">Características</string>
+
+    <string name="north">Norte</string>
+    <string name="south">Sur</string>
+    <string name="east">Este</string>
+    <string name="west">Oeste</string>
+
+    <string name="years">Años</string>
+    <string name="months">Meses</string>
+    <string name="date">Fecha</string>
+    <string name="time">Hora</string>
+    <string name="hours">Horas</string>
+    <string name="days">Días</string>
+    <string name="minutes">Minutos</string>
+    <string name="seconds">Segundos</string>
+    <string name="min_abbr">Min</string>
+    <string name="sec_abbr">s</string>
+    <string name="local_time">%1$s Hora Local</string>
+    <string name="universal_time">Hora Universal</string>
+    <string name="time_ut">%1$s UT</string>
+
+    <string name="settings">Configuraciones</string>
+    <string name="open_settings">Abre las configuraciónes</string>
+    <string name="open_description">Abrir la descripción</string>
+    <string name="description">descripción</string>
+    <string name="instructions">Instrucciones</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="not_now">Ahora no</string>
+    <string name="language">Idioma</string>
+    <string name="permissions">Permisos</string>
+
+    <!-- actions -->
+    <string name="continue_text">Continuar</string>
+    <string name="skip">saltar</string>
+    <string name="close">Cerrar</string>
+    <string name="play">Reproducir</string>
+    <string name="pause">Pausar</string>
+    <string name="back">Atrás</string>
+    <string name="cancel">Cancelar</string>
+    <string name="complete">Completo</string>
+
+    <string name="show_next">Mostrar siguiente</string>
+    <string name="show_prev">Mostrar anterior</string>
+
+    <!-- permissions -->
+    <string name="error_finding_location">"incapaz de determinar su ubicación actual</string>
+    <string name="permission_denied">Permiso denegado</string>
+    <string name="location_disabled_message">Ubicación deshabilitada.\nPara continuar, habilite los servicios de ubicación desde la configuración de su dispositivo.</string>
+    <string name="enable_location">Servicio de localización activado</string>
+
+    <string name="device_settings_permission">Para continuar, permite el acceso a su ubicación desde la configuración de su dispositivo.</string>
+    <string name="app_settings_permission">Para continuar, permite el acceso a su ubicación desde la configuración de la aplicación.</string>
+
+    <string name="location_access_title">el acceso a la ubicación</string>
+    <string name="notifications_access_title">Acceso a notificaciones</string>
+    <string name="alarm_access_title">Acceso para configurar alarmas y recordatorios</string>
+
+    <string name="location_permission_description">¡No querrá perderse este increíble evento astronómico! Necesitamos acceso a su ubicación para mostrarle información sobre el eclipse.</string>
+    <string name="notifications_permission_description">Necesitamos acceso a sus notificaciones para notificarle sobre los próximos eventos de eclipse.</string>
+    <string name="alarm_permission_description">Permita el acceso para configurar alarmas y recordatorios para que podamos brindarle notificaciones e información en tiempo real sobre un eclipse a medida que ocurre.</string>
+
+    <!-- notifications -->
+    <string name="notification_channel_desc">Muestra notificaciones sobre un próximo eclipse.</string>
+    <string name="default_eclipse_reminder">El eclipse solar comenzará pronto.</string>
+    <string name="notification_first_contact">¡El eclipse solar ha comenzado!</string>
+    <string name="total_eclipse_reminder">El eclipse solar total comenzará pronto.</string>
+    <string name="notification_totality">¡El eclipse solar total ha comenzado!</string>
+    <string name="tap_listen">Toca para escuchar ahora.</string>
+    <string name="enable_notifications">Permitir notificaciones</string>
+    <string name="access_location">Ubicación de acceso</string>
+    <string name="annular_eclipse_reminder">El Eclipse Solar Anular va a comenzar pronto.</string>
+    <string name="notification_annular_start">El eclipse solar anular ha comenzado!</string>
+    <string name="notification_annular_phase_start">La fase anular ha comenzado!</string>
+    <string name="notification_annularity">La anularidad ha comenzado!</string>
+
+    <!-- about -->
+    <string name="license">Licencia</string>
+    <string name="open_src_libs">Bibliotecas de código abierto</string>
+    <string name="photo_credits">Créditos de fotografía</string>
+    <string name="privacy_policy">Política de Privacidad</string>
+    <string name="tos">Términos de servicio</string>
+    <string name="legal">Legal</string>
+    <string name="libs_in_use">Bibliotecas que utilizamos</string>
+    <string name="supported_eclipse">Eclipses que apoyamos</string>
+
+    <string name="menu">Menú</string>
+    <string name="about_us_details">La aplicación móvil Eclipse Soundscapes es un producto del Eclipse Soundscapes Project, que es una empresa de ARISA Lab, LLC.
+        Eclipse Soundscapes Project tiene como objetivo involucrar a TODOS las personas con la astrofísica, con un enfoque intencional en la inclusión y la accesibilidad.
+        Para obtener más información, visite EclipseSoundscapes.org. El desarrollo de la aplicación móvil Eclipse Soundscapes está financiado por NASA Heliophysics Education Activation Team (NASA HEAT).</string>
+
+    <string name="our_partners">Nuestros colaboradores</string>
+    <string name="current_partners">Colaboradores actuales</string>
+    <string name="past_partners">Colaboradores anteriores</string>
+    <string name="our_team">Nuestro equipo</string>
+    <string name="feedback">Dar opinión</string>
+    <string name="privacy_policy_url"><![CDATA[https://eclipsesoundscapes.org/es/declaracion-de-privacidad]]></string>
+    <string name="tos_url"><![CDATA[https://eclipsesoundscapes.org/es/condiciones-del-servicio]]></string>
+
+    <string name="libraries_use_detail">A continuación se establecen los avisos de derechos de autor para el software de terceros que puede ser parte de la aplicación móvil Eclipse Soundscapes.
+        Agradecemos a la comunidad de código abierto por todas sus contribuciones.</string>
+
+    <!-- Eclipse Center -->
+    <string name="next_eclipse_info">La información del próximo eclipse</string>
+    <string name="next_eclipse_user_location">Próximo eclipse en su ubicación</string>
+    <string name="next_eclipse_simulated_location">Próximo eclipse en la ubicación más cercana</string>
+    <string name="eclipse_center_lockout_details">Próximamente se actualizarán los datos del eclipse.</string>
+    <string name="eclipse_countdown_title">Cuenta regresiva hasta el eclipse</string>
+    <string name="event_section_desc">A continuación se indican los eventos en la ubicación más cercana. Los eventos incluyen la hora local y universal.</string>
+    <string name="event_desc_format">Evento desde la ubicación más cercana: %1$s, hora local, %2$s, hora universal, %3$s</string>
+    <string name="eclipse_center_permission">¡No se pierda este fascinante evento astronómico! Necesitamos su ubicación para acceder a esta función. Presione en cualquier lugar de la pantalla para continuar.</string>
+    <string name="countdown_format">Cuenta regresiva hasta el eclipse en tu ubicación, %1$s años, %2$s meses, %3$s días, %4$s horas, %5$s minutos y %6$s segundos</string>
+
+    <string name="location_search">Búsqueda de su ubicación…</string>
+    <string name="outside_eclipse_path">Desafortunadamente, el Eclipse no es visible desde su ubicación.</string>
+    <string name="get_closest_location">Obtener la ubicación más cercana a Eclipse</string>
+
+    <string name="eclipse_center_title_format">%1$s:</string>
+    <string name="eclipse_type">Tipo de eclipse:</string>
+    <string name="eclipse_date">Fecha:</string>
+    <string name="location_latitude">Latitud de la ubicación</string>
+    <string name="location_longitude">Longitud de la ubicación</string>
+    <string name="lat_lng_format">%1$.3f&#xb0; %2$s</string>
+    <string name="percent_eclipse">% del eclipse:</string>
+    <string name="totality_duration">Duración del eclipse total:</string>
+    <string name="annular_duration">Duración del Eclipse Annular:</string>
+    <string name="eclipse_duration">Duración del Eclipse:</string>
+    <string name="eclipse_event">Evento</string>
+
+    <string name="eclipse_type_full">Eclipse solar total</string>
+    <string name="eclipse_type_partial">Eclipse solar parcial</string>
+    <string name="eclipse_type_none">No Eclipse Solar</string>
+    <string name="eclipse_type_annular">Eclipse Solar Anular</string>
+    <string name="eclipse_type_unkown">Desconocido</string>
+
+    <string name="total_solar_eclipse">Eclipse Solar Total</string>
+    <string name="annular_solar_eclipse">Eclipse Solar Anular</string>
+
+    <string name="annular_start">Comienza el eclipse</string>
+    <string name="annular_phase_start">La fase anular comienza</string>
+    <string name="annularity">Anularidad</string>
+    <string name="annular_phase_end">Finaliza la fase de anularidad</string>
+    <string name="annular_end">Finaliza el eclipse</string>
+
+    <string name="eclipse_start_partial">Inicio del eclipse parcial</string>
+    <string name="eclipse_start_full">Inicio del eclipse total</string>
+    <string name="eclipse_end_partial">Fin del eclipse parcial</string>
+    <string name="eclipse_end_full">Fin del eclipse total</string>
+    <string name="eclipse_max">Eclipse Total</string>
+
+    <string name="active_event">¡Toca para escuchar lo que está sucediendo actualmente!</string>
+    <string name="next_live_event_countdown">Próximo evento en vivo en \n%1$s</string>
+
+    <!-- media/audio -->
+    <string name="media_player">reproductor multimedia</string>
+    <string name="viewing_desc_format">Ahora viendo la descripción de %1$s</string>
+    <string name="viewing_image_format">Ahora viendo la imagen de %1$s</string>
+
+    <string name="audio_descriptions">Descripciones de Audio</string>
+    <string name="upcoming_audio">Más descripciones de audio próximamente &#8230;</string>
+
+    <string name="duration_desc_seconds">%1$s segundos</string>
+    <string name="duration_desc_minute">un minuto, %1$s segundos</string>
+    <string name="duration_desc_minutes">%1$s minutos, %2$s segundos</string>
+    <string name="duration_current_progress">%1$s de %2$s</string>
+    <string name="duration_min_sec">%1$s minutos y %2$s segundos</string>
+
+    <string name="audio_corona_full">Cuando el eclipse es total, la luna cubre por completo el orbe brillante del sol y se revela su atmósfera exterior.
+        Como si la luna fuera el centro de un girasol celeste, la corona se presenta en forma de suaves pétalos blancos, grandes canales de luz tenue que se van haciendo más estrechos en el cielo.
+        Más cerca de la superficie del círculo plano y oscuro de la luna, la corona es un caos serpenteante de bucles y haces luminosos. Intensos hilos ardientes de luz parecen encender el contorno oscuro de la luna.
+        \n\nEn el Rumble Map, explore las características entre la luna y la corona del sol. Escuchará y sentirá variaciones al pasar los dedos por las diferentes características de la corona.
+        \n\nLa corona es la delgada atmósfera exterior del sol. Con temperaturas de más de un millón de grados Fahrenheit, irradia luz con longitudes de onda que son demasiado cortas para ser vistas por el ojo humano (como los rayos X) y que son absorbidas por la atmósfera terrestre.
+        Sin embargo, la corona refleja parte de la luz blanca proveniente de la fotosfera del sol que está por debajo.
+        Este reflejo tenue, solo se puede ver cuando la fotosfera, que es mucho más brillante, se bloquea, como durante un eclipse total.</string>
+
+    <string name="audio_helmet_streamers_full">Proyecciones de luz provenientes de la atmósfera exterior del sol, llamadas cintas de casco, se extienden en todas direcciones desde la parte posterior de la luna.
+        En contraste con la luna, oscura y sin rasgos distintivos, las cintas pálidas y etéreas se ven delicadas como un encaje. Las cintas más grandes tienen una forma cónica que se asemeja a los pétalos de una flor.
+        Se extienden desde lados opuestos del sol, con rayos de luz más pequeños entre ellas.
+        \n\nAl pasar el dedo por una cinta de casco, se puede sentir que los suaves arcos llegan a largos extremos puntiagudos al extenderse hacia afuera desde la base del sol.
+        \n\nLas cintas de casco se forman a partir de dos procesos diferentes. La forma de arco de las cintas proviene de concentraciones de campos magnéticos en la superficie del sol, que se extienden hacia afuera y el interior de la corona, y luego se arquean nuevamente hacia abajo hasta la superficie, para conectarse con otras partes del campo magnético de polaridad opuesta.
+        Las largas partes puntiagudas superiores de las cintas, provienen de las corrientes de gas que emanan de la corona al espacio interplanetario y forman el viento solar.</string>
+
+    <string name="audio_prominence_full">De la superficie oscura de la luna parecen saltar bucles ardientes de una caliente luz rosada.
+        Con el blanco puro de la  corona de fondo, estas prominencias de color rosado parecen bailar sobre la luna como líneas de neón líquido.
+        \n\nAl interactuar con una prominencia, podrá advertir un contraste marcado debido a su intensa luminosidad en relación tanto con la luna como con la corona del sol.
+        \n\nLas prominencias son campos magnéticos que están llenos de material sumamente denso, lo cual las hace mucho más luminosas que el fondo circundante.
+        Los campos magnéticos de las prominencias pueden ser muy complicados, lo cual les confiere formas complejas y dinámicas.</string>
+
+    <string name="audio_bailys_beads_full">En el lado derecho de la luna, resplandecen orbes de luz solar fulgurante desde el contorno del oscuro disco lunar.
+        Estas áreas finales de la luz solar, llamadas Perlas de Baily, parecen perlas brillantes sobre un hilo, que se ven intensamente luminosas por la falta de luz a su alrededor.
+        \n\nEn el Rumble Map, explore las características entre la luna, la corona del sol y las Perlas de Baily que son intensas e irregulares.
+        \n\nNi siquiera esta pequeña parte de la luz del sol se puede ver sin gafas protectoras especiales. Si observa esta característica mirando directamente al sol, use filtros o gafas especiales para eclipse.
+        Las Perlas de Baily aparecen porque la superficie lunar no es una esfera lisa y perfecta.
+        Esta característica espectacular se produce por rayos de luz solar irradiados a través de los cañones y los valles que se encuentran entre las montañas de la luna.</string>
+
+    <string name="audio_diamond_ring_full">En el lado izquierdo de la oscura luna, se observa una fina tajada de luz solar irradiada con candente intensidad.
+        A medida que el área de luz solar reemergente aumenta, se parece a un diamante que irradia su luz brillante desde su lugar en el anillo circular del contorno de la luna.
+        \n\nNi siquiera esta pequeña parte de la luz del sol se puede ver sin gafas protectoras especiales.
+        Si observa esta característica mirando directamente al sol, use filtros o gafas especiales para eclipse.
+        A medida en que la luna apenas se mueve de la superficie solar, su potente luz se asoma por el costado de la luna.
+        La luz solar es tan intensa que hasta esta pequeña parte domina el cielo."</string>
+
+    <string name="audio_first_contact_full">Este es el primer momento en que la luna, moviéndose lentamente de izquierda a derecha, parece tocar el sol.
+        La intensidad de la luz solar hace que no sea seguro mirar al sol sin gafas protectoras especiales hasta que el eclipse sea total, los pocos minutos durante los que la luna eclipsa al sol por completo.
+        Ambos cuerpos celestes parecen ser del mismo tamaño.La luz solar es tan brillante que borra todas las características de la luna, por eso la luna se ve como un disco liso de obsidiana.
+        Durante los siguientes noventa minutos, el disco oscuro de la luna avanzará por encima del sol bloqueando progresivamente la mayor parte de su luz y calor, hasta que se produzca el eclipse total.
+        \n\nPuede utilizar esos minutos para explorar las imágenes del Rumble Map, y las descripciones de audio de los fenómenos incomparables de un eclipse total.
+        En los momentos previos, durante y después del eclipse total, esta aplicación ofrecerá detalladas imágenes y descripciones de este extraño y fascinante acontecimiento estelar.
+        \n\nLa atmósfera exterior del sol denominada corona normalmente no se puede ver desde la superficie terrestre.
+        Para estudiar la corona, los científicos envían satélites al espacio para hacer observaciones de la corona en longitudes de onda de luz que el ojo humano no puede detectar.
+        Por ejemplo, esta imagen del sol fue tomada por un telescopio de rayos X en la nave espacial Hinode que produjo una imagen por rayos X del sol siendo eclipsado por la luna como se ve desde el espacio.
+        El eclipse solar total constituye una oportunidad excepcional para ver la corona desde la tierra con luz visible.</string>
+
+    <string name="audio_totality_full">Este es el eclipse total, cuando el disco oscuro de la luna cubre por completo el sol.
+        En este momento, en ausencia de toda luz solar, se revela su gran corona exterior.
+        Visibles exclusivamente durante un eclipse total, grandes florituras de luz denominadas cintas de casco se proyectan en todas direcciones detrás del oscuro disco lunar.
+        En el contorno de la luna, las cintas de casco son intensamente brillantes y se van desvaneciendo a hilos, de un blanco fantasmal, al extenderse por el espacio, lejos de la luna, como los pétalos de una flor.
+        \n\nEn el Rumble Map, explore la diferencia entre la luna y la corona solar.
+        \n\nDurante el eclipse total, podrá advertir cambios de temperatura y sonidos de la naturaleza, como de aves y viento.
+        \n\nDurante el eclipse solar total, y solo en el momento de la totalidad, se puede observar la corona del sol sin gafas protectoras.
+        La atmósfera exterior del sol, la corona, queda totalmente expuesta y puede verse desde tierra.
+        Queda claramente en evidencia la naturaleza altamente estructurada de la corona. Esta estructura es producida por la interacción del intenso y complicado campo magnético del sol con el material que compone la corona.
+        Este material se denomina plasma, es como un gas, pero susceptible a los campos magnéticos.
+        El campo magnético le da forma al plasma de la corona formando los complicados diseños que se ven durante el eclipse.</string>
+
+    <string name="audio_sun_as_star_full">Enmarcado por una vista mayor del espacio, el viento solar prolonga las cintas de casco lejos, donde se pueden observar otras estrellas.
+        Muchas de esas estrellas también tienen planetas que orbitan a su alrededor.Esos planetas pueden eclipsar la estrella madre al igual que la luna eclipsa nuestro sol.
+        Los científicos pueden detectar planetas eclipsando a sus estrellas y determinar a qué distancia se encuentra el planeta respecto de su estrella y cuál es la masa del planeta.
+        A partir de estos indicios y demás observaciones, los científicos intentan descubrir si existe vida en esos planetas que pueda estar viviendo sus propios eclipses.</string>
+
+    <string name="audio_bailys_beads_short">Durante los próximos seis minutos, el Rumble Map se desactiva para que pueda escuchar en tiempo real los eventos que rodean el eclipse total.
+        \n\nEn el lado derecho de la luna, resplandecen orbes de luz solar fulgurante desde el contorno del oscuro disco lunar.
+        Estas áreas finales de la luz solar, llamadas Perlas de Baily, parecen perlas brillantes sobre un hilo, que se ven intensamente luminosas por la falta de luz a su alrededor.</string>
+
+    <string name="audio_first_contact_short">El eclipse ha empezado y este es el primer momento en que la luna parece tocar el sol.
+        Estos dos cuerpos celestes parecen ser del mismo tamaño. La luz solar es tan brillante que borra todas las características de la luna, por eso la luna se ve como un disco liso de obsidiana.
+        Durante los próximos noventa minutos, tendrá la oportunidad de interactuar con el Rumble Map y explorar las características del sol que se revelan durante un eclipse.
+        A continuación, en los seis minutos previos, durante y justo después del eclipse total, el Rumble Map se desactivará para que usted pueda escuchar los acontecimientos en torno al eclipse total en tiempo real.</string>
+
+    <string name="audio_diamond_ring_short">En el lado izquierdo de la oscura luna, se observa una fina tajada de luz solar que es irradiada con candente intensidad.
+        A medida que el área de luz solar reemergente aumenta, se parece a un anillo de diamantes que irradia su luz brillante.</string>
+
+    <string name="audio_totality_short">ESTE es el eclipse total.
+        Durante aproximadamente dos minutos, el oscuro disco de la luna cubre por completo el sol y revela su gran corona exterior.
+        Grandes florituras de luz se proyectan desde la luna en todas direcciones como los pétalos de una flor.
+        Las cintas de casco, intensamente brillantes en el contorno de la luna, se van desvaneciendo, en hilos de un blanco fantasmal al extenderse por el espacio.</string>
+
+    <string name="audio_annular_start_short">¡El eclipse ha comenzado y es un espectáculo sorprendente! El mapa interactivo (“rumble map”) se desactivará durante el eclipse para que pueda disfrutar de este evento con descripciones en tiempo real. Y recuerde que usted ¡DEBE usar gafas protectoras especiales en TODO momento si quiere ver el eclipse anular! ¡JAMÁS mire al sol con los ojos, a través de binoculares o con un telescopio!
+        \n\nDurante un eclipse anular, la luna cubre el sol, pero no por completo. Desde la Tierra, la luna no parece ser lo suficientemente grande como para cubrir totalmente el sol.
+        \n\nEl eclipse comienza con el “primer contacto”. En el primer contacto, la luna pareciera estar tocando el sol. El sol se ve como un disco blanco brillante contra un fondo negro. Cerca del costado del sol, se observa que falta una pequeña área curva en la forma circular perfecta del sol. Esta área faltante es la luna que comienza a pasar frente al sol y bloquear lentamente una parte de la luz solar. Pareciera que la luna le estuviera dando un pequeño “mordisco” al sol.
+        \n\nNormalmente los profundos cráteres lunares hacen que la luna se vea rugosa. Pero ahora la luz solar es tan brillante que hace desaparecer todas las características de la luna. Por eso la luna se ve negra y lisa como un vidrio.</string>
+
+    <string name="audio_annular_phase_start_short">En esta etapa, la luna se encuentra frente al sol. La luna se ve como un disco totalmente negro y la luz del sol solo brilla en los bordes de la luna en una delgada forma de C o medialuna.
+        \n\nTambién es posible que se pueda ver brevemente un fenómeno denominado Perlas de Baily. Las Perlas de Baily se ven como unas perlas brillantes que se encuentran en los extremos de la forma de medialuna del sol. Las Perlas de Baily se producen porque la luz solar resplandece en los profundos valles lunares. Cuando las Perlas de Baily desaparecen, comienza a aparecer un anillo de luz. El momento en que comienza esta fase se denomina “segundo contacto”.
+        \n\nAunque sea tentador, nunca se debe mirar a las Perlas de Baily o el anillo de luz con los ojos o con un telescopio. ¡Se DEBEN usar gafas protectoras especiales durante todas las etapas de un eclipse anular!</string>
+
+    <string name="audio_annularity_short">En este momento se produce la anularidad.
+        \n\nAhora, el sol se ve como un anillo de fuego muy intenso en lugar de la bola de luz resplandeciente habitual. Esto se produce porque la luna negra oscura ha cubierto el centro del sol y la luz solar resplandece alrededor del borde circular de la luna. En consecuencia, la luz solar parece una letra O brillante. Esa forma de “O” se conoce como annulus en matemática. La palabra “anular” significa “anillo pequeño” en latín. Por eso este tipo de eclipse se denomina eclipse “anular”. Durante un eclipse anular, la luna lo oscurece todo, excepto ese anillo externo del sol.
+        \n\nEse anillo solo se ve unos minutos, porque el sol, la luna y la Tierra aún se están moviendo lentamente.
+        \n\nRecuerde que JAMÁS debe mirar al sol directamente durante un eclipse anular con un telescopio o con los ojos. Si desea ver un eclipse, debe usar gafas especiales para eclipses. De lo contrario, podría sufrir un daño importante.</string>
+
+    <string name="audio_annular_phase_end_short">La fase anular está finalizando.
+        \n\nLa luna se aleja lentamente del centro del sol. Como la luna circular oscura cubre menos luz intensa del sol, el anillo de luz ardiente del sol se transforma lentamente de nuevo en una forma de C. Según dónde se encuentre ubicado usted, es posible que logre ver nuevamente las Perlas de Baily. Las Perlas de Baily se ven como perlas brillantes en los extremos de la medialuna resplandeciente del sol.
+        \n\nAún no es seguro mirar al sol con los ojos o con un telescopio. Se DEBEN usar gafas protectoras especiales, como las gafas oficiales para ver un eclipse, para mirar al sol durante TODAS las etapas de un eclipse anular.</string>
+
+    <string name="audio_annular_end_short">El eclipse anular está finalizando. La luna se aleja lentamente y por completo del sol.
+        \n\nAunque la luna aún se ve como un disco negro, el sol es una bola ardiente de un arremolinado rojo y naranja. A medida que la luna avanza, pareciera que le está dando mordiscos cada vez más pequeños al sol.
+        \n\nEn este punto, la luna solo cubre una pequeña parte del sol. Pronto ya no cubrirá nada de la luz solar.
+        \n\nEl cuarto contacto es el punto final del eclipse anular, cuando el borde de la luna se separa del borde del sol y ya no cubre ninguna parte de la luz solar.
+        \n\nUna vez finalizado el eclipse anular, el mapa interactivo y todas las demás funciones de la aplicación se encontrarán nuevamente disponibles. ¡Esperamos que siga explorando las maravillas de los eclipses con la aplicación incluso después de concluido este eclipse anular!</string>
+
+    <string name="first_contact_description">Este es el primer momento en que la luna, moviéndose lentamente de izquierda a derecha, parece tocar el sol.
+        La intensidad de la luz solar hace que no sea seguro mirar al sol sin gafas protectoras especiales hasta que el eclipse sea total, los pocos minutos durante los que la luna eclipsa al sol por completo.
+        Ambos cuerpos celestes parecen ser del mismo tamaño.La luz solar es tan brillante que borra todas las características de la luna, por eso la luna se ve como un disco liso de obsidiana.
+        Durante los siguientes noventa minutos, el disco oscuro de la luna avanzará por encima del sol bloqueando progresivamente la mayor parte de su luz y calor, hasta que se produzca el eclipse total.
+        \n\n Puede utilizar esos minutos para explorar las imágenes del Rumble Map, y las descripciones de audio de los fenómenos incomparables de un eclipse total.
+        En los momentos previos, durante y después del eclipse total, esta aplicación ofrecerá detalladas imágenes y descripciones de este extraño y fascinante acontecimiento estelar.
+        \n\nInformación Científica Adicional: \n La atmósfera exterior del sol denominada corona normalmente no se puede ver desde la superficie terrestre.
+        Para estudiar la corona, los científicos envían satélites al espacio para hacer observaciones de la corona en longitudes de onda de luz que el ojo humano no puede detectar.
+        Por ejemplo, esta imagen del sol fue tomada por un telescopio de rayos X en la nave espacial Hinode que produjo una imagen por rayos X del sol siendo eclipsado por la luna como se ve desde el espacio.
+        El eclipse solar total constituye una oportunidad excepcional para ver la corona desde la tierra con luz visible.</string>
+
+    <string name="bailys_beads_description">En el lado derecho de la luna, resplandecen orbes de luz solar fulgurante desde el contorno del oscuro disco lunar.
+        Estas áreas finales de la luz solar, llamadas Perlas de Baily, parecen perlas brillantes sobre un hilo, que se ven intensamente luminosas por la falta de luz a su alrededor.
+        \n\n Explicación de qué podrá sentir al interactuar: \n En el Rumble Map, explore las características entre la luna, la corona del sol y las Perlas de Baily que son intensas e irregulares.
+        \n\nInformación Científica Adicional: \n Ni siquiera esta pequeña parte de la luz del sol se puede ver sin gafas protectoras especiales.
+        Si observa esta característica mirando directamente al sol, use filtros o gafas especiales para eclipse.
+        Las Perlas de Baily aparecen porque la superficie lunar no es una esfera lisa y perfecta.
+        Esta característica espectacular se produce por rayos de luz solar irradiados a través de los cañones y los valles que se encuentran entre las montañas de la luna.</string>
+
+    <string name="corona_description">Cuando el eclipse es total, la luna cubre por completo el orbe brillante del sol y se revela su atmósfera exterior.
+        Como si la luna fuera el centro de un girasol celeste, la corona se presenta en forma de suaves pétalos blancos, grandes canales de luz tenue que se van haciendo más estrechos en el cielo.
+        Más cerca de la superficie del círculo plano y oscuro de la luna, la corona es un caos serpenteante de bucles y haces luminosos.
+        Intensos hilos ardientes de luz parecen encender el contorno oscuro de la luna.
+        \n\n Cómo interactuar con el Rumble Map:\n En el Rumble Map, explore las características entre la luna y la corona del sol.
+        Escuchará y sentirá variaciones al pasar los dedos por las diferentes características de la corona.
+        \n\n Información científica adicional:\n La corona es la delgada atmósfera exterior del sol.
+        Con temperaturas de más de un millón de grados Fahrenheit, irradia luz con longitudes de onda que son demasiado cortas para ser vistas por el ojo humano (como los rayos X) y que son absorbidas por la atmósfera terrestre.
+        Sin embargo, la corona refleja parte de la luz blanca proveniente de la fotosfera del sol que está por debajo.
+        Este reflejo tenue, solo se puede ver cuando la fotosfera, que es mucho más brillante, se bloquea, como durante un eclipse total.</string>
+
+    <string name="diamond_ring_description">En el lado izquierdo de la oscura luna, se observa una fina tajada de luz solar irradiada con candente intensidad.
+        A medida que el área de luz solar reemergente aumenta, se parece a un diamante que irradia su luz brillante desde su lugar en el anillo circular del contorno de la luna.
+        \n\nInformación científica adicional:\nNi siquiera esta pequeña parte de la luz del sol se puede ver sin gafas protectoras especiales.
+        Si observa esta característica mirando directamente al sol, use filtros o gafas especiales para eclipse.
+        A medida en que la luna apenas se mueve de la superficie solar, su potente luz se asoma por el costado de la luna.
+        La luz solar es tan intensa que hasta esta pequeña parte domina el cielo.</string>
+
+    <string name="helmet_streamers_description">Proyecciones de luz provenientes de la atmósfera exterior del sol, llamadas cintas de casco, se extienden en todas direcciones desde la parte posterior de la luna.
+        En contraste con la luna, oscura y sin rasgos distintivos, las cintas pálidas y etéreas se ven delicadas como un encaje.
+        Las cintas más grandes tienen una forma cónica que se asemeja a los pétalos de una flor. Se extienden desde lados opuestos del sol, con rayos de luz más pequeños entre ellas.
+        \n\nExplicación de qué podrá sentir al interactuar:\Al pasar el dedo por una cinta de casco, se puede sentir que los suaves arcos llegan a largos extremos puntiagudos al extenderse hacia afuera desde la base del sol.
+        \n\nInformación científica adicional:\nLas cintas de casco se forman a partir de dos procesos diferentes. La forma de arco de las cintas proviene de concentraciones de campos magnéticos en la superficie del sol, que se extienden hacia afuera y el interior de la corona, y luego se arquean nuevamente hacia abajo hasta la superficie, para conectarse con otras partes del campo magnético de polaridad opuesta.
+        Las largas partes puntiagudas superiores de las cintas, provienen de las corrientes de gas que emanan de la corona al espacio interplanetario y forman el viento solar.</string>
+
+    <string name="prominence_description">De la superficie oscura de la luna parecen saltar bucles ardientes de una caliente luz rosada.
+        Con el blanco puro de la  corona de fondo, estas prominencias de color rosado parecen bailar sobre la luna como líneas de neón líquido.
+        \n\nExplicación de qué podrá sentir al interactuar:\nAl interactuar con una prominencia, podrá advertir un contraste marcado debido a su intensa luminosidad en relación tanto con la luna como con la corona del sol.
+        \n\nInformación científica adicional:\nLas prominencias son campos magnéticos que están llenos de material sumamente denso, lo cual las hace mucho más luminosas que el fondo circundante.
+        Los campos magnéticos de las prominencias pueden ser muy complicados, lo cual les confiere formas complejas y dinámicas.</string>
+
+    <string name="totality_description">Este es el eclipse total, cuando el disco oscuro de la luna cubre por completo el sol.
+        En este momento, en ausencia de toda luz solar, se revela su gran corona exterior. Visibles exclusivamente durante un eclipse total, grandes florituras de luz denominadas cintas de casco se proyectan en todas direcciones detrás del oscuro disco lunar.
+        En el contorno de la luna, las cintas de casco son intensamente brillantes y se van desvaneciendo a hilos, de un blanco fantasmal, al extenderse por el espacio, lejos de la luna, como los pétalos de una flor.
+        \n\nExplicación de qué podrá sentir al interactuar:\nEn el Rumble Map, explore la diferencia entre la luna y la corona solar.\n\nInformación científica adicional:
+        \nDurante el eclipse total, podrá advertir cambios de temperatura y sonidos de la naturaleza, como de aves y viento.\nDurante el eclipse solar total, y solo en el momento de la totalidad, se puede observar la corona del sol sin gafas protectoras.
+        La atmósfera exterior del sol, la corona, queda totalmente expuesta y puede verse desde tierra. Queda claramente en evidencia la naturaleza altamente estructurada de la corona.
+        Esta estructura es producida por la interacción del intenso y complicado campo magnético del sol con el material que compone la corona.Este material se denomina plasma, es como un gas, pero susceptible a los campos magnéticos.
+        El campo magnético le da forma al plasma de la corona formando los complicados diseños que se ven durante el eclipse.</string>
+
+    <string name="sun_as_star_description">Enmarcado por una vista mayor del espacio, el viento solar prolonga las cintas de casco lejos, donde se pueden observar otras estrellas.
+        Muchas de esas estrellas también tienen planetas que orbitan a su alrededor. Esos planetas pueden eclipsar la estrella madre al igual que la luna eclipsa nuestro sol.
+        Los científicos pueden detectar planetas eclipsando a sus estrellas y determinar a qué distancia se encuentra el planeta respecto de su estrella y cuál es la masa del planeta.
+        A partir de estos indicios y demás observaciones, los científicos intentan descubrir si existe vida en esos planetas que pueda estar viviendo sus propios eclipses.</string>
+
+    <string name="annular_start_description">Durante un eclipse anular, la luna cubre el sol, pero no por completo. Desde la Tierra, la luna no parece ser lo suficientemente grande como para cubrir totalmente el sol.
+        \n\nEsta imagen es de momentos después del llamado “primer contacto”. Al producirse el primer contacto,  el sol se ve como un disco blanco brillante contra un fondo negro. En el lado izquierdo del sol, se observa que falta una pequeña área en forma de U en la forma circular perfecta del sol.
+        Esta área faltante es la luna que pasa frente al sol y comienza a bloquear lentamente la luz solar. Pareciera que la luna le está dando un mordisco al sol, como al morder una galleta.
+        \n\nNormalmente los profundos cráteres lunares hacen que la luna se vea rugosa. Pero ahora la luz solar es tan brillante que borra todas las características de la luna. Por eso la luna se ve negra y lisa como un vidrio.
+        La intensidad de la luz solar hace que no sea seguro mirar el eclipse anular sin usar gafas protectoras especiales en todo momento.
+        \n\nEsta imagen fue tomada en 2012 por el astrónomo y escritor científico, el Dr. Rick Fienberg. El Dr. Fienberg usó una cámara digital y un teleobjetivo cubierto con un filtro para propósito especial que bloquea el 99.999% de la luz solar peligrosamente brillante.
+        Nunca se deben tomar fotos de un eclipse sin un filtro solar especial. La luz brillante de un eclipse puede dañar la cámara… ¡y los ojos! El filtro solar ayuda a proteger la cámara y los ojos. El filtro solar se coloca frente a la lente del telescopio y está específicamente diseñado para limitar la cantidad de luz sin agregar color.
+        \n\nEl Dr. Fienberg ha ido tras los eclipses solares totales por todo el mundo durante ¡30 años! Ha observado y fotografiado este eclipse desde un crucero en el océano Pacífico cerca de Australia.
+        \n\nVisite el Rumble Map para explorar esta imagen mediante tacto y sonido. La falta de luz no produce ruido ni movimiento. ¿Puede tocar y escuchar en qué parte el borde redondo oscuro de la luna comienza a cubrir el borde brillante del sol?</string>
+
+    <string name="annular_phase_start_description">Esta imagen es el fenómeno que se denomina “Perlas de Baily”. En esta etapa, la luna se encuentra frente al sol. La luz del sol se reduce a una delgada forma de C o medialuna que resplandece alrededor del borde de la luna.
+        \n\nLas Perlas de Baily se ven como unas perlas brillantes en los extremos de la medialuna. Las Perlas de Baily se producen porque la superficie de la luna no es lisa. Está cubierta por montañas y valles. Las Perlas de Baily se producen por la emisión de luz solar entre las montañas y a través de los valles de la luna cuando el sol comienza a asomarse por el borde de la luna.
+        \n\nCuando las Perlas de Baily desaparecen, comienza la fase anular.
+        \n\nLas Perlas de Baily reciben su nombre del astrónomo inglés llamado Sir Francis Baily. Sir Francis publicó sus observaciones después de ver estas perlas de luz intensa durante el eclipse solar anular del 15 de mayo de 1836. Y aunque Sir Francis no fue la primera persona en observar este fenómeno, fue el primero en publicar sus observaciones.
+        \n\nEsta imagen fue tomada por Talha Zia en Sukkur, Pakistán. Talha no usó un filtro solar, lo que puede ser peligroso. Para protegerse los ojos, lo que hizo fue no mirar por el objetivo. Colocó una cámara con un telescopio sobre un montaje motorizado que seguía el sol. Para proteger el objetivo de la cámara, limitó la cantidad de luz mediante un tiempo de exposición muy breve.
+        \n\nVisite el Rumble Map para explorar esta imagen de las Perlas de Baily mediante tacto y sonido. La falta de luz no produce ruido ni movimiento. ¿Puede tocar y escuchar cuando la luz del sol crea varias perlas esparcidas a lo largo de un anillo de luz?</string>
+
+    <string name="annularity_description">Esta es una imagen de anularidad, cuando el eclipse anular se encuentra en su punto máximo. Durante la anularidad, la luna negra oscura se ve lisa como un vidrio y cubre el centro del sol. Solo un delgado anillo de luz resplandece alrededor del borde de la luna redonda. En consecuencia, el sol se ve como un anillo de fuego muy intenso en lugar de una bola resplandeciente.
+        Posiblemente ese anillo de luz solo se vea unos minutos. Esta es la espectacular característica por la que los eclipses solares anulares a menudo se denominan eclipses “anillo de fuego”. Por esa forma de anillo también este tipo de eclipse se denomina eclipse “anular”. La forma de anillo también se conoce como annulus en matemática. La palabra “anular” significa “anillo pequeño” en latín.
+        Durante un eclipse anular, la luna lo cubre todo, excepto ese anillo externo de la superficie del sol. El eclipse anular es solo un tipo de eclipse. Los eclipses solares totales son otro tipo. Durante un eclipse solar total, la luna cubre la superficie del sol por completo.
+        \n\nEsta imagen fue tomada por el astrónomo amateur Talha Zia durante el eclipse del 21 de junio de 2020 en Sukkur, Pakistán. Talha es miembro de la Sociedad de Astrónomos de Karachi. Si desea tomar fotografías de un eclipse, ¡deberá tener mucho más que un telescopio o una cámara! Para proteger el telescopio, Y LOS OJOS, debe usar un filtro solar especial.
+        Es similar a un trozo de vidrio muy oscuro que se coloca en frente del objetivo de la cámara o del telescopio. El filtro está diseñado para limitar la cantidad de luz sin agregar color a la imagen.
+        \n\nVisite el Rumble Map para explorar esta imagen de anularidad mediante tacto y sonido. La falta de luz no produce ruido ni movimiento. ¿Puede tocar y escuchar el fuerte cambio que se produce al pasar del “anillo de fuego” intensamente resplandeciente a la oscuridad de la luna?</string>
+
+    <string name="annular_phase_end_description">Esta imagen se tomó al finalizar la etapa anular. La luna se aleja lentamente del centro del sol.  Como la luna circular oscura cubre menos luz intensa del sol, el anillo de luz ardiente del sol se transforma lentamente de nuevo en una forma de medialuna resplandeciente. Según dónde se encuentre ubicado usted, es posible que logre ver nuevamente las Perlas de Baily.
+        Las Perlas de Baily se ven como perlas brillantes en los extremos de la medialuna resplandeciente del sol.
+        \n\nEsta imagen fue tomada por Talha Zia en Sukkur, Pakistán. Talha no usó un filtro solar en la cámara, lo que puede ser peligroso. Para protegerse los ojos, lo que hizo fue no mirar directamente a través de la cámara. Colocó la cámara con un telescopio sobre un montaje motorizado que seguía el sol. Para proteger la cámara, limitó la cantidad de luz mediante un tiempo de exposición muy breve.
+        \n\nVisite el Rumble Map para explorar esta imagen del tercer contacto mediante tacto y sonido. La falta de luz no produce ruido ni movimiento. ¿Puede tocar y escuchar dónde se encuentra la mayor parte de la forma de medialuna de luz?</string>
+
+    <string name="annular_end_description">Esta imagen es el final del eclipse anular. La luna se aleja lentamente y por completo del sol.
+        \n\nAunque la luna aún se ve como un disco negro, el sol es una bola ardiente de un arremolinado rojo y naranja. A medida que avanza, pareciera que la luna le está dando mordiscos cada vez más pequeños al sol. En esta imagen, la luna cubre una pequeña área del lado derecho del sol.
+        \n\nEl cuarto contacto es el punto final del eclipse anular, cuando el borde de la luna se separa del borde del sol y ya no cubre ninguna parte de la luz solar.
+        \n\nEsta imagen fue tomada por el telescopio del instrumento Atmospheric Imaging Assembly a bordo del Observatorio de Dinámica Solar de la NASA. Actualmente este observatorio se encuentra en órbita alrededor de la Tierra.  Su telescopio toma ocho imágenes como esta cada diez segundos. Esas imágenes ayudan a los científicos a comprender mejor el sol.
+        \n\nVisite el Rumble Map para explorar esta imagen del final del eclipse mediante tacto y sonido. La falta de luz no produce ruido ni movimiento. ¿Puede tocar y escuchar cuánto más del sol está visible en comparación con otras etapas del eclipse anular?</string>
+
+    <string name="current_event_image_description">Una imagen del evento de eclipse actual</string>
+
+    <!-- eclipse details -->
+    <string name="first_contact">Primer contacto</string>
+    <string name="bailys_beads">Perlas de Baily</string>
+    <string name="bailys_beads_closeup">Acercamiento de las Perlas de Baily</string>
+    <string name="corona">Corona</string>
+    <string name="diamond_ring">Anillo de diamantes</string>
+    <string name="helmet_streamers">Cintas de Casco</string>
+    <string name="helmet_streamers_closeup">Acercamiento de las Cintas de Casco</string>
+    <string name="prominence">Prominencia</string>
+    <string name="prominence_closeup">Acercamiento de prominencia</string>
+    <string name="totality">Eclipse total</string>
+    <string name="sun_as_star">El sol como estrella</string>
+    <string name="eclipse_experience">Experiencia de Eclipse Solar Total</string>
+
+    <!-- rumble map -->
+    <string name="rumble_map_interaction">Interacción de Rumble Map</string>
+    <string name="rumble_map_launch">Presiona para interactuar con Rumble Map</string>
+    <string name="rumble_map_how">Cómo Usar el Rumble Map</string>
+    <string name="rumble_map_instructions_title">Instrucciones de Rumble Map</string>
+    <string name="rumble_map_instructions">Para usar el Rumble Map, toque la pantalla con un solo dedo.
+        El mapa producirá tonos de audio y vibraciones según la cantidad de luz que haya debajo de ese punto en particular.
+        Para obtener mejores resultados, arrastre el dedo por la pantalla táctil lentamente.
+        Al mover el dedo hacia las partes brillantes del sol, el teléfono vibra más y produce un tono de audio más agudo y pronunciado.
+        Al mover el dedo hacia los espacios oscuros bloqueados por el disco de la luna, la vibración disminuye cuando el tono de audio se oscurece y desaparece.
+        Por momentos, es posible que escuche un tictac como el de un metrónomo: eso significa que ha entrado en un área de oscuridad total, ya sea en la faz de la luna o en el espacio oscuro fuera de la esfera del sol.
+        Si uno presta suma atención a los tonos de audio y a la potencia de la vibración del teléfono, se puede saber cuánta luz solar se ve en cada etapa del eclipse y hasta explorar algunas de las fascinantes características de la corona del sol, como las Perlas de Baily, las corrientes denominadas Helmet Streamers, las Prominencias y el efecto de Anillo de diamante.
+        Si una sección específica de una imagen le interesa y desea regresar a ella posteriormente, presione el dedo en un lugar hasta escuchar un “blip”.
+        ¡Habrá creado un marcador! La próxima vez que pase el dedo por ese punto, escuchará nuevamente el “blip” y podrá continuar explorando esa área. </string>
+
+    <string name="rumble_map_inactive">Rumble Map inactivo, tocarlo dos veces para activarlo</string>
+    <string name="rumble_map_running">Rumble Map activo, tocarlo dos veces para desactivarlo</string>
+
+    <!-- walkthrough -->
+    <string name="walkthrough">La guía</string>
+    <string name="walkthrough_title">La guía de Eclipse Soundscapes</string>
+
+    <string name="prev_page">Página anterior</string>
+    <string name="next_page">Página siguiente</string>
+    <string name="page_indicator">Página %1$d de %2$d</string>
+
+    <string name="walkthrough_welcome_text">Gracias por descargar la aplicación Eclipse Soundscapes, una experiencia multisensorial para que personas de todo tipo de estilos de aprendizaje, participen en eventos astronómicos, incluidos los eclipse solares totales y anulares.
+        Dentro de la aplicación, encontrará cuentas atrás para eventos astronómicos importantes en su área, así como también narraciones en tiempo real de dichos eventos con audiodescripciones ilustrativas.
+        También puede explorar el cosmos mediante fotos de alta resolución, material educativo y herramientas de aprendizaje accesibles.
+        Esta aplicación está disponible en inglés y español. Para cambiar el idioma de la aplicación, vaya a Menú.</string>
+
+    <string name="walkthrough_rumble_map_text">Nuestro mapa sonoro está diseñado para poder escuchar y sentir fenómenos astronómicos, como por ejemplo eclipses, usando la pantalla táctil y los altavoces de su teléfono inteligente.
+        Por ejemplo: el mapa sonoro mostrará fotos de la luna pasando por delante del sol durante los momentos más cautivadores y educativos de un eclipse.
+        Al tocar la imagen en pantalla, la aplicación leerá el valor de la escala de grises del píxel bajo el dedo, y reproducirá un tono sonoro que hará vibrar el teléfono con una potencia relativa a la luminosidad de esa sección.
+        Al mover el dedo hacia las partes brillantes del sol, el teléfono vibrará más. Al mover el dedo hacia los espacios oscuros bloqueados por el disco lunar, la vibración disminuirá y desaparecerá.
+        Al prestar mucha atención a los tonos sonoros y a la potencia de la vibración del teléfono, se puede saber cuánta luz solar es visible en cada etapa del eclipse y se pueden explorar algunas de las características más fascinantes de la corona solar.</string>
+
+    <string name="walkthrough_eclipse_center">El centro de eclipses es el lugar al que hay que dirigirse para aprender más sobre los eclipses en su área y así descubrirlos cuando haya uno.
+        Al abrir el centro de eclipses, se le pedirá que indique su ubicación geográfica. Una vez que usted acepte, encontrará una cuenta atrás hasta el próximo eclipse, información sobre si éste será total o parcial, información sobre la hora de comienzo, la hora de mayor incidencia, y la hora de finalización.</string>
+
+    <string name="walkthrough_audio_description">Cuando sea la hora del comienzo del siguiente eclipse, recibirá una notificación automática para abrir Eclipse Soundscapes.
+        La aplicación lo guiará por el evento principal con descripciones de audio ilustrativas de los momentos más importantes de un eclipse.
+        Estas descripciones de audio, creadas por el centro nacional de contenido multimedia accesible (National Center for Accessible Media GBH), son explicaciones de fotos desarrolladas con lenguaje especializado para que las personas ciegas y con baja visión puedan ser partícipes de un eclipse.
+        Cuando la descripción de audio termine, habrá la posibilidad de elegir escuchar más información educativa o explorar esa característica de un eclipse usando el Rumble Map.</string>
+
+    <!-- Future Eclipses -->
+    <string name="future_eclipse_features">Seguimiento, Rumble Maps, Narraciones</string>
+
+    <array name="past_partners_title">
+        <item name="partner_national_park">National Park Service</item>
+        <item name="partner_eclipse_mob">Eclipse Mob</item>
+        <item name="partner_smithsonian">El Instituto Smithsoniano</item>
+        <item name="partner_national_girls_collab">National Girls Collaborative</item>
+        <item name="partner_citizen_cate">Citizen CATE</item>
+        <item name="partner_bridham_uni">Brigham Young University, Idaho</item>
+    </array>
+
+    <array name="current_partners_desc">
+        <item name="nasa_description">El NASA Heliophysics Education Activation Team (NASA HEAT) capitaliza la amplia trayectoria de la NASA de compartir investigación y tecnología mediante proyectos educativos atractivos e innovadores.
+            El NASA HEAT (anteriormente denominado NASA Space Science Education Consortium (NSSEC)) continúa el trabajo de la organización Science Mission Directorate (SMD) al frente de las iniciativas educativas de la NASA al vincular ciencia y misiones emocionantes directamente con el público estadounidense.
+            El NASA HEAT colabora con ARISA Lab para su proyecto Eclipse Soundscapes aplicación mobil a fin de ofrecer el guion calculando el momento del eclipse, expertas en la materia, y los fondos que posibilitan el proyecto Eclipse Soundscapes.</item>
+
+        <item name="wgbh_description">El National Center for Accessible Media (NCAM) de la fundación Carl and Ruth Shapiro Family es una rama sin fines de lucro de GBH en Boston que se dedica a lograr igualdad en el acceso a los medios para personas con discapacidades.
+            El NCAM colabora con Eclipse Soundscapes a fin de ofrecer cobertura del eclipse en los medios, que incluye descripciones ilustrativas del eclipse por audio que permitirán que las personas con discapacidad visual puedan experimentar el eclipse a través de narraciones por audio en tiempo real.
+            Además, también lleva a cabo una revisión de la aplicación de Eclipse Soundscapes para mejorar su accesibilidad.</item>
+
+        <item name="nfb_description">National Federation of the Blind es la organización nacional más antigua e importante de estadounidenses no videntes.
+            Fundada en 1940 y con sede actual en Baltimore, la NFB está compuesta por filiales, subdivisiones y divisiones en los cincuenta estados, Washington, DC y Puerto Rico.</item>
+
+        <item name="science_friday_description">Science Friday Initiative es una organización sin fines de lucro dedicada a mejorar el acceso del público a la ciencia y la información científica.
+            Tiene un programa de radio a través de Public Radio International (PRI) y produce videos digitales, originales artículos de Internet y recursos educativos para pedagogos, todos relacionados con la ciencia y la tecnología.
+            Science Friday colabora con Eclipse Soundscapes para brindar grabaciones de audio y apoyo en redes sociales para el proyecto.</item>
+    </array>
+
+    <array name="past_partners_desc">
+        <item name="national_park_description">The National Park Service (NPS), an agency of the United States Department of the Interior, manages national parks, monuments, conservation, and historical sites throughout the United States.
+            NPS is partnering with Eclipse Soundscapes during the August 2017 Eclipse to collect mono and binaural field recordings in parks across the country, especially those in the path of totality.
+            They will collect data the day before, the day of, and the day after the eclipse in order to study how wildlife sounds fluctuate with the changes in light and temperature caused by the eclipse.
+        </item>
+
+        <item name="eclipse_mob_description">Eclipse Mob is a crowdsourced effort to conduct the largest-ever low-frequency radio wave propagation experiment during the 2017 solar eclipse.
+            They are using radio signals to study the effect of sunlight on the ionosphere. By crowdsourcing, Eclipse Mob can collect radio wave signals at locations across the United States, allowing them to study how the signals are affected as they travel along various paths.
+            Eclipse Mob is partnering with Eclipse Soundscapes to provide radio wave data (a form of audio data) the Eclipse Soundscapes database.
+        </item>
+
+        <item name="smithsonian_description">The Smithsonian Institution is a group of museums and research centers established and administered by the United States government.
+            Among the Smithsonian\’s many facilities are the National Air and Space Museum and the Harvard-Smithsonian Center for Astrophysics, where Eclipse Soundscapes is based.
+            The Smithsonian is partnering with Eclipse Soundscapes to provide a headquarters and funding for the Eclipse Soundscapes project.
+        </item>
+
+        <item name="nation_girls_collab_description">The National Girls Collaborative Project (NGC) brings together United States organizations that are committed to informing and encouraging girls to pursue careers in science, technology, engineering, and mathematics.
+            NGC is partnering with Eclipse Soundscapes to organize listening parties where young women can experience the total solar eclipse complete with audio information.
+        </item>
+
+        <item name="citizen_cate">The Citizen CATE (Continental-America Telescopic Eclipse) Experiment is an effort to document the 2017 Eclipse by capturing images of the inner solar corona using a network of more than 60 telescopes.
+            CATE is working with high schools, universities, education groups, astronomy clubs, national science research labs, and corporate sponsors to produce 90 minutes of continuous, high-resolution, and rapid-cadence images detailing the Sun\’s inner corona.
+            Citizen CATE is partnering with Eclipse Soundscapes to provide high quality images for the Eclipse Soundscapes app.
+        </item>
+
+        <item name="brigham_young_uni_description">Brigham Young University (BYU) is a private research university with three locations, including Rexburg, Idaho.
+            They are partnering with Eclipse Soundscapes to provide a series of field recordings of the 2017 Eclipse, including audio of an active beehive.
+            Because Rexburg lies in the path of totality, BYU is hosting a number of viewing and educational events with the City of Rexburg.
+        </item>
+    </array>
+
+    <array name="team_title">
+        <item name="member_henry_winter">Codirector</item>
+        <item name="member_marykay">Codirectora</item>
+        <item name="member_arlindo">Desarrollador de aplicaciones</item>
+        <item name="member_joel">Desarrollador de aplicaciones</item>
+        <item name="member_miles">Especialista en producción audiovisual</item>
+        <item name="member_kristin">Diseñadora gráfica</item>
+        <item name="member_kelsey">Coordinadora de redes sociales y escritora de contenidos</item>
+    </array>
+
+    <array name="team_bio">
+        <item name="member_henry_winter">El Dr. Henry \"Trae\" Winter III es el director científico y cofundador de ARISA Lab.
+            Ha trabajado en ocho misiones de la NASA observando el sol. Su principal objetivo de investigación es mejorar las simulaciones por computadora para comprobar si se libera energía en la atmósfera del sol, la corona y otras estrellas.
+            Ha diseñado exposiciones de pared en video para el Museo Nacional de Diseño Cooper-Hewitt, el Museo Nacional del Aire y del Espacio, la Biblioteca Hunt de la Universidad Estatal de Carolina del Norte y Lightbox Gallery del Museo de Arte de Harvard.
+            Además de Eclipse Soundscapes, su proyecto actual denominado \“The Tactile Sun\” (el sol táctil) apunta a que la comunidad de personas no videntes y con discapacidad visual participe de exhibiciones solares de diseño universal.</item>
+
+        <item name="member_marykay">MaryKay Severino es la directora educativa y cofundadora de ARISA Lab.
+            Luego de obtener un título en negocios en Villanova University, trabajó en Carolina del Sur y California como administradora de programas y consultora de marketing.
+            Al darse cuenta de que estaba lista para un cambio, continuó y obtuvo su título de licenciada en educación y trabajó en sistemas escolares públicos y universidades de Taiwán y Corea del Sur.
+            Viviendo en el extranjero, inmersa en otras culturas y transcurriendo la vida cotidiana con barreras de idioma y cultura, logró llegar a tener una gran comprensión de los desafíos que enfrenta cualquier persona que se comunica de otra manera.
+            Por tal motivo, el proyecto Eclipse Soundscapes fue algo que le resultó natural. Le entusiasma usar sus habilidades para promover, planificar y ejecutar un proyecto que puede poner el asombro y la maravilla de un eclipse al alcance de una población más inclusiva.</item>
+
+        <item name="member_arlindo">Arlindo Goncalves es un desarrollador de iOS de Brockton, Massachusetts.
+            Aspira a desarrollar aplicaciones que ayuden a las escuelas y demás instituciones a atraer a los jóvenes, haciendo de la educación el centro de sus vidas.
+            En su tiempo libre, le gusta jugar al fútbol y cocinar con familiares y amigos.</item>
+
+        <item name="member_joel">Joel Goncalves es un ingeniero de sistemas graduado de la universidad de Massachusetts, Boston.
+            El reside en Brockton, Massachusetts. Como un ingeniero, el es muy apasionado con lo de crear y contribuir a las aplicaciones significativas.
+            Como un pasatiempo, a el le gusta escalar, viajar y hacer deportes.
+        </item>
+
+        <item name="member_miles">Miles Gordon es un ingeniero en audio y artista multimedia de New England.
+            Entre mezclar y hacer copias maestras de temas musicales para sus amigos y su trabajo en el proyecto Eclipse Soundscapes, también le gusta arreglar máquinas y editar artículos para una empresa de traducción china.
+            Cuando sea mayor quiere ser un personaje secundario en una novela de William Gibson.
+            Miles se sumó al proyecto Eclipse Soundscapes después de que un amigo en común le presentara al Dr. Winter.
+            Su entusiasmo compartido por la innovación en el área de la ingeniería de audio los llevó a colaborar en Eclipse Soundscapes.</item>
+
+        <item name="member_kristin">Kristin DiVona es la especialista en información visual del Observatorio de rayos X Chandra de la NASA.
+            Diseñadora e ilustradora galardonada, es la responsable de la creación de materiales impresos, exhibiciones y herramientas educativas interactivas que interpretan visualmente conceptos relacionados con la astrofísica y la astronomía de rayos X, conectando la vida cotidiana con la exploración y la tecnología científicas.
+            (Sí, así de sensacional como suena). Está graduada de Rhode Island School of Design. Espera con bastante impaciencia este asombroso evento astronómico y está entusiasmada por trabajar con el equipo de Eclipse Soundscapes en este proyecto de diseño inclusivo.</item>
+
+        <item name="member_kelsey">Kelsey Perrett es una escritora, editora, productora web y especialista en redes sociales que trabaja independientemente en Massachusetts.
+            Le gusta escribir sobre viajes, salud y bienestar, y el medioambiente. Cuando no se dedica a escribir, se la puede encontrar afuera explorando senderos, en el gimnasio o estudio de yoga, o intentando conquistar una lista de lectura cada vez más larga.
+            Kelsey se involucró en el proyecto Eclipse Soundscapes debido a su interés en los informes medioambientales, y le emociona trabajar con un talentoso grupo para poner las maravillas del espacio al alcance de todos.</item>
+    </array>
+</resources>
