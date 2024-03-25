@@ -3,27 +3,22 @@ package org.eclipsesoundscapes.service
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import androidx.work.ExistingWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.WorkManager
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
-import org.eclipsesoundscapes.EclipseSoundscapesApp
-import org.eclipsesoundscapes.data.EclipseConfigurationRepository
-import org.eclipsesoundscapes.data.EclipseExplorer
-import org.eclipsesoundscapes.extensions.goAsync
 import org.eclipsesoundscapes.model.Eclipse
 import org.eclipsesoundscapes.model.EclipseType
 import org.eclipsesoundscapes.service.NotificationScheduler.NOTIFICATION_ECLIPSE_EVENT
 import org.eclipsesoundscapes.service.NotificationScheduler.NOTIFICATION_ECLIPSE_TYPE
 import org.eclipsesoundscapes.service.NotificationScheduler.NOTIFICATION_LAUNCH_MEDIA
-import javax.inject.Inject
+import org.eclipsesoundscapes.workers.RescheduleNotificationsWorker
 
 /*
  * Displays any scheduled notification or re-schedules them after system reboot
  */
 @AndroidEntryPoint
 class NotificationReceiver : BroadcastReceiver() {
-
-    @Inject
-    lateinit var eclipseConfigurationRepository: EclipseConfigurationRepository
 
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action != null && intent.action.equals(Intent.ACTION_BOOT_COMPLETED, ignoreCase = true)) {
@@ -48,19 +43,12 @@ class NotificationReceiver : BroadcastReceiver() {
     }
 
     private fun rescheduleNotifications(context: Context) {
-        goAsync {
-            (context.applicationContext as? EclipseSoundscapesApp)?.let {
-                it.dataManager.currentEclipseDate?.let { date ->
-                    it.dataManager.lastLocation?.let { location ->
-                        eclipseConfigurationRepository.eclipseConfiguration(date).collect { config ->
-                            if (config != null) {
-                                val eclipseExplorer = EclipseExplorer(context, config, location.latitude, location.longitude)
-                                NotificationScheduler.scheduleNotifications(context, eclipseExplorer)
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        val workRequest = OneTimeWorkRequestBuilder<RescheduleNotificationsWorker>()
+            .build()
+
+        WorkManager.getInstance(context).enqueueUniqueWork(
+            RescheduleNotificationsWorker.NOTIFICATIONS_WORK_NAME,
+            ExistingWorkPolicy.REPLACE,
+            workRequest)
     }
 }
