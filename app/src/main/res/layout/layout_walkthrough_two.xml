@@ -26,6 +26,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/guideline" >
 
         <ImageView
+            android:contentDescription="@string/walkthrough_rumble_map_img_desc"
             android:id="@+id/walkthrough_img"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

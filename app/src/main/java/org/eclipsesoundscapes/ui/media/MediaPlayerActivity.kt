@@ -321,9 +321,11 @@ class MediaPlayerActivity : BaseActivity(), OnSeekBarChangeListener {
         EclipseUtils.getNextEvent(this@MediaPlayerActivity, eclipseExplorer)?.let {
             showCurrentMediaView(false)
             val event = it.first
+            val title = getString(event.title())
 
             binding.nextMediaView.eclipseImg.setImageResource(event.imageResource())
-            binding.nextMediaView.eventLabel.setText(event.title())
+            binding.nextMediaView.eclipseImg.contentDescription = getString(R.string.eclipse_item_img_desc, title)
+            binding.nextMediaView.eventLabel.setText(title)
             mediaItem = MediaItem(
                 event.imageResource(),
                 event.title(),

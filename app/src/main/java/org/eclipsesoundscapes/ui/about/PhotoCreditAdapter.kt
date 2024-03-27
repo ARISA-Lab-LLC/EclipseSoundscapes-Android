@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
+import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.databinding.ItemPhotoCreditBinding
 import org.eclipsesoundscapes.model.PhotoCredit
 
@@ -39,6 +40,11 @@ class PhotoCreditAdapter(private val photoCredits: ArrayList<PhotoCredit>) :
                 .load(photoCredit.eclipse.imageResource())
                 .apply(RequestOptions().transforms(CenterCrop(), RoundedCorners(8)))
                 .into(binding.photo)
+
+            binding.root.context.let {
+                val title = it.getString(photoCredit.eclipse.title())
+                binding.photo.contentDescription = it.getString(R.string.eclipse_item_img_desc, title)
+            }
         }
 
         private fun showLink(photoCredit: PhotoCredit) {

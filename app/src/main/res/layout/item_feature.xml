@@ -31,6 +31,7 @@
                 android:layout_height="172dp"
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"
+                android:contentDescription="@string/eclipse_item_img_desc"
                 app:imageId="@{eclipse.imageResource()}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +52,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:contentDescription="@null"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_gesture"/>
 

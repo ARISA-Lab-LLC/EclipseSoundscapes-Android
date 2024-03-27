@@ -24,6 +24,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginStart="16dp"
+                android:contentDescription="@string/partner_logo_img_desc"
                 tools:srcCompat="@drawable/nasa" />
 
             <LinearLayout

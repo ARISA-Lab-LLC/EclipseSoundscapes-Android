@@ -95,6 +95,10 @@ class PartnersAdapter internal constructor(
             Linkify.addLinks(binding.extraDetail, Linkify.ALL)
 
             binding.root.nextFocusDownId = binding.extraDetail.id
+
+            binding.root.context?.let {
+                binding.partnerLogo.contentDescription = it.getString(R.string.partner_logo_img_desc, partner.title)
+            }
         }
 
         companion object {

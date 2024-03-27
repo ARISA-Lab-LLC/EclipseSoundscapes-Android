@@ -71,6 +71,7 @@ internal class FeaturesAdapter internal constructor(
 
             binding.root.context?.let {
                 val title = it.getString(item.title())
+                binding.image.contentDescription = it.getString(R.string.eclipse_item_img_desc, title)
                 binding.descriptionButton.text = it.getString(R.string.open_description, title)
             }
         }

@@ -3,6 +3,7 @@ package org.eclipsesoundscapes.ui.media
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.databinding.ItemMediaBinding
 import org.eclipsesoundscapes.databinding.ItemSectionBinding
 import org.eclipsesoundscapes.model.MediaItem
@@ -86,6 +87,11 @@ internal class MediaAdapter internal constructor(
             binding.media = item
             binding.clickListener = clickListener
             binding.executePendingBindings()
+
+            binding.root.context?.let {
+                val title = it.getString(item.titleResId)
+                binding.listMediaImg.contentDescription = it.getString(R.string.eclipse_item_img_desc, title)
+            }
         }
 
         companion object {

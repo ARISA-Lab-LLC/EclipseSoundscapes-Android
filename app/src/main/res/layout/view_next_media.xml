@@ -12,6 +12,7 @@
         android:id="@+id/eclipse_img"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:contentDescription="@string/eclipse_item_img_desc"
         android:src="@drawable/eclipse_first_contact"
         app:layout_constraintVertical_chainStyle="packed"
         app:layout_constraintHeight_percent="0.4"

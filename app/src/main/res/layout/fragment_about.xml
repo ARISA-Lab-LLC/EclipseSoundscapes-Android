@@ -26,6 +26,7 @@
                 android:id="@+id/banner"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
+                android:contentDescription="@string/banner_img_desc"
                 android:src="@drawable/eclipse_banner_2"
                 android:scaleType="centerCrop"
                 android:adjustViewBounds="true"/>

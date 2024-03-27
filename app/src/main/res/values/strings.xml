@@ -83,6 +83,8 @@
         The Eclipse Soundscapes Project aims to engage ALL learners with astrophysics, with an intentional focus on inclusion and accessibility.
         For more information, visit EclipseSoundscapes.org. The development of the Eclipse Soundscapes mobile application is funded by NASA Heliophysics Education Activation Team (NASA HEAT).</string>
 
+    <string name="banner_img_desc">The EclipseSoundscapes banner</string>
+
     <!-- Eclipse Center -->
     <string name="eclipse_center_lockout_details">Updated Eclipse data coming soon.</string>
     <string name="eclipse_countdown_title">Countdown Until Next Eclipse</string>
@@ -125,6 +127,8 @@
     <string name="next_live_event_countdown">Next live event in \n%1$s</string>
 
     <!-- Eclipse Features -->
+    <string name="eclipse_item_img_desc">An image of %1$s</string>
+
     <string name="first_contact_description">This is the first moment that the moon, slowly moving from left to right, appears to touch the sun.
         The intensity of the sun\'s light makes it unsafe to look at without special eye protection until the totality, the few minutes during which the moon completely eclipses the sun.
         The two celestial bodies appear to be the same size, although the sun\'s light is so bright that it obliterates all of the moon\'s features causing the moon to appear as a smooth, obsidian disk.
@@ -229,6 +233,7 @@
     <string name="media_player">Media Player</string>
     <string name="audio_descriptions">Audio Descriptions</string>
     <string name="upcoming_audio">More audio descriptions coming soon…</string>
+    <string name="play_img_desc">An image of the media play button</string>
 
     <string name="audio_corona_full">During the totality, the moon completely covers the sun\'s glowing orb, and the sun\’s outer atmosphere is revealed.
         As if the moon were the center of a celestial sunflower, the corona appears as soft white petals, massive flumes of faint light that taper out across the sky.
@@ -383,12 +388,16 @@
         Inside this app, you will find countdowns to major astronomical events in your area, and real time narrations of those events with illustrative audio descriptions. You can also explore the cosmos with high quality photos, educational information, and accessible learning tools.
         This app is available in English and Spanish. To change the language within the application, go to the Menu.</string>
     <string name="walkthrough_rumble_map_text">Our Rumble Map tool is designed for you to hear and feel astronomical phenomena, such as eclipses, using the touchscreen and the speakers on your smartphone. For example: the Rumble Map will display photos of the Moon passing in front of the Sun during the most engaging and educational moments of an eclipse. When you touch the image on the screen, the app will read the grayscale value of a pixel underneath your finger, and play an audio tone which will vibrate your phone with a strength relative to the brightness of that section. As you move your finger onto the bright sections of the Sun, your phone will vibrate more. As you move your finger into the dark spaces blocked by the Moon’s disk, the vibration will diminish and disappear. By paying close attention to the audio tones and the strength of your phone\'s vibration, you can learn how much sunlight is visible at each stage of the eclipse, and explore some of the fascinating features of the Sun\'s corona.</string>
+    <string name="walkthrough_rumble_map_img_desc">An image of the Rumble Map feature</string>
     <string name="walkthrough_eclipse_center">The Eclipse Center is your go-to destination for learning about eclipses in your area so you can discover them as they happen. When you open the Eclipse Center, it will ask to pinpoint your geographic location. Once you accept, you will find a countdown to the next eclipse, information on whether you will experience a total or a partial solar eclipse in your area, and the exact start time, peak time, and end time of the eclipse. </string>
+    <string name="walkthrough_eclipse_center_img_desc">An image of the Eclipse Center feature</string>
     <string name="walkthrough_audio_description">When it is time for the next eclipse to start, you will receive a push notification to open Eclipse Soundscapes. The app will then guide you through the main event with illustrative audio descriptions of an eclipse\'s most important moments. These audio descriptions, provided by the National Center for Accessible Media, are explanations of photos developed with specialized language to help people who are blind and visually impaired engage with an eclipse. After each audio description ends, you will have the option to either hear more educational information or explore that feature of an eclipse using the Rumble Map.</string>
+    <string name="walkthrough_audio_img_desc">An image of the media player</string>
 
     <string name="prev_page">previous page</string>
     <string name="next_page">next page</string>
     <string name="page_indicator">Page %1$d of %2$d</string>
+
 
     <!-- Future Eclipses -->
     <string name="future_eclipse_label_format" translatable="false">%1$s: %2$s</string>
@@ -427,6 +436,8 @@
     <string name="past_partners">Past Partners</string>
     <string name="our_team">Our Team</string>
     <string name="feedback">Give Feedback</string>
+
+    <string name="partner_logo_img_desc">The logo of %1$s</string>
 
     <array name="current_partners_title">
         <item name="partner_nasa">NASA Heliophysics Education Activation Team (NASA HEAT)</item>

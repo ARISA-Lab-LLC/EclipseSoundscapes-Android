@@ -28,6 +28,7 @@
             android:id="@+id/walkthrough_img"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:contentDescription="@string/walkthrough_rumble_map_img_desc"
             android:layout_marginTop="?android:attr/actionBarSize"
             android:src="@drawable/rumble_map_framed"
             android:scaleType="centerCrop"
