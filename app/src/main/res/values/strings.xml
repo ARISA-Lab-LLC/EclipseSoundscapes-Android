@@ -101,7 +101,7 @@
     <string name="eclipse_center_title_format">%1$s:</string>
     <string name="eclipse_type">Eclipse Type:</string>
     <string name="eclipse_date">Date:</string>
-    <string name="percent_eclipse">% Eclipse:</string>
+    <string name="percent_eclipse" formatted="false">% Eclipse:</string>
     <string name="totality_duration">Duration of Totality:</string>
     <string name="annular_duration">Duration of Annularity:</string>
     <string name="eclipse_duration">Duration of Eclipse:</string>

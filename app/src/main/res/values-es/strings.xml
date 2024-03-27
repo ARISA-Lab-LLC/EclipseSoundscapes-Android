@@ -1,6 +1,7 @@
 <resources>
     <string name="eclipse_features">Características</string>
     <string name="eclipse_center">Centro</string>
+    <string name="eclipse_center_title">Eclipse Center</string>
 
     <!-- general -->
     <string name="media">Medios de comunicación</string>
@@ -18,7 +19,7 @@
     <string name="time_ut">%1$s UT</string>
 
     <string name="open_settings">Abre las configuraciónes</string>
-    <string name="open_description">Abrir la descripción</string>
+    <string name="open_description">Abrir la descripción \n%1$s</string>
     <string name="instructions">Instrucciones</string>
     <string name="welcome">Bienvenido</string>
     <string name="not_now">Ahora no</string>
@@ -108,7 +109,7 @@
     <string name="eclipse_center_title_format">%1$s:</string>
     <string name="eclipse_type">Tipo de eclipse:</string>
     <string name="eclipse_date">Fecha:</string>
-    <string name="percent_eclipse">% del eclipse:</string>
+    <string name="percent_eclipse" formatted="false">% del eclipse:</string>
     <string name="totality_duration">Duración del eclipse total:</string>
     <string name="annular_duration">Duración del Eclipse Annular:</string>
     <string name="eclipse_duration">Duración del Eclipse:</string>
