@@ -7,22 +7,14 @@
 
     <!-- General -->
     <string name="media">Media</string>
-    <string name="about">About</string>
-
-    <string name="north">North</string>
-    <string name="south">South</string>
-    <string name="east">East</string>
-    <string name="west">West</string>
 
     <string name="date">Date</string>
     <string name="time">Time</string>
     <string name="type">Type</string>
     <string name="features">Features</string>
 
-    <string name="settings">Settings</string>
     <string name="open_settings">Open Settings</string>
     <string name="open_description">Open Description of \n%1$s</string>
-    <string name="description">Description</string>
     <string name="instructions">Instructions</string>
     <string name="welcome">Welcome</string>
     <string name="language">Language</string>
@@ -34,7 +26,6 @@
     <string name="play">Play</string>
     <string name="pause">Pause</string>
     <string name="back">Back</string>
-    <string name="cancel">Cancel</string>
     <string name="complete">Complete</string>
 
     <string name="years">Years</string>
@@ -42,12 +33,6 @@
     <string name="hours">Hours</string>
     <string name="days">Days</string>
     <string name="minutes">Minutes</string>
-    <string name="seconds">Seconds</string>
-    <string name="min_abbr">Min</string>
-    <string name="sec_abbr">Sec</string>
-
-    <string name="show_next">Show next</string>
-    <string name="show_prev">show previous</string>
 
     <!-- permissions -->
     <string name="error_finding_location">Unable to determine your current location</string>
@@ -105,7 +90,6 @@
     <string name="next_eclipse_user_location">Next Eclipse at Your Location</string>
     <string name="next_eclipse_simulated_location">Next Eclipse at Closest Location</string>
     <string name="countdown_format">Countdown until eclipse from your location, %1$s years, %2$s months, %3$s days, %4$s hours, %5$s minutes and %6$s seconds</string>
-    <string name="event_section_desc">Events at closest location are below. Events include your local time and universal time.</string>
     <string name="event_desc_format">Event from closest location, %1$s, local time, %2$s, universal time, %3$s</string>
     <string name="eclipse_center_permission">You don\'t want to miss this amazing astronomical event! We\'ll need your location to access this feature.\nPress anywhere on the screen to continue.</string>
 
@@ -117,16 +101,11 @@
     <string name="eclipse_center_title_format">%1$s:</string>
     <string name="eclipse_type">Eclipse Type:</string>
     <string name="eclipse_date">Date:</string>
-    <string name="location_latitude">Location\'s Latitude</string>
-    <string name="location_longitude">Location\'s Longitude</string>
-    <string name="lat_lng_format">%1$.3f&#xb0; %2$s</string>
     <string name="percent_eclipse">% Eclipse:</string>
     <string name="totality_duration">Duration of Totality:</string>
     <string name="annular_duration">Duration of Annularity:</string>
     <string name="eclipse_duration">Duration of Eclipse:</string>
-    <string name="eclipse_event">Event</string>
     <string name="local_time">%1$s (Local Time)</string>
-    <string name="universal_time">Universal Time</string>
     <string name="time_ut">%1$s (UT)</string>
 
     <string name="eclipse_type_full">Total Solar Eclipse</string>
@@ -243,9 +222,6 @@
         \n\nFourth Contact is the end point of the annular eclipse, when the Moon\’s edge moves past the Sun\’s edge, and no longer blocks any part of the Sun\’s light.
         \n\nThis image was taken by the Atmospheric Imaging Assembly telescope on board NASA’s Solar Dynamics Observatory. This observatory is currently in orbit around the Earth. Its telescope takes eight images like this one every ten seconds. These images help scientists better understand the Sun.
         \n\nVisit the Rumble Map to explore this image of the eclipse ending through touch and sound. The absence of light is silent and still. Can you feel and hear how much more of the Sun is visible in comparison to other stages of the annular eclipse?</string>
-
-    <string name="viewing_desc_format">Now viewing description for %1$s</string>
-    <string name="viewing_image_format">Now viewing image for %1$s</string>
 
     <string name="current_event_image_description">An image of the current eclipse event</string>
 
@@ -375,7 +351,6 @@
     <string name="annular_phase_end">Annular Phase Ends</string>
     <string name="annular_end">The Annular Eclipse Ends</string>
     <string name="sun_as_star">Sun as a Star</string>
-    <string name="eclipse_experience">Eclipse Experience</string>
     <string name="duration_desc_seconds">%1$s seconds</string>
     <string name="duration_desc_minute">One minute, %1$s seconds</string>
     <string name="duration_desc_minutes">%1$s minutes, %2$s seconds</string>
@@ -389,7 +364,6 @@
     <string name="rumble_map" translatable="false">Rumble Map</string>
     <string name="rumble_maps" translatable="false">Rumble Maps</string>
     <string name="rumble_map_interaction">Rumble Map Interaction</string>
-    <string name="rumble_map_launch">Press to interact with Rumble Map</string>
     <string name="rumble_map_how">How to Use The Rumble Map</string>
     <string name="rumble_map_instructions_title">Rumble Map Instructions</string>
     <string name="rumble_map_instructions">To use the Rumble Map, touch your screen with only one finger. The map will produce audio tones and vibrations depending on how much light is underneath that particular spot. For best results, drag your finger across the touchscreen slowly. As you move your finger onto the bright sections of the Sun, your phone will vibrate more and produce a sharper, more pronounced audio tone. As you move your finger into the dark spaces blocked by the Moon’s disk, the vibration will diminish as the audio tone darkens and disappears. At times, you may hear a metronome-like ticking sound: that means you have entered an area of total darkness, either on the face of the Moon, or in the dark space outside the sphere of the Sun. By paying close attention to the audio tones and the strength of your phone’s vibration, you can learn how much sunlight is visible at each stage of the eclipse, and even explore some of the fascinating features of the Sun’s corona such as Baily’s Beads, Helmet Streamers, Prominences, and the Diamond Ring effect. If a specific section of an image interests you and you want to return to it later, hold down your finger in one place until you hear a “blip” noise. You’ve created a marker! Next time your finger passes over this point, you will hear the “blip” again so you can continue to explore that area.</string>

@@ -4,14 +4,8 @@
 
     <!-- general -->
     <string name="media">Medios de comunicación</string>
-    <string name="about">Acerca de</string>
     <string name="type">Tipo</string>
     <string name="features">Características</string>
-
-    <string name="north">Norte</string>
-    <string name="south">Sur</string>
-    <string name="east">Este</string>
-    <string name="west">Oeste</string>
 
     <string name="years">Años</string>
     <string name="months">Meses</string>
@@ -20,17 +14,11 @@
     <string name="hours">Horas</string>
     <string name="days">Días</string>
     <string name="minutes">Minutos</string>
-    <string name="seconds">Segundos</string>
-    <string name="min_abbr">Min</string>
-    <string name="sec_abbr">s</string>
     <string name="local_time">%1$s Hora Local</string>
-    <string name="universal_time">Hora Universal</string>
     <string name="time_ut">%1$s UT</string>
 
-    <string name="settings">Configuraciones</string>
     <string name="open_settings">Abre las configuraciónes</string>
     <string name="open_description">Abrir la descripción</string>
-    <string name="description">descripción</string>
     <string name="instructions">Instrucciones</string>
     <string name="welcome">Bienvenido</string>
     <string name="not_now">Ahora no</string>
@@ -44,11 +32,7 @@
     <string name="play">Reproducir</string>
     <string name="pause">Pausar</string>
     <string name="back">Atrás</string>
-    <string name="cancel">Cancelar</string>
     <string name="complete">Completo</string>
-
-    <string name="show_next">Mostrar siguiente</string>
-    <string name="show_prev">Mostrar anterior</string>
 
     <!-- permissions -->
     <string name="error_finding_location">"incapaz de determinar su ubicación actual</string>
@@ -113,7 +97,6 @@
     <string name="next_eclipse_simulated_location">Próximo eclipse en la ubicación más cercana</string>
     <string name="eclipse_center_lockout_details">Próximamente se actualizarán los datos del eclipse.</string>
     <string name="eclipse_countdown_title">Cuenta regresiva hasta el eclipse</string>
-    <string name="event_section_desc">A continuación se indican los eventos en la ubicación más cercana. Los eventos incluyen la hora local y universal.</string>
     <string name="event_desc_format">Evento desde la ubicación más cercana: %1$s, hora local, %2$s, hora universal, %3$s</string>
     <string name="eclipse_center_permission">¡No se pierda este fascinante evento astronómico! Necesitamos su ubicación para acceder a esta función. Presione en cualquier lugar de la pantalla para continuar.</string>
     <string name="countdown_format">Cuenta regresiva hasta el eclipse en tu ubicación, %1$s años, %2$s meses, %3$s días, %4$s horas, %5$s minutos y %6$s segundos</string>
@@ -125,14 +108,10 @@
     <string name="eclipse_center_title_format">%1$s:</string>
     <string name="eclipse_type">Tipo de eclipse:</string>
     <string name="eclipse_date">Fecha:</string>
-    <string name="location_latitude">Latitud de la ubicación</string>
-    <string name="location_longitude">Longitud de la ubicación</string>
-    <string name="lat_lng_format">%1$.3f&#xb0; %2$s</string>
     <string name="percent_eclipse">% del eclipse:</string>
     <string name="totality_duration">Duración del eclipse total:</string>
     <string name="annular_duration">Duración del Eclipse Annular:</string>
     <string name="eclipse_duration">Duración del Eclipse:</string>
-    <string name="eclipse_event">Evento</string>
 
     <string name="eclipse_type_full">Eclipse solar total</string>
     <string name="eclipse_type_partial">Eclipse solar parcial</string>
@@ -160,8 +139,6 @@
 
     <!-- media/audio -->
     <string name="media_player">reproductor multimedia</string>
-    <string name="viewing_desc_format">Ahora viendo la descripción de %1$s</string>
-    <string name="viewing_image_format">Ahora viendo la imagen de %1$s</string>
 
     <string name="audio_descriptions">Descripciones de Audio</string>
     <string name="upcoming_audio">Más descripciones de audio próximamente &#8230;</string>
@@ -389,11 +366,9 @@
     <string name="prominence_closeup">Acercamiento de prominencia</string>
     <string name="totality">Eclipse total</string>
     <string name="sun_as_star">El sol como estrella</string>
-    <string name="eclipse_experience">Experiencia de Eclipse Solar Total</string>
 
     <!-- rumble map -->
     <string name="rumble_map_interaction">Interacción de Rumble Map</string>
-    <string name="rumble_map_launch">Presiona para interactuar con Rumble Map</string>
     <string name="rumble_map_how">Cómo Usar el Rumble Map</string>
     <string name="rumble_map_instructions_title">Instrucciones de Rumble Map</string>
     <string name="rumble_map_instructions">Para usar el Rumble Map, toque la pantalla con un solo dedo.
