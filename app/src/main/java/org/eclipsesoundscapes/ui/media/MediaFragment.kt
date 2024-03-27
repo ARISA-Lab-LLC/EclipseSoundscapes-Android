@@ -59,13 +59,13 @@ class MediaFragment : Fragment() {
 
             mediaList.clear()
 
-            // annular eclipse
-            mediaList.add(Section(getString(R.string.annular_solar_eclipse)))
-            addMediaItems(Eclipse.annularEclipseMedia())
-            
             // total eclipse
             mediaList.add(Section(getString(R.string.total_solar_eclipse)))
             addMediaItems(Eclipse.totalEclipseMedia())
+
+            // annular eclipse
+            mediaList.add(Section(getString(R.string.annular_solar_eclipse)))
+            addMediaItems(Eclipse.annularEclipseMedia())
 
             mediaRecycler.layoutManager = LinearLayoutManager(context)
             mediaAdapter = MediaAdapter(mediaList, MediaAdapter.MediaClickListener { media ->
