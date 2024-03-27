@@ -1,12 +1,14 @@
 package org.eclipsesoundscapes.ui.about
 
 import android.graphics.Bitmap
+import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.ProgressBar
+import androidx.activity.addCallback
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.eclipsesoundscapes.BuildConfig
@@ -101,19 +103,24 @@ class LegalActivity : BaseActivity() {
                 setContentView(binding.root)
             }
         }
+
+        onBackPressedDispatcher.addCallback {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                overrideActivityTransition(OVERRIDE_TRANSITION_CLOSE, R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
+            } else {
+                overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
+            }
+
+            finish()
+            return@addCallback
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return if (item.itemId == android.R.id.home) {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed()
             true
         } else super.onOptionsItemSelected(item)
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        finish()
-        overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
     }
 
     private fun showLegalLink(privacyPolicy: Boolean) {

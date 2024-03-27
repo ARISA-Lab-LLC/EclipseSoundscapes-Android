@@ -1,8 +1,10 @@
 package org.eclipsesoundscapes.ui.about
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -68,27 +70,33 @@ class SettingsActivity : BaseActivity() {
                     .commit()
             }
         }
+
+        onBackPressedDispatcher.addCallback {
+            if (isTaskRoot) {
+                startActivity(Intent(this@SettingsActivity, MainActivity::class.java).apply {
+                    putExtra(MainActivity.EXTRA_FRAGMENT_TAG, AboutFragment::class.java.simpleName)
+                })
+            }
+
+            finish()
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                overrideActivityTransition(OVERRIDE_TRANSITION_CLOSE, R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
+            } else {
+                overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
+            }
+
+            return@addCallback
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-        if (!isTaskRoot) {
-            super.onBackPressed()
-            finish()
-        } else {
-            startActivity(Intent(this, MainActivity::class.java).apply {
-                putExtra(MainActivity.EXTRA_FRAGMENT_TAG, AboutFragment::class.java.simpleName)
-            })
-        }
-        overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
-    }
 
     /**
      * This fragment shows notification preferences only. It is used when the

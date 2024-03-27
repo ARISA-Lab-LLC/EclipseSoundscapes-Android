@@ -1,8 +1,10 @@
 package org.eclipsesoundscapes.ui.about
 
 import android.content.res.TypedArray
+import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.addCallback
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.databinding.ActivityOurTeamBinding
@@ -45,6 +47,17 @@ class OurTeamActivity : BaseActivity() {
         }
 
         setContentView(binding.root)
+
+        onBackPressedDispatcher.addCallback {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                overrideActivityTransition(OVERRIDE_TRANSITION_CLOSE, R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
+            } else {
+                overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
+            }
+
+            finish()
+            return@addCallback
+        }
     }
 
     private fun createAdapter() : TeamAdapter {
@@ -64,12 +77,6 @@ class OurTeamActivity : BaseActivity() {
             }
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        finish()
-        overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
     }
 
     override fun onDestroy() {

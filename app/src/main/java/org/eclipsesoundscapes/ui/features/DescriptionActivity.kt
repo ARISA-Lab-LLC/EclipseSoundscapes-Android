@@ -36,7 +36,7 @@ class DescriptionActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                onBackPressed()
+                onBackPressedDispatcher.onBackPressed()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -46,5 +46,4 @@ class DescriptionActivity : BaseActivity() {
     companion object {
         const val EXTRA_ECLIPSE = "eclipse"
     }
-
 }

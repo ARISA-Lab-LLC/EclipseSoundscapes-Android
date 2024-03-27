@@ -1,9 +1,11 @@
 package org.eclipsesoundscapes.ui.about
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.eclipsesoundscapes.EclipseSoundscapesApp
@@ -44,6 +46,27 @@ class LanguageSelectionActivity : BaseActivity() {
         }
 
         setContentView(binding.root)
+
+        onBackPressedDispatcher.addCallback {
+            if (isTaskRoot) {
+                // locale has been updated and task cleared
+                startActivity(Intent(this@LanguageSelectionActivity, MainActivity::class.java))
+            }
+
+            finish()
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                overrideActivityTransition(
+                    OVERRIDE_TRANSITION_CLOSE,
+                    R.anim.anim_slide_in_left,
+                    R.anim.anim_slide_out_right
+                )
+            } else {
+                overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
+            }
+
+            return@addCallback
+        }
     }
 
     private fun supportedLanguages(): ArrayList<Locale> {
@@ -90,20 +113,8 @@ class LanguageSelectionActivity : BaseActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return if (item.itemId == android.R.id.home) {
-            onBackPressed()
+            onBackPressedDispatcher.onBackPressed()
             true
         } else super.onOptionsItemSelected(item)
-    }
-
-    override fun onBackPressed() {
-        if (!isTaskRoot) {
-            super.onBackPressed()
-            finish()
-        } else {
-            // locale has been updated and task cleared
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
-        }
-        overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
     }
 }

@@ -1,7 +1,9 @@
 package org.eclipsesoundscapes.ui.about
 
+import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.addCallback
 import androidx.recyclerview.widget.LinearLayoutManager
 import org.eclipsesoundscapes.R
 import org.eclipsesoundscapes.databinding.ActivityOurPartnersBinding
@@ -47,22 +49,27 @@ class OurPartnersActivity : BaseActivity() {
 
         val view = binding.root
         setContentView(view)
+
+        onBackPressedDispatcher.addCallback {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
+                overrideActivityTransition(OVERRIDE_TRANSITION_CLOSE, R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
+            } else {
+                overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
+            }
+
+            finish()
+            return@addCallback
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                onBackPressed()
+                onBackPressedDispatcher.onBackPressed()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
-    }
-
-    override fun onBackPressed() {
-        super.onBackPressed()
-        finish()
-        overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right)
     }
 
     /**
