@@ -8,13 +8,13 @@
     <string name="type">Tipo</string>
     <string name="features">Características</string>
 
-    <string name="years">Años</string>
-    <string name="months">Meses</string>
+    <string name="years">Años:</string>
+    <string name="months">Meses:</string>
+    <string name="hours">Horas:</string>
+    <string name="days">Días:</string>
+    <string name="minutes">Minutos:</string>
     <string name="date">Fecha</string>
     <string name="time">Hora</string>
-    <string name="hours">Horas</string>
-    <string name="days">Días</string>
-    <string name="minutes">Minutos</string>
     <string name="local_time">%1$s Hora Local</string>
     <string name="time_ut">%1$s UT</string>
 

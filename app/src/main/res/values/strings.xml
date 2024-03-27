@@ -28,11 +28,11 @@
     <string name="back">Back</string>
     <string name="complete">Complete</string>
 
-    <string name="years">Years</string>
-    <string name="months">Months</string>
-    <string name="hours">Hours</string>
-    <string name="days">Days</string>
-    <string name="minutes">Minutes</string>
+    <string name="years">Years:</string>
+    <string name="months">Months:</string>
+    <string name="hours">Hours:</string>
+    <string name="days">Days:</string>
+    <string name="minutes">Minutes:</string>
 
     <!-- permissions -->
     <string name="error_finding_location">Unable to determine your current location</string>

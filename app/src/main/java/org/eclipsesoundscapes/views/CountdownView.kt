@@ -17,11 +17,11 @@ class CountdownView @JvmOverloads constructor(
     private var binding: LayoutCountdownBinding = LayoutCountdownBinding.inflate(LayoutInflater.from(context), this, true)
 
     init {
-        binding.stubYears.label.text = "${context.getString(R.string.years)}:"
-        binding.stubMonths.label.text = "${context.getString(R.string.months)}:"
-        binding.stubDays.label.text = "${context.getString(R.string.days)}:"
-        binding.stubHours.label.text = "${context.getString(R.string.hours)}:"
-        binding.stubMinutes.label.text = "${context.getString(R.string.minutes)}:"
+        binding.stubYears.label.text = context.getString(R.string.years)
+        binding.stubMonths.label.text = context.getString(R.string.months)
+        binding.stubDays.label.text = context.getString(R.string.days)
+        binding.stubHours.label.text = context.getString(R.string.hours)
+        binding.stubMinutes.label.text = context.getString(R.string.minutes)
 
         binding.stubYears.value.text = "0"
         binding.stubMonths.value.text = "0"
