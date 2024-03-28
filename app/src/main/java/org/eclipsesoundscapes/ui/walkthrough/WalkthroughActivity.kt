@@ -60,6 +60,11 @@ class WalkthroughActivity : BaseActivity() {
                 }
 
                 nextButton.setOnClickListener {
+                    if (viewpager.currentItem == adapter.itemCount - 1) {
+                        completeWalkthrough()
+                        return@setOnClickListener
+                    }
+
                     viewpager.currentItem += 1
                 }
 
@@ -98,6 +103,7 @@ class WalkthroughActivity : BaseActivity() {
         if (position != pageCount - 1 && mode == MODE_START) {
             binding.skipCloseButton.text = getString(R.string.skip)
             binding.skipCloseButton.contentDescription = getString(R.string.skip)
+            binding.skipCloseButton.visibility = View.VISIBLE
         }
 
         updateNavButtonColor(false)
@@ -105,12 +111,11 @@ class WalkthroughActivity : BaseActivity() {
         when (position) {
             pageCount - 1 -> {
                 // last page
-                binding.nextButton.visibility = View.INVISIBLE
+                binding.nextButton.visibility = View.VISIBLE
                 binding.prevButton.visibility = View.VISIBLE
 
-                if (mode != MODE_MENU) {
-                    binding.skipCloseButton.text = getString(R.string.complete)
-                    binding.skipCloseButton.contentDescription = getString(R.string.complete)
+                if (mode == MODE_START) {
+                    binding.skipCloseButton.visibility = View.INVISIBLE
                 }
             }
             0 -> {

@@ -33,7 +33,6 @@
     <string name="play">Reproducir</string>
     <string name="pause">Pausar</string>
     <string name="back">Atrás</string>
-    <string name="complete">Completo</string>
 
     <!-- permissions -->
     <string name="error_finding_location">"incapaz de determinar su ubicación actual</string>
